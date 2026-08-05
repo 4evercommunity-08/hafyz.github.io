@@ -746,21 +746,22 @@
       margin: 0 auto;
       min-height: 400px;
     }
-    /* Force ALL text inside widget to be white/light */
-    .widget-container,
-    .widget-container * {
+    /* Widget text - light color for dark background */
+    .widget-container div:not(button):not([role="button"]):not(a),
+    .widget-container span:not(button):not([role="button"]):not(a),
+    .widget-container p,
+    .widget-container h1, .widget-container h2, .widget-container h3,
+    .widget-container h4, .widget-container h5, .widget-container h6,
+    .widget-container li,
+    .widget-container td, .widget-container th {
       color: #f5f5f7 !important;
     }
-    /* Buttons and links keep their original styling */
+    /* Buttons - dark text for light backgrounds */
     .widget-container button,
     .widget-container a[href],
     .widget-container [role="button"],
     .widget-container input[type="submit"] {
-      color: inherit !important;
-    }
-    /* Override any inline styles for text elements */
-    .widget-container [style] {
-      color: #f5f5f7 !important;
+      color: #1a1a1a !important;
     }
 
     </style>
@@ -883,7 +884,7 @@
   <section class="section" id="spotify">
     <div class="section-header reveal">
       <p class="section-label">Playlist</p>
-      <h2 class="section-title">This Is HAFYZ</h2>
+      <h2 class="section-title">This is HAFYZ</h2>
       <p class="section-desc">The essential tracks, all in one place</p>
     </div>
 

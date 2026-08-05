@@ -133,29 +133,7 @@
     /* ═══════════════════════════════════════════════
        HERO - Apple Style (Big Typography)
        ═══════════════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(ellipse at 50% 0%, rgba(212, 168, 83, 0.08) 0%, transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(28, 69, 135, 0.05) 0%, transparent 50%);
-      pointer-events: none;
-    }
+    /* Hero styles moved to inline for background image support */
 
     .hero-content {
       position: relative;
@@ -241,19 +219,7 @@
       background: rgba(212, 168, 83, 0.1);
     }
 
-    .hero-image {
-      margin-top: 80px;
-      width: 100%;
-      max-width: 900px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 1s forwards;
-    }
-
-    .hero-image img {
-      width: 100%;
-      border-radius: 28px;
-      box-shadow: 0 32px 64px rgba(0,0,0,0.5);
-    }
+    
 
     /* ═══════════════════════════════════════════════
        SECTIONS - Apple Style

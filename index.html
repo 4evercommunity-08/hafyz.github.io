@@ -360,6 +360,14 @@
     /* ═══════════════════════════════════════════════
        TOUR - Apple Style List
        ═══════════════════════════════════════════════ */
+    
+    .seated-widget-wrapper {
+      background: var(--surface);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
     .tour-list {
       display: flex;
       flex-direction: column;
@@ -378,6 +386,10 @@
       gap: 24px;
       transition: background 0.3s;
       cursor: pointer;
+      border-bottom: 1px solid var(--border);
+    }
+    .tour-item:last-child {
+      border-bottom: none;
     }
     .tour-item:hover {
       background: var(--surface-hover);
@@ -411,7 +423,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      min-width: 80px;
+      min-width: 70px;
     }
     .tour-date .day {
       font-size: 32px;
@@ -427,6 +439,40 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       white-space: nowrap;
+    }
+
+    .tour-ticket-btn {
+      flex-shrink: 0;
+      padding: 12px 24px;
+      border-radius: 980px;
+      background: var(--accent);
+      color: var(--bg);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      min-width: 120px;
+      transition: all 0.3s var(--transition);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .tour-ticket-btn:hover {
+      background: var(--accent-hover);
+      transform: scale(1.02);
+    }
+    .tour-ticket-btn.waitlist {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      font-size: 12px;
+      padding: 12px 20px;
+      min-width: 140px;
+    }
+    .tour-ticket-btn.waitlist:hover {
+      background: rgba(212, 168, 83, 0.1);
+    }
+    .tour-item.sold-out .tour-info h4 {
+      opacity: 0.6;
     }
 
     /* ═══════════════════════════════════════════════
@@ -675,13 +721,13 @@
         flex: 1;
       }
       .tour-info h4 {
-        font-size: 17px;
+        font-size: 16px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
       .tour-info p {
-        font-size: 14px;
+        font-size: 13px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -689,13 +735,23 @@
       .tour-date {
         text-align: right;
         flex-shrink: 0;
-        min-width: 60px;
+        min-width: 50px;
       }
       .tour-date .day {
-        font-size: 24px;
+        font-size: 22px;
       }
       .tour-date .month {
-        font-size: 12px;
+        font-size: 11px;
+      }
+      .tour-ticket-btn {
+        padding: 10px 16px;
+        font-size: 11px;
+        min-width: 90px;
+      }
+      .tour-ticket-btn.waitlist {
+        font-size: 10px;
+        padding: 10px 14px;
+        min-width: 110px;
       }
 
       .about-text { font-size: 21px; }
@@ -703,6 +759,161 @@
 
       .footer-nav { flex-direction: column; gap: 32px; }
     }
+  
+    /* ═══════════════════════════════════════════════
+       SEATED WIDGET OVERRIDES - Dark Theme
+       ═══════════════════════════════════════════════ */
+    #seated-55fdf2c0,
+    [id^="seated-"] {
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+
+    /* Force dark background on widget */
+    #seated-55fdf2c0 iframe,
+    [id^="seated-"] iframe {
+      background: var(--surface) !important;
+      border-radius: 18px !important;
+    }
+
+    /* Widget container styling */
+    .seated-events-table,
+    .seated-event-row,
+    [class*="seated-event"] {
+      background: var(--surface) !important;
+      color: var(--text) !important;
+      border-color: var(--border) !important;
+    }
+
+    /* Event row layout - fix the mess */
+    .seated-event-row,
+    [class*="seated-event-row"] {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      gap: 24px !important;
+      padding: 20px 24px !important;
+      border-bottom: 1px solid var(--border) !important;
+    }
+
+    /* Event info (venue/location) */
+    .seated-event-info,
+    [class*="seated-event-info"],
+    .seated-event-venue,
+    [class*="seated-event-venue"] {
+      flex: 1 !important;
+      min-width: 0 !important;
+      text-align: left !important;
+    }
+
+    .seated-event-info h3,
+    .seated-event-info h4,
+    .seated-event-venue h3,
+    .seated-event-venue h4,
+    [class*="seated-event"] h3,
+    [class*="seated-event"] h4 {
+      color: var(--text) !important;
+      font-family: var(--font) !important;
+      font-size: 18px !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      margin: 0 !important;
+    }
+
+    .seated-event-info p,
+    .seated-event-venue p,
+    [class*="seated-event"] p {
+      color: var(--text-secondary) !important;
+      font-family: var(--font) !important;
+      font-size: 15px !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      margin: 4px 0 0 !important;
+    }
+
+    /* Event date - keep it on the right */
+    .seated-event-date,
+    [class*="seated-event-date"] {
+      flex-shrink: 0 !important;
+      text-align: right !important;
+      min-width: 80px !important;
+    }
+
+    .seated-event-date .day,
+    [class*="seated-event-date"] [class*="day"] {
+      font-size: 28px !important;
+      font-weight: 700 !important;
+      color: var(--accent) !important;
+      line-height: 1 !important;
+    }
+
+    .seated-event-date .month,
+    [class*="seated-event-date"] [class*="month"] {
+      font-size: 13px !important;
+      color: var(--text-secondary) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 1px !important;
+    }
+
+    /* Ticket button */
+    .seated-event-tickets,
+    [class*="seated-event-tickets"],
+    .seated-ticket-button,
+    [class*="seated-ticket-button"] {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+      border-radius: 980px !important;
+      padding: 10px 20px !important;
+      font-family: var(--font) !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      text-decoration: none !important;
+      border: none !important;
+      flex-shrink: 0 !important;
+      margin-left: 16px !important;
+    }
+
+    .seated-event-tickets:hover,
+    [class*="seated-ticket-button"]:hover {
+      background: var(--accent-hover) !important;
+    }
+
+    /* Mobile overrides for seated widget */
+    @media (max-width: 768px) {
+      .seated-event-row,
+      [class*="seated-event-row"] {
+        flex-wrap: nowrap !important;
+        padding: 16px 20px !important;
+        gap: 12px !important;
+      }
+
+      .seated-event-info h3,
+      .seated-event-info h4,
+      [class*="seated-event"] h3,
+      [class*="seated-event"] h4 {
+        font-size: 15px !important;
+      }
+
+      .seated-event-info p,
+      [class*="seated-event"] p {
+        font-size: 13px !important;
+      }
+
+      .seated-event-date .day,
+      [class*="seated-event-date"] [class*="day"] {
+        font-size: 22px !important;
+      }
+
+      .seated-event-tickets,
+      [class*="seated-ticket-button"] {
+        padding: 8px 14px !important;
+        font-size: 12px !important;
+      }
+    }
+
   </style>
 <base target="_blank">
 <base target="_blank">
@@ -780,10 +991,62 @@
       <h2 class="section-title">Upcoming Shows</h2>
       <p class="section-desc">Catch HAFYZ on stage</p>
     </div>
-
-    <div class="reveal" style="margin-top: 40px; text-align: center;">
-      <div id="seated-55fdf2c0" data-artist-id="25937aa2-de5d-4ba7-b775-dab54dc3b2fc" data-css-version="3"></div>
-      <script src="https://widget.seated.com/app.js"></script>
+    <div class="tour-list reveal">
+      <div class="tour-item">
+        <div class="tour-info">
+          <h4>Eastern Bloc</h4>
+          <p>Manchester, UK</p>
+        </div>
+        <div class="tour-date">
+          <span class="day">7</span>
+          <span class="month">Aug</span>
+        </div>
+        <a href="#" class="tour-ticket-btn">Tickets</a>
+      </div>
+      <div class="tour-item">
+        <div class="tour-info">
+          <h4>CUE - Bar Restaurant</h4>
+          <p>Amsterdam, Netherlands</p>
+        </div>
+        <div class="tour-date">
+          <span class="day">8</span>
+          <span class="month">Aug</span>
+        </div>
+        <a href="#" class="tour-ticket-btn">Tickets</a>
+      </div>
+      <div class="tour-item sold-out">
+        <div class="tour-info">
+          <h4>Logenhaus</h4>
+          <p>Frankfurt am Main, Germany</p>
+        </div>
+        <div class="tour-date">
+          <span class="day">14</span>
+          <span class="month">Aug</span>
+        </div>
+        <a href="#" class="tour-ticket-btn waitlist">Join Waitlist</a>
+      </div>
+      <div class="tour-item sold-out">
+        <div class="tour-info">
+          <h4>CCC - Listening Bar</h4>
+          <p>Bangkok, Thailand</p>
+        </div>
+        <div class="tour-date">
+          <span class="day">16</span>
+          <span class="month">Aug</span>
+        </div>
+        <a href="#" class="tour-ticket-btn waitlist">Join Waitlist</a>
+      </div>
+      <div class="tour-item sold-out">
+        <div class="tour-info">
+          <h4>VALOR Private Space & Bar</h4>
+          <p>Surabaya, Indonesia</p>
+        </div>
+        <div class="tour-date">
+          <span class="day">19</span>
+          <span class="month">Aug</span>
+        </div>
+        <a href="#" class="tour-ticket-btn waitlist">Join Waitlist</a>
+      </div>
     </div>
   </section>
 

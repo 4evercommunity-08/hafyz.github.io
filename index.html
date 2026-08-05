@@ -143,9 +143,9 @@
       justify-content: center;
       text-align: center;
       padding: 140px 24px 100px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
     }
 
     .hero-content {
@@ -357,17 +357,29 @@
       transform: translateX(4px);
     }
 
+    /* About the Song button - rounded pill style */
+    .release-link-about {
+      padding: 10px 22px;
+      border-radius: 980px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.3s var(--transition);
+    }
+    .release-link-about:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .release-link-about::after {
+      content: none;
+    }
+
     /* ═══════════════════════════════════════════════
        TOUR - Apple Style List
        ═══════════════════════════════════════════════ */
-    
-    .seated-widget-wrapper {
-      background: var(--surface);
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-
     .tour-list {
       display: flex;
       flex-direction: column;
@@ -386,10 +398,6 @@
       gap: 24px;
       transition: background 0.3s;
       cursor: pointer;
-      border-bottom: 1px solid var(--border);
-    }
-    .tour-item:last-child {
-      border-bottom: none;
     }
     .tour-item:hover {
       background: var(--surface-hover);
@@ -431,17 +439,13 @@
       color: var(--accent);
       line-height: 1;
       letter-spacing: -1px;
-      white-space: nowrap;
     }
     .tour-date .month {
       font-size: 14px;
       color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 1px;
-      white-space: nowrap;
     }
-
-
 
     /* ═══════════════════════════════════════════════
        ABOUT - Apple Style Text
@@ -682,394 +686,38 @@
       .tour-item {
         padding: 20px 24px;
         gap: 16px;
-        flex-wrap: nowrap;
-      }
-      .tour-info {
-        min-width: 0;
-        flex: 1;
+        flex-wrap: wrap;
       }
       .tour-info h4 {
-        font-size: 16px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 18px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
       }
       .tour-info p {
-        font-size: 13px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 15px;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
       }
       .tour-date {
         text-align: right;
-        flex-shrink: 0;
-        min-width: 50px;
+        margin-left: auto;
       }
       .tour-date .day {
-        font-size: 22px;
+        font-size: 26px;
       }
       .tour-date .month {
-        font-size: 11px;
+        font-size: 13px;
       }
-
 
       .about-text { font-size: 21px; }
       .about-detail { grid-template-columns: 1fr; gap: 32px; }
 
       .footer-nav { flex-direction: column; gap: 32px; }
     }
-  
-    /* ═══════════════════════════════════════════════
-       SEATED WIDGET OVERRIDES - Dark Theme
-       ═══════════════════════════════════════════════ */
-    #seated-55fdf2c0,
-    [id^="seated-"] {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-
-    /* Force dark background on widget */
-    #seated-55fdf2c0 iframe,
-    [id^="seated-"] iframe {
-      background: var(--surface) !important;
-      border-radius: 18px !important;
-    }
-
-    /* Widget container styling */
-    .seated-events-table,
-    .seated-event-row,
-    [class*="seated-event"] {
-      background: var(--surface) !important;
-      color: var(--text) !important;
-      border-color: var(--border) !important;
-    }
-
-    /* Event row layout - fix the mess */
-    .seated-event-row,
-    [class*="seated-event-row"] {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      gap: 24px !important;
-      padding: 20px 24px !important;
-      border-bottom: 1px solid var(--border) !important;
-    }
-
-    /* Event info (venue/location) */
-    .seated-event-info,
-    [class*="seated-event-info"],
-    .seated-event-venue,
-    [class*="seated-event-venue"] {
-      flex: 1 !important;
-      min-width: 0 !important;
-      text-align: left !important;
-    }
-
-    .seated-event-info h3,
-    .seated-event-info h4,
-    .seated-event-venue h3,
-    .seated-event-venue h4,
-    [class*="seated-event"] h3,
-    [class*="seated-event"] h4 {
-      color: var(--text) !important;
-      font-family: var(--font) !important;
-      font-size: 18px !important;
-      font-weight: 600 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      margin: 0 !important;
-    }
-
-    .seated-event-info p,
-    .seated-event-venue p,
-    [class*="seated-event"] p {
-      color: var(--text-secondary) !important;
-      font-family: var(--font) !important;
-      font-size: 15px !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      margin: 4px 0 0 !important;
-    }
-
-    /* Event date - keep it on the right */
-    .seated-event-date,
-    [class*="seated-event-date"] {
-      flex-shrink: 0 !important;
-      text-align: right !important;
-      min-width: 80px !important;
-    }
-
-    .seated-event-date .day,
-    [class*="seated-event-date"] [class*="day"] {
-      font-size: 28px !important;
-      font-weight: 700 !important;
-      color: var(--accent) !important;
-      line-height: 1 !important;
-    }
-
-    .seated-event-date .month,
-    [class*="seated-event-date"] [class*="month"] {
-      font-size: 13px !important;
-      color: var(--text-secondary) !important;
-      text-transform: uppercase !important;
-      letter-spacing: 1px !important;
-    }
-
-    /* Ticket button */
-    .seated-event-tickets,
-    [class*="seated-event-tickets"],
-    .seated-ticket-button,
-    [class*="seated-ticket-button"] {
-      background: var(--accent) !important;
-      color: var(--bg) !important;
-      border-radius: 980px !important;
-      padding: 10px 20px !important;
-      font-family: var(--font) !important;
-      font-size: 14px !important;
-      font-weight: 500 !important;
-      text-decoration: none !important;
-      border: none !important;
-      flex-shrink: 0 !important;
-      margin-left: 16px !important;
-    }
-
-    .seated-event-tickets:hover,
-    [class*="seated-ticket-button"]:hover {
-      background: var(--accent-hover) !important;
-    }
-
-    /* Mobile overrides for seated widget */
-    @media (max-width: 768px) {
-      .seated-event-row,
-      [class*="seated-event-row"] {
-        flex-wrap: nowrap !important;
-        padding: 16px 20px !important;
-        gap: 12px !important;
-      }
-
-      .seated-event-info h3,
-      .seated-event-info h4,
-      [class*="seated-event"] h3,
-      [class*="seated-event"] h4 {
-        font-size: 15px !important;
-      }
-
-      .seated-event-info p,
-      [class*="seated-event"] p {
-        font-size: 13px !important;
-      }
-
-      .seated-event-date .day,
-      [class*="seated-event-date"] [class*="day"] {
-        font-size: 22px !important;
-      }
-
-      .seated-event-tickets,
-      [class*="seated-ticket-button"] {
-        padding: 8px 14px !important;
-        font-size: 12px !important;
-      }
-    }
-
-  
-    /* ═══════════════════════════════════════════════
-       SEATED WIDGET OVERRIDE - Force Clean Layout
-       ═══════════════════════════════════════════════ */
-
-    /* Hide the original seated widget completely and rebuild */
-    #seated-55fdf2c0 {
-      width: 100% !important;
-      max-width: 100% !important;
-      background: transparent !important;
-    }
-
-    #seated-55fdf2c0 iframe {
-      background: var(--surface) !important;
-      border-radius: 18px !important;
-      border: 1px solid var(--border) !important;
-    }
-
-    /* Target all possible seated classes with high specificity */
-    div[class*="seated"],
-    div[class*="Seated"],
-    .seated-events-table,
-    .seated-event-row,
-    [class*="seated-event"],
-    [class*="SeatedEvent"] {
-      background: var(--surface) !important;
-      color: var(--text) !important;
-      font-family: var(--font) !important;
-    }
-
-    /* Force single row layout - venue left, date right, button far right */
-    .seated-event-row,
-    [class*="seated-event-row"],
-    [class*="event-row"],
-    div[class*="EventRow"] {
-      display: flex !important;
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      gap: 24px !important;
-      padding: 24px 32px !important;
-      border-bottom: 1px solid var(--border) !important;
-      background: var(--surface) !important;
-      min-height: 80px !important;
-    }
-
-    .seated-event-row:last-child,
-    [class*="event-row"]:last-child {
-      border-bottom: none !important;
-    }
-
-    /* Venue/Info section - left side */
-    .seated-event-info,
-    [class*="seated-event-info"],
-    [class*="event-info"],
-    [class*="EventInfo"],
-    div[class*="venue"],
-    div[class*="Venue"] {
-      flex: 1 1 auto !important;
-      min-width: 0 !important;
-      order: 1 !important;
-      text-align: left !important;
-    }
-
-    .seated-event-info h3,
-    .seated-event-info h4,
-    .seated-event-venue h3,
-    .seated-event-venue h4,
-    [class*="event"] h3,
-    [class*="event"] h4,
-    [class*="Event"] h3,
-    [class*="Event"] h4 {
-      color: var(--text) !important;
-      font-family: var(--font) !important;
-      font-size: 18px !important;
-      font-weight: 600 !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      margin: 0 0 4px 0 !important;
-      line-height: 1.3 !important;
-    }
-
-    .seated-event-info p,
-    .seated-event-venue p,
-    [class*="event"] p,
-    [class*="Event"] p,
-    div[class*="location"],
-    div[class*="Location"] {
-      color: var(--text-secondary) !important;
-      font-family: var(--font) !important;
-      font-size: 15px !important;
-      white-space: nowrap !important;
-      overflow: hidden !important;
-      text-overflow: ellipsis !important;
-      margin: 0 !important;
-      line-height: 1.4 !important;
-    }
-
-    /* Date section - middle right */
-    .seated-event-date,
-    [class*="seated-event-date"],
-    [class*="event-date"],
-    [class*="EventDate"],
-    div[class*="date"],
-    div[class*="Date"] {
-      flex: 0 0 auto !important;
-      order: 2 !important;
-      text-align: right !important;
-      min-width: 80px !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: flex-end !important;
-    }
-
-    .seated-event-date .day,
-    [class*="event-date"] [class*="day"],
-    [class*="EventDate"] [class*="day"],
-    span[class*="day"] {
-      font-size: 28px !important;
-      font-weight: 700 !important;
-      color: var(--accent) !important;
-      line-height: 1 !important;
-      font-family: var(--font) !important;
-    }
-
-    .seated-event-date .month,
-    [class*="event-date"] [class*="month"],
-    [class*="EventDate"] [class*="month"],
-    span[class*="month"] {
-      font-size: 13px !important;
-      color: var(--text-secondary) !important;
-      text-transform: uppercase !important;
-      letter-spacing: 1px !important;
-      font-family: var(--font) !important;
-    }
-
-    /* Ticket button - far right */
-    .seated-event-tickets,
-    [class*="seated-event-tickets"],
-    [class*="event-tickets"],
-    [class*="EventTickets"],
-    a[class*="ticket"],
-    button[class*="ticket"],
-    [class*="ticket-button"],
-    [class*="TicketButton"] {
-      flex: 0 0 auto !important;
-      order: 3 !important;
-      background: var(--accent) !important;
-      color: var(--bg) !important;
-      border-radius: 980px !important;
-      padding: 12px 24px !important;
-      font-family: var(--font) !important;
-      font-size: 13px !important;
-      font-weight: 600 !important;
-      text-decoration: none !important;
-      border: none !important;
-      text-align: center !important;
-      min-width: 120px !important;
-      text-transform: uppercase !important;
-      letter-spacing: 0.5px !important;
-      cursor: pointer !important;
-      transition: all 0.3s ease !important;
-    }
-
-    .seated-event-tickets:hover,
-    [class*="ticket"]:hover,
-    [class*="TicketButton"]:hover {
-      background: var(--accent-hover) !important;
-      transform: scale(1.02) !important;
-    }
-
-    /* Waitlist/Sold Out button style */
-    [class*="waitlist"],
-    [class*="Waitlist"],
-    [class*="sold-out"],
-    [class*="SoldOut"] {
-      background: transparent !important;
-      color: var(--accent) !important;
-      border: 1px solid var(--accent) !important;
-    }
-
-    /* Remove any centered text alignment from widget */
-    #seated-55fdf2c0 [style*="text-align: center"],
-    #seated-55fdf2c0 [style*="text-align:center"] {
-      text-align: left !important;
-    }
-
-    /* Hide powered by seated text if possible */
-    [class*="powered-by"],
-    [class*="PoweredBy"],
-    a[href*="seated.com"] {
-      opacity: 0.5 !important;
-      font-size: 11px !important;
-    }
-
   </style>
+<base target="_blank">
 <base target="_blank">
 <base target="_blank">
 </head>
@@ -1120,6 +768,7 @@
           <p class="release-date">Out Now</p>
           <div class="release-links">
             <a href="https://ffm.to/chasinghollowgold" class="release-link" target="_blank">Listen Now</a>
+            <a href="chasing-hollow-gold.html" class="release-link release-link-about">About the Song</a>
           </div>
         </div>
       </div>
@@ -1146,6 +795,7 @@
       <h2 class="section-title">Upcoming Shows</h2>
       <p class="section-desc">Catch HAFYZ on stage</p>
     </div>
+
     <div class="reveal" style="margin-top: 40px; text-align: center;">
       <div id="seated-55fdf2c0" data-artist-id="25937aa2-de5d-4ba7-b775-dab54dc3b2fc" data-css-version="3"></div>
       <script src="https://widget.seated.com/app.js"></script>
@@ -1312,148 +962,6 @@
         mobileMenuBtn.textContent = '☰';
       }
     });
-  </script>
-
-  <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (mobileMenuBtn && navLinks) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-      });
-
-      // Close menu when clicking a link
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          mobileMenuBtn.textContent = '☰';
-        });
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          mobileMenuBtn.textContent = '☰';
-        }
-      });
-    }
-
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // Seated widget layout fix - runs after widget loads
-    function fixSeatedLayout() {
-      const seatedWidget = document.getElementById('seated-55fdf2c0');
-      if (!seatedWidget) return;
-
-      // Check if widget has loaded content
-      const checkAndFix = () => {
-        const rows = seatedWidget.querySelectorAll('[class*="event"], [class*="Event"], .seated-event-row, [class*="row"]');
-
-        if (rows.length > 0) {
-          rows.forEach(row => {
-            // Force flex layout on each row
-            row.style.display = 'flex';
-            row.style.flexDirection = 'row';
-            row.style.justifyContent = 'space-between';
-            row.style.alignItems = 'center';
-            row.style.gap = '24px';
-            row.style.padding = '24px 32px';
-            row.style.background = 'var(--surface)';
-            row.style.borderBottom = '1px solid var(--border)';
-
-            // Find and style venue info (left)
-            const venueElements = row.querySelectorAll('[class*="venue"], [class*="Venue"], [class*="info"], [class*="Info"]');
-            venueElements.forEach(el => {
-              el.style.flex = '1';
-              el.style.minWidth = '0';
-              el.style.textAlign = 'left';
-              el.style.order = '1';
-            });
-
-            // Find and style date (middle-right)
-            const dateElements = row.querySelectorAll('[class*="date"], [class*="Date"]');
-            dateElements.forEach(el => {
-              el.style.flexShrink = '0';
-              el.style.textAlign = 'right';
-              el.style.minWidth = '80px';
-              el.style.order = '2';
-            });
-
-            // Find and style ticket button (far right)
-            const ticketElements = row.querySelectorAll('[class*="ticket"], [class*="Ticket"], a[href*="seated"], button');
-            ticketElements.forEach(el => {
-              el.style.flexShrink = '0';
-              el.style.order = '3';
-              el.style.background = 'var(--accent)';
-              el.style.color = 'var(--bg)';
-              el.style.borderRadius = '980px';
-              el.style.padding = '12px 24px';
-              el.style.fontSize = '13px';
-              el.style.fontWeight = '600';
-              el.style.textDecoration = 'none';
-              el.style.border = 'none';
-              el.style.minWidth = '120px';
-              el.style.textAlign = 'center';
-              el.style.textTransform = 'uppercase';
-              el.style.letterSpacing = '0.5px';
-            });
-          });
-
-          // Style the widget container
-          const widgetContainer = seatedWidget.querySelector('iframe') || seatedWidget;
-          if (widgetContainer) {
-            widgetContainer.style.background = 'var(--surface)';
-            widgetContainer.style.borderRadius = '18px';
-            widgetContainer.style.border = '1px solid var(--border)';
-          }
-
-          return true; // Successfully fixed
-        }
-        return false;
-      };
-
-      // Try immediately and then retry a few times
-      if (!checkAndFix()) {
-        let attempts = 0;
-        const interval = setInterval(() => {
-          attempts++;
-          if (checkAndFix() || attempts > 20) {
-            clearInterval(interval);
-          }
-        }, 500); // Check every 500ms for up to 10 seconds
-      }
-    }
-
-    // Run after page load and after Seated script loads
-    if (document.readyState === 'complete') {
-      fixSeatedLayout();
-    } else {
-      window.addEventListener('load', fixSeatedLayout);
-    }
-
-    // Also run when Seated script finishes loading
-    const seatedScript = document.querySelector('script[src*="widget.seated.com"]');
-    if (seatedScript) {
-      seatedScript.addEventListener('load', () => {
-        setTimeout(fixSeatedLayout, 1000);
-        setTimeout(fixSeatedLayout, 2000);
-        setTimeout(fixSeatedLayout, 3000);
-      });
-    }
   </script>
 </body>
 </html>

@@ -115,6 +115,12 @@
                 radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
                 radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 40%);
             pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero-badge {
@@ -486,6 +492,7 @@
             }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -502,7 +509,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.85) 60%, var(--bg) 100%), url('cover-hollow-gold.jpg'); background-size: cover; background-position: center;">
         <div class="hero-badge">Third Single</div>
         <h1 class="hero-title">
             chasing <span class="highlight">hollow gold</span><br>
@@ -540,6 +547,29 @@
     </section>
 
     <!-- Embeds Section -->
+    <section class="embeds-section">
+        <div class="embeds-grid">
+            <!-- YouTube -->
+            <div class="embed-card reveal">
+                <div class="embed-card-header">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    Watch on YouTube
+                </div>
+                <div class="embed-card-body">
+                    <iframe 
+                        width="100%" 
+                        height="315" 
+                        src="https://www.youtube-nocookie.com/embed/VIDEO_ID?origin=https://hafyz.my.id" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
             <!-- Spotify -->
             <div class="embed-card reveal">
                 <div class="embed-card-header">
@@ -642,7 +672,7 @@
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
                 </svg>
                 <div class="detail-label">Songwriter</div>
-                <div class="detail-value">Aldy Stiviano & Muhammad Hafiz</div>
+                <div class="detail-value">Aldy Stiviano Wirawan & Muhammad Hafiz</div>
             </div>
             <div class="detail-item">
                 <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -658,7 +688,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-logo">HAFYX<span></div>
+        <div class="footer-logo">HAFYZ<span></div>
         <div class="footer-copy">&copy; 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.</div>
     </footer>
 

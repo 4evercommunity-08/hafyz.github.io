@@ -267,16 +267,16 @@
       width: 140px;
       height: 140px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       flex-shrink: 0;
       border: 1px solid var(--border);
       overflow: hidden;
-      position: relative;
     }
-    .release-artwork::before { content: none; }
+    .release-artwork img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .release-info { flex: 1; }
     .release-info h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
     .release-date { color: var(--accent); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; margin-bottom: 12px; }
@@ -497,8 +497,8 @@
 
     <div class="releases-grid">
       <article class="release-card reveal">
-        <div class="release-artwork" style="padding:0;overflow:hidden;">
-          <img src="cover-hollow-gold.jpg" alt="chasing hollow gold cover" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="release-artwork">
+          <img src="cover-hollow-gold.jpg" alt="chasing hollow gold cover">
         </div>
         <div class="release-info">
           <h3>chasing hollow gold (After Hours)</h3>
@@ -510,8 +510,8 @@
       </article>
 
       <article class="release-card reveal">
-        <div class="release-artwork" style="padding:0;overflow:hidden;">
-          <img src="cover-xfwu.jpg" alt="x-Tra Fabulous Without You cover" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="release-artwork">
+          <img src="cover-xfwu.jpg" alt="x-Tra Fabulous Without You cover">
         </div>
         <div class="release-info">
           <h3>x-Tra Fabulous Without You (After Hours)</h3>

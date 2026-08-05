@@ -143,9 +143,9 @@
       justify-content: center;
       text-align: center;
       padding: 140px 24px 100px;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
     .hero-content {
@@ -411,7 +411,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      min-width: 70px;
+      min-width: 80px;
     }
     .tour-date .day {
       font-size: 32px;
@@ -419,12 +419,14 @@
       color: var(--accent);
       line-height: 1;
       letter-spacing: -1px;
+      white-space: nowrap;
     }
     .tour-date .month {
       font-size: 14px;
       color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 1px;
+      white-space: nowrap;
     }
 
     /* ═══════════════════════════════════════════════
@@ -666,29 +668,34 @@
       .tour-item {
         padding: 20px 24px;
         gap: 16px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+      }
+      .tour-info {
+        min-width: 0;
+        flex: 1;
       }
       .tour-info h4 {
-        font-size: 18px;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
+        font-size: 17px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .tour-info p {
-        font-size: 15px;
-        white-space: normal;
-        overflow: visible;
-        text-overflow: clip;
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .tour-date {
         text-align: right;
-        margin-left: auto;
+        flex-shrink: 0;
+        min-width: 60px;
       }
       .tour-date .day {
-        font-size: 26px;
+        font-size: 24px;
       }
       .tour-date .month {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .about-text { font-size: 21px; }
@@ -940,6 +947,47 @@
         mobileMenuBtn.textContent = '☰';
       }
     });
+  </script>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn && navLinks) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+      });
+
+      // Close menu when clicking a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.textContent = '☰';
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('nav') && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          mobileMenuBtn.textContent = '☰';
+        }
+      });
+    }
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>

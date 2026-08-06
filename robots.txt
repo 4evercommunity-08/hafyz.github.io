@@ -1,12 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://hafyz.my.id/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
-
-# Disallow admin paths (if any in future)
-# Disallow: /admin/
-# Disallow: /private/

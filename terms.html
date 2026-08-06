@@ -4,189 +4,491 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Use — HAFYZ</title>
-  <meta name="description" content="Terms of Use for HAFYZ Official Website.">
+  <meta name="description" content="Terms of Use of HAFYZ official website.">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎸</text></svg>">
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000000;
-      --bg-elevated: #0d0d0d;
-      --surface: #1a1a1a;
-      --border: #2a2a2a;
-      --text: #f5f5f7;
-      --text-secondary: #86868b;
-      --accent: #d4a853;
-      --font: 'Inter', -apple-system, sans-serif;
+      --bg: #f5f5f5;
+      --bg-elevated: #ffffff;
+      --surface: #ffffff;
+      --surface-hover: #f0f0f0;
+      --border: #e0e0e0;
+      --text: #1a1a1a;
+      --text-secondary: #555555;
+      --text-tertiary: #888888;
+      --accent: #c9a84c;
+      --accent-hover: #d4b55a;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --transition: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
     body {
       font-family: var(--font);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.47059;
+      overflow-x: hidden;
     }
 
+    ::selection { background: var(--accent); color: #ffffff; }
+
+    /* ═══════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════ */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      background: rgba(0,0,0,0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      background: rgba(245, 245, 245, 0.85);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      transition: background 0.3s var(--transition);
     }
+
     .nav-content {
-      max-width: 800px;
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 22px;
       height: 52px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .nav-logo {
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 800;
       letter-spacing: 3px;
       color: var(--accent);
       text-decoration: none;
+      transition: opacity 0.3s;
     }
-    .nav-back {
+    .nav-logo:hover { opacity: 0.8; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
       transition: color 0.3s;
     }
-    .nav-back:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--text); }
 
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 120px 24px 80px;
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 20px;
+      cursor: pointer;
     }
 
-    h1 {
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: -1px;
+    /* ═══════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 60px;
+      background: var(--bg-elevated);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+    }
+
+    .hero-label {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
       margin-bottom: 16px;
     }
 
-    .last-updated {
-      color: var(--text-secondary);
-      font-size: 14px;
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    /* ═══════════════════════════════════════════════
+       CONTENT
+       ═══════════════════════════════════════════════ */
+    .content-section {
+      padding: 80px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-block {
       margin-bottom: 48px;
     }
 
-    h2 {
+    .content-block h2 {
       font-size: 24px;
       font-weight: 600;
-      margin: 48px 0 16px;
       letter-spacing: -0.5px;
+      margin-bottom: 16px;
+      color: var(--text);
     }
 
-    p {
-      color: var(--text-secondary);
+    .content-block h3 {
+      font-size: 19px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      margin-top: 24px;
+      color: var(--text);
+    }
+
+    .content-block p {
       font-size: 17px;
-      line-height: 1.7;
+      color: var(--text-secondary);
+      line-height: 1.6;
       margin-bottom: 16px;
     }
 
-    ul {
-      color: var(--text-secondary);
+    .content-block ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    .content-block li {
       font-size: 17px;
-      line-height: 1.7;
-      margin: 16px 0 16px 24px;
-    }
-    li { margin-bottom: 8px; }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    footer {
-      text-align: center;
-      padding: 40px 24px;
-      border-top: 1px solid var(--border);
       color: var(--text-secondary);
-      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 8px;
     }
 
+    .content-block a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .content-block a:hover { color: var(--accent-hover); }
+
+    .last-updated {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════ */
+    footer {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 20px;
+    }
+
+    .footer-content {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 12px;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover {
+      color: var(--text);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    .footer-bottom a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .footer-bottom a:hover {
+      color: var(--text);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+    }
+    .social-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-links a:hover {
+      color: var(--text);
+      transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════════════════════
+       MOBILE
+       ═══════════════════════════════════════════════ */
     @media (max-width: 768px) {
-      h1 { font-size: 32px; }
-      h2 { font-size: 20px; }
-      p, ul { font-size: 16px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: rgba(245, 245, 245, 0.95);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        flex-direction: column;
+        padding: 20px 22px;
+        gap: 16px;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+        z-index: 999;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .mobile-menu-btn { display: block; }
+
+      .hero { padding: 100px 20px 40px; }
+      .content-section { padding: 60px 20px; }
+      .footer-nav { flex-direction: column; gap: 32px; }
     }
   </style>
+<base target="_blank">
 </head>
 
 <body>
+  <!-- NAVIGATION -->
   <nav>
     <div class="nav-content">
-      <a href="index.html" class="nav-logo">HAFYZ</a>
-      <a href="index.html" class="nav-back">← Back</a>
+      <a href="/" class="nav-logo">HAFYZ</a>
+      <ul class="nav-links">
+        <li><a href="/#music">Music</a></li>
+        <li><a href="/#tour">Tour</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
     </div>
   </nav>
 
-  <main>
-    <h1>Terms of Use</h1>
-    <p class="last-updated">Last updated: August 2026</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-label">Legal</div>
+      <h1>Terms of Use</h1>
+      <p class="last-updated">Last updated: August 6, 2026</p>
+    </div>
+  </section>
 
-    <p>Welcome to the official website of HAFYZ. By accessing and using this website, you agree to comply with and be bound by the following terms and conditions.</p>
+  <!-- CONTENT -->
+  <section class="content-section">
+    <div class="content-block">
+      <h2>Acceptance of Terms</h2>
+      <p>By accessing and using <a href="https://hafyz.my.id">hafyz.my.id</a> (the "Site"), you accept and agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the Site.</p>
+      <p>These Terms constitute a legally binding agreement between you and HAFYZ ("we," "us," or "our") regarding your use of the Site.</p>
+    </div>
 
-    <h2>Acceptance of Terms</h2>
-    <p>By accessing this website, you acknowledge that you have read, understood, and agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use our website.</p>
+    <div class="content-block">
+      <h2>Use of the Site</h2>
+      <p>You agree to use the Site only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the Site. Prohibited behavior includes:</p>
+      <ul>
+        <li>Harassing or causing distress or inconvenience to any other user</li>
+        <li>Transmitting obscene or offensive content</li>
+        <li>Disrupting the normal flow of dialogue within the Site</li>
+        <li>Attempting to gain unauthorized access to the Site or related systems</li>
+        <li>Using the Site for any fraudulent or illegal purpose</li>
+      </ul>
+    </div>
 
-    <h2>Use of Content</h2>
-    <p>All content on this website, including but not limited to text, images, music, logos, and design elements, is the property of HAFYZ or its licensors and is protected by copyright and other intellectual property laws.</p>
-    <p>You may:</p>
-    <ul>
-      <li>View and listen to content for personal, non-commercial use</li>
-      <li>Share links to our website on social media</li>
-      <li>Stream music through authorized platforms</li>
-    </ul>
-    <p>You may not:</p>
-    <ul>
-      <li>Reproduce, distribute, or modify content without permission</li>
-      <li>Use content for commercial purposes without authorization</li>
-      <li>Remove or alter copyright notices</li>
-      <li>Use automated systems to access or scrape the website</li>
-    </ul>
+    <div class="content-block">
+      <h2>Intellectual Property</h2>
+      <p>All content on this Site, including but not limited to text, graphics, logos, images, audio clips, video clips, digital downloads, and software, is the property of HAFYZ or its content suppliers and is protected by international copyright, trademark, and other intellectual property laws.</p>
+      <p>You may not:</p>
+      <ul>
+        <li>Reproduce, duplicate, copy, sell, resell, or exploit any portion of the Site without express written permission</li>
+        <li>Use any meta tags or other hidden text utilizing our name or trademarks without our consent</li>
+        <li>Modify, adapt, translate, reverse engineer, decompile, or disassemble any portion of the Site</li>
+        <li>Remove any copyright, trademark, or other proprietary notices from the Site</li>
+      </ul>
+      <p>The HAFYZ name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of HAFYZ or its affiliates. You must not use such marks without the prior written permission of HAFYZ.</p>
+    </div>
 
-    <h2>User Conduct</h2>
-    <p>When using this website, you agree not to:</p>
-    <ul>
-      <li>Violate any applicable laws or regulations</li>
-      <li>Infringe on the rights of others</li>
-      <li>Transmit harmful code or malware</li>
-      <li>Attempt to gain unauthorized access to our systems</li>
-      <li>Interfere with the proper functioning of the website</li>
-    </ul>
+    <div class="content-block">
+      <h2>User Content</h2>
+      <p>By submitting any content to the Site (including comments, feedback, or suggestions), you grant us a non-exclusive, royalty-free, perpetual, irrevocable, and fully sublicensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, and display such content throughout the world in any media.</p>
+      <p>You represent and warrant that:</p>
+      <ul>
+        <li>You own or control all rights to the content you submit</li>
+        <li>The content is accurate and not misleading</li>
+        <li>The content does not violate any applicable law or regulation</li>
+        <li>The content does not infringe upon the rights of any third party</li>
+      </ul>
+    </div>
 
-    <h2>Third-Party Links</h2>
-    <p>This website may contain links to third-party websites (such as Spotify, Apple Music, YouTube, and social media platforms). We are not responsible for the content, privacy practices, or terms of use of these external sites.</p>
+    <div class="content-block">
+      <h2>Links to Third-Party Websites</h2>
+      <p>The Site may contain links to third-party websites or services that are not owned or controlled by HAFYZ. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites or services.</p>
+      <p>You acknowledge and agree that HAFYZ shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.</p>
+    </div>
 
-    <h2>Disclaimer</h2>
-    <p>This website is provided "as is" without warranties of any kind. We do not guarantee that the website will be available at all times or that it will be free from errors or viruses.</p>
+    <div class="content-block">
+      <h2>Disclaimer of Warranties</h2>
+      <p>The Site is provided on an "AS IS" and "AS AVAILABLE" basis. HAFYZ makes no representations or warranties of any kind, express or implied, as to the operation of the Site or the information, content, materials, or products included on the Site.</p>
+      <p>To the full extent permissible by applicable law, HAFYZ disclaims all warranties, express or implied, including but not limited to implied warranties of merchantability and fitness for a particular purpose.</p>
+    </div>
 
-    <h2>Limitation of Liability</h2>
-    <p>HAFYZ and its team shall not be liable for any damages arising from the use or inability to use this website, including but not limited to direct, indirect, incidental, or consequential damages.</p>
+    <div class="content-block">
+      <h2>Limitation of Liability</h2>
+      <p>In no event shall HAFYZ, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
+      <ul>
+        <li>Your access to or use of or inability to access or use the Site</li>
+        <li>Any conduct or content of any third party on the Site</li>
+        <li>Any content obtained from the Site</li>
+        <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+      </ul>
+    </div>
 
-    <h2>Changes to Terms</h2>
-    <p>We reserve the right to modify these Terms of Use at any time. Changes will be effective immediately upon posting to this page. Your continued use of the website constitutes acceptance of the updated terms.</p>
+    <div class="content-block">
+      <h2>Indemnification</h2>
+      <p>You agree to defend, indemnify, and hold harmless HAFYZ and its licensees and licensors, and their employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs, or debt, and expenses (including but not limited to attorney's fees) arising from:</p>
+      <ul>
+        <li>Your use of and access to the Site</li>
+        <li>Your violation of any term of these Terms</li>
+        <li>Your violation of any third-party right, including without limitation any copyright, property, or privacy right</li>
+      </ul>
+    </div>
 
-    <h2>Governing Law</h2>
-    <p>These Terms of Use shall be governed by and construed in accordance with the laws of Indonesia.</p>
+    <div class="content-block">
+      <h2>Governing Law</h2>
+      <p>These Terms shall be governed and construed in accordance with the laws of the Republic of Indonesia, without regard to its conflict of law provisions.</p>
+      <p>Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect.</p>
+    </div>
 
-    <h2>Contact</h2>
-    <p>For questions regarding these Terms of Use, please contact us through our website or social media channels.</p>
-  </main>
+    <div class="content-block">
+      <h2>Changes to These Terms</h2>
+      <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will try to provide at least 30 days' notice prior to any new terms taking effect.</p>
+      <p>What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Site after those revisions become effective, you agree to be bound by the revised terms.</p>
+    </div>
 
+    <div class="content-block">
+      <h2>Contact Us</h2>
+      <p>If you have any questions about these Terms of Use, please contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:contact@sourplusentertainment.com">contact@sourplusentertainment.com</a></li>
+        <li>Website: <a href="https://hafyz.my.id">hafyz.my.id</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 HAFYZ. All rights reserved.</p>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Music</h4>
+          <a href="/#music">Latest Releases</a>
+          <a href="/#music">Music Videos</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="/#tour">Tour Dates</a>
+          <a href="/#contact">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" title="Facebook" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/sourplusentertainment" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://music.apple.com/us/artist/hafyz/1754145654" target="_blank" rel="noopener" title="Apple Music" aria-label="Apple Music">
+            <svg role="img" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><title>Apple Music</title><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/></svg>
+          </a>
+          <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener" title="Spotify" aria-label="Spotify">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.</p>
+        <p>Made with 🖤 in Pekanbaru</p>
+      </div>
+    </div>
   </footer>
 </body>
 </html>

@@ -37,12 +37,12 @@
     }
 
     :root {
-      --bg: #faf8f5;
-      --text: #1a1a2e;
-      --text-light: #666;
+      --bg: transparent;
+      --text: #faf8f5;
+      --text-light: rgba(250,248,245,0.7);
       --accent: #c9a96e;
-      --accent-dark: #a88b4a;
-      --border: rgba(0,0,0,0.08);
+      --accent-dark: #e8d5a3;
+      --border: rgba(250,248,245,0.15);
     }
 
     html, body {
@@ -57,6 +57,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      background: linear-gradient(rgba(26,26,46,0.7), rgba(26,26,46,0.85)), url('countdown-bg.jpg') center/cover no-repeat fixed;
     }
 
     /* ===== NAVBAR ===== */
@@ -70,7 +71,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(250,248,245,0.85);
+      background: rgba(26,26,46,0.6);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -80,14 +81,14 @@
       font-size: 1.5rem;
       font-weight: 800;
       letter-spacing: 0.3em;
-      color: var(--text);
+      color: #faf8f5;
       text-decoration: none;
     }
 
     .nav-home {
       font-size: 0.85rem;
       font-weight: 500;
-      color: var(--text-light);
+      color: rgba(250,248,245,0.7);
       text-decoration: none;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -105,8 +106,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 8rem 2rem 4rem;
+      padding: 8rem 2rem 5rem;
       text-align: center;
+      min-height: 70vh;
     }
 
     .teaser-label {
@@ -186,8 +188,8 @@
     .cta-btn {
       display: inline-block;
       padding: 1rem 2.5rem;
-      background: var(--text);
-      color: var(--bg);
+      background: var(--accent);
+      color: #1a1a2e;
       text-decoration: none;
       font-size: 0.85rem;
       font-weight: 600;
@@ -198,7 +200,7 @@
     }
 
     .cta-btn:hover {
-      background: var(--accent);
+      background: #e8d5a3;
       transform: translateY(-2px);
     }
 
@@ -211,26 +213,28 @@
     /* ===== FOOTER ===== */
     footer {
       width: 100%;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       text-align: center;
       border-top: 1px solid var(--border);
-      background: var(--bg);
+      background: rgba(26,26,46,0.6);
+      backdrop-filter: blur(10px);
+      margin-top: auto;
     }
 
     footer p {
       font-size: 0.8rem;
-      color: var(--text-light);
+      color: rgba(250,248,245,0.6);
       letter-spacing: 0.05em;
     }
 
     footer a {
-      color: var(--accent-dark);
+      color: var(--accent);
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     footer a:hover {
-      color: var(--text);
+      color: #faf8f5;
     }
 
     /* ===== ANIMATIONS ===== */

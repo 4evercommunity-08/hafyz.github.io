@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press Kit | HAFYZ</title>
+  <meta name="description" content="Official press kit for HAFYZ — Electronic Press Kit with bio, stats, press quotes, and booking contact.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Press Kit | HAFYZ">
+  <meta property="og:description" content="Official press kit for HAFYZ — Electronic Press Kit with bio, stats, press quotes, and booking contact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hafyz.my.id/press/">
+  <meta property="og:image" content="https://hafyz.my.id/hero-bg.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:site_name" content="HAFYZ">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Press Kit | HAFYZ">
+  <meta name="twitter:description" content="Official press kit for HAFYZ — Electronic Press Kit with bio, stats, press quotes, and booking contact.">
+  <meta name="twitter:image" content="https://hafyz.my.id/hero-bg.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hafyz.my.id/press/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #faf8f5;
+      --text: #1a1a2e;
+      --text-light: #666;
+      --accent: #c9a96e;
+      --accent-dark: #a88b4a;
+      --border: rgba(0,0,0,0.08);
+      --card-bg: #fff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,248,245,0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-home {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-home:hover {
+      color: var(--accent);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 10rem 2rem 5rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .section-title span {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    /* ===== BIO ===== */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .bio-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    }
+
+    .bio-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bio-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--accent-dark);
+    }
+
+    .bio-content p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .bio-content strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ===== STATS ===== */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent-dark);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .stat-platform {
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* ===== PRESS QUOTES ===== */
+    .quote-card {
+      background: var(--card-bg);
+      padding: 3rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      position: relative;
+      margin-top: 2rem;
+    }
+
+    .quote-card::before {
+      content: """;
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem;
+      color: var(--accent);
+      opacity: 0.3;
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+      line-height: 1;
+    }
+
+    .quote-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+      padding-left: 1rem;
+    }
+
+    .quote-source {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .quote-source a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .quote-source a:hover {
+      color: var(--text);
+    }
+
+    /* ===== DISCOGRAPHY ===== */
+    .discography-list {
+      display: grid;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .discography-item {
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease;
+    }
+
+    .discography-item:hover {
+      transform: translateX(8px);
+    }
+
+    .discography-cover {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .discography-info h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .discography-info p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .discography-streams {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .discography-streams .number {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .discography-streams .label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .contact-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .contact-card a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      background: var(--accent);
+    }
+
+    /* ===== TECH RIDER PLACEHOLDER ===== */
+    .rider-teaser {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .rider-teaser-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .rider-teaser h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .rider-teaser > p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+    }
+
+    .rider-teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    .rider-teaser-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .rider-teaser-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 24px;
+    }
+
+    .rider-teaser-note {
+      background: linear-gradient(135deg, rgba(201,169,110,0.08) 0%, rgba(168,139,74,0.08) 100%);
+      border: 1px dashed var(--accent);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .rider-teaser-note p {
+      color: var(--text-light);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
+    .rider-teaser-note strong {
+      color: var(--accent-dark);
+    }
+
+    .rider-cta-btn {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: var(--text);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .rider-cta-btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .rider-cta-hint {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .rider-teaser {
+        padding: 2rem 1.5rem;
+      }
+
+      .rider-teaser-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .bio-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .bio-photo {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .discography-item {
+        grid-template-columns: 60px 1fr;
+        gap: 1rem;
+      }
+
+      .discography-cover {
+        width: 60px;
+        height: 60px;
+      }
+
+      .discography-streams {
+        grid-column: 1 / -1;
+        text-align: left;
+        margin-top: 0.5rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .quote-card {
+        padding: 2rem 1.5rem;
+      }
+
+      .quote-card::before {
+        font-size: 4rem;
+        top: 0.5rem;
+        left: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .hero {
+        padding: 8rem 1.5rem 3rem;
+      }
+
+      .section {
+        padding: 3rem 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem 1rem;
+      }
+
+      .stat-number {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+<base target="_blank">
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo">HAFYZ</a>
+    <a href="/" class="nav-home">Home</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">Electronic Press Kit</div>
+    <h1 class="hero-title">HAFYZ <span>Press Kit</span></h1>
+    <p class="hero-subtitle">Official press materials, bio, stats, and booking information for media and industry professionals.</p>
+  </section>
+
+  <!-- BIO -->
+  <section class="section" id="bio">
+    <h2 class="section-title">The <span>Artist</span></h2>
+    <div class="bio-grid">
+      <div class="bio-photo">
+        <img src="/hero-bg.jpg" alt="HAFYZ - Artist Photo">
+      </div>
+      <div class="bio-content">
+        <h3>HAFYZ</h3>
+        <p><strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries across Electronic, Indie, and Pop.</p>
+
+        <p>Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single <strong>"Paradise"</strong> in 2017. As a visionary creator, he controls every blueprint of his work — serving as executive producer and recording engineer on all releases.</p>
+
+        <p>From <strong>MANIC</strong> (2020) to <strong>Immortal Romance (Extended Deluxe Versions)</strong> (2025), and the sixth album <strong>xoxo, i'm done</strong> (2026), each release is an experiment in modern narrative. Beyond the studio, HAFYZ translates his artistic vision into a broader professional realm under <strong>SOUR+ Corporation</strong> — integrating music (SOUR+ Entertainment Inc.) and cinema (Balai Kreasi Cinema).</p>
+
+        <p>His latest single <strong>"chasing hollow gold (After Hours)"</strong> — released July 31, 2026 — marks the official opening of the <em>After Hours</em> era, exploring themes of friendship breakup with emotional depth and sonic precision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section" id="stats">
+    <h2 class="section-title">Key <span>Metrics</span></h2>
+
+    <h3 style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 2rem 0 1rem; text-align: center;">Spotify</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">1,135</div>
+        <div class="stat-label">Followers</div>
+        <div class="stat-platform">Spotify</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">48</div>
+        <div class="stat-label">Monthly Listeners</div>
+        <div class="stat-platform">Spotify</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">443K</div>
+        <div class="stat-label">Total Streams</div>
+        <div class="stat-platform">Lifetime</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">13.5K</div>
+        <div class="stat-label">Streams</div>
+        <div class="stat-platform">x-Tra Fabulous WY</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.5K</div>
+        <div class="stat-label">Streams</div>
+        <div class="stat-platform">chasing hollow gold</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1,628</div>
+        <div class="stat-label">Peak Monthly Listeners</div>
+        <div class="stat-platform">Jun 2024</div>
+      </div>
+    </div>
+
+    <h3 style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; text-align: center;">Apple Music</h3>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">2.1K</div>
+        <div class="stat-label">Shazam Count</div>
+        <div class="stat-platform">Apple Music</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">587</div>
+        <div class="stat-label">Radio Spins</div>
+        <div class="stat-platform">Apple Music</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">6</div>
+        <div class="stat-label">Purchases</div>
+        <div class="stat-platform">Apple Music</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Avg. Daily Listeners</div>
+        <div class="stat-platform">Apple Music</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOGRAPHY -->
+  <section class="section" id="discography">
+    <h2 class="section-title">Latest <span>Releases</span></h2>
+    <div class="discography-list">
+      <div class="discography-item">
+        <div class="discography-cover">🎵</div>
+        <div class="discography-info">
+          <h4>chasing hollow gold (After Hours)</h4>
+          <p>Single &middot; Released July 31, 2026 &middot; After Hours Era</p>
+        </div>
+        <div class="discography-streams">
+          <div class="number">2,499</div>
+          <div class="label">Streams</div>
+        </div>
+      </div>
+
+      <div class="discography-item">
+        <div class="discography-cover">🎵</div>
+        <div class="discography-info">
+          <h4>x-Tra Fabulous Without You (After Hours)</h4>
+          <p>Single &middot; Released July 3, 2026 &middot; After Hours Era</p>
+        </div>
+        <div class="discography-streams">
+          <div class="number">13,540</div>
+          <div class="label">Streams</div>
+        </div>
+      </div>
+
+      <div class="discography-item">
+        <div class="discography-cover">💿</div>
+        <div class="discography-info">
+          <h4>xoxo, i'm done</h4>
+          <p>Album &middot; 2026 &middot; Sixth Studio Album</p>
+        </div>
+        <div class="discography-streams">
+          <div class="number">Album</div>
+          <div class="label">Full Length</div>
+        </div>
+      </div>
+
+      <div class="discography-item">
+        <div class="discography-cover">💿</div>
+        <div class="discography-info">
+          <h4>Immortal Romance (Extended Deluxe Versions)</h4>
+          <p>Album &middot; 2025</p>
+        </div>
+        <div class="discography-streams">
+          <div class="number">Album</div>
+          <div class="label">Deluxe</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS QUOTES -->
+  <section class="section" id="press">
+    <h2 class="section-title">Press <span>Quotes</span></h2>
+    <div class="quote-card">
+      <p class="quote-text">HAFYZ membuktikan kemampuannya untuk terus bertransformasi dan menyajikan karya yang relevan dengan perkembangan tren audio saat ini. Melalui "chasing hollow gold (After Hours)", HAFYZ menyajikan eksplorasi emosional yang mendalam dengan mengangkat tema friendship breakup — sebuah dinamika perpisahan dalam hubungan persahabatan yang kerap kali menyimpan kompleksitas rasa yang kuat.</p>
+      <div class="quote-source">
+        — <a href="https://kabarbaru.co/hafyz-rilis-single-chasing-hollow-gold-buka-era-after-hours-resmi/" target="_blank" rel="noopener">Kabar Baru, Pekanbaru</a> &middot; August 2026
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH RIDER -->
+  <section class="section" id="rider">
+    <h2 class="section-title">Technical <span>Rider</span></h2>
+
+    <div class="rider-teaser">
+      <div class="rider-teaser-icon">🎤</div>
+      <h3>Professional Concert Technical Rider</h3>
+      <p>Available upon request for confirmed bookings. Our technical rider includes comprehensive specifications for:</p>
+
+      <div class="rider-teaser-grid">
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">01</span>
+          <span>Stage Plot & Dimensions</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">02</span>
+          <span>FOH Console & PA System</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">03</span>
+          <span>Monitor & IEM Specifications</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">04</span>
+          <span>Lighting Design & Plot</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">05</span>
+          <span>LED Wall & Video Playback</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">06</span>
+          <span>Backline & Artist Equipment</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">07</span>
+          <span>Power Distribution</span>
+        </div>
+        <div class="rider-teaser-item">
+          <span class="rider-teaser-num">08</span>
+          <span>Hospitality & Personnel</span>
+        </div>
+      </div>
+
+      <div class="rider-teaser-note">
+        <p><strong>Full technical rider is provided to confirmed event organizers and production teams only.</strong><br>
+        Specifications are tailored to venue size — from intimate club shows to arena dates.<br>
+        All gear requirements use industry-standard professional equipment (L-Acoustics, DiGiCo, Shure, GrandMA, etc.)</p>
+      </div>
+
+      <a href="mailto:contact@hafyz.my.id?subject=Technical%20Rider%20Request%20-%20[Event%20Name]" class="rider-cta-btn">
+        Request Full Technical Rider
+      </a>
+      <p class="rider-cta-hint">Please include event date, venue name, and capacity in your email</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2 class="section-title">Booking <span>Contact</span></h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h4>Email</h4>
+        <p>For booking inquiries, press, and collaborations</p>
+        <a href="mailto:contact@hafyz.my.id">contact@hafyz.my.id</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">🎵</div>
+        <h4>Spotify</h4>
+        <p>Listen on Spotify</p>
+        <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Open Profile</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📱</div>
+        <h4>Instagram</h4>
+        <p>Follow for updates</p>
+        <a href="https://www.instagram.com/sourplusentertainment" target="_blank" rel="noopener">@sourplusentertainment</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">🎬</div>
+        <h4>YouTube</h4>
+        <p>Official channel</p>
+        <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener">@itsmehafyz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with love in Pekanbaru, Indonesia &copy; 2026 HAFYZ. All rights reserved.<br>
+    <a href="/">Back to Website</a></p>
+  </footer>
+</body>
+</html>

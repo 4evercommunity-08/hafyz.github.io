@@ -327,6 +327,14 @@
       justify-content: center;
       font-size: 1.5rem;
       flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .discography-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
     .discography-info h4 {
@@ -659,15 +667,6 @@
     <h3 style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 2rem 0 1rem; text-align: center;">Spotify</h3>
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-number">1,135</div>
-        <div class="stat-label">Followers</div>
-        <div class="stat-platform">Spotify</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">48</div>
-        <div class="stat-label">Monthly Listeners</div>
-        <div class="stat-platform">Spotify</div>
-      </div>
       <div class="stat-card">
         <div class="stat-number">443K</div>
         <div class="stat-label">Total Streams</div>
@@ -682,12 +681,6 @@
         <div class="stat-number">2.5K</div>
         <div class="stat-label">Streams</div>
         <div class="stat-platform">chasing hollow gold</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">1,628</div>
-        <div class="stat-label">Peak Monthly Listeners</div>
-        <div class="stat-platform">Jun 2024</div>
-      </div>
     </div>
 
     <h3 style="font-size: 0.85rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin: 3rem 0 1rem; text-align: center;">Apple Music</h3>
@@ -703,11 +696,6 @@
         <div class="stat-platform">Apple Music</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Purchases</div>
-        <div class="stat-platform">Apple Music</div>
-      </div>
-      <div class="stat-card">
         <div class="stat-number">2</div>
         <div class="stat-label">Avg. Daily Listeners</div>
         <div class="stat-platform">Apple Music</div>
@@ -720,7 +708,9 @@
     <h2 class="section-title">Latest <span>Releases</span></h2>
     <div class="discography-list">
       <div class="discography-item">
-        <div class="discography-cover">🎵</div>
+        <div class="discography-cover">
+          <img src="chasing-hollow-gold-cover.jpg" alt="chasing hollow gold (After Hours)" loading="lazy">
+        </div>
         <div class="discography-info">
           <h4>chasing hollow gold (After Hours)</h4>
           <p>Single &middot; Released July 31, 2026 &middot; After Hours Era</p>
@@ -732,7 +722,9 @@
       </div>
 
       <div class="discography-item">
-        <div class="discography-cover">🎵</div>
+        <div class="discography-cover">
+          <img src="xtra-fabulous-cover.jpg" alt="x-Tra Fabulous Without You (After Hours)" loading="lazy">
+        </div>
         <div class="discography-info">
           <h4>x-Tra Fabulous Without You (After Hours)</h4>
           <p>Single &middot; Released July 3, 2026 &middot; After Hours Era</p>
@@ -744,7 +736,9 @@
       </div>
 
       <div class="discography-item">
-        <div class="discography-cover">💿</div>
+        <div class="discography-cover">
+          <img src="xoxo-im-done-cover.jpg" alt="xoxo, i'm done" loading="lazy">
+        </div>
         <div class="discography-info">
           <h4>xoxo, i'm done</h4>
           <p>Album &middot; 2026 &middot; Sixth Studio Album</p>
@@ -752,18 +746,6 @@
         <div class="discography-streams">
           <div class="number">Album</div>
           <div class="label">Full Length</div>
-        </div>
-      </div>
-
-      <div class="discography-item">
-        <div class="discography-cover">💿</div>
-        <div class="discography-info">
-          <h4>Immortal Romance (Extended Deluxe Versions)</h4>
-          <p>Album &middot; 2025</p>
-        </div>
-        <div class="discography-streams">
-          <div class="number">Album</div>
-          <div class="label">Deluxe</div>
         </div>
       </div>
     </div>

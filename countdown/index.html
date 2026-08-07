@@ -4,342 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Something is Coming | HAFYZ</title>
-  <meta name="description" content="Something special is coming from HAFYZ. Stay tuned.">
-  <meta name="robots" content="index, follow">
-
+  
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <meta name="description" content="Something is coming from HAFYZ. Mark your calendar for August 14.">
+  <link rel="canonical" href="https://hafyz.my.id/countdown/">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Something is Coming | HAFYZ">
-  <meta property="og:description" content="A new release is on the way. Stay tuned for the surprise.">
+  <meta property="og:description" content="A new chapter begins. Mark your calendar for August 14.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hafyz.my.id/countdown/">
   <meta property="og:image" content="https://hafyz.my.id/countdown/countdown-bg.jpg">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1080">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="HAFYZ">
-  <meta property="og:locale" content="en_US">
-
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Something is Coming | HAFYZ">
-  <meta name="twitter:description" content="A new release is on the way. Stay tuned for the surprise.">
+  <meta name="twitter:description" content="A new chapter begins. Mark your calendar for August 14.">
   <meta name="twitter:image" content="https://hafyz.my.id/countdown/countdown-bg.jpg">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://hafyz.my.id/countdown/">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
+  
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: transparent;
-      --text: #faf8f5;
-      --text-light: rgba(250,248,245,0.7);
-      --accent: #c9a96e;
-      --accent-dark: #e8d5a3;
-      --border: rgba(250,248,245,0.15);
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: linear-gradient(rgba(26,26,46,0.7), rgba(26,26,46,0.85)), url('countdown-bg.jpg') center/cover no-repeat fixed;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(26,26,46,0.6);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.3em;
-      color: #faf8f5;
-      text-decoration: none;
-    }
-
-    .nav-home {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: rgba(250,248,245,0.7);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .nav-home:hover {
-      color: var(--accent);
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 8rem 2rem 5rem;
-      text-align: center;
-      min-height: 70vh;
-    }
-
-    .teaser-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease 0.2s both;
-    }
-
-    .teaser-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      font-weight: 400;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      animation: fadeInUp 1s ease 0.4s both;
-    }
-
-    .teaser-title span {
-      font-style: italic;
-      color: var(--accent-dark);
-    }
-
-    .teaser-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      font-weight: 300;
-      margin-bottom: 3rem;
-      animation: fadeInUp 1s ease 0.6s both;
-    }
-
-    /* ===== COUNTDOWN ===== */
-    .countdown {
-      display: flex;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      animation: fadeInUp 1s ease 0.8s both;
-    }
-
-    .countdown-item {
-      text-align: center;
-    }
-
-    .countdown-number {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      line-height: 1;
-      color: var(--text);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .countdown-label {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-light);
-      margin-top: 0.5rem;
-    }
-
-    .countdown-separator {
-      font-size: 2rem;
-      font-weight: 300;
-      color: var(--accent);
-      align-self: flex-start;
-      padding-top: 0.5rem;
-    }
-
-    /* ===== CTA ===== */
-    .cta-wrap {
-      animation: fadeInUp 1s ease 1s both;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--accent);
-      color: #1a1a2e;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: #e8d5a3;
-      transform: translateY(-2px);
-    }
-
-    .cta-hint {
-      font-size: 0.75rem;
-      color: var(--text-light);
-      margin-top: 1rem;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      width: 100%;
-      padding: 2.5rem 2rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: rgba(26,26,46,0.6);
-      backdrop-filter: blur(10px);
-      margin-top: auto;
-    }
-
-    footer p {
-      font-size: 0.8rem;
-      color: rgba(250,248,245,0.6);
-      letter-spacing: 0.05em;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-      color: #faf8f5;
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .countdown {
-        gap: 1rem;
-      }
-
-      .countdown-number {
-        font-size: 2.2rem;
-      }
-
-      .countdown-separator {
-        display: none;
-      }
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root { --bg: #0a0a0f; --text: #faf8f5; --text-dim: rgba(250,248,245,0.6); --accent: #c9a96e; --accent-dark: #a88b4a; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; position: relative; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: url('countdown-bg.jpg') center/cover no-repeat; opacity: 0.3; z-index: -1; }
+    body::after { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.8) 100%); z-index: -1; }
+    
+    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 3rem; color: var(--accent); }
+    .label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.35em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .subtitle { font-size: 1rem; color: var(--text-dim); margin-bottom: 3rem; }
+    
+    .countdown { display: flex; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap; justify-content: center; }
+    .countdown-item { text-align: center; }
+    .countdown-item .number { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; line-height: 1; color: var(--accent); }
+    .countdown-item .label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-top: 0.5rem; }
+    
+    .cta-btn { display: inline-block; padding: 1rem 2.5rem; background: var(--accent); color: var(--bg); text-decoration: none; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 50px; transition: all 0.3s ease; }
+    .cta-btn:hover { background: var(--text); color: var(--bg); transform: translateY(-2px); }
+    
+    footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 1.5rem; text-align: center; font-size: 0.75rem; color: var(--text-dim); background: rgba(10,10,15,0.8); backdrop-filter: blur(10px); }
+    footer a { color: var(--accent); text-decoration: none; }
+    
+    @media (max-width: 480px) { .countdown { gap: 1rem; } .countdown-item .number { font-size: 2rem; } }
   </style>
-<base target="_blank">
 </head>
 <body>
-  <nav>
-    <a href="/" class="nav-logo">HAFYZ</a>
-    <a href="/" class="nav-home">Home</a>
-  </nav>
-
-  <main>
-    <div class="teaser-label">Coming Soon</div>
-    <h1 class="teaser-title">Something is <span>Coming</span></h1>
-    <p class="teaser-subtitle">A new chapter begins. Mark your calendar.</p>
-
-    <div class="countdown" id="countdown">
-      <div class="countdown-item">
-        <div class="countdown-number" id="days">00</div>
-        <div class="countdown-label">Days</div>
-      </div>
-      <div class="countdown-separator">:</div>
-      <div class="countdown-item">
-        <div class="countdown-number" id="hours">00</div>
-        <div class="countdown-label">Hours</div>
-      </div>
-      <div class="countdown-separator">:</div>
-      <div class="countdown-item">
-        <div class="countdown-number" id="minutes">00</div>
-        <div class="countdown-label">Minutes</div>
-      </div>
-      <div class="countdown-separator">:</div>
-      <div class="countdown-item">
-        <div class="countdown-number" id="seconds">00</div>
-        <div class="countdown-label">Seconds</div>
-      </div>
+  <div class="logo">HAFYZ</div>
+  <div class="label">Coming Soon</div>
+  <h1>Something is Coming</h1>
+  <p class="subtitle">A new chapter begins. Mark your calendar.</p>
+  
+  <div class="countdown" id="countdown">
+    <div class="countdown-item">
+      <div class="number" id="days">00</div>
+      <div class="label">Days</div>
     </div>
-
-    <div class="cta-wrap">
-      <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" class="cta-btn" target="_blank" rel="noopener">Follow on Spotify</a>
-      <p class="cta-hint">Be the first to know when it drops</p>
+    <div class="countdown-item">
+      <div class="number" id="hours">00</div>
+      <div class="label">Hours</div>
     </div>
-  </main>
-
+    <div class="countdown-item">
+      <div class="number" id="minutes">00</div>
+      <div class="label">Minutes</div>
+    </div>
+    <div class="countdown-item">
+      <div class="number" id="seconds">00</div>
+      <div class="label">Seconds</div>
+    </div>
+  </div>
+  
+  <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" class="cta-btn" target="_blank" rel="noopener">Follow on Spotify</a>
+  
   <footer>
-    <p>Made with love in Pekanbaru, Indonesia &copy; 2026 HAFYZ. All rights reserved.</p>
+    <p>Be the first to know when it drops · <a href="/">Back to Home</a></p>
   </footer>
 
   <script>
-    // Target: 14 August 2026, 11:00 WIB (04:00 UTC)
-    const targetDate = new Date('2026-08-14T04:00:00Z');
-
+    const targetDate = new Date('2026-08-14T00:00:00').getTime();
+    
     function updateCountdown() {
-      const now = new Date();
+      const now = new Date().getTime();
       const diff = targetDate - now;
-
-      if (diff <= 0) {
-        // Auto redirect to release page when countdown ends
-        window.location.href = '/new-release/';
-        return;
+      
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
     }
-
+    
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>

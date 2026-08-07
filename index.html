@@ -756,8 +756,6 @@
       color: var(--text-secondary);
       cursor: pointer;
       transition: all 0.2s;
-      margin-left: auto;
-      margin-right: 12px;
       font-family: var(--font);
     }
     .lang-btn:hover {
@@ -1157,244 +1155,256 @@
   </div>
 
   <script>
-    // Translations
-    const T = {
-      en: {
-        navMusic: 'Music', navTour: 'Tour', navAbout: 'About', navContact: 'Contact',
-        heroLabel: 'New Release', heroSubtitle: 'chasing hollow gold (After Hours)',
-        heroCta1: 'Listen Now', heroCta2: 'View Tour Dates →',
-        secMusicLabel: 'Music', secMusicTitle: 'Latest Releases', secMusicDesc: 'New music from the after hours sessions',
-        rel1Title: 'chasing hollow gold (After Hours)', rel1Date: 'Out Now', rel1Listen: 'Listen Now', rel1About: 'About the Song',
-        rel2Title: 'x-Tra Fabulous Without You (After Hours)', rel2Date: 'Out Now', rel2Listen: 'Listen Now',
-        secTourLabel: 'Live', secTourTitle: 'Upcoming Shows', secTourDesc: 'Catch HAFYZ on stage',
-        secAboutLabel: 'About', secAboutTitle: 'The Artist',
-        aboutText: '<strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries.',
-        aboutJourney: 'The Journey', aboutJourneyText: 'Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single "Paradise" in 2017. As a visionary creator, he controls every blueprint of his work — executive producer and recording engineer.',
-        aboutDisco: 'Discography', aboutDiscoText: 'From MANIC (2020) to Immortal Romance (Extended Deluxe Versions) (2025), and the sixth album xoxo, i'm done (2026). Each release is an experiment in modern narrative.',
-        aboutCompany: 'SOUR+ Corporation', aboutCompanyText: 'Beyond the studio, HAFYZ translates his artistic vision into a broader professional realm under SOUR+ Corporation — integrating music (SOUR+ Entertainment Inc.) and cinema (Balai Kreasi Cinema).',
-        secPlaylistLabel: 'Playlist', secPlaylistTitle: 'This is HAFYZ', secPlaylistDesc: 'The essential tracks, all in one place',
-        newsTitle: 'Stay in the loop', newsDesc: 'Get exclusive updates and early access to tickets.',
-        newsPlaceholder: 'Enter your email', newsSubmit: 'Subscribe',
-        footMusic: 'Music', footLatest: 'Latest Releases', footVideos: 'Music Videos',
-        footConnect: 'Connect', footTour: 'Tour Dates', footContact: 'Contact',
-        footLegal: 'Legal', footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use',
-        footCopy: '© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.',
-        footMade: 'Made with 🖤 in Pekanbaru',
-        popupTitle: 'Switch to Bahasa Indonesia?', popupDesc: 'We detected you're browsing from Indonesia.'
-      },
-      id: {
-        navMusic: 'Musik', navTour: 'Tur', navAbout: 'Tentang', navContact: 'Kontak',
-        heroLabel: 'Rilis Baru', heroSubtitle: 'chasing hollow gold (After Hours)',
-        heroCta1: 'Dengarkan Sekarang', heroCta2: 'Lihat Jadwal Tur →',
-        secMusicLabel: 'Musik', secMusicTitle: 'Rilis Terbaru', secMusicDesc: 'Musik baru dari sesi after hours',
-        rel1Title: 'chasing hollow gold (After Hours)', rel1Date: 'Sudah Rilis', rel1Listen: 'Dengarkan Sekarang', rel1About: 'Tentang Lagu',
-        rel2Title: 'x-Tra Fabulous Without You (After Hours)', rel2Date: 'Sudah Rilis', rel2Listen: 'Dengarkan Sekarang',
-        secTourLabel: 'Live', secTourTitle: 'Pertunjukan Mendatang', secTourDesc: 'Saksikan HAFYZ di panggung',
-        secAboutLabel: 'Tentang', secAboutTitle: 'Sang Artis',
-        aboutText: '<strong>HAFYZ</strong> adalah musisi, komposer, produser, dan pengusaha multidisiplin dari Pekanbaru, Indonesia. Dikenal dengan eksplorasi sonik yang fluid dan penuh karakter, ia secara konsisten memburamkan batasan genre.',
-        aboutJourney: 'Perjalanan', aboutJourneyText: 'Memulai pada 2015 dengan rumah produksi audio-visual, HAFYZ secara resmi memasuki industri musik dengan single debut "Paradise" pada 2017. Sebagai kreator visioner, ia mengendalikan setiap cetak biru karyanya — produser eksekutif dan rekayasa suara.',
-        aboutDisco: 'Diskografi', aboutDiscoText: 'Dari MANIC (2020) hingga Immortal Romance (Extended Deluxe Versions) (2025), dan album keenam xoxo, i'm done (2026). Setiap rilis adalah eksperimen dalam narasi modern.',
-        aboutCompany: 'SOUR+ Corporation', aboutCompanyText: 'Di luar studio, HAFYZ menerjemahkan visi artistiknya ke ranah profesional yang lebih luas di bawah SOUR+ Corporation — mengintegrasikan musik (SOUR+ Entertainment Inc.) dan sinema (Balai Kreasi Cinema).',
-        secPlaylistLabel: 'Playlist', secPlaylistTitle: 'Ini adalah HAFYZ', secPlaylistDesc: 'Lagu-lagu esensial, semua di satu tempat',
-        newsTitle: 'Tetap terhubung', newsDesc: 'Dapatkan update eksklusif dan akses awal ke tiket.',
-        newsPlaceholder: 'Masukkan email Anda', newsSubmit: 'Berlangganan',
-        footMusic: 'Musik', footLatest: 'Rilis Terbaru', footVideos: 'Video Musik',
-        footConnect: 'Hubungi', footTour: 'Jadwal Tur', footContact: 'Kontak',
-        footLegal: 'Legal', footPrivacy: 'Kebijakan Privasi', footTerms: 'Syarat Penggunaan',
-        footCopy: '© 2026 HAFYZ, di bawah lisensi eksklusif SOUR+ Entertainment Inc. Rilis SOUR+ Entertainment Inc. Hak cipta dilindungi undang-undang.',
-        footMade: 'Dibuat dengan 🖤 di Pekanbaru',
-        popupTitle: 'Ganti ke Bahasa Indonesia?', popupDesc: 'Kami mendeteksi Anda browsing dari Indonesia.'
+    (function() {
+      'use strict';
+
+      // Translations
+      const T = {
+        en: {
+          navMusic: 'Music', navTour: 'Tour', navAbout: 'About', navContact: 'Contact',
+          heroLabel: 'New Release', heroSubtitle: 'chasing hollow gold (After Hours)',
+          heroCta1: 'Listen Now', heroCta2: 'View Tour Dates →',
+          secMusicLabel: 'Music', secMusicTitle: 'Latest Releases', secMusicDesc: 'New music from the after hours sessions',
+          rel1Title: 'chasing hollow gold (After Hours)', rel1Date: 'Out Now', rel1Listen: 'Listen Now', rel1About: 'About the Song',
+          rel2Title: 'x-Tra Fabulous Without You (After Hours)', rel2Date: 'Out Now', rel2Listen: 'Listen Now',
+          secTourLabel: 'Live', secTourTitle: 'Upcoming Shows', secTourDesc: 'Catch HAFYZ on stage',
+          secAboutLabel: 'About', secAboutTitle: 'The Artist',
+          aboutText: '<strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries.',
+          aboutJourney: 'The Journey', aboutJourneyText: 'Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single "Paradise" in 2017. As a visionary creator, he controls every blueprint of his work — executive producer and recording engineer.',
+          aboutDisco: 'Discography', aboutDiscoText: 'From MANIC (2020) to Immortal Romance (Extended Deluxe Versions) (2025), and the sixth album xoxo, i'm done (2026). Each release is an experiment in modern narrative.',
+          aboutCompany: 'SOUR+ Corporation', aboutCompanyText: 'Beyond the studio, HAFYZ translates his artistic vision into a broader professional realm under SOUR+ Corporation — integrating music (SOUR+ Entertainment Inc.) and cinema (Balai Kreasi Cinema).',
+          secPlaylistLabel: 'Playlist', secPlaylistTitle: 'This is HAFYZ', secPlaylistDesc: 'The essential tracks, all in one place',
+          newsTitle: 'Stay in the loop', newsDesc: 'Get exclusive updates and early access to tickets.',
+          newsPlaceholder: 'Enter your email', newsSubmit: 'Subscribe',
+          footMusic: 'Music', footLatest: 'Latest Releases', footVideos: 'Music Videos',
+          footConnect: 'Connect', footTour: 'Tour Dates', footContact: 'Contact',
+          footLegal: 'Legal', footPrivacy: 'Privacy Policy', footTerms: 'Terms of Use',
+          footCopy: '© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.',
+          footMade: 'Made with 🖤 in Pekanbaru',
+          popupTitle: 'Switch to Bahasa Indonesia?', popupDesc: 'We detected you're browsing from Indonesia.'
+        },
+        id: {
+          navMusic: 'Musik', navTour: 'Tur', navAbout: 'Tentang', navContact: 'Kontak',
+          heroLabel: 'Rilis Baru', heroSubtitle: 'chasing hollow gold (After Hours)',
+          heroCta1: 'Dengarkan Sekarang', heroCta2: 'Lihat Jadwal Tur →',
+          secMusicLabel: 'Musik', secMusicTitle: 'Rilis Terbaru', secMusicDesc: 'Musik baru dari sesi after hours',
+          rel1Title: 'chasing hollow gold (After Hours)', rel1Date: 'Sudah Rilis', rel1Listen: 'Dengarkan Sekarang', rel1About: 'Tentang Lagu',
+          rel2Title: 'x-Tra Fabulous Without You (After Hours)', rel2Date: 'Sudah Rilis', rel2Listen: 'Dengarkan Sekarang',
+          secTourLabel: 'Live', secTourTitle: 'Pertunjukan Mendatang', secTourDesc: 'Saksikan HAFYZ di panggung',
+          secAboutLabel: 'Tentang', secAboutTitle: 'Sang Artis',
+          aboutText: '<strong>HAFYZ</strong> adalah musisi, komposer, produser, dan pengusaha multidisiplin dari Pekanbaru, Indonesia. Dikenal dengan eksplorasi sonik yang fluid dan penuh karakter, ia secara konsisten memburamkan batasan genre.',
+          aboutJourney: 'Perjalanan', aboutJourneyText: 'Memulai pada 2015 dengan rumah produksi audio-visual, HAFYZ secara resmi memasuki industri musik dengan single debut "Paradise" pada 2017. Sebagai kreator visioner, ia mengendalikan setiap cetak biru karyanya — produser eksekutif dan rekayasa suara.',
+          aboutDisco: 'Diskografi', aboutDiscoText: 'Dari MANIC (2020) hingga Immortal Romance (Extended Deluxe Versions) (2025), dan album keenam xoxo, i'm done (2026). Setiap rilis adalah eksperimen dalam narasi modern.',
+          aboutCompany: 'SOUR+ Corporation', aboutCompanyText: 'Di luar studio, HAFYZ menerjemahkan visi artistiknya ke ranah profesional yang lebih luas di bawah SOUR+ Corporation — mengintegrasikan musik (SOUR+ Entertainment Inc.) dan sinema (Balai Kreasi Cinema).',
+          secPlaylistLabel: 'Playlist', secPlaylistTitle: 'Ini adalah HAFYZ', secPlaylistDesc: 'Lagu-lagu esensial, semua di satu tempat',
+          newsTitle: 'Tetap terhubung', newsDesc: 'Dapatkan update eksklusif dan akses awal ke tiket.',
+          newsPlaceholder: 'Masukkan email Anda', newsSubmit: 'Berlangganan',
+          footMusic: 'Musik', footLatest: 'Rilis Terbaru', footVideos: 'Video Musik',
+          footConnect: 'Hubungi', footTour: 'Jadwal Tur', footContact: 'Kontak',
+          footLegal: 'Legal', footPrivacy: 'Kebijakan Privasi', footTerms: 'Syarat Penggunaan',
+          footCopy: '© 2026 HAFYZ, di bawah lisensi eksklusif SOUR+ Entertainment Inc. Rilis SOUR+ Entertainment Inc. Hak cipta dilindungi undang-undang.',
+          footMade: 'Dibuat dengan 🖤 di Pekanbaru',
+          popupTitle: 'Ganti ke Bahasa Indonesia?', popupDesc: 'Kami mendeteksi Anda browsing dari Indonesia.'
+        }
+      };
+
+      let currentLang = localStorage.getItem('hafyz-lang') || 'en';
+
+      function applyLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('hafyz-lang', lang);
+        document.documentElement.lang = lang === 'id' ? 'id' : 'en';
+        const t = T[lang];
+        if (!t) return;
+
+        // Nav
+        const navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks[0]) navLinks[0].textContent = t.navMusic;
+        if (navLinks[1]) navLinks[1].textContent = t.navTour;
+        if (navLinks[2]) navLinks[2].textContent = t.navAbout;
+        if (navLinks[3]) navLinks[3].textContent = t.navContact;
+
+        // Hero
+        const heroLabel = document.querySelector('.hero-content > div');
+        if (heroLabel) heroLabel.textContent = t.heroLabel;
+        const heroSub = document.querySelector('.hero-content > p');
+        if (heroSub) heroSub.textContent = t.heroSubtitle;
+        const heroCtas = document.querySelectorAll('.hero-cta a');
+        if (heroCtas[0]) heroCtas[0].textContent = t.heroCta1;
+        if (heroCtas[1]) heroCtas[1].textContent = t.heroCta2;
+
+        // Music section
+        const musicSec = document.getElementById('music');
+        if (musicSec) {
+          const ml = musicSec.querySelector('.section-label');
+          const mt = musicSec.querySelector('.section-title');
+          const md = musicSec.querySelector('.section-desc');
+          if (ml) ml.textContent = t.secMusicLabel;
+          if (mt) mt.textContent = t.secMusicTitle;
+          if (md) md.textContent = t.secMusicDesc;
+          const cards = musicSec.querySelectorAll('.release-card');
+          if (cards[0]) {
+            cards[0].querySelector('.release-title').textContent = t.rel1Title;
+            cards[0].querySelector('.release-date').textContent = t.rel1Date;
+            const links = cards[0].querySelectorAll('.release-link');
+            if (links[0]) links[0].textContent = t.rel1Listen;
+            if (links[1]) links[1].textContent = t.rel1About;
+          }
+          if (cards[1]) {
+            cards[1].querySelector('.release-title').textContent = t.rel2Title;
+            cards[1].querySelector('.release-date').textContent = t.rel2Date;
+            const links = cards[1].querySelectorAll('.release-link');
+            if (links[0]) links[0].textContent = t.rel2Listen;
+          }
+        }
+
+        // Tour section
+        const tourSec = document.getElementById('tour');
+        if (tourSec) {
+          const tl = tourSec.querySelector('.section-label');
+          const tt = tourSec.querySelector('.section-title');
+          const td = tourSec.querySelector('.section-desc');
+          if (tl) tl.textContent = t.secTourLabel;
+          if (tt) tt.textContent = t.secTourTitle;
+          if (td) td.textContent = t.secTourDesc;
+        }
+
+        // About section
+        const aboutSec = document.getElementById('about');
+        if (aboutSec) {
+          const al = aboutSec.querySelector('.section-label');
+          const at = aboutSec.querySelector('.section-title');
+          if (al) al.textContent = t.secAboutLabel;
+          if (at) at.textContent = t.secAboutTitle;
+          const aboutText = aboutSec.querySelector('.about-text');
+          if (aboutText) aboutText.innerHTML = t.aboutText;
+          const blocks = aboutSec.querySelectorAll('.about-block');
+          if (blocks[0]) {
+            blocks[0].querySelector('h3').textContent = t.aboutJourney;
+            blocks[0].querySelector('p').textContent = t.aboutJourneyText;
+          }
+          if (blocks[1]) {
+            blocks[1].querySelector('h3').textContent = t.aboutDisco;
+            blocks[1].querySelector('p').textContent = t.aboutDiscoText;
+          }
+          if (blocks[2]) {
+            blocks[2].querySelector('h3').textContent = t.aboutCompany;
+            blocks[2].querySelector('p').textContent = t.aboutCompanyText;
+          }
+        }
+
+        // Playlist section
+        const playSec = document.getElementById('spotify');
+        if (playSec) {
+          const pl = playSec.querySelector('.section-label');
+          const pt = playSec.querySelector('.section-title');
+          const pd = playSec.querySelector('.section-desc');
+          if (pl) pl.textContent = t.secPlaylistLabel;
+          if (pt) pt.textContent = t.secPlaylistTitle;
+          if (pd) pd.textContent = t.secPlaylistDesc;
+        }
+
+        // Newsletter
+        const newsTitle = document.querySelector('.newsletter-section h2');
+        if (newsTitle) newsTitle.textContent = t.newsTitle;
+        const newsDesc = document.querySelector('.newsletter-section > div > p');
+        if (newsDesc) newsDesc.textContent = t.newsDesc;
+        const newsInput = document.querySelector('.newsletter-form input');
+        if (newsInput) newsInput.placeholder = t.newsPlaceholder;
+        const newsBtn = document.querySelector('.newsletter-form button');
+        if (newsBtn) newsBtn.textContent = t.newsSubmit;
+
+        // Footer
+        const footer = document.querySelector('footer');
+        if (footer) {
+          const cols = footer.querySelectorAll('.footer-col');
+          if (cols[0]) {
+            cols[0].querySelector('h4').textContent = t.footMusic;
+            const links = cols[0].querySelectorAll('a');
+            if (links[0]) links[0].textContent = t.footLatest;
+            if (links[1]) links[1].textContent = t.footVideos;
+          }
+          if (cols[1]) {
+            cols[1].querySelector('h4').textContent = t.footConnect;
+            const links = cols[1].querySelectorAll('a');
+            if (links[0]) links[0].textContent = t.footTour;
+            if (links[1]) links[1].textContent = t.footContact;
+          }
+          if (cols[2]) {
+            cols[2].querySelector('h4').textContent = t.footLegal;
+            const links = cols[2].querySelectorAll('a');
+            if (links[0]) links[0].textContent = t.footPrivacy;
+            if (links[1]) links[1].textContent = t.footTerms;
+          }
+          const bottom = footer.querySelector('.footer-bottom');
+          if (bottom) {
+            const ps = bottom.querySelectorAll('p');
+            if (ps[0]) ps[0].textContent = t.footCopy;
+            if (ps[1]) ps[1].textContent = t.footMade;
+          }
+        }
+
+        // Update switcher
+        const flagEl = document.getElementById('lang-flag');
+        const codeEl = document.getElementById('lang-code');
+        if (flagEl) flagEl.textContent = lang === 'id' ? '🇮🇩' : '🇬🇧';
+        if (codeEl) codeEl.textContent = lang.toUpperCase();
+        document.querySelectorAll('.lang-item').forEach(function(item) {
+          item.classList.toggle('active', item.dataset.lang === lang);
+        });
+
+        // Update popup text
+        const popupTitle = document.getElementById('popup-title');
+        const popupDesc = document.getElementById('popup-desc');
+        if (popupTitle) popupTitle.textContent = t.popupTitle;
+        if (popupDesc) popupDesc.textContent = t.popupDesc;
       }
-    };
 
-    let currentLang = localStorage.getItem('hafyz-lang') || 'en';
+      window.switchLang = function(lang) {
+        applyLang(lang);
+        var menu = document.getElementById('lang-menu');
+        if (menu) menu.classList.remove('open');
+      };
 
-    function applyLang(lang) {
-      currentLang = lang;
-      localStorage.setItem('hafyz-lang', lang);
-      document.documentElement.lang = lang === 'id' ? 'id' : 'en';
-      const t = T[lang];
-      if (!t) return;
+      window.toggleLangMenu = function(e) {
+        e.stopPropagation();
+        var menu = document.getElementById('lang-menu');
+        if (menu) menu.classList.toggle('open');
+      };
 
-      // Nav
-      const navLinks = document.querySelectorAll('.nav-links a');
-      if (navLinks[0]) navLinks[0].textContent = t.navMusic;
-      if (navLinks[1]) navLinks[1].textContent = t.navTour;
-      if (navLinks[2]) navLinks[2].textContent = t.navAbout;
-      if (navLinks[3]) navLinks[3].textContent = t.navContact;
+      window.hidePopup = function() {
+        var popup = document.getElementById('lang-popup');
+        if (popup) popup.classList.remove('show');
+      };
 
-      // Hero
-      const heroLabel = document.querySelector('.hero-content > div');
-      if (heroLabel) heroLabel.textContent = t.heroLabel;
-      const heroSub = document.querySelector('.hero-content > p');
-      if (heroSub) heroSub.textContent = t.heroSubtitle;
-      const heroCtas = document.querySelectorAll('.hero-cta a');
-      if (heroCtas[0]) heroCtas[0].textContent = t.heroCta1;
-      if (heroCtas[1]) heroCtas[1].textContent = t.heroCta2;
+      window.dismissPopup = function() {
+        localStorage.setItem('hafyz-popup-dismissed', '1');
+        hidePopup();
+      };
 
-      // Music section
-      const musicSec = document.getElementById('music');
-      if (musicSec) {
-        const ml = musicSec.querySelector('.section-label');
-        const mt = musicSec.querySelector('.section-title');
-        const md = musicSec.querySelector('.section-desc');
-        if (ml) ml.textContent = t.secMusicLabel;
-        if (mt) mt.textContent = t.secMusicTitle;
-        if (md) md.textContent = t.secMusicDesc;
-        const cards = musicSec.querySelectorAll('.release-card');
-        if (cards[0]) {
-          cards[0].querySelector('.release-title').textContent = t.rel1Title;
-          cards[0].querySelector('.release-date').textContent = t.rel1Date;
-          const links = cards[0].querySelectorAll('.release-link');
-          if (links[0]) links[0].textContent = t.rel1Listen;
-          if (links[1]) links[1].textContent = t.rel1About;
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        var menu = document.getElementById('lang-menu');
+        var btn = document.getElementById('lang-btn');
+        if (menu && !menu.contains(e.target) && btn && !btn.contains(e.target)) {
+          menu.classList.remove('open');
         }
-        if (cards[1]) {
-          cards[1].querySelector('.release-title').textContent = t.rel2Title;
-          cards[1].querySelector('.release-date').textContent = t.rel2Date;
-          const links = cards[1].querySelectorAll('.release-link');
-          if (links[0]) links[0].textContent = t.rel2Listen;
-        }
-      }
-
-      // Tour section
-      const tourSec = document.getElementById('tour');
-      if (tourSec) {
-        const tl = tourSec.querySelector('.section-label');
-        const tt = tourSec.querySelector('.section-title');
-        const td = tourSec.querySelector('.section-desc');
-        if (tl) tl.textContent = t.secTourLabel;
-        if (tt) tt.textContent = t.secTourTitle;
-        if (td) td.textContent = t.secTourDesc;
-      }
-
-      // About section
-      const aboutSec = document.getElementById('about');
-      if (aboutSec) {
-        const al = aboutSec.querySelector('.section-label');
-        const at = aboutSec.querySelector('.section-title');
-        if (al) al.textContent = t.secAboutLabel;
-        if (at) at.textContent = t.secAboutTitle;
-        const aboutText = aboutSec.querySelector('.about-text');
-        if (aboutText) aboutText.innerHTML = t.aboutText;
-        const blocks = aboutSec.querySelectorAll('.about-block');
-        if (blocks[0]) {
-          blocks[0].querySelector('h3').textContent = t.aboutJourney;
-          blocks[0].querySelector('p').textContent = t.aboutJourneyText;
-        }
-        if (blocks[1]) {
-          blocks[1].querySelector('h3').textContent = t.aboutDisco;
-          blocks[1].querySelector('p').textContent = t.aboutDiscoText;
-        }
-        if (blocks[2]) {
-          blocks[2].querySelector('h3').textContent = t.aboutCompany;
-          blocks[2].querySelector('p').textContent = t.aboutCompanyText;
-        }
-      }
-
-      // Playlist section
-      const playSec = document.getElementById('spotify');
-      if (playSec) {
-        const pl = playSec.querySelector('.section-label');
-        const pt = playSec.querySelector('.section-title');
-        const pd = playSec.querySelector('.section-desc');
-        if (pl) pl.textContent = t.secPlaylistLabel;
-        if (pt) pt.textContent = t.secPlaylistTitle;
-        if (pd) pd.textContent = t.secPlaylistDesc;
-      }
-
-      // Newsletter
-      const newsTitle = document.querySelector('.newsletter-section h2');
-      if (newsTitle) newsTitle.textContent = t.newsTitle;
-      const newsDesc = document.querySelector('.newsletter-section > div > p');
-      if (newsDesc) newsDesc.textContent = t.newsDesc;
-      const newsInput = document.querySelector('.newsletter-form input');
-      if (newsInput) newsInput.placeholder = t.newsPlaceholder;
-      const newsBtn = document.querySelector('.newsletter-form button');
-      if (newsBtn) newsBtn.textContent = t.newsSubmit;
-
-      // Footer
-      const footer = document.querySelector('footer');
-      if (footer) {
-        const cols = footer.querySelectorAll('.footer-col');
-        if (cols[0]) {
-          cols[0].querySelector('h4').textContent = t.footMusic;
-          const links = cols[0].querySelectorAll('a');
-          if (links[0]) links[0].textContent = t.footLatest;
-          if (links[1]) links[1].textContent = t.footVideos;
-        }
-        if (cols[1]) {
-          cols[1].querySelector('h4').textContent = t.footConnect;
-          const links = cols[1].querySelectorAll('a');
-          if (links[0]) links[0].textContent = t.footTour;
-          if (links[1]) links[1].textContent = t.footContact;
-        }
-        if (cols[2]) {
-          cols[2].querySelector('h4').textContent = t.footLegal;
-          const links = cols[2].querySelectorAll('a');
-          if (links[0]) links[0].textContent = t.footPrivacy;
-          if (links[1]) links[1].textContent = t.footTerms;
-        }
-        const bottom = footer.querySelector('.footer-bottom');
-        if (bottom) {
-          const ps = bottom.querySelectorAll('p');
-          if (ps[0]) ps[0].textContent = t.footCopy;
-          if (ps[1]) ps[1].textContent = t.footMade;
-        }
-      }
-
-      // Update switcher
-      document.getElementById('lang-flag').textContent = lang === 'id' ? '🇮🇩' : '🇬🇧';
-      document.getElementById('lang-code').textContent = lang.toUpperCase();
-      document.querySelectorAll('.lang-item').forEach(item => {
-        item.classList.toggle('active', item.dataset.lang === lang);
       });
 
-      // Update popup text
-      document.getElementById('popup-title').textContent = t.popupTitle;
-      document.getElementById('popup-desc').textContent = t.popupDesc;
-    }
+      // Initialize
+      applyLang(currentLang);
 
-    function switchLang(lang) {
-      applyLang(lang);
-      document.getElementById('lang-menu').classList.remove('open');
-    }
-
-    function toggleLangMenu(e) {
-      e.stopPropagation();
-      document.getElementById('lang-menu').classList.toggle('open');
-    }
-
-    function hidePopup() {
-      document.getElementById('lang-popup').classList.remove('show');
-    }
-
-    function dismissPopup() {
-      localStorage.setItem('hafyz-popup-dismissed', '1');
-      hidePopup();
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      const menu = document.getElementById('lang-menu');
-      const btn = document.getElementById('lang-btn');
-      if (menu && !menu.contains(e.target) && !btn.contains(e.target)) {
-        menu.classList.remove('open');
+      // Show popup for Indonesian users
+      if (!localStorage.getItem('hafyz-lang') && !localStorage.getItem('hafyz-popup-dismissed')) {
+        var browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (browserLang.indexOf('id') === 0) {
+          setTimeout(function() {
+            var popup = document.getElementById('lang-popup');
+            if (popup) popup.classList.add('show');
+          }, 2000);
+        }
       }
-    });
-
-    // Initialize
-    applyLang(currentLang);
-
-    // Show popup for Indonesian users
-    if (!localStorage.getItem('hafyz-lang') && !localStorage.getItem('hafyz-popup-dismissed')) {
-      const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-      if (browserLang.startsWith('id')) {
-        setTimeout(function() {
-          document.getElementById('lang-popup').classList.add('show');
-        }, 2000);
-      }
-    }
+    })();
   </script>
 </body>
 </html>

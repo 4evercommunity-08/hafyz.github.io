@@ -805,7 +805,521 @@
     </style>
 <base target="_blank">
 <base target="_blank">
-<base target="_blank">
+
+  <!-- Language Switcher Styles -->
+  <style>
+    /* Language Switcher */
+    .lang-switcher {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      transition: all 0.3s var(--transition);
+    }
+    .lang-switcher:hover {
+      background: var(--surface-hover);
+      color: var(--text);
+    }
+    .lang-switcher .lang-flag {
+      font-size: 14px;
+    }
+    .lang-switcher .lang-code {
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 140px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s var(--transition);
+      z-index: 1001;
+    }
+    .lang-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .lang-option:hover {
+      background: var(--surface-hover);
+    }
+    .lang-option.active {
+      background: rgba(201, 168, 76, 0.1);
+      color: var(--accent);
+    }
+    .lang-option .flag {
+      font-size: 16px;
+    }
+
+    /* Language Banner */
+    .lang-banner {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(120px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      z-index: 9999;
+      max-width: 420px;
+      width: calc(100% - 48px);
+      transition: transform 0.5s var(--transition);
+    }
+    .lang-banner.show {
+      transform: translateX(-50%) translateY(0);
+    }
+    .lang-banner .banner-text {
+      flex: 1;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text);
+    }
+    .lang-banner .banner-text strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+    .lang-banner .banner-actions {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .lang-banner .btn-banner {
+      padding: 8px 16px;
+      border-radius: 980px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s;
+    }
+    .lang-banner .btn-switch {
+      background: var(--accent);
+      color: var(--bg);
+    }
+    .lang-banner .btn-switch:hover {
+      background: var(--accent-hover);
+    }
+    .lang-banner .btn-dismiss {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+    .lang-banner .btn-dismiss:hover {
+      background: var(--surface-hover);
+    }
+
+    @media (max-width: 768px) {
+      .lang-banner {
+        bottom: 16px;
+        padding: 14px 18px;
+        gap: 12px;
+      }
+      .lang-banner .banner-text {
+        font-size: 13px;
+      }
+      .lang-banner .btn-banner {
+        padding: 7px 12px;
+        font-size: 12px;
+      }
+    }
+  </style>
+
+  <!-- Language Switcher Script -->
+  <script>
+    (function() {
+      // Translation data
+      const translations = {
+        en: {
+          navMusic: 'Music',
+          navTour: 'Tour',
+          navAbout: 'About',
+          navContact: 'Contact',
+          heroLabel: 'New Release',
+          heroSubtitle: 'chasing hollow gold (After Hours)',
+          heroTitle: 'HAFYZ',
+          heroCtaListen: 'Listen Now',
+          heroCtaTour: 'View Tour Dates →',
+          sectionMusicLabel: 'Music',
+          sectionMusicTitle: 'Latest Releases',
+          sectionMusicDesc: 'New music from the after hours sessions',
+          release1Title: 'chasing hollow gold (After Hours)',
+          release1Date: 'Out Now',
+          release1Listen: 'Listen Now',
+          release1About: 'About the Song',
+          release2Title: 'x-Tra Fabulous Without You (After Hours)',
+          release2Date: 'Out Now',
+          release2Listen: 'Listen Now',
+          sectionTourLabel: 'Live',
+          sectionTourTitle: 'Upcoming Shows',
+          sectionTourDesc: 'Catch HAFYZ on stage',
+          sectionAboutLabel: 'About',
+          sectionAboutTitle: 'The Artist',
+          aboutText: '<strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries.',
+          aboutJourneyTitle: 'The Journey',
+          aboutJourneyText: 'Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single "Paradise" in 2017. As a visionary creator, he controls every blueprint of his work — executive producer and recording engineer.',
+          aboutDiscographyTitle: 'Discography',
+          aboutDiscographyText: 'From MANIC (2020) to Immortal Romance (Extended Deluxe Versions) (2025), and the sixth album xoxo, i'm done (2026). Each release is an experiment in modern narrative.',
+          aboutCompanyTitle: 'SOUR+ Corporation',
+          aboutCompanyText: 'Beyond the studio, HAFYZ translates his artistic vision into a broader professional realm under SOUR+ Corporation — integrating music (SOUR+ Entertainment Inc.) and cinema (Balai Kreasi Cinema).',
+          sectionPlaylistLabel: 'Playlist',
+          sectionPlaylistTitle: 'This is HAFYZ',
+          sectionPlaylistDesc: 'The essential tracks, all in one place',
+          newsletterTitle: 'Stay in the loop',
+          newsletterDesc: 'Get exclusive updates and early access to tickets.',
+          newsletterPlaceholder: 'Enter your email',
+          newsletterSubmit: 'Subscribe',
+          footerMusic: 'Music',
+          footerLatest: 'Latest Releases',
+          footerVideos: 'Music Videos',
+          footerConnect: 'Connect',
+          footerTour: 'Tour Dates',
+          footerContact: 'Contact',
+          footerLegal: 'Legal',
+          footerPrivacy: 'Privacy Policy',
+          footerTerms: 'Terms of Use',
+          footerCopyright: '© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.',
+          footerMade: 'Made with 🖤 in Pekanbaru',
+          bannerTitle: 'Switch to Bahasa Indonesia?',
+          bannerText: 'We detected you're browsing from Indonesia.',
+          bannerSwitch: 'Switch',
+          bannerKeep: 'Keep English'
+        },
+        id: {
+          navMusic: 'Musik',
+          navTour: 'Tur',
+          navAbout: 'Tentang',
+          navContact: 'Kontak',
+          heroLabel: 'Rilis Baru',
+          heroSubtitle: 'chasing hollow gold (After Hours)',
+          heroTitle: 'HAFYZ',
+          heroCtaListen: 'Dengarkan Sekarang',
+          heroCtaTour: 'Lihat Jadwal Tur →',
+          sectionMusicLabel: 'Musik',
+          sectionMusicTitle: 'Rilis Terbaru',
+          sectionMusicDesc: 'Musik baru dari sesi after hours',
+          release1Title: 'chasing hollow gold (After Hours)',
+          release1Date: 'Sudah Rilis',
+          release1Listen: 'Dengarkan Sekarang',
+          release1About: 'Tentang Lagu',
+          release2Title: 'x-Tra Fabulous Without You (After Hours)',
+          release2Date: 'Sudah Rilis',
+          release2Listen: 'Dengarkan Sekarang',
+          sectionTourLabel: 'Live',
+          sectionTourTitle: 'Pertunjukan Mendatang',
+          sectionTourDesc: 'Saksikan HAFYZ di panggung',
+          sectionAboutLabel: 'Tentang',
+          sectionAboutTitle: 'Sang Artis',
+          aboutText: '<strong>HAFYZ</strong> adalah musisi, komposer, produser, dan pengusaha multidisiplin dari Pekanbaru, Indonesia. Dikenal dengan eksplorasi sonik yang fluid dan penuh karakter, ia secara konsisten memburamkan batasan genre.',
+          aboutJourneyTitle: 'Perjalanan',
+          aboutJourneyText: 'Memulai pada 2015 dengan rumah produksi audio-visual, HAFYZ secara resmi memasuki industri musik dengan single debut "Paradise" pada 2017. Sebagai kreator visioner, ia mengendalikan setiap cetak biru karyanya — produser eksekutif dan rekayasa suara.',
+          aboutDiscographyTitle: 'Diskografi',
+          aboutDiscographyText: 'Dari MANIC (2020) hingga Immortal Romance (Extended Deluxe Versions) (2025), dan album keenam xoxo, i'm done (2026). Setiap rilis adalah eksperimen dalam narasi modern.',
+          aboutCompanyTitle: 'SOUR+ Corporation',
+          aboutCompanyText: 'Di luar studio, HAFYZ menerjemahkan visi artistiknya ke ranah profesional yang lebih luas di bawah SOUR+ Corporation — mengintegrasikan musik (SOUR+ Entertainment Inc.) dan sinema (Balai Kreasi Cinema).',
+          sectionPlaylistLabel: 'Playlist',
+          sectionPlaylistTitle: 'Ini adalah HAFYZ',
+          sectionPlaylistDesc: 'Lagu-lagu esensial, semua di satu tempat',
+          newsletterTitle: 'Tetap terhubung',
+          newsletterDesc: 'Dapatkan update eksklusif dan akses awal ke tiket.',
+          newsletterPlaceholder: 'Masukkan email Anda',
+          newsletterSubmit: 'Berlangganan',
+          footerMusic: 'Musik',
+          footerLatest: 'Rilis Terbaru',
+          footerVideos: 'Video Musik',
+          footerConnect: 'Hubungi',
+          footerTour: 'Jadwal Tur',
+          footerContact: 'Kontak',
+          footerLegal: 'Legal',
+          footerPrivacy: 'Kebijakan Privasi',
+          footerTerms: 'Syarat Penggunaan',
+          footerCopyright: '© 2026 HAFYZ, di bawah lisensi eksklusif SOUR+ Entertainment Inc. Rilis SOUR+ Entertainment Inc. Hak cipta dilindungi undang-undang.',
+          footerMade: 'Dibuat dengan 🖤 di Pekanbaru',
+          bannerTitle: 'Ganti ke Bahasa Indonesia?',
+          bannerText: 'Kami mendeteksi Anda browsing dari Indonesia.',
+          bannerSwitch: 'Ganti',
+          bannerKeep: 'Tetap Inggris'
+        }
+      };
+
+      // Get saved language or detect
+      function getLanguage() {
+        const saved = localStorage.getItem('hafyz-lang');
+        if (saved) return saved;
+
+        // Detect from browser language
+        const browserLang = navigator.language || navigator.userLanguage;
+        if (browserLang && browserLang.toLowerCase().startsWith('id')) {
+          return 'id';
+        }
+        return 'en';
+      }
+
+      // Set language
+      function setLanguage(lang) {
+        localStorage.setItem('hafyz-lang', lang);
+        document.documentElement.lang = lang === 'id' ? 'id' : 'en';
+        updateContent(lang);
+        updateLangSwitcher(lang);
+      }
+
+      // Update all content
+      function updateContent(lang) {
+        const t = translations[lang];
+        if (!t) return;
+
+        // Update nav
+        const navLinks = document.querySelectorAll('.nav-links a');
+        if (navLinks[0]) navLinks[0].textContent = t.navMusic;
+        if (navLinks[1]) navLinks[1].textContent = t.navTour;
+        if (navLinks[2]) navLinks[2].textContent = t.navAbout;
+        if (navLinks[3]) navLinks[3].textContent = t.navContact;
+
+        // Update hero
+        const heroLabel = document.querySelector('.hero-content > div');
+        if (heroLabel) heroLabel.textContent = t.heroLabel;
+
+        const heroSubtitle = document.querySelector('.hero-content > p');
+        if (heroSubtitle) heroSubtitle.textContent = t.heroSubtitle;
+
+        const heroCta1 = document.querySelector('.hero-cta a:first-child');
+        if (heroCta1) heroCta1.textContent = t.heroCtaListen;
+
+        const heroCta2 = document.querySelector('.hero-cta a:last-child');
+        if (heroCta2) heroCta2.textContent = t.heroCtaTour;
+
+        // Update sections
+        updateSection('music', t);
+        updateSection('tour', t);
+        updateSection('about', t);
+        updateSection('spotify', t);
+
+        // Update newsletter
+        const newsTitle = document.querySelector('.newsletter-section h2');
+        if (newsTitle) newsTitle.textContent = t.newsletterTitle;
+
+        const newsDesc = document.querySelector('.newsletter-section p');
+        if (newsDesc) newsDesc.textContent = t.newsletterDesc;
+
+        const newsInput = document.querySelector('.newsletter-form input');
+        if (newsInput) newsInput.placeholder = t.newsletterPlaceholder;
+
+        const newsBtn = document.querySelector('.newsletter-form button');
+        if (newsBtn) newsBtn.textContent = t.newsletterSubmit;
+
+        // Update footer
+        updateFooter(t);
+      }
+
+      function updateSection(id, t) {
+        const section = document.getElementById(id);
+        if (!section) return;
+
+        const label = section.querySelector('.section-label');
+        const title = section.querySelector('.section-title');
+        const desc = section.querySelector('.section-desc');
+
+        if (id === 'music') {
+          if (label) label.textContent = t.sectionMusicLabel;
+          if (title) title.textContent = t.sectionMusicTitle;
+          if (desc) desc.textContent = t.sectionMusicDesc;
+
+          // Update release cards
+          const cards = section.querySelectorAll('.release-card');
+          if (cards[0]) {
+            cards[0].querySelector('.release-title').textContent = t.release1Title;
+            cards[0].querySelector('.release-date').textContent = t.release1Date;
+            const links = cards[0].querySelectorAll('.release-link');
+            if (links[0]) links[0].textContent = t.release1Listen;
+            if (links[1]) links[1].textContent = t.release1About;
+          }
+          if (cards[1]) {
+            cards[1].querySelector('.release-title').textContent = t.release2Title;
+            cards[1].querySelector('.release-date').textContent = t.release2Date;
+            const links = cards[1].querySelectorAll('.release-link');
+            if (links[0]) links[0].textContent = t.release2Listen;
+          }
+        }
+        else if (id === 'tour') {
+          if (label) label.textContent = t.sectionTourLabel;
+          if (title) title.textContent = t.sectionTourTitle;
+          if (desc) desc.textContent = t.sectionTourDesc;
+        }
+        else if (id === 'about') {
+          if (label) label.textContent = t.sectionAboutLabel;
+          if (title) title.textContent = t.sectionAboutTitle;
+
+          const aboutText = section.querySelector('.about-text');
+          if (aboutText) aboutText.innerHTML = t.aboutText;
+
+          const blocks = section.querySelectorAll('.about-block');
+          if (blocks[0]) {
+            blocks[0].querySelector('h3').textContent = t.aboutJourneyTitle;
+            blocks[0].querySelector('p').textContent = t.aboutJourneyText;
+          }
+          if (blocks[1]) {
+            blocks[1].querySelector('h3').textContent = t.aboutDiscographyTitle;
+            blocks[1].querySelector('p').textContent = t.aboutDiscographyText;
+          }
+          if (blocks[2]) {
+            blocks[2].querySelector('h3').textContent = t.aboutCompanyTitle;
+            blocks[2].querySelector('p').textContent = t.aboutCompanyText;
+          }
+        }
+        else if (id === 'spotify') {
+          if (label) label.textContent = t.sectionPlaylistLabel;
+          if (title) title.textContent = t.sectionPlaylistTitle;
+          if (desc) desc.textContent = t.sectionPlaylistDesc;
+        }
+      }
+
+      function updateFooter(t) {
+        const footer = document.querySelector('footer');
+        if (!footer) return;
+
+        const cols = footer.querySelectorAll('.footer-col');
+        if (cols[0]) {
+          cols[0].querySelector('h4').textContent = t.footerMusic;
+          const links = cols[0].querySelectorAll('a');
+          if (links[0]) links[0].textContent = t.footerLatest;
+          if (links[1]) links[1].textContent = t.footerVideos;
+        }
+        if (cols[1]) {
+          cols[1].querySelector('h4').textContent = t.footerConnect;
+          const links = cols[1].querySelectorAll('a');
+          if (links[0]) links[0].textContent = t.footerTour;
+          if (links[1]) links[1].textContent = t.footerContact;
+        }
+        if (cols[2]) {
+          cols[2].querySelector('h4').textContent = t.footerLegal;
+          const links = cols[2].querySelectorAll('a');
+          if (links[0]) links[0].textContent = t.footerPrivacy;
+          if (links[1]) links[1].textContent = t.footerTerms;
+        }
+
+        const bottom = footer.querySelector('.footer-bottom');
+        if (bottom) {
+          const ps = bottom.querySelectorAll('p');
+          if (ps[0]) ps[0].textContent = t.footerCopyright;
+          if (ps[1]) ps[1].textContent = t.footerMade;
+        }
+      }
+
+      function updateLangSwitcher(lang) {
+        const switcher = document.querySelector('.lang-switcher');
+        if (switcher) {
+          switcher.querySelector('.lang-code').textContent = lang;
+          switcher.querySelector('.lang-flag').textContent = lang === 'id' ? '🇮🇩' : '🇬🇧';
+        }
+
+        const dropdown = document.querySelector('.lang-dropdown');
+        if (dropdown) {
+          dropdown.querySelectorAll('.lang-option').forEach(opt => {
+            opt.classList.toggle('active', opt.dataset.lang === lang);
+          });
+        }
+      }
+
+      // Show banner for Indonesian users
+      function showBanner() {
+        const banner = document.querySelector('.lang-banner');
+        const saved = localStorage.getItem('hafyz-lang');
+        const dismissed = localStorage.getItem('hafyz-banner-dismissed');
+
+        // Only show if: not yet chosen language, not dismissed, and browser is Indonesian
+        if (!saved && !dismissed) {
+          const browserLang = navigator.language || navigator.userLanguage;
+          if (browserLang && browserLang.toLowerCase().startsWith('id')) {
+            setTimeout(() => {
+              if (banner) banner.classList.add('show');
+            }, 2000);
+          }
+        }
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+
+      function init() {
+        const lang = getLanguage();
+        setLanguage(lang);
+        showBanner();
+
+        // Setup language switcher click
+        const switcher = document.querySelector('.lang-switcher');
+        const dropdown = document.querySelector('.lang-dropdown');
+
+        if (switcher && dropdown) {
+          switcher.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+          });
+
+          document.addEventListener('click', () => {
+            dropdown.classList.remove('active');
+          });
+
+          dropdown.querySelectorAll('.lang-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+              const newLang = opt.dataset.lang;
+              setLanguage(newLang);
+              dropdown.classList.remove('active');
+            });
+          });
+        }
+
+        // Setup banner buttons
+        const banner = document.querySelector('.lang-banner');
+        if (banner) {
+          banner.querySelector('.btn-switch').addEventListener('click', () => {
+            setLanguage('id');
+            banner.classList.remove('show');
+          });
+
+          banner.querySelector('.btn-dismiss').addEventListener('click', () => {
+            localStorage.setItem('hafyz-banner-dismissed', '1');
+            banner.classList.remove('show');
+          });
+        }
+      }
+    })();
+  </script><base target="_blank">
 </head>
 
 <body>
@@ -819,7 +1333,21 @@
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="mobile-menu-btn">☰</button>
+            <div class="lang-switcher" style="margin-left: auto; margin-right: 16px;">
+        <span class="lang-flag">🇬🇧</span>
+        <span class="lang-code">EN</span>
+        <div class="lang-dropdown">
+          <div class="lang-option active" data-lang="en">
+            <span class="flag">🇬🇧</span>
+            <span>English</span>
+          </div>
+          <div class="lang-option" data-lang="id">
+            <span class="flag">🇮🇩</span>
+            <span>Bahasa Indonesia</span>
+          </div>
+        </div>
+      </div>
+<button class="mobile-menu-btn">☰</button>
     </div>
   </nav>
 
@@ -1052,5 +1580,17 @@
     });
   </script>
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"2bd1cd350ac2416d8b73d7b239832964","r":1}' crossorigin="anonymous"></script>
+
+  <!-- Language Banner -->
+  <div class="lang-banner">
+    <div class="banner-text">
+      <strong>Switch to Bahasa Indonesia?</strong>
+      We detected you're browsing from Indonesia.
+    </div>
+    <div class="banner-actions">
+      <button class="btn-banner btn-switch">Switch</button>
+      <button class="btn-banner btn-dismiss">Keep English</button>
+    </div>
+  </div>
 </body>
 </html>

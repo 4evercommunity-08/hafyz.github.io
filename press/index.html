@@ -29,7 +29,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after {
@@ -53,7 +53,7 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -117,11 +117,12 @@
     }
 
     .hero-title {
-      font-family: 'Playfair Display', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 400;
-      line-height: 1.1;
+      font-weight: 700;
+      line-height: 1.05;
       margin-bottom: 1rem;
+      letter-spacing: -0.02em;
     }
 
     .hero-title span {
@@ -145,11 +146,12 @@
     }
 
     .section-title {
-      font-family: 'Playfair Display', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
       font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 2rem;
       text-align: center;
+      letter-spacing: -0.015em;
     }
 
     .section-title span {
@@ -180,11 +182,12 @@
     }
 
     .bio-content h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 1rem;
       color: var(--accent-dark);
+      letter-spacing: -0.01em;
     }
 
     .bio-content p {
@@ -256,20 +259,20 @@
 
     .quote-card::before {
       content: """;
-      font-family: 'Playfair Display', serif;
-      font-size: 6rem;
+      font-family: Georgia, serif;
+      font-size: 5rem;
       color: var(--accent);
-      opacity: 0.3;
+      opacity: 0.15;
       position: absolute;
-      top: 1rem;
+      top: 1.5rem;
       left: 2rem;
       line-height: 1;
     }
 
     .quote-text {
-      font-family: 'Playfair Display', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
       font-size: 1.25rem;
-      font-style: italic;
+      font-weight: 400;
       line-height: 1.6;
       color: var(--text);
       position: relative;
@@ -439,11 +442,12 @@
     }
 
     .rider-teaser h3 {
-      font-family: 'Playfair Display', serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', sans-serif;
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 700;
       margin-bottom: 1rem;
       color: var(--text);
+      letter-spacing: -0.01em;
     }
 
     .rider-teaser > p {
@@ -625,6 +629,7 @@
       }
     }
   </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>

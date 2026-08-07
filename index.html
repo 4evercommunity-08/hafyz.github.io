@@ -844,13 +844,20 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 8px;
-      min-width: 140px;
+      min-width: 160px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       opacity: 0;
       visibility: hidden;
-      transform: translateY(-8px);
-      transition: all 0.3s var(--transition);
+      transform: translateY(-8px) scale(0.95);
+      transition: all 0.2s var(--transition);
       z-index: 1001;
+      pointer-events: none;
+    }
+    .lang-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
     }
     .lang-dropdown.active {
       opacity: 1;
@@ -884,7 +891,7 @@
       position: fixed;
       bottom: 24px;
       left: 50%;
-      transform: translateX(-50%) translateY(120px);
+      transform: translateX(-50%) translateY(150%);
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -896,10 +903,14 @@
       z-index: 9999;
       max-width: 420px;
       width: calc(100% - 48px);
-      transition: transform 0.5s var(--transition);
+      transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      pointer-events: none;
+      opacity: 0;
     }
     .lang-banner.show {
       transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+      opacity: 1;
     }
     .lang-banner .banner-text {
       flex: 1;
@@ -1254,16 +1265,24 @@
 
       // Show banner for Indonesian users
       function showBanner() {
-        const banner = document.querySelector('.lang-banner');
+        const banner = document.getElementById('lang-banner');
         const saved = localStorage.getItem('hafyz-lang');
         const dismissed = localStorage.getItem('hafyz-banner-dismissed');
 
+        console.log('Checking banner - saved:', saved, 'dismissed:', dismissed);
+
         // Only show if: not yet chosen language, not dismissed, and browser is Indonesian
         if (!saved && !dismissed) {
-          const browserLang = navigator.language || navigator.userLanguage;
-          if (browserLang && browserLang.toLowerCase().startsWith('id')) {
+          const browserLang = navigator.language || navigator.userLanguage || '';
+          console.log('Browser language:', browserLang);
+
+          if (browserLang.toLowerCase().startsWith('id')) {
+            console.log('Indonesian detected, showing banner in 2s...');
             setTimeout(() => {
-              if (banner) banner.classList.add('show');
+              if (banner) {
+                banner.classList.add('show');
+                console.log('Banner shown!');
+              }
             }, 2000);
           }
         }
@@ -1287,16 +1306,21 @@
 
         if (switcher && dropdown) {
           switcher.addEventListener('click', (e) => {
+            e.preventDefault();
             e.stopPropagation();
             dropdown.classList.toggle('active');
           });
 
-          document.addEventListener('click', () => {
-            dropdown.classList.remove('active');
+          document.addEventListener('click', (e) => {
+            if (!switcher.contains(e.target)) {
+              dropdown.classList.remove('active');
+            }
           });
 
           dropdown.querySelectorAll('.lang-option').forEach(opt => {
-            opt.addEventListener('click', () => {
+            opt.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
               const newLang = opt.dataset.lang;
               setLanguage(newLang);
               dropdown.classList.remove('active');
@@ -1305,18 +1329,32 @@
         }
 
         // Setup banner buttons
-        const banner = document.querySelector('.lang-banner');
-        if (banner) {
-          banner.querySelector('.btn-switch').addEventListener('click', () => {
-            setLanguage('id');
-            banner.classList.remove('show');
-          });
+        const bannerEl = document.getElementById('lang-banner');
+        const btnSwitch = document.getElementById('btn-switch');
+        const btnDismiss = document.getElementById('btn-dismiss');
 
-          banner.querySelector('.btn-dismiss').addEventListener('click', () => {
-            localStorage.setItem('hafyz-banner-dismissed', '1');
-            banner.classList.remove('show');
+        if (btnSwitch) {
+          btnSwitch.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setLanguage('id');
+            if (bannerEl) bannerEl.classList.remove('show');
           });
         }
+
+        if (btnDismiss) {
+          btnDismiss.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            localStorage.setItem('hafyz-banner-dismissed', '1');
+            if (bannerEl) bannerEl.classList.remove('show');
+          });
+        }
+
+        // Debug: log current state
+        console.log('HAFYZ Language Switcher initialized');
+        console.log('Current language:', lang);
+        console.log('Browser language:', navigator.language);
       }
     })();
   </script><base target="_blank">
@@ -1582,14 +1620,14 @@
 <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"2bd1cd350ac2416d8b73d7b239832964","r":1}' crossorigin="anonymous"></script>
 
   <!-- Language Banner -->
-  <div class="lang-banner">
+  <div class="lang-banner" id="lang-banner">
     <div class="banner-text">
-      <strong>Switch to Bahasa Indonesia?</strong>
-      We detected you're browsing from Indonesia.
+      <strong id="banner-title">Switch to Bahasa Indonesia?</strong>
+      <span id="banner-text">We detected you're browsing from Indonesia.</span>
     </div>
     <div class="banner-actions">
-      <button class="btn-banner btn-switch">Switch</button>
-      <button class="btn-banner btn-dismiss">Keep English</button>
+      <button type="button" class="btn-banner btn-switch" id="btn-switch">Switch</button>
+      <button type="button" class="btn-banner btn-dismiss" id="btn-dismiss">Keep English</button>
     </div>
   </div>
 </body>

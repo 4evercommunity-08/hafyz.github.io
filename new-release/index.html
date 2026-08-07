@@ -3,244 +3,303 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Out Now — HAFYZ</title>
-  <meta name="description" content="The new release from HAFYZ is here. Listen now.">
+  <title>New Release | HAFYZ</title>
+  <meta name="description" content="New release from HAFYZ. Listen now on your favorite streaming platform.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://hafyz.my.id/new-release.html">
 
   <!-- Open Graph -->
+  <meta property="og:title" content="New Release | HAFYZ">
+  <meta property="og:description" content="Something new is here. Listen now on Spotify, Apple Music, and more.">
   <meta property="og:type" content="music.song">
-  <meta property="og:url" content="https://hafyz.my.id/new-release.html">
-  <meta property="og:title" content="Out Now — HAFYZ">
-  <meta property="og:description" content="The new release from HAFYZ is here. Listen now.">
+  <meta property="og:url" content="https://hafyz.my.id/new-release/">
   <meta property="og:image" content="https://hafyz.my.id/og-image.jpg">
   <meta property="og:site_name" content="HAFYZ">
+  <meta property="og:locale" content="en_US">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Out Now — HAFYZ">
-  <meta name="twitter:description" content="The new release from HAFYZ is here. Listen now.">
+  <meta name="twitter:title" content="New Release | HAFYZ">
+  <meta name="twitter:description" content="Something new is here. Listen now.">
   <meta name="twitter:image" content="https://hafyz.my.id/og-image.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎸</text></svg>">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://hafyz.my.id/new-release/">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #f5f5f5;
-      --bg-elevated: #ffffff;
-      --surface: #ffffff;
-      --border: #e0e0e0;
-      --text: #1a1a1a;
-      --text-secondary: #555555;
-      --text-tertiary: #888888;
-      --accent: #c9a84c;
-      --accent-hover: #d4b55a;
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --transition: cubic-bezier(0.4, 0, 0.2, 1);
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #faf8f5;
+      --text: #1a1a2e;
+      --text-light: #666;
+      --accent: #c9a96e;
+      --accent-dark: #a88b4a;
+      --border: rgba(0,0,0,0.08);
+    }
 
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
     body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250,248,245,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: 0.3em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-home {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .nav-home:hover {
+      color: var(--accent);
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 8rem 2rem 4rem;
       text-align: center;
-      padding: 40px 24px;
-      overflow-x: hidden;
     }
 
-    /* Logo */
-    .logo {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 4px;
-      color: var(--accent);
-      text-decoration: none;
-      margin-bottom: 60px;
-      transition: opacity 0.3s;
-    }
-    .logo:hover { opacity: 0.7; }
-
-    /* Out Now badge */
-    .badge {
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 100px;
-      background: var(--accent);
-      color: var(--bg);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
+    .release-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      margin-bottom: 32px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 0.2s forwards;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 0.2s both;
     }
 
-    /* Title - placeholder, will be revealed */
-    .title {
-      font-size: clamp(32px, 7vw, 64px);
-      font-weight: 800;
-      letter-spacing: -2px;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 0.4s forwards;
-    }
-    .title span {
-      background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .release-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease 0.4s both;
     }
 
-    .subtitle {
-      font-size: 20px;
-      color: var(--text-secondary);
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 0.6s forwards;
+    .release-title span {
+      font-style: italic;
+      color: var(--accent-dark);
     }
 
-    /* Cover art placeholder */
     .cover-art {
       width: 300px;
       height: 300px;
-      background: linear-gradient(135deg, #1a1a2e, #2a2a4e);
-      border-radius: 24px;
-      margin-bottom: 48px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      border-radius: 12px;
+      margin: 2rem auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 80px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 0.8s forwards;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      font-size: 4rem;
+      box-shadow: 0 20px 60px rgba(201,169,110,0.3);
+      animation: fadeInUp 1s ease 0.6s both;
     }
 
-    /* Listen buttons */
-    .listen-buttons {
+    .cover-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .release-meta {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 0.8s both;
+    }
+
+    /* ===== STREAMING LINKS ===== */
+    .streaming-links {
       display: flex;
-      gap: 16px;
       flex-wrap: wrap;
+      gap: 1rem;
       justify-content: center;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 1s forwards;
+      margin-bottom: 2rem;
+      animation: fadeInUp 1s ease 1s both;
     }
 
     .listen-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      border-radius: 980px;
-      font-size: 16px;
-      font-weight: 500;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       text-decoration: none;
-      transition: all 0.3s var(--transition);
+      transition: all 0.3s ease;
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--text);
       color: var(--bg);
     }
+
     .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: scale(1.02);
+      background: var(--accent);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: var(--surface);
+      background: transparent;
       color: var(--text);
-      border: 1px solid var(--border);
+      border: 1.5px solid var(--border);
     }
+
     .btn-secondary:hover {
-      background: var(--bg-elevated);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
     }
 
-    /* Back link */
-    .back-link {
-      font-size: 14px;
-      color: var(--text-tertiary);
-      text-decoration: none;
-      transition: color 0.3s;
-      opacity: 0;
-      animation: fadeUp 1s var(--transition) 1.2s forwards;
+    /* ===== FOOTER ===== */
+    footer {
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
     }
-    .back-link:hover {
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--accent-dark);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
       color: var(--text);
     }
 
-    /* Footer */
-    .footer {
-      position: absolute;
-      bottom: 24px;
-      font-size: 12px;
-      color: var(--text-tertiary);
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Animations */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Mobile */
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
-      .cover-art { width: 240px; height: 240px; }
-      .listen-buttons { flex-direction: column; align-items: center; }
-      .listen-btn { width: 100%; max-width: 280px; justify-content: center; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .cover-art {
+        width: 250px;
+        height: 250px;
+      }
+
+      .streaming-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .listen-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
     }
   </style>
 <base target="_blank">
 </head>
 <body>
-  <a href="/" class="logo">HAFYZ</a>
+  <nav>
+    <a href="/" class="nav-logo">HAFYZ</a>
+    <a href="/" class="nav-home">Home</a>
+  </nav>
 
-  <div class="badge">Out Now</div>
+  <main>
+    <div class="release-label">Out Now</div>
 
-  <!-- PLACEHOLDER: Update this on August 14 -->
-  <h1 class="title"><span>???</span></h1>
-  <p class="subtitle">The new single is here.</p>
+    <!-- GANTI INI NANTI TANGGAL 14 AGUSTUS -->
+    <h1 class="release-title"><span>???</span></h1>
+    <!-- JADI: <h1 class="release-title"><span>chasing hollow gold</span><br>(After Hours) [Stripped Version]</h1> -->
 
-  <!-- PLACEHOLDER: Add actual cover art -->
-  <div class="cover-art">🎵</div>
+    <div class="cover-art">
+      <!-- GANTI INI NANTI -->
+      <span>🎵</span>
+      <!-- JADI: <img src="/cover-stripped.jpg" alt="chasing hollow gold (After Hours) Stripped Version"> -->
+    </div>
 
-  <!-- PLACEHOLDER: Add actual streaming links -->
-  <div class="listen-buttons">
-    <a href="#" class="listen-btn btn-primary">Listen on Spotify</a>
-    <a href="#" class="listen-btn btn-secondary">Apple Music</a>
-    <a href="#" class="listen-btn btn-secondary">YouTube</a>
-  </div>
+    <p class="release-meta">HAFYZ &middot; 2026 &middot; Single</p>
 
-  <a href="/" class="back-link">← Back to homepage</a>
+    <div class="streaming-links">
+      <!-- UPDATE LINK NANTI -->
+      <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" class="listen-btn btn-primary" target="_blank" rel="noopener">Listen on Spotify</a>
+      <a href="https://music.apple.com/us/artist/hafyz/1754145654" class="listen-btn btn-secondary" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://www.youtube.com/@itsmehafyz" class="listen-btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </main>
 
-  <div class="footer">© 2026 HAFYZ</div>
-
-  <!-- 
-    INSTRUCTIONS FOR AUGUST 14, 2026:
-    1. Replace "???" with actual song title
-    2. Replace cover-art div with actual image: <img src="cover-new-release.jpg" alt="...">
-    3. Update streaming links with actual URLs
-    4. Update meta description and OG tags
-  -->
+  <footer>
+    <p>Made with love in Pekanbaru, Indonesia &copy; 2026 HAFYZ. All rights reserved.</p>
+  </footer>
 </body>
 </html>

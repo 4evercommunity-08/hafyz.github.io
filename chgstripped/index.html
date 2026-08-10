@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>chasing hollow gold (After Hours) [Stripped] | HAFYZ</title>
 
-  <!-- Favicon -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="shortcut icon" href="/favicon.ico">
 
-  <meta name="description" content="Pre-Save chasing hollow gold (After Hours) [Stripped Version] by HAFYZ now. Out August 14, 2026.">
+  <meta name="description" content="Pre-Save chasing hollow gold (After Hours) [Stripped Version] by HAFYZ. Out August 14, 2026.">
   <link rel="canonical" href="https://hafyz.my.id/chgstripped/">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="chasing hollow gold (After Hours) [Stripped Version]">
   <meta property="og:description" content="Pre-Save now. Out August 14, 2026.">
   <meta property="og:type" content="website">
@@ -22,316 +20,556 @@
   <meta property="og:image" content="https://hafyz.my.id/chgstripped/chasing-hollow-gold-stripped.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="1200">
-  <meta property="og:image:alt" content="chasing hollow gold (After Hours) [Stripped Version] - Cover Art">
+  <meta property="og:image:alt" content="chasing hollow gold (After Hours) [Stripped] cover art">
   <meta property="og:site_name" content="HAFYZ">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="chasing hollow gold (After Hours) [Stripped Version]">
   <meta name="twitter:description" content="Pre-Save now. Out August 14, 2026.">
   <meta name="twitter:image" content="https://hafyz.my.id/chgstripped/chasing-hollow-gold-stripped.jpg">
-  <meta name="twitter:image:alt" content="chasing hollow gold (After Hours) [Stripped Version] - Cover Art">
-
-  <!-- WhatsApp / iMessage -->
-  <meta property="og:image:type" content="image/jpeg">
-
-  <!-- Schema.org -->
-  <meta itemprop="name" content="chasing hollow gold (After Hours) [Stripped Version]">
-  <meta itemprop="description" content="Pre-Save now. Out August 14, 2026.">
-  <meta itemprop="image" content="https://hafyz.my.id/chgstripped/chasing-hollow-gold-stripped.jpg">
 
   <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --bg: #0a0a0f;
-      --text: #faf8f5;
-      --text-dim: rgba(250,248,245,0.6);
-      --accent: #c9a96e;
-      --accent-dark: #a88b4a;
+    :root{
+      --bg:#f7f7f4;
+      --surface:#171717;
+      --text:#171717;
+      --muted:#777772;
+      --dim:#8a8a85;
+      --gold:#d8b65b;
+      --gold-soft:#efd88a;
+      --line:rgba(20,20,20,.11);
+      --ease:cubic-bezier(.2,.75,.25,1);
     }
 
-    html { scroll-behavior: smooth; }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100svh;
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    ::selection{background:var(--gold);color:#111111}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      overflow-x: hidden;
+    .page{
+      min-height:100svh;
+      position:relative;
+      isolation:isolate;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
     }
 
-    /* Background artwork with overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('chasing-hollow-gold-stripped.jpg') center/cover no-repeat;
-      opacity: 0.25;
-      z-index: -1;
+    /* Artwork atmosphere */
+    .backdrop{
+      position:absolute;
+      inset:-4%;
+      z-index:-3;
+      background:url("chasing-hollow-gold-stripped.jpg") center/cover no-repeat;
+      filter:blur(18px);
+      transform:scale(1.06);
+      opacity:.34;
+    }
+    .backdrop::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 50% 35%,rgba(216,182,91,.10),transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.88) 68%,#f7f7f4 100%);
+    }
+    .grain{
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      opacity:.055;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(180deg, rgba(10,10,15,0.3) 0%, rgba(10,10,15,0.85) 50%, rgba(10,10,15,0.95) 100%);
-      z-index: -1;
+    .topbar{
+      width:min(calc(100% - 44px),1180px);
+      height:76px;
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:relative;
+      z-index:3;
+    }
+    .brand{
+      font-family:"Arial Black",Inter,sans-serif;
+      font-size:17px;
+      letter-spacing:.28em;
+      font-weight:800;
+    }
+    .topbar-right{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .era{
+      border:1px solid rgba(20,20,20,.14);
+      background:rgba(255,255,255,.55);
+      padding:8px 12px;
+      border-radius:999px;
+      color:#777772;
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      backdrop-filter:blur(12px);
+    }
+    .home{
+      width:36px;height:36px;border:1px solid var(--line);
+      border-radius:50%;display:grid;place-items:center;
+      color:#555551;font-size:14px;transition:.25s;
+      background:rgba(255,255,255,.52);
+    }
+    .home:hover{color:var(--gold);border-color:var(--gold)}
+
+    .main{
+      flex:1;
+      width:min(calc(100% - 44px),1180px);
+      margin:auto;
+      display:grid;
+      grid-template-columns:minmax(300px,500px) minmax(320px,1fr);
+      align-items:center;
+      gap:clamp(55px,9vw,135px);
+      padding:45px 0 65px;
     }
 
-    .logo {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      color: var(--accent);
+    .art-wrap{position:relative;justify-self:center;width:min(100%,470px)}
+    .art{
+      position:relative;
+      aspect-ratio:1;
+      border-radius:24px;
+      overflow:hidden;
+      border:1px solid rgba(20,20,20,.16);
+      box-shadow:0 35px 100px rgba(0,0,0,.62);
+      transform:rotate(-1.2deg);
+      transition:transform .7s var(--ease);
+    }
+    .art:hover{transform:rotate(0deg) scale(1.012)}
+    .art img{width:100%;height:100%;object-fit:cover}
+    .art::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+      pointer-events:none;
+    }
+    .art-label{
+      position:absolute;
+      left:-15px;
+      bottom:28px;
+      z-index:2;
+      padding:9px 13px;
+      background:var(--gold);
+      color:#111111;
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      transform:rotate(-3deg);
+      box-shadow:0 12px 30px rgba(0,0,0,.4);
     }
 
-    .artwork {
-      width: 280px;
-      height: 280px;
-      border-radius: 16px;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      position: relative;
+    .copy{max-width:590px}
+    .kicker{
+      color:var(--gold-soft);
+      font-size:10px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.24em;
+      margin-bottom:18px;
+    }
+    h1{
+      font-family:Inter,system-ui,sans-serif;
+      font-size:clamp(42px,6vw,78px);
+      line-height:.94;
+      letter-spacing:-.065em;
+      font-weight:700;
+    }
+    h1 .gold{color:var(--gold)}
+    .stripped{
+      display:inline-block;
+      color:var(--gold);
+      font-size:.42em;
+      letter-spacing:.18em;
+      vertical-align:middle;
+      margin-left:5px;
+      text-transform:uppercase;
+      font-weight:700;
+    }
+    .subtitle{
+      color:#5555519a5;
+      font-size:14px;
+      line-height:1.75;
+      max-width:480px;
+      margin-top:23px;
     }
 
-    .artwork img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    .release-line{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:25px;
+      color:#777772;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+    }
+    .release-line i{
+      width:4px;height:4px;border-radius:50%;background:var(--gold);display:block;
     }
 
-    .label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
+    .countdown{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(60px,1fr));
+      max-width:475px;
+      gap:1px;
+      margin-top:34px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background:var(--line);
+    }
+    .count-item{
+      min-height:92px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      background:rgba(255,255,255,.78);
+      backdrop-filter:blur(14px);
+    }
+    .number{
+      color:var(--gold);
+      font-family:Inter,sans-serif;
+      font-size:clamp(27px,4vw,39px);
+      line-height:1;
+      font-weight:700;
+      font-variant-numeric:tabular-nums;
+      letter-spacing:-.04em;
+    }
+    .unit{
+      margin-top:8px;
+      color:#666;
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
     }
 
-    h1 {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+    .btn{
+      min-height:49px;
+      padding:0 21px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      transition:.3s var(--ease);
+    }
+    .primary{
+      background:var(--gold);
+      color:#111111;
+      border:1px solid var(--gold);
+      box-shadow:0 12px 35px rgba(216,182,91,.12);
+    }
+    .primary:hover{background:var(--gold-soft);transform:translateY(-2px)}
+    .secondary{
+      border:1px solid var(--line-strong);
+      background:rgba(255,255,255,.035);
+      color:#bbb;
+    }
+    .secondary:hover{color:#fff;border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+
+    .fineprint{
+      margin-top:20px;
+      color:#898983;
+      font-size:9px;
+      line-height:1.6;
     }
 
-    h1 .bracket {
-      color: var(--accent);
-      font-weight: 400;
+    footer{
+      width:min(calc(100% - 44px),1180px);
+      margin:auto;
+      padding:18px 0 22px;
+      border-top:1px solid rgba(20,20,20,.08);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      color:#898983;
+      font-size:9px;
+    }
+    footer a{color:#777772}
+    footer a:hover{color:var(--gold)}
+
+    @media(max-width:800px){
+      .topbar{height:65px}
+      .main{
+        grid-template-columns:1fr;
+        gap:42px;
+        padding:35px 0 55px;
+      }
+      .art-wrap{width:min(82vw,390px)}
+      .copy{margin:auto;text-align:center}
+      .kicker{margin-bottom:14px}
+      .subtitle{margin-inline:auto}
+      .release-line{justify-content:center}
+      .countdown{margin-inline:auto}
+      .actions{justify-content:center}
+      .fineprint{text-align:center}
+      footer{justify-content:center;text-align:center;flex-direction:column;gap:5px}
     }
 
-    .subtitle {
-      font-size: 1rem;
-      color: var(--text-dim);
-      margin-bottom: 2.5rem;
-      font-weight: 300;
+    @media(max-width:480px){
+      .topbar,.main,footer{width:min(calc(100% - 30px),1180px)}
+      .era{display:none}
+      .art-wrap{width:min(80vw,330px)}
+      .art{border-radius:18px}
+      .art-label{left:-8px;bottom:18px}
+      h1{font-size:clamp(39px,12vw,58px)}
+      .subtitle{font-size:12px}
+      .countdown{max-width:330px}
+      .count-item{min-height:76px}
+      .number{font-size:25px}
+      .btn{width:100%}
+      .actions{width:min(100%,330px);margin-inline:auto}
     }
 
-    .countdown {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition-duration:.01ms!important}
+    }
+  
+    /* LIGHT THEME */
+    body{background:#f7f7f4;color:#171717}
+    .site-nav.scrolled,.nav.scrolled{
+      background:rgba(255,255,255,.82)!important;
+      border-color:rgba(20,20,20,.10)!important;
+    }
+    .nav-links a{color:#666}
+    .nav-links a:hover{color:#111}
+    .menu-toggle,.menu{background:rgba(255,255,255,.78);border-color:rgba(20,20,20,.12)}
+    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after,
+    .menu span,.menu span::before,.menu span::after{background:#171717}
+    .menu-toggle.active span,.menu.active span{background:transparent}
+    .nav-cta,.home-link,.secondary,.btn-ghost{
+      background:rgba(255,255,255,.72);
+      color:#444!important;
+      border-color:rgba(20,20,20,.16);
+    }
+    .nav-cta:hover,.home-link:hover,.secondary:hover,.btn-ghost:hover{
+      border-color:#d8b65b;color:#9b7a25!important;
+    }
+    .hero::before{
+      background:
+        radial-gradient(circle at 50% 42%,rgba(216,182,91,.13),transparent 32%),
+        linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.38) 48%,#f7f7f4 100%)!important;
+    }
+    .hero::after{
+      background:linear-gradient(90deg,rgba(255,255,255,.36),transparent 48%,rgba(255,255,255,.30))!important;
+    }
+    .hero h1{
+      background:linear-gradient(180deg,#151515 10%,#666 100%)!important;
+      -webkit-background-clip:text!important;background-clip:text!important;
+      color:transparent!important;
+    }
+    .hero-release{color:#333!important}
+    .section.alt{background:#f0f0ed;border-color:rgba(20,20,20,.06)!important}
+    .release-feature,.mini-release,.spotify-frame,.tour-shell,.metric,.release,.quote,.rider,.contact,.about-block{
+      background:#fff!important;
+      border-color:rgba(20,20,20,.10)!important;
+    }
+    .release-content p,.section-desc,.about-block p,.bio-copy p,.desc{color:#666!important}
+    .release-meta,.mini-content p{color:#777!important}
+    .release-secondary{color:#555!important;border-color:rgba(20,20,20,.12)!important}
+    .release-secondary:hover{color:#9b7a25!important;border-color:#d8b65b!important}
+    .contact{background:#fff!important}
+    .contact a,.footer-col a{color:#666}
+    footer{background:#fff!important;border-color:rgba(20,20,20,.10)!important}
+    .footer-brand p,.footer-bottom,.footer-col h4{color:#888!important}
+    .footer-col a:hover{color:#9b7a25!important}
+    .socials a{color:#666;border-color:rgba(20,20,20,.12)}
+    .socials a:hover{color:#9b7a25;border-color:#d8b65b}
+    .newsletter input{background:#fff!important;color:#171717!important;border-color:rgba(20,20,20,.14)!important}
+    .newsletter input::placeholder{color:#999}
+    .contact{
+      background:
+        radial-gradient(circle at 50% 0,rgba(216,182,91,.13),transparent 34%),
+        #f0f0ed!important;
     }
 
-    .countdown-item {
-      text-align: center;
-      min-width: 70px;
-    }
+    /* EPK light */
+    .bio-photo,.cover{background:#eee!important}
+    .metric-number,.release-info h3,.rider h3,.contact h3,.bio-copy h3{color:#171717!important}
+    .metric-name,.release-info p,.release-stat span,.rider-item,.contact p{color:#777!important}
+    .rider-item{background:#f7f7f4!important;border-color:rgba(20,20,20,.08)!important}
+    .rider-note{background:rgba(216,182,91,.08)!important;color:#666!important}
+    .quote{background:#fff!important}
+    .quote p{color:#222!important}
+    .quote-source{color:#777!important}
+    .hero h1 span{color:#777!important}
 
-    .countdown-item .number {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 800;
-      line-height: 1;
-      color: var(--accent);
-      font-variant-numeric: tabular-nums;
+    /* Campaign light */
+    .backdrop::after{
+      background:
+        radial-gradient(circle at 50% 35%,rgba(216,182,91,.10),transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.40),rgba(255,255,255,.86) 68%,#f7f7f4 100%)!important;
     }
-
-    .countdown-item .unit {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-top: 0.5rem;
-    }
-
-    .release-info {
-      font-size: 0.85rem;
-      color: var(--text-dim);
-      margin-bottom: 2rem;
-      letter-spacing: 0.5px;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 1rem 2.5rem;
-      background: var(--accent);
-      color: var(--bg);
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      margin-bottom: 1rem;
-    }
-
-    .cta-btn:hover {
-      background: var(--text);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(201,169,110,0.3);
-    }
-
-    .cta-secondary {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      transition: color 0.3s;
-    }
-
-    .cta-secondary:hover {
-      color: var(--text);
-    }
-
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--text-dim);
-      background: rgba(10,10,15,0.8);
-      backdrop-filter: blur(10px);
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    footer a:hover {
-      color: var(--text);
-    }
-
-    @media (max-width: 480px) {
-      .artwork { width: 220px; height: 220px; }
-      .countdown { gap: 1rem; }
-      .countdown-item { min-width: 55px; }
-      .countdown-item .number { font-size: 2rem; }
-    }
+    .backdrop{opacity:.24!important}
+    .grain{opacity:.025!important}
+    .art{border-color:rgba(20,20,20,.12)!important}
+    .art-label{color:#111!important}
+    .subtitle{color:#666!important}
+    .release-line{color:#777!important}
+    .countdown{border-color:rgba(20,20,20,.10)!important;background:rgba(20,20,20,.10)!important}
+    .count-item{background:rgba(255,255,255,.82)!important}
+    .unit{color:#777!important}
+    .fineprint{color:#888!important}
+    footer p{color:#888!important}
+    .era,.home{background:rgba(255,255,255,.68)!important;color:#666!important;border-color:rgba(20,20,20,.12)!important}
+    
   </style>
-<base target="_blank">
 </head>
+
 <body>
-  <div class="logo">HAFYZ</div>
+  <div class="page">
+    <div class="backdrop" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-  <div class="artwork">
-    <img src="chasing-hollow-gold-stripped.jpg" alt="chasing hollow gold (After Hours) [Stripped] - Cover Art">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="HAFYZ home">HAFYZ</a>
+      <div class="topbar-right">
+        <span class="era">After Hours</span>
+        <a class="home" href="/" aria-label="Back to HAFYZ website">↗</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="art-wrap">
+        <div class="art">
+          <img src="chasing-hollow-gold-stripped.jpg" alt="chasing hollow gold (After Hours) [Stripped] cover art">
+        </div>
+        <span class="art-label">Stripped Version</span>
+      </div>
+
+      <section class="copy">
+        <p class="kicker">Pre-Save · HAFYZ</p>
+
+        <h1>
+          chasing hollow<br>
+          <span class="gold">(After Hours)</span>
+          <span class="stripped">[Stripped]</span>
+        </h1>
+
+        <p class="subtitle">
+          The same story. Just quieter. Just closer. Just us.
+        </p>
+
+        <div class="release-line">
+          <span>August 14, 2026</span>
+          <i></i>
+          <span>11:00 WIB</span>
+          <i></i>
+          <span>00:00 ET</span>
+        </div>
+
+        <div class="countdown" id="countdown" aria-label="Countdown to release">
+          <div class="count-item">
+            <div class="number" id="days">00</div>
+            <div class="unit">Days</div>
+          </div>
+          <div class="count-item">
+            <div class="number" id="hours">00</div>
+            <div class="unit">Hours</div>
+          </div>
+          <div class="count-item">
+            <div class="number" id="minutes">00</div>
+            <div class="unit">Minutes</div>
+          </div>
+          <div class="count-item">
+            <div class="number" id="seconds">00</div>
+            <div class="unit">Seconds</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" id="cta" href="https://ffm.to/chgstripped" target="_blank" rel="noopener">
+            🔒 Pre-Save Now
+          </a>
+          <a class="btn secondary" href="/">
+            Back to HAFYZ
+          </a>
+        </div>
+
+        <p class="fineprint" id="status">
+          The countdown uses the release time supplied for this campaign.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
+      <p><a href="/">hafyz.my.id</a></p>
+    </footer>
   </div>
-
-  <div class="label">Pre-Save Now</div>
-
-  <h1>
-    chasing hollow gold<br>
-    <span class="bracket">(</span>After Hours<span class="bracket">)</span><br>
-    <span style="font-size: 0.7em; color: var(--accent);">[Stripped]</span>
-  </h1>
-
-  <p class="subtitle">The same story. Just quieter. Just closer. Just us.</p>
-
-  <div class="countdown" id="countdown">
-    <div class="countdown-item">
-      <div class="number" id="days">00</div>
-      <div class="unit">Days</div>
-    </div>
-    <div class="countdown-item">
-      <div class="number" id="hours">00</div>
-      <div class="unit">Hours</div>
-    </div>
-    <div class="countdown-item">
-      <div class="number" id="minutes">00</div>
-      <div class="unit">Minutes</div>
-    </div>
-    <div class="countdown-item">
-      <div class="number" id="seconds">00</div>
-      <div class="unit">Seconds</div>
-    </div>
-  </div>
-
-  <p class="release-info">Releasing August 14, 2026 · 11:00 WIB · 00:00 ET</p>
-
-  <a href="https://ffm.to/chgstripped" class="cta-btn" target="_blank" rel="noopener">🔒 Pre-Save Now</a>
-  <br>
-  <a href="/" class="cta-secondary">← Back to hafyz.my.id</a>
-
-  <footer>
-    <p>Made with love in Pekanbaru, Indonesia · <a href="/">Back to Website</a></p>
-  </footer>
 
   <script>
-    // Target: August 14, 2026 at 04:00 UTC (11:00 WIB / 00:00 ET)
     const targetDate = new Date('2026-08-14T04:00:00Z').getTime();
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const cta = document.getElementById('cta');
+    const status = document.getElementById('status');
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+    function pad(value){
+      return String(Math.max(0, value)).padStart(2, '0');
+    }
 
-      if (diff > 0) {
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    function updateCountdown(){
+      const diff = targetDate - Date.now();
 
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
-        document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-        document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-      } else {
-        // Released!
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
+      if(diff <= 0){
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
 
-        // Change button to "Listen Now" after release
-        const btn = document.querySelector('.cta-btn');
-        if (btn && btn.textContent.includes('Pre-Save')) {
-          btn.textContent = '🎵 Listen Now';
-          btn.href = 'https://ffm.to/chasinghollowgold';
-        }
+        cta.textContent = '🎵 Listen Now';
+        cta.href = 'https://ffm.to/chasinghollowgold';
+        status.textContent = 'Now available to stream.';
+        return;
       }
+
+      const totalSeconds = Math.floor(diff / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      daysEl.textContent = pad(days);
+      hoursEl.textContent = pad(hours);
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
     }
 
     updateCountdown();

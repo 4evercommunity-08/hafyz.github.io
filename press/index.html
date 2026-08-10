@@ -491,10 +491,32 @@
       transition:transform .25s var(--ease),color .25s;
     }
 
-  </style>
+  
+    .language-prompt{position:fixed;left:22px;bottom:22px;z-index:2000;width:min(390px,calc(100vw - 30px));padding:18px;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);border-radius:18px;box-shadow:0 22px 65px rgba(0,0,0,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(14px);transition:.32s}
+    .language-prompt.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .language-prompt-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+    .language-prompt-label{margin:0 0 6px;color:#b58d27;font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .language-prompt h3{margin:0;font-family:"Space Grotesk",sans-serif;font-size:18px;line-height:1.15;letter-spacing:-.035em}
+    .language-prompt p{margin:8px 0 14px;color:#70706b;font-size:10px;line-height:1.6}
+    .language-prompt-close{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:#fff;color:#777;cursor:pointer}
+    .language-prompt-actions{display:flex;gap:8px}
+    .language-prompt-actions button{min-height:38px;padding:0 14px;border-radius:999px;font:800 9px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+    .language-accept{border:1px solid #d8b65b;background:#d8b65b;color:#fff}
+    .language-keep{border:1px solid rgba(20,20,20,.10);background:#fff;color:#555}
+    .language-status{margin-top:10px!important;margin-bottom:0!important;font-size:9px!important;color:#9a9a94!important}
+    .lang-switch{position:fixed;right:18px;bottom:18px;z-index:1999;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:rgba(255,255,255,.92);color:#686863;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    @media(max-width:520px){.language-prompt{left:15px;bottom:15px;width:calc(100vw - 30px)}.language-prompt-actions{flex-direction:column}.language-prompt-actions button{width:100%}.lang-switch{right:14px;bottom:14px}}
+    
+
+    .lang-label{position:fixed;right:65px;bottom:28px;z-index:1999;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#888;pointer-events:none}
+    @media(max-width:520px){.lang-label{right:61px;bottom:28px}}
+
+</style>
 </head>
 
 <body>
+  <button class="lang-switch" id="langSwitch" type="button" aria-label="Language" title="Language">ID</button>
+
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="brand" href="/">HAFYZ</a>
@@ -518,7 +540,7 @@
       <div class="hero-inner">
         <p class="eyebrow">Electronic Press Kit · 2026</p>
         <h1>HAFYZ <span>/ Press Kit</span></h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-i18n="press_hero">
           Official press materials, artist biography, current metrics, releases,
           press coverage, technical information and booking details.
         </p>
@@ -553,10 +575,10 @@
           </div>
           <div class="bio-copy reveal">
             <h3>HAFYZ</h3>
-            <p><strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries across Electronic, Indie, and Pop.</p>
-            <p>Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single <strong>"Paradise"</strong> in 2017. As a visionary creator, he controls every blueprint of his work, serving as executive producer and recording engineer on all releases.</p>
+            <p data-i18n="press_bio_1"><strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic exploration, he consistently blurs genre boundaries across Electronic, Indie, and Pop.</p>
+            <p data-i18n="press_bio_2">Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single <strong>"Paradise"</strong> in 2017. As a visionary creator, he controls every blueprint of his work, serving as executive producer and recording engineer on all releases.</p>
             <p>From <strong>MANIC</strong> (2020) to <strong>Immortal Romance (Extended Deluxe Versions)</strong> (2025), and the sixth album <strong>xoxo, i'm done</strong> (2026), each release is an experiment in modern narrative. Beyond the studio, HAFYZ translates his artistic vision into a broader professional realm under <strong>SOUR+ Corporation</strong>, integrating music (SOUR+ Entertainment Inc.) and cinema (Balai Kreasi Cinema).</p>
-            <p>His latest single <strong>"chasing hollow gold (After Hours)"</strong>, released July 31, 2026, marks the official opening of the <em>After Hours</em> era, exploring themes of friendship breakup with emotional depth and sonic precision.</p>
+            <p data-i18n="press_bio_5">His latest single <strong>"chasing hollow gold (After Hours)"</strong>, released July 31, 2026, marks the official opening of the <em>After Hours</em> era, exploring themes of friendship breakup with emotional depth and sonic precision.</p>
           </div>
         </div>
       </div>
@@ -587,6 +609,7 @@
               <strong class="metric-number">2.5K</strong>
               <div><p class="metric-name">Streams</p><p class="metric-platform">chasing hollow gold</p></div>
             </div>
+            
           </div>
         </div>
 
@@ -696,7 +719,7 @@
             <div class="rider-item"><b>08</b>Hospitality & Personnel</div>
           </div>
 
-          <div class="rider-note">
+          <div class="rider-note" data-i18n="press_rider_note">
             <strong>Full technical rider is provided to confirmed event organizers and production teams only.</strong><br>
             Specifications are tailored to venue size. All gear requirements use industry-standard professional equipment (L-Acoustics, DiGiCo, Shure, GrandMA, etc.).
           </div>
@@ -806,5 +829,65 @@
       observer.observe(el);
     });
   </script>
+
+  <script>
+(function(){
+  const exact = new Map([["Artist", "Artis"], ["Metrics", "Metrik"], ["Releases", "Rilisan"], ["Press", "Pers"], ["Rider", "Rider"], ["Booking", "Booking"], ["Back to website", "Kembali ke website"], ["Electronic Press Kit · 2026", "Electronic Press Kit · 2026"], ["Official HAFYZ Press Kit", "Press Kit Resmi HAFYZ"], ["Media · Industry · Booking", "Media · Industri · Booking"], ["Producer", "Produser"], ["Composer", "Komposer"], ["The artist.", "Sang artis."], ["Key numbers.", "Angka utama."], ["Total Streams", "Total Streaming"], ["Lifetime", "Seumur hidup"], ["Streams", "Streaming"], ["Shazam Count", "Jumlah Shazam"], ["Radio Spins", "Putaran Radio"], ["Latest work.", "Karya terbaru."], ["Selected current releases presented for media and industry reference.", "Pilihan rilisan terkini untuk referensi media dan industri."], ["Listen / press link ↗", "Dengarkan / tautan pers ↗"], ["Spotify profile ↗", "Profil Spotify ↗"], ["Album", "Album"], ["Full length", "Full length"], ["Press quote.", "Kutipan pers."], ["Selected published coverage from the supplied press kit.", "Liputan terpilih dari press kit yang tersedia."], ["Technical rider.", "Technical rider."], ["Professional Concert Technical Rider", "Technical Rider Konser Profesional"], ["Stage Plot & Dimensions", "Stage Plot & Dimensi"], ["FOH Console & PA System", "Konsol FOH & Sistem PA"], ["Monitor & IEM Specifications", "Spesifikasi Monitor & IEM"], ["Lighting Design & Plot", "Desain & Plot Pencahayaan"], ["LED Wall & Video Playback", "LED Wall & Pemutaran Video"], ["Backline & Artist Equipment", "Backline & Peralatan Artis"], ["Power Distribution", "Distribusi Daya"], ["Hospitality & Personnel", "Hospitality & Personel"], ["Let's work.", "Mari bekerja sama."], ["Booking inquiries, press and collaborations", "Pertanyaan booking, pers, dan kolaborasi"], ["Open profile ↗", "Buka profil ↗"], ["Updates via SOUR+ Entertainment Inc.", "Pembaruan melalui SOUR+ Entertainment Inc."], ["Open Instagram ↗", "Buka Instagram ↗"], ["Official HAFYZ channel", "Kanal resmi HAFYZ"], ["Request full technical rider ↗", "Minta technical rider lengkap ↗"], ["All rights reserved.", "Seluruh hak dilindungi."]]);
+  const marked = new Map([["press_bio_1", "<strong>HAFYZ</strong> adalah musisi, komposer, produser, dan entrepreneur multidisipliner dari Pekanbaru, Indonesia. Dikenal melalui eksplorasi sonik yang dinamis dan berkarakter, ia konsisten melampaui batas genre Electronic, Indie, dan Pop."], ["press_bio_2", "Memulai perjalanan pada 2015 melalui production house audio-visual, HAFYZ resmi memasuki industri musik dengan single debut “Paradise” pada 2017."], ["press_bio_3", "Sebagai kreator visioner, ia mengendalikan setiap blueprint karyanya, bertindak sebagai executive producer dan recording engineer untuk seluruh rilisan."], ["press_bio_4", "Di luar studio, HAFYZ menerjemahkan visi artistiknya ke ranah profesional yang lebih luas melalui SOUR+ Corporation, yang mengintegrasikan musik (SOUR+ Entertainment Inc.) dan sinema (Balai Kreasi Cinema)."], ["press_bio_5", "Single terbarunya “chasing hollow gold (After Hours)”, dirilis 31 Juli 2026, menandai pembukaan resmi era After Hours, mengeksplorasi tema friendship breakup dengan kedalaman emosional dan presisi sonik."], ["press_hero", "Materi pers resmi, biografi artis, metrik terkini, rilisan, liputan pers, informasi teknis, dan detail booking."], ["press_rider_note", "<strong>Technical rider lengkap hanya diberikan kepada penyelenggara acara dan tim produksi yang sudah dikonfirmasi.</strong><br>Spesifikasi disesuaikan dengan ukuran venue. Seluruh kebutuhan peralatan menggunakan perangkat profesional berstandar industri (L-Acoustics, DiGiCo, Shure, GrandMA, dll.)."]]);
+  const original = new WeakMap();
+
+  function setLanguage(lang){
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!original.has(el)) original.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      if(lang === 'id' && marked.has(key)) el.innerHTML = marked.get(key);
+      else if(lang === 'en') el.innerHTML = original.get(el);
+    });
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(function(node){
+      const parent = node.parentElement;
+      if(!parent || ['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName) || parent.closest('[data-i18n]')) return;
+      if(!original.has(node)) original.set(node, node.nodeValue);
+      const key = node.nodeValue.trim();
+
+      if(lang === 'id' && exact.has(key)){
+        node.nodeValue = node.nodeValue.replace(key, exact.get(key));
+      } else if(lang === 'en' && original.has(node)){
+        node.nodeValue = original.get(node);
+      }
+    });
+
+    document.documentElement.lang = lang;
+    localStorage.setItem('hafyz-language', lang);
+    localStorage.setItem('hafyz-language-choice', 'manual');
+
+    const button = document.getElementById('langSwitch');
+    if(button){
+      button.textContent = lang === 'id' ? 'EN' : 'ID';
+      button.title = lang === 'id' ? 'Switch to English' : 'Switch to Bahasa Indonesia';
+      button.setAttribute('aria-label', button.title);
+    }
+  }
+
+  const button = document.getElementById('langSwitch');
+  if(button){
+    button.textContent = 'ID';
+    button.title = 'Switch to Bahasa Indonesia';
+    button.setAttribute('aria-label', button.title);
+    button.addEventListener('click', function(){
+      const current = document.documentElement.lang === 'id' ? 'id' : 'en';
+      setLanguage(current === 'id' ? 'en' : 'id');
+    });
+  }
+
+  const saved = localStorage.getItem('hafyz-language');
+  setLanguage(saved === 'id' ? 'id' : 'en');
+})();
+</script>
+
 </body>
 </html>

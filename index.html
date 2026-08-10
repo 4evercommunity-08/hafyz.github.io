@@ -800,6 +800,106 @@
       .events-menu.open{display:block}.events-menu:before{display:none}.events-menu a{padding:15px}
     }
 
+  
+    /* Language suggestion */
+    .language-prompt{
+      position:fixed;
+      left:22px;
+      bottom:22px;
+      z-index:2000;
+      width:min(390px,calc(100vw - 30px));
+      padding:18px;
+      background:rgba(255,255,255,.97);
+      border:1px solid rgba(20,20,20,.12);
+      border-radius:18px;
+      box-shadow:0 22px 65px rgba(0,0,0,.14);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(14px);
+      transition:.32s var(--ease);
+    }
+    .language-prompt.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .language-prompt-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+    .language-prompt-label{
+      margin:0 0 6px;
+      color:var(--gold-dark);
+      font-size:8px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .language-prompt h3{
+      margin:0;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:18px;
+      line-height:1.15;
+      letter-spacing:-.035em;
+    }
+    .language-prompt p{
+      margin:8px 0 14px;
+      color:#70706b;
+      font-size:10px;
+      line-height:1.6;
+    }
+    .language-prompt-close{
+      width:30px;height:30px;
+      flex:0 0 30px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:#fff;
+      color:#777;
+      cursor:pointer;
+    }
+    .language-prompt-actions{display:flex;gap:8px}
+    .language-prompt-actions button{
+      min-height:38px;
+      padding:0 14px;
+      border-radius:999px;
+      font:800 9px/1 Inter,system-ui,sans-serif;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      cursor:pointer;
+      transition:.22s var(--ease);
+    }
+    .language-accept{border:1px solid var(--gold);background:var(--gold);color:#fff}
+    .language-accept:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+    .language-keep{border:1px solid var(--line);background:#fff;color:#555}
+    .language-keep:hover{border-color:rgba(20,20,20,.25)}
+    .language-status{
+      margin-top:10px!important;
+      margin-bottom:0!important;
+      font-size:9px!important;
+      color:#9a9a94!important;
+    }
+    .lang-switch{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:1999;
+      width:38px;height:38px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:rgba(255,255,255,.92);
+      color:#686863;
+      font-size:15px;
+      cursor:pointer;
+      box-shadow:0 8px 25px rgba(0,0,0,.07);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      transition:.22s var(--ease);
+    }
+    .lang-switch:hover{color:var(--gold-dark);border-color:rgba(198,158,62,.55);transform:translateY(-2px)}
+    @media(max-width:520px){
+      .language-prompt{left:15px;bottom:15px;width:calc(100vw - 30px)}
+      .language-prompt-actions{flex-direction:column}
+      .language-prompt-actions button{width:100%}
+      .lang-switch{right:14px;bottom:14px}
+    }
+
   </style>
 </head>
 
@@ -995,7 +1095,25 @@
     </section>
   </main>
 
-  <footer>
+  
+  <div class="language-prompt" id="languagePrompt" role="dialog" aria-live="polite" aria-labelledby="languagePromptTitle">
+    <div class="language-prompt-top">
+      <div>
+        <p class="language-prompt-label">Language</p>
+        <h3 id="languagePromptTitle">Bahasa Indonesia tersedia.</h3>
+      </div>
+      <button class="language-prompt-close" id="languagePromptClose" type="button" aria-label="Close">×</button>
+    </div>
+    <p id="languagePromptText">We detected that you may be visiting from Indonesia. Would you like to view HAFYZ in Bahasa Indonesia?</p>
+    <div class="language-prompt-actions">
+      <button class="language-accept" id="languageAccept" type="button">Bahasa Indonesia</button>
+      <button class="language-keep" id="languageKeep" type="button">Keep English</button>
+    </div>
+    <p class="language-status" id="languageStatus">Your choice will be remembered on this device.</p>
+  </div>
+  <button class="lang-switch" id="langSwitch" type="button" aria-label="Language" title="Language">文A</button>
+
+<footer>
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
@@ -1131,6 +1249,232 @@
         document.addEventListener('click', function(e){if(!e.target.closest('.nav-dropdown')) closeEvents();});
         document.addEventListener('keydown', function(e){if(e.key === 'Escape') closeEvents();});
       }
+
+
+      /* HAFYZ language engine: English remains the default. IP country is a suggestion signal; user choice is remembered locally. */
+      const HAFYZ_I18N = {
+        id: {
+          exact: new Map([
+            ["Music","Musik"], ["Tour","Tur"], ["About","Tentang"], ["Events","Acara"], ["Press","Pers"], ["Contact","Kontak"],
+            ["PERFORMANCE","PERFORMANCE"], ["Book HAFYZ to perform.","Booking HAFYZ untuk tampil."],
+            ["Live shows, festivals, concerts & showcases.","Pertunjukan langsung, festival, konser & showcase."],
+            ["GUEST & APPEARANCE","TAMU & PENAMPILAN"], ["Invite HAFYZ to your event.","Undang HAFYZ ke acara Anda."],
+            ["Guests, red carpets, premieres, panels & industry events.","Tamu, red carpet, premiere, panel & acara industri."],
+            ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["View tour dates","Lihat jadwal tur"],
+            ["Music","Musik"], ["Latest releases.","Rilisan terbaru."],
+            ["The current chapter of HAFYZ, including the next release from the After Hours era.","Bab terbaru HAFYZ, termasuk rilisan berikutnya dari era After Hours."],
+            ["Out now","Sudah dirilis"], ["01 / Latest single","01 / Single terbaru"],
+            ["Single · 2026","Single · 2026"], ["The latest chapter from HAFYZ's After Hours era.","Bab terbaru HAFYZ dari era After Hours."],
+            ["About the song →","Tentang lagu →"], ["Coming August 14","Hadir 14 Agustus"],
+            ["Pre-save now ↗","Pre-save sekarang ↗"], ["After Hours · Single","After Hours · Single"],
+            ["Live","Live"], ["See you out there.","Sampai jumpa di sana."],
+            ["Upcoming HAFYZ shows, tickets and live information.","Pertunjukan HAFYZ mendatang, tiket dan informasi live."],
+            ["Beyond the track.","Lebih dari sekadar musik."],
+            ["HAFYZ is a multi-disciplinary musician, composer, producer and entrepreneur from Pekanbaru, Indonesia, known for fluid sonic exploration and genre-blurring work.",
+             "HAFYZ adalah musisi, komposer, produser, dan entrepreneur multidisipliner dari Pekanbaru, Indonesia, yang dikenal melalui eksplorasi sonik yang dinamis dan karya yang melampaui batas genre."],
+            ["The journey","Perjalanan"],
+            ["Starting in 2015 with an audio-visual production house, HAFYZ officially entered the music industry with debut single “Paradise” in 2017.",
+             "Memulai perjalanan pada 2015 melalui production house audio-visual, HAFYZ resmi memasuki industri musik dengan single debut “Paradise” pada 2017."],
+            ["Discography","Diskografi"],
+            ["From MANIC to Immortal Romance and the sixth album xoxo, i'm done, each release explores a different piece of the larger narrative.",
+             "Dari MANIC hingga Immortal Romance dan album keenam xoxo, i'm done, setiap rilisan mengeksplorasi bagian berbeda dari narasi yang lebih besar."],
+            ["SOUR+ Corporation","SOUR+ Corporation"],
+            ["His professional ecosystem extends through SOUR+ Corporation, including SOUR+ Entertainment Inc. and Balai Kreasi Cinema.",
+             "Ekosistem profesionalnya berkembang melalui SOUR+ Corporation, termasuk SOUR+ Entertainment Inc. dan Balai Kreasi Cinema."],
+            ["Listen","Dengarkan"], ["This is HAFYZ. The essential tracks, collected in one place.","Inilah HAFYZ. Track-track esensial, dikumpulkan dalam satu tempat."],
+            ["Stay connected","Tetap terhubung"], ["Keep in the loop.","Tetap ikuti kabarnya."],
+            ["Get exclusive updates, new music announcements and early access to tickets.","Dapatkan kabar eksklusif, pengumuman musik baru, dan akses awal ke tiket."],
+            ["Email address","Alamat email"], ["Subscribe","Berlangganan"],
+            ["Explore","Jelajahi"], ["Professional","Profesional"], ["Website","Website"],
+            ["Performance EPK","EPK Performance"], ["Guest & Appearance","Tamu & Appearance"], ["Appearance Inquiries","Pertanyaan Appearance"],
+            ["Legal","Legal"], ["Privacy Policy","Kebijakan Privasi"], ["Terms of Use","Ketentuan Penggunaan"],
+            ["All rights reserved.","Seluruh hak dilindungi."], ["Made with 🖤 in Pekanbaru","Dibuat dengan 🖤 di Pekanbaru"],
+            ["Artist","Artis"], ["Latest releases","Rilisan terbaru"], ["Tour","Tur"]
+          ]),
+          phrases: []
+        }
+      };
+
+      const HAFYZ_ORIGINAL = new WeakMap();
+
+      function rememberAndTranslate(root, lang){
+        if(!root) return;
+        const dict = HAFYZ_I18N[lang]?.exact;
+        if(!dict) return;
+
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while(walker.nextNode()) nodes.push(walker.currentNode);
+
+        nodes.forEach(function(node){
+          const parent = node.parentElement;
+          if(!parent || ['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName)) return;
+          if(!HAFYZ_ORIGINAL.has(node)) HAFYZ_ORIGINAL.set(node, node.nodeValue);
+
+          const original = HAFYZ_ORIGINAL.get(node);
+          const key = original.trim();
+          if(!key) return;
+
+          if(dict.has(key)){
+            const translated = dict.get(key);
+            node.nodeValue = original.replace(key, translated);
+          }
+        });
+      }
+
+      function restoreEnglish(){
+        document.querySelectorAll('body *').forEach(function(el){
+          el.childNodes.forEach(function(node){
+            if(node.nodeType === Node.TEXT_NODE && HAFYZ_ORIGINAL.has(node)){
+              node.nodeValue = HAFYZ_ORIGINAL.get(node);
+            }
+          });
+        });
+      }
+
+      function setLanguage(lang){
+        if(lang === 'id') rememberAndTranslate(document.body, 'id');
+        else restoreEnglish();
+        document.documentElement.lang = lang === 'id' ? 'id' : 'en';
+        localStorage.setItem('hafyz-language', lang);
+        localStorage.setItem('hafyz-language-choice', 'manual');
+        updateLanguageUI(lang);
+      }
+
+      function updateLanguageUI(lang){
+        const switcher = document.getElementById('langSwitch');
+        if(switcher){
+          switcher.textContent = lang === 'id' ? 'EN' : '文A';
+          switcher.title = lang === 'id' ? 'Switch to English' : 'Language';
+          switcher.setAttribute('aria-label', lang === 'id' ? 'Switch to English' : 'Language');
+        }
+      }
+
+      const prompt = document.getElementById('languagePrompt');
+      const accept = document.getElementById('languageAccept');
+      const keep = document.getElementById('languageKeep');
+      const close = document.getElementById('languagePromptClose');
+      const switcher = document.getElementById('langSwitch');
+
+      function hideLanguagePrompt(){
+        if(prompt) prompt.classList.remove('show');
+      }
+
+      function rememberChoice(lang){
+        localStorage.setItem('hafyz-language', lang);
+        localStorage.setItem('hafyz-language-choice', 'manual');
+        hideLanguagePrompt();
+      }
+
+      if(accept) accept.addEventListener('click', function(){
+        setLanguage('id');
+        rememberChoice('id');
+      });
+
+      if(keep) keep.addEventListener('click', function(){
+        setLanguage('en');
+        rememberChoice('en');
+      });
+
+      if(close) close.addEventListener('click', function(){
+        rememberChoice('en');
+      });
+
+      if(switcher) switcher.addEventListener('click', function(){
+        const current = localStorage.getItem('hafyz-language') || 'en';
+        setLanguage(current === 'id' ? 'en' : 'id');
+      });
+
+      async function detectHAFYZLanguage(){
+        const saved = localStorage.getItem('hafyz-language');
+        const choice = localStorage.getItem('hafyz-language-choice');
+
+        // A previous explicit choice always wins.
+        if(saved && choice === 'manual'){
+          setLanguage(saved);
+          return;
+        }
+
+        const browser = (navigator.language || '').toLowerCase();
+        let country = '';
+
+        // Try more than one public country endpoint. If one is blocked,
+        // the next one gets a chance. No IP address is stored by this page.
+        const endpoints = [
+          {
+            url:'https://ipwho.is/',
+            getCountry:function(data){ return (data.country_code || '').toUpperCase(); }
+          },
+          {
+            url:'https://ipapi.co/json/',
+            getCountry:function(data){ return (data.country_code || '').toUpperCase(); }
+          }
+        ];
+
+        for(const endpoint of endpoints){
+          try{
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 3500);
+            const response = await fetch(endpoint.url, {
+              method:'GET',
+              mode:'cors',
+              cache:'no-store',
+              signal:controller.signal,
+              headers:{'Accept':'application/json'}
+            });
+            clearTimeout(timer);
+
+            if(response.ok){
+              const data = await response.json();
+              country = endpoint.getCountry(data);
+              if(country) break;
+            }
+          }catch(e){
+            // Continue to the next provider.
+          }
+        }
+
+        const indonesiaSignal =
+          country === 'ID' ||
+          browser === 'id' ||
+          browser.startsWith('id-');
+
+        // Show the suggestion on a fresh browser/device when Indonesia is detected.
+        if(indonesiaSignal && !choice && prompt){
+          setTimeout(() => prompt.classList.add('show'), 650);
+        }
+      }
+
+        const browser = (navigator.language || '').toLowerCase();
+        let country = '';
+
+        try{
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 1800);
+          const response = await fetch('https://ipapi.co/json/', {
+            signal: controller.signal,
+            headers:{'Accept':'application/json'}
+          });
+          clearTimeout(timer);
+          if(response.ok){
+            const data = await response.json();
+            country = (data.country_code || '').toUpperCase();
+          }
+        }catch(e){
+          // Privacy tools, ad blockers, VPNs or network restrictions may block IP lookup.
+        }
+
+        const indonesiaSignal =
+          country === 'ID' ||
+          browser === 'id' ||
+          browser.startsWith('id-');
+
+        if(indonesiaSignal && !choice && prompt){
+          setTimeout(() => prompt.classList.add('show'), 900);
+        }
+      }
+
+      detectHAFYZLanguage();
 
 </script>
 </body>

@@ -1032,7 +1032,7 @@
         </div>
 
         <div class="about-layout">
-          <p class="about-lead reveal">
+          <p class="about-lead reveal" data-i18n="bio_main">
             <strong>HAFYZ</strong> is a multi-disciplinary musician, composer,
             producer and entrepreneur from Pekanbaru, Indonesia, known for fluid
             sonic exploration and genre-blurring work.
@@ -1254,6 +1254,9 @@
       /* HAFYZ language engine: English remains the default. */
       const HAFYZ_I18N = {
         id: {
+          marked: {
+            bio_main: 'HAFYZ adalah musisi, komposer, produser, dan entrepreneur multidisipliner dari Pekanbaru, Indonesia, yang dikenal melalui eksplorasi sonik yang dinamis dan karya yang melampaui batas genre.'
+          },
           exact: new Map([
             ["Music","Musik"], ["Tour","Tur"], ["About","Tentang"], ["Events","Acara"], ["Press","Pers"], ["Contact","Kontak"],
             ["PERFORMANCE","PERFORMANCE"], ["Book HAFYZ to perform.","Booking HAFYZ untuk tampil."],
@@ -1299,6 +1302,18 @@
 
       function rememberAndTranslate(root, lang){
         if(!root) return;
+
+        const marked = HAFYZ_I18N[lang]?.marked || {};
+        root.querySelectorAll('[data-i18n]').forEach(function(el){
+          const key = el.getAttribute('data-i18n');
+          if(!HAFYZ_ORIGINAL.has(el)) HAFYZ_ORIGINAL.set(el, el.innerHTML);
+          if(lang === 'id' && marked[key]){
+            el.textContent = marked[key];
+          }else if(lang === 'en' && HAFYZ_ORIGINAL.has(el)){
+            el.innerHTML = HAFYZ_ORIGINAL.get(el);
+          }
+        });
+
         const dict = HAFYZ_I18N[lang]?.exact;
         if(!dict) return;
 
@@ -1323,6 +1338,10 @@
       }
 
       function restoreEnglish(){
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          if(HAFYZ_ORIGINAL.has(el)) el.innerHTML = HAFYZ_ORIGINAL.get(el);
+        });
+
         document.querySelectorAll('body *').forEach(function(el){
           el.childNodes.forEach(function(node){
             if(node.nodeType === Node.TEXT_NODE && HAFYZ_ORIGINAL.has(node)){

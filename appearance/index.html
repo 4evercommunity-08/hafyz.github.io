@@ -633,12 +633,14 @@
       .contact h2{font-size:50px}
     }
   </style>
-</head>
+<style id="appearance-language-preview">
+.lang-switch{position:fixed;right:18px;bottom:18px;z-index:9999;width:44px;height:44px;border:1px solid rgba(20,20,20,.14);border-radius:50%;background:#fff;color:#555;font:800 10px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.12)}
+</style></head>
 
 <body>
   <nav id="nav">
     <div class="nav-inner">
-      <a class="brand" href="/" aria-label="HAFYZ home">HAFYZ</a>
+      <a class="brand" href="/" aria-label="Beranda HAFYZ">HAFYZ</a>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">Artist</a></li>
         <li><a href="#appearances">Appearances</a></li>
@@ -646,7 +648,7 @@
         <li><a href="#contact">Inquiries</a></li>
         <li><a class="nav-cta" href="/press/">Performance EPK</a></li>
       </ul>
-      <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <button class="menu" id="menu" aria-label="Buka menu" aria-expanded="false"><span></span></button>
     </div>
   </nav>
 
@@ -655,7 +657,7 @@
       <div class="hero-content">
         <p class="eyebrow">Guest & Appearance Profile</p>
         <h1>Invite <span>HAFYZ.</span></h1>
-        <p class="hero-copy">
+        <p class="hero-copy" data-i18n="hero_intro">
           A professional profile for event organizers, brands, media, cultural institutions,
           technology companies and industry partners inviting HAFYZ to attend, participate or
           appear at selected events.
@@ -679,28 +681,28 @@
 
         <div class="artist-grid">
           <div class="artist-photo reveal">
-            <img src="/hero-bg.jpg" alt="HAFYZ - Artist portrait">
+            <img src="/hero-bg.jpg" alt="HAFYZ - Foto artis">
           </div>
 
           <div class="artist-copy reveal">
             <h3>HAFYZ</h3>
-            <p>
+            <p data-i18n="artist_bio_1">
               <strong>HAFYZ</strong> is a multi-disciplinary musician, composer, producer, and
               entrepreneur from Pekanbaru, Indonesia. Known for fluid and characterful sonic
               exploration, he consistently blurs genre boundaries across Electronic, Indie, and Pop.
             </p>
-            <p>
+            <p data-i18n="artist_bio_2">
               Starting in 2015 with an audio-visual production house, HAFYZ officially entered the
               music industry with his debut single <strong>"Paradise"</strong> in 2017. As a
               multidisciplinary creator, he remains involved across the creative and production
               process of his work.
             </p>
-            <p>
+            <p data-i18n="artist_bio_3">
               His work extends beyond recorded music into visual culture, cinema, creative
               entrepreneurship and the broader professional ecosystem of <strong>SOUR+ Corporation</strong>,
               including music through SOUR+ Entertainment Inc. and cinema through Balai Kreasi Cinema.
             </p>
-            <p>
+            <p data-i18n="artist_bio_4">
               For selected events, HAFYZ may participate as an invited guest, public-facing creative
               professional, media guest, panel participant, presenter or industry attendee, depending
               on the nature and requirements of the event.
@@ -746,7 +748,7 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div><p class="kicker">03 / Event Fit</p><h2 class="title">Where HAFYZ appears.</h2></div>
-          <p class="desc">A broader appearance profile for invitations where HAFYZ participates as a guest, creative professional, media personality or industry attendee rather than as a performer.</p>
+          <p class="desc" data-i18n="event_fit_desc">A broader appearance profile for invitations where HAFYZ participates as a guest, creative professional, media personality or industry attendee rather than as a performer.</p>
         </div>
         <div class="fit-list">
           <div class="fit-row reveal"><h3>Entertainment & Ceremonial</h3><p>Award ceremonies · red carpets · premieres · festivals as special guest</p></div>
@@ -763,15 +765,15 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div><p class="kicker">04 / Participation</p><h2 class="title">The format matters.</h2></div>
-          <p class="desc">Every invitation is shaped around the organizer's brief. A guest appearance does not automatically imply a live performance.</p>
+          <p class="desc" data-i18n="participation_desc">Every invitation is shaped around the organizer's brief. A guest appearance does not automatically imply a live performance.</p>
         </div>
         <div class="formats">
-          <article class="format reveal"><span class="format-index">01</span><h3>Guest Attendance</h3><p>Attend an event as an invited guest without a performance requirement.</p></article>
-          <article class="format reveal"><span class="format-index">02</span><h3>Special Guest</h3><p>Attend a festival, ceremony, premiere, launch or selected event in a designated guest capacity.</p></article>
-          <article class="format reveal"><span class="format-index">03</span><h3>Red Carpet / Press</h3><p>Photo calls, press lines, interviews, press events and selected media appearances.</p></article>
-          <article class="format reveal"><span class="format-index">04</span><h3>Panel / Discussion</h3><p>Panel discussions, roundtables, industry conferences and moderated conversations.</p></article>
-          <article class="format reveal"><span class="format-index">05</span><h3>Creative / Jury</h3><p>Creative talks, judging, jury roles and selected educational or cultural participation.</p></article>
-          <article class="format reveal"><span class="format-index">06</span><h3>Brand / Industry</h3><p>Brand events, corporate events, VIP receptions, launches and networking gatherings.</p></article>
+          <article class="format reveal"><span class="format-index">01</span><h3>Guest Attendance</h3><p data-i18n="format_guest">Attend an event as an invited guest without a performance requirement.</p></article>
+          <article class="format reveal"><span class="format-index">02</span><h3>Special Guest</h3><p data-i18n="format_special">Attend a festival, ceremony, premiere, launch or selected event in a designated guest capacity.</p></article>
+          <article class="format reveal"><span class="format-index">03</span><h3>Red Carpet / Press</h3><p data-i18n="format_red">Photo calls, press lines, interviews, press events and selected media appearances.</p></article>
+          <article class="format reveal"><span class="format-index">04</span><h3>Panel / Discussion</h3><p data-i18n="format_panel">Panel discussions, roundtables, industry conferences and moderated conversations.</p></article>
+          <article class="format reveal"><span class="format-index">05</span><h3>Creative / Jury</h3><p data-i18n="format_creative">Creative talks, judging, jury roles and selected educational or cultural participation.</p></article>
+          <article class="format reveal"><span class="format-index">06</span><h3>Brand / Industry</h3><p data-i18n="format_brand">Brand events, corporate events, VIP receptions, launches and networking gatherings.</p></article>
         </div>
       </div>
     </section>
@@ -783,7 +785,7 @@
             <p class="kicker">05 / Professional Profile</p>
             <h2 class="title">The wider profile.</h2>
           </div>
-          <p class="desc">A concise reference for organizers considering HAFYZ for an invitation or professional appearance.</p>
+          <p class="desc" data-i18n="profile_desc">A concise reference for organizers considering HAFYZ for an invitation or professional appearance.</p>
         </div>
 
         <div class="profile-table">
@@ -815,7 +817,7 @@
       <div class="wrap reveal">
         <p class="kicker">06 / Appearance Inquiries</p>
         <h2>Invite HAFYZ.</h2>
-        <p class="contact-copy">
+        <p class="contact-copy" data-i18n="contact_desc">
           For guest invitations, technology and industry events, media appearances, panels,
           brand events, cultural programs and other professional engagements.
         </p>
@@ -831,7 +833,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="brand" href="/">HAFYZ</a>
-          <div class="socials" aria-label="HAFYZ social links">
+          <div class="socials" aria-label="Tautan sosial HAFYZ">
             <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.439 18.627.073 12 .073S0 5.439 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
@@ -923,5 +925,47 @@
       });
     })();
   </script>
-</body>
+<button class="lang-switch" id="langSwitch" type="button" aria-label="Switch to Bahasa Indonesia" title="Switch to Bahasa Indonesia">ID</button><script id="appearance-language-engine">
+(function(){
+  const exact=new Map([["Guest & Appearance Profile", "Profil Guest & Appearance"], ["Invite", "Undang"], ["A professional profile for event organizers, brands, media, cultural institutions, technology companies and industry partners inviting HAFYZ to attend, participate or appear at selected events.", "Profil profesional untuk penyelenggara acara, brand, media, institusi budaya, perusahaan teknologi, dan mitra industri yang mengundang HAFYZ untuk hadir, berpartisipasi, atau tampil pada acara-acara terpilih."], ["Appearance inquiries ↗", "Pertanyaan appearance ↗"], ["Performance EPK", "EPK Performance"], ["01 / Artist", "01 / Artis"], ["The artist.", "Sang artis."], ["A concise professional profile for media, industry, brand and event partners.", "Profil profesional ringkas untuk media, industri, brand, dan mitra acara."], ["02 / Appearance", "02 / Appearance"], ["More than a performance.", "Lebih dari sekadar performance."], ["Selected non-performance opportunities for event organizers, brands, media, cultural institutions and professional partners.", "Pilihan kesempatan non-performance untuk penyelenggara acara, brand, media, institusi budaya, dan mitra profesional."], ["03 / Event Fit", "03 / Kesesuaian Acara"], ["Where HAFYZ appears.", "Di mana HAFYZ dapat hadir."], ["04 / Participation", "04 / Partisipasi"], ["The format matters.", "Formatnya penting."], ["05 / Professional Profile", "05 / Profil Profesional"], ["The wider profile.", "Profil yang lebih luas."], ["06 / Appearance Inquiries", "06 / Pertanyaan Appearance"], ["Invite HAFYZ.", "Undang HAFYZ."], ["For guest invitations, technology and industry events, media appearances, panels, brand events, cultural programs and other professional engagements.", "Untuk undangan sebagai tamu, acara teknologi dan industri, media appearance, panel, brand event, program budaya, dan berbagai keterlibatan profesional lainnya."], ["Professional identity", "Identitas profesional"], ["Creative ecosystem", "Ekosistem kreatif"], ["Primary fields", "Bidang utama"], ["Appearance scope", "Ruang lingkup appearance"], ["Performance booking", "Booking performance"], ["For live performance inquiries, please use the dedicated", "Untuk pertanyaan mengenai live performance, silakan gunakan"], ["Explore", "Jelajahi"], ["Professional", "Profesional"], ["Appearance Inquiries", "Pertanyaan Appearance"], ["HAFYZ Home", "Beranda HAFYZ"], ["Press Kit", "Press Kit"], ["All rights reserved.", "Seluruh hak dilindungi."], ["Fashion & Lifestyle", "Fashion & Lifestyle"], ["Corporate & Industry", "Corporate & Industri"], ["Media & Press", "Media & Pers"], ["Creative & Cultural", "Creative & Budaya"], ["Launches & Experiences", "Launch & Experience"], ["Musician · Composer · Producer · Creative Entrepreneur", "Musisi · Komposer · Produser · Creative Entrepreneur"], ["Music · Electronic · Pop · Visual culture · Cinema · Creative industry", "Musik · Electronic · Pop · Visual culture · Cinema · Creative industry"], ["Guest attendance · Media · Panels · Presentations · Brand & industry events · Cultural programs", "Guest attendance · Media · Panels · Presentations · Brand & industry events · Program budaya"], ["Attendance, special guest participation, award presentations and selected ceremonial appearances.", "Kehadiran, partisipasi sebagai special guest, pemberian penghargaan, dan appearance seremonial terpilih."], ["Official red carpet attendance, photo calls, press lines and selected media engagement.", "Kehadiran resmi di red carpet, photo call, press line, dan keterlibatan media terpilih."], ["Film, television, music, product or cultural premieres and screening events.", "Premiere film, televisi, musik, produk, atau budaya serta acara screening."], ["Fashion shows, launches, private previews, fashion weeks and lifestyle events.", "Fashion show, launch, private preview, fashion week, dan acara lifestyle."], ["Brand activations, launches, private experiences, campaigns and selected guest appearances.", "Aktivasi brand, launch, private experience, campaign, dan guest appearance terpilih."], ["Corporate receptions, internal events, professional gatherings and selected executive-facing occasions.", "Resepsi korporat, acara internal, professional gathering, dan kesempatan terpilih yang ditujukan untuk kalangan eksekutif."], ["VIP receptions, private dinners, opening receptions and invitation-only gatherings.", "VIP reception, private dinner, opening reception, dan gathering khusus undangan."], ["Attendance at festivals and major public events in a designated special guest capacity without a performance requirement.", "Kehadiran di festival dan acara publik berskala besar sebagai special guest tanpa kewajiban performance."], ["Moderated panels, roundtables and discussions around music, creativity, culture and industry.", "Panel yang dimoderatori, roundtable, dan diskusi seputar musik, kreativitas, budaya, dan industri."], ["Professional conferences, summits, forums and industry-focused gatherings.", "Konferensi profesional, summit, forum, dan gathering yang berfokus pada industri."], ["Talks and conversations around creative practice, music, production, entrepreneurship and contemporary culture.", "Talk dan percakapan seputar praktik kreatif, musik, produksi, entrepreneurship, dan budaya kontemporer."], ["Selected jury, judging, evaluation and competition-related roles where appropriate.", "Peran jury, judging, evaluasi, dan keterlibatan terkait kompetisi terpilih jika sesuai."], ["Interviews, editorial appearances, photo sessions, broadcast and digital media engagements.", "Interview, editorial appearance, sesi foto, broadcast, dan keterlibatan media digital."], ["Press conferences, media previews, press receptions and official press-facing events.", "Konferensi pers, media preview, press reception, dan acara resmi yang ditujukan untuk media."], ["Product launches, campaign launches, opening events and other official launch moments.", "Product launch, campaign launch, opening event, dan momen peluncuran resmi lainnya."], ["Charity programs, social initiatives, community events and selected social-impact engagements.", "Program charity, inisiatif sosial, community event, dan keterlibatan social impact terpilih."], ["Private dinners, private previews, invitation-only events and selected personal or professional gatherings.", "Private dinner, private preview, acara khusus undangan, dan gathering personal atau profesional terpilih."], ["Professional receptions, networking events, creative-industry gatherings and relationship-building occasions.", "Resepsi profesional, networking event, gathering industri kreatif, dan kesempatan membangun relasi."]]);
+  const marked=new Map([["artist_bio_1", "<strong>HAFYZ</strong> adalah musisi, komposer, produser, dan entrepreneur multidisipliner dari Pekanbaru, Indonesia. Dikenal melalui eksplorasi sonik yang dinamis dan berkarakter, ia konsisten melampaui batas genre Electronic, Indie, dan Pop."], ["artist_bio_2", "Memulai perjalanan pada 2015 melalui production house audio-visual, HAFYZ resmi memasuki industri musik dengan single debut “Paradise” pada 2017. Sebagai kreator multidisipliner, ia tetap terlibat dalam keseluruhan proses kreatif dan produksi karyanya."], ["artist_bio_3", "Karyanya berkembang melampaui musik rekaman ke dalam budaya visual, sinema, creative entrepreneurship, dan ekosistem profesional SOUR+ Corporation yang lebih luas, termasuk musik melalui SOUR+ Entertainment Inc. dan sinema melalui Balai Kreasi Cinema."], ["artist_bio_4", "Untuk acara-acara tertentu, HAFYZ dapat berpartisipasi sebagai invited guest, public-facing creative professional, media guest, panel participant, presenter, atau industry attendee, tergantung pada karakter dan kebutuhan acara."], ["event_fit_desc", "Profil appearance yang lebih luas untuk undangan ketika HAFYZ berpartisipasi sebagai guest, creative professional, media personality, atau industry attendee, bukan sebagai performer."], ["participation_desc", "Setiap undangan disesuaikan dengan brief penyelenggara. Guest appearance tidak otomatis berarti live performance."], ["profile_desc", "Referensi ringkas bagi penyelenggara yang mempertimbangkan HAFYZ untuk sebuah undangan atau professional appearance."], ["contact_desc", "Untuk undangan sebagai tamu, acara teknologi dan industri, media appearance, panel, brand event, program budaya, dan berbagai keterlibatan profesional lainnya."], ["format_guest", "Hadir dalam sebuah acara sebagai invited guest tanpa kewajiban performance."], ["format_special", "Hadir di festival, ceremony, premiere, launch, atau acara terpilih dalam kapasitas sebagai special guest."], ["format_red", "Photo call, press line, interview, press event, dan media appearance terpilih."], ["format_panel", "Panel discussion, roundtable, industry conference, dan percakapan yang dimoderatori."], ["format_creative", "Creative talk, judging, jury role, dan partisipasi edukatif atau budaya terpilih."], ["format_brand", "Brand event, corporate event, VIP reception, launch, dan networking gathering."], ["hero_intro", "Profil profesional untuk penyelenggara acara, brand, media, institusi budaya, perusahaan teknologi, dan mitra industri yang mengundang HAFYZ untuk hadir, berpartisipasi, atau tampil dalam acara-acara terpilih."]]);
+  const original=new WeakMap();
+
+  function setLanguage(lang){
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if(!original.has(el)) original.set(el,el.innerHTML);
+      const key=el.getAttribute("data-i18n");
+      if(lang==="id" && marked.has(key)) el.innerHTML=marked.get(key);
+      else if(lang==="en" && original.has(el)) el.innerHTML=original.get(el);
+    });
+
+    const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(function(node){
+      const p=node.parentElement;
+      if(!p || ["SCRIPT","STYLE","NOSCRIPT"].includes(p.tagName) || p.closest("[data-i18n]")) return;
+      if(!original.has(node)) original.set(node,node.nodeValue);
+      const key=node.nodeValue.trim();
+      if(lang==="id" && exact.has(key)) node.nodeValue=node.nodeValue.replace(key,exact.get(key));
+      else if(lang==="en" && original.has(node)) node.nodeValue=original.get(node);
+    });
+
+    document.documentElement.lang=lang;
+    localStorage.setItem("hafyz-language",lang);
+    localStorage.setItem("hafyz-language-choice","manual");
+    const b=document.getElementById("langSwitch");
+    if(b){
+      b.textContent=lang==="id"?"EN":"ID";
+      b.title=lang==="id"?"Switch to English":"Switch to Bahasa Indonesia";
+      b.setAttribute("aria-label",b.title);
+    }
+  }
+
+  const b=document.getElementById("langSwitch");
+  if(b) b.addEventListener("click",function(){
+    setLanguage(document.documentElement.lang==="id"?"en":"id");
+  });
+  setLanguage(localStorage.getItem("hafyz-language")==="id"?"id":"en");
+})();
+</script></body>
 </html>

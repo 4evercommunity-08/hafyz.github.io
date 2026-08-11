@@ -901,9 +901,73 @@
     }
 
   </style>
+
+<style id="hafyz-cookie-styles">
+  #hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;display:none;justify-content:center;pointer-events:none}
+  #hafyzCookieBanner.show{display:flex}
+  .hafyz-cookie-card{width:min(760px,100%);background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 55px rgba(0,0,0,.14);border-radius:18px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;pointer-events:auto;backdrop-filter:blur(16px)}
+  .hafyz-cookie-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c49a43;font-weight:700;margin-bottom:5px}
+  .hafyz-cookie-title{font-size:18px;font-weight:700;color:#171717;margin-bottom:4px}
+  .hafyz-cookie-copy{font-size:13px;line-height:1.55;color:#66645f;max-width:590px}
+  .hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .hafyz-cookie-btn{border:0;border-radius:999px;padding:10px 15px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
+  .hafyz-cookie-btn.primary{background:#171717;color:#fff}
+  .hafyz-cookie-btn.secondary{background:#f1f1ee;color:#171717;border:1px solid rgba(20,20,20,.10)}
+  .hafyz-cookie-manage{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.32);padding:20px}
+  .hafyz-cookie-manage.show{display:flex}
+  .hafyz-cookie-panel{width:min(520px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.22)}
+  .hafyz-cookie-panel h3{font-size:24px;margin:0 0 6px;color:#171717}
+  .hafyz-cookie-panel>p{font-size:13px;color:#777;margin:0 0 18px}
+  .hafyz-cookie-row{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 0;border-top:1px solid #eee}
+  .hafyz-cookie-row strong{display:block;font-size:14px;color:#171717}
+  .hafyz-cookie-row span{display:block;font-size:12px;color:#888;margin-top:3px}
+  .hafyz-cookie-toggle{width:46px;height:26px;border-radius:20px;background:#ddd;position:relative;flex:0 0 auto}
+  .hafyz-cookie-toggle:after{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .hafyz-cookie-toggle.on{background:#171717}
+  .hafyz-cookie-toggle.on:after{left:23px}
+  .hafyz-cookie-toggle.locked{opacity:.65}
+  .hafyz-cookie-panel-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+  @media(max-width:700px){#hafyzCookieBanner{left:12px;right:12px;bottom:12px}.hafyz-cookie-card{grid-template-columns:1fr;padding:17px}.hafyz-cookie-actions{justify-content:flex-start}.hafyz-cookie-btn{flex:1}}
+</style>
+
 </head>
 
 <body>
+
+<div id="hafyzCookieBanner" aria-live="polite">
+  <div class="hafyz-cookie-card">
+    <div>
+      <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies &amp; Privacy</div>
+      <div class="hafyz-cookie-title" id="hafyzCookieTitle">A little privacy choice.</div>
+      <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.</div>
+    </div>
+    <div class="hafyz-cookie-actions">
+      <button class="hafyz-cookie-btn secondary" id="hafyzCookieManage" type="button">Manage</button>
+      <button class="hafyz-cookie-btn secondary" id="hafyzCookieReject" type="button">Reject</button>
+      <button class="hafyz-cookie-btn primary" id="hafyzCookieAccept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+
+<div class="hafyz-cookie-manage" id="hafyzCookieModal" role="dialog" aria-modal="true" aria-labelledby="hafyzCookieModalTitle">
+  <div class="hafyz-cookie-panel">
+    <h3 id="hafyzCookieModalTitle">Cookie preferences</h3>
+    <p id="hafyzCookieModalCopy">Choose which optional technologies you want to allow.</p>
+    <div class="hafyz-cookie-row">
+      <div><strong id="hafyzEssentialTitle">Essential</strong><span id="hafyzEssentialCopy">Always active. Used for core site preferences.</span></div>
+      <div class="hafyz-cookie-toggle on locked" aria-hidden="true"></div>
+    </div>
+    <div class="hafyz-cookie-row">
+      <div><strong id="hafyzMarketingTitle">Marketing</strong><span id="hafyzMarketingCopy">Meta Pixel and advertising measurement.</span></div>
+      <button class="hafyz-cookie-toggle" id="hafyzMarketingToggle" type="button" aria-label="Toggle marketing cookies"></button>
+    </div>
+    <div class="hafyz-cookie-panel-actions">
+      <button class="hafyz-cookie-btn secondary" id="hafyzCookieCancel" type="button">Cancel</button>
+      <button class="hafyz-cookie-btn primary" id="hafyzCookieSave" type="button">Save preferences</button>
+    </div>
+  </div>
+</div>
+
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="brand" href="/" aria-label="HAFYZ home">HAFYZ</a>
@@ -1467,5 +1531,91 @@
       });
 
 </script>
+
+<script id="hafyz-meta-consent">
+(function(){
+  'use strict';
+
+  // Replace this placeholder with the numeric Meta Pixel ID from Meta Events Manager.
+  const HAFYZ_META_PIXEL_ID = '1537787853829726';
+  const CONSENT_KEY = 'hafyz-cookie-consent';
+  const MARKETING_KEY = 'hafyz-marketing-consent';
+
+  const banner = document.getElementById('hafyzCookieBanner');
+  const modal = document.getElementById('hafyzCookieModal');
+  const marketingToggle = document.getElementById('hafyzMarketingToggle');
+
+  const copy = {
+    en:{
+      kicker:'Cookies & Privacy', title:'A little privacy choice.',
+      body:'We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.',
+      manage:'Manage', reject:'Reject', accept:'Accept', modal:'Cookie preferences', modalCopy:'Choose which optional technologies you want to allow.', essential:'Essential', essentialCopy:'Always active. Used for core site preferences.', marketing:'Marketing', marketingCopy:'Meta Pixel and advertising measurement.', cancel:'Cancel', save:'Save preferences'
+    },
+    id:{
+      kicker:'Cookie & Privasi', title:'Sedikit pilihan privasi.',
+      body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Pelacakan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
+      manage:'Kelola', reject:'Tolak', accept:'Terima', modal:'Preferensi cookie', modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.', essential:'Esensial', essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', marketing:'Pemasaran', marketingCopy:'Meta Pixel dan pengukuran iklan.', cancel:'Batal', save:'Simpan preferensi'
+    }
+  };
+
+  function currentLang(){ return (document.documentElement.lang || localStorage.getItem('hafyz-language') || 'en').toLowerCase().startsWith('id') ? 'id' : 'en'; }
+  function setCopy(){
+    const c=copy[currentLang()];
+    const map={hafyzCookieKicker:c.kicker,hafyzCookieTitle:c.title,hafyzCookieCopy:c.body,hafyzCookieManage:c.manage,hafyzCookieReject:c.reject,hafyzCookieAccept:c.accept,hafyzCookieModalTitle:c.modal,hafyzCookieModalCopy:c.modalCopy,hafyzEssentialTitle:c.essential,hafyzEssentialCopy:c.essentialCopy,hafyzMarketingTitle:c.marketing,hafyzMarketingCopy:c.marketingCopy,hafyzCookieCancel:c.cancel,hafyzCookieSave:c.save};
+    Object.keys(map).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=map[id];});
+  }
+
+  function showBanner(){ if(banner) banner.classList.add('show'); }
+  function hideBanner(){ if(banner) banner.classList.remove('show'); }
+  function showModal(){
+    const saved=localStorage.getItem(MARKETING_KEY)==='granted';
+    if(marketingToggle) marketingToggle.classList.toggle('on',saved);
+    if(modal) modal.classList.add('show');
+  }
+  function hideModal(){ if(modal) modal.classList.remove('show'); }
+
+  function loadMetaPixel(){
+    if(window.__HAFYZ_META_PIXEL_LOADED || !/^\d+$/.test(HAFYZ_META_PIXEL_ID)) return false;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init', HAFYZ_META_PIXEL_ID);
+    window.fbq('track','PageView');
+    window.__HAFYZ_META_PIXEL_LOADED=true;
+    return true;
+  }
+
+  function setConsent(marketing){
+    localStorage.setItem(CONSENT_KEY, marketing ? 'accepted' : 'rejected');
+    localStorage.setItem(MARKETING_KEY, marketing ? 'granted' : 'denied');
+    if(marketing) loadMetaPixel();
+    hideBanner(); hideModal();
+  }
+
+  document.getElementById('hafyzCookieAccept')?.addEventListener('click',()=>setConsent(true));
+  document.getElementById('hafyzCookieReject')?.addEventListener('click',()=>setConsent(false));
+  document.getElementById('hafyzCookieManage')?.addEventListener('click',showModal);
+  document.getElementById('hafyzCookieCancel')?.addEventListener('click',hideModal);
+  document.getElementById('hafyzCookieSave')?.addEventListener('click',()=>setConsent(marketingToggle?.classList.contains('on')));
+  marketingToggle?.addEventListener('click',()=>marketingToggle.classList.toggle('on'));
+  modal?.addEventListener('click',e=>{if(e.target===modal)hideModal();});
+
+  document.addEventListener('click',function(e){
+    const link=e.target.closest('a');
+    if(!link || !window.fbq) return;
+    const href=(link.href||'').toLowerCase();
+    if(href.includes('found.ee') || href.includes('spotify.com')){
+      window.fbq('trackCustom','HAFYZOutboundClick',{destination:href.includes('found.ee')?'presave':'spotify'});
+    }
+  });
+
+  setCopy();
+  const observer=new MutationObserver(setCopy);
+  observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+  const consent=localStorage.getItem(CONSENT_KEY);
+  if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted') loadMetaPixel();
+  else if(!consent) setTimeout(showBanner,500);
+})();
+</script>
+
 </body>
 </html>

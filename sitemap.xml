@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://hafyz.my.id/</loc>
+    <loc>https://www.hafyz.my.id/</loc>
   </url>
+
   <url>
-    <loc>https://hafyz.my.id/press/</loc>
+    <loc>https://www.hafyz.my.id/press/</loc>
   </url>
+
   <url>
-    <loc>https://hafyz.my.id/appearance/</loc>
+    <loc>https://www.hafyz.my.id/appearance/</loc>
   </url>
+
   <url>
-    <loc>https://hafyz.my.id/privacy.html</loc>
+    <loc>https://www.hafyz.my.id/privacy.html</loc>
   </url>
+
   <url>
-    <loc>https://hafyz.my.id/terms.html</loc>
+    <loc>https://www.hafyz.my.id/terms.html</loc>
   </url>
+
 </urlset>

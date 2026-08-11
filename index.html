@@ -944,27 +944,52 @@
 
 
   <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "@id":"https://hafyz.my.id/#person",
-    "name":"HAFYZ",
-    "url":"https://hafyz.my.id/",
-    "jobTitle":["Musician","Composer","Producer","Entrepreneur"],
-    "description":"HAFYZ is a musician, composer and producer from Pekanbaru, Indonesia.",
-    "homeLocation":{
-      "@type":"Place",
-      "name":"Pekanbaru, Indonesia"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://hafyz.my.id/#website",
+      "url": "https://hafyz.my.id/",
+      "name": "HAFYZ",
+      "description": "Official website of HAFYZ.",
+      "publisher": {
+        "@id": "https://hafyz.my.id/#person"
+      }
     },
-    "worksFor":{
-      "@type":"Organization",
-      "name":"SOUR+ Entertainment Inc."
-    },
-    "sameAs":[
-      "https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd"
-    ]
-  }
-  </script>
+    {
+      "@type": "Person",
+      "@id": "https://hafyz.my.id/#person",
+      "name": "HAFYZ",
+      "url": "https://hafyz.my.id/",
+      "jobTitle": [
+        "Musician",
+        "Composer",
+        "Producer",
+        "Entrepreneur"
+      ],
+      "description": "HAFYZ is a musician, composer and producer from Pekanbaru, Indonesia.",
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Pekanbaru, Indonesia"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "SOUR+ Entertainment Inc."
+      },
+      "sameAs": [
+        "https://www.facebook.com/itsmehafy",
+        "https://www.instagram.com/shfldzm",
+        "https://www.youtube.com/@itsmehafyz",
+        "https://music.apple.com/us/artist/hafyz/1754145654",
+        "https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd",
+        "https://www.imdb.com/name/nm7701151/",
+        "https://linktr.ee/hafyzz"
+      ]
+    }
+  ]
+}
+</script>
 
 </head>
 

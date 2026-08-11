@@ -4,14 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HAFYZ | Official Website</title>
-  <meta name="description" content="Official website of HAFYZ. Music, releases, tour dates and more.">
+  <meta name="description" content="Official website of HAFYZ, a musician, composer and producer from Pekanbaru, Indonesia. Explore music, releases, tour dates, press and appearances.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#f7f7f4">
 
-  <meta property="og:title" content="HAFYZ | Official Website">
-  <meta property="og:description" content="Music, releases, tour dates and more from HAFYZ.">
+  <link rel="canonical" href="https://hafyz.my.id/">
+  <link rel="alternate" hreflang="en" href="https://hafyz.my.id/">
+  <link rel="alternate" hreflang="id" href="https://hafyz.my.id/">
+  <link rel="alternate" hreflang="x-default" href="https://hafyz.my.id/">
+
+  <meta property="og:title" content="HAFYZ | Musician, Composer & Producer">
+  <meta property="og:description" content="Official website of HAFYZ, a musician, composer and producer from Pekanbaru, Indonesia. Music, releases, tour dates, press and appearances.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hafyz.my.id/">
+  <meta property="og:site_name" content="HAFYZ">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="id_ID">
   <meta property="og:image" content="https://hafyz.my.id/hero-bg.jpg">
+  <meta property="og:image:alt" content="HAFYZ official website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HAFYZ | Musician, Composer & Producer">
+  <meta name="twitter:description" content="Official website of HAFYZ, a musician, composer and producer from Pekanbaru, Indonesia.">
+  <meta name="twitter:image" content="https://hafyz.my.id/hero-bg.jpg">
 
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -902,33 +917,54 @@
 
   </style>
 
-<style id="hafyz-cookie-styles">
-  #hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;display:none;justify-content:center;pointer-events:none}
-  #hafyzCookieBanner.show{display:flex}
-  .hafyz-cookie-card{width:min(760px,100%);background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 55px rgba(0,0,0,.14);border-radius:18px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;pointer-events:auto;backdrop-filter:blur(16px)}
-  .hafyz-cookie-kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#c49a43;font-weight:700;margin-bottom:5px}
-  .hafyz-cookie-title{font-size:18px;font-weight:700;color:#171717;margin-bottom:4px}
-  .hafyz-cookie-copy{font-size:13px;line-height:1.55;color:#66645f;max-width:590px}
-  .hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-  .hafyz-cookie-btn{border:0;border-radius:999px;padding:10px 15px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap}
-  .hafyz-cookie-btn.primary{background:#171717;color:#fff}
-  .hafyz-cookie-btn.secondary{background:#f1f1ee;color:#171717;border:1px solid rgba(20,20,20,.10)}
-  .hafyz-cookie-manage{position:fixed;inset:0;z-index:100000;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.32);padding:20px}
-  .hafyz-cookie-manage.show{display:flex}
-  .hafyz-cookie-panel{width:min(520px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.22)}
-  .hafyz-cookie-panel h3{font-size:24px;margin:0 0 6px;color:#171717}
-  .hafyz-cookie-panel>p{font-size:13px;color:#777;margin:0 0 18px}
-  .hafyz-cookie-row{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:15px 0;border-top:1px solid #eee}
-  .hafyz-cookie-row strong{display:block;font-size:14px;color:#171717}
-  .hafyz-cookie-row span{display:block;font-size:12px;color:#888;margin-top:3px}
-  .hafyz-cookie-toggle{width:46px;height:26px;border-radius:20px;background:#ddd;position:relative;flex:0 0 auto}
-  .hafyz-cookie-toggle:after{content:"";position:absolute;width:20px;height:20px;left:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.18)}
-  .hafyz-cookie-toggle.on{background:#171717}
-  .hafyz-cookie-toggle.on:after{left:23px}
-  .hafyz-cookie-toggle.locked{opacity:.65}
-  .hafyz-cookie-panel-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
-  @media(max-width:700px){#hafyzCookieBanner{left:12px;right:12px;bottom:12px}.hafyz-cookie-card{grid-template-columns:1fr;padding:17px}.hafyz-cookie-actions{justify-content:flex-start}.hafyz-cookie-btn{flex:1}}
+<style id="hafyz-cookie-v2-css">
+#hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;display:none;justify-content:center;pointer-events:none}
+#hafyzCookieBanner.show{display:flex}
+.hafyz-cookie-card{width:min(820px,100%);box-sizing:border-box;background:rgba(255,255,255,.98);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 55px rgba(0,0,0,.16);border-radius:18px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;pointer-events:auto;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.hafyz-cookie-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c49a43;font-weight:700;margin-bottom:5px}
+.hafyz-cookie-title{font-size:18px;font-weight:700;color:#171717;margin-bottom:5px}
+.hafyz-cookie-copy{font-size:12px;line-height:1.55;color:#66645f;max-width:610px}
+.hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.hafyz-cookie-btn{border:0;border-radius:999px;padding:10px 15px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+.hafyz-cookie-btn.primary{background:#171717;color:#fff}
+.hafyz-cookie-btn.secondary{background:#f1f1ee;color:#171717;border:1px solid rgba(20,20,20,.10)}
+#hafyzCookieModal{position:fixed;inset:0;z-index:100000;display:none;place-items:center;background:rgba(0,0,0,.34);padding:20px}
+#hafyzCookieModal.show{display:grid}
+.hafyz-cookie-modal-card{width:min(430px,100%);box-sizing:border-box;background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#171717}
+.hafyz-cookie-modal-card h3{margin:0 0 7px;font-size:18px}
+.hafyz-cookie-modal-card>p{margin:0 0 17px;color:#666;font-size:12px;line-height:1.55}
+.hafyz-cookie-option{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,20,20,.09)}
+.hafyz-cookie-option strong{font-size:13px}.hafyz-cookie-option small{display:block;color:#777;font-size:11px;margin-top:2px}
+.hafyz-cookie-switch{width:42px;height:24px;border:0;border-radius:99px;background:#ddd;position:relative;cursor:pointer}
+.hafyz-cookie-switch:after{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.18s}
+.hafyz-cookie-switch.on{background:#171717}.hafyz-cookie-switch.on:after{left:21px}
+.hafyz-cookie-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+@media(max-width:700px){#hafyzCookieBanner{left:12px;right:12px;bottom:12px}.hafyz-cookie-card{grid-template-columns:1fr;padding:17px}.hafyz-cookie-actions{justify-content:flex-start}.hafyz-cookie-btn{flex:1}}
 </style>
+
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "@id":"https://hafyz.my.id/#person",
+    "name":"HAFYZ",
+    "url":"https://hafyz.my.id/",
+    "jobTitle":["Musician","Composer","Producer","Entrepreneur"],
+    "description":"HAFYZ is a musician, composer and producer from Pekanbaru, Indonesia.",
+    "homeLocation":{
+      "@type":"Place",
+      "name":"Pekanbaru, Indonesia"
+    },
+    "worksFor":{
+      "@type":"Organization",
+      "name":"SOUR+ Entertainment Inc."
+    },
+    "sameAs":[
+      "https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd"
+    ]
+  }
+  </script>
 
 </head>
 
@@ -937,7 +973,7 @@
 <div id="hafyzCookieBanner" aria-live="polite">
   <div class="hafyz-cookie-card">
     <div>
-      <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies &amp; Privacy</div>
+      <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies & Privacy</div>
       <div class="hafyz-cookie-title" id="hafyzCookieTitle">A little privacy choice.</div>
       <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.</div>
     </div>
@@ -949,19 +985,19 @@
   </div>
 </div>
 
-<div class="hafyz-cookie-manage" id="hafyzCookieModal" role="dialog" aria-modal="true" aria-labelledby="hafyzCookieModalTitle">
-  <div class="hafyz-cookie-panel">
+<div id="hafyzCookieModal" aria-hidden="true">
+  <div class="hafyz-cookie-modal-card" role="dialog" aria-modal="true" aria-labelledby="hafyzCookieModalTitle">
     <h3 id="hafyzCookieModalTitle">Cookie preferences</h3>
     <p id="hafyzCookieModalCopy">Choose which optional technologies you want to allow.</p>
-    <div class="hafyz-cookie-row">
-      <div><strong id="hafyzEssentialTitle">Essential</strong><span id="hafyzEssentialCopy">Always active. Used for core site preferences.</span></div>
-      <div class="hafyz-cookie-toggle on locked" aria-hidden="true"></div>
+    <div class="hafyz-cookie-option">
+      <div><strong id="hafyzEssentialTitle">Essential</strong><small id="hafyzEssentialCopy">Always active. Used for core site preferences.</small></div>
+      <button class="hafyz-cookie-switch on" type="button" disabled aria-label="Essential cookies always active"></button>
     </div>
-    <div class="hafyz-cookie-row">
-      <div><strong id="hafyzMarketingTitle">Marketing</strong><span id="hafyzMarketingCopy">Meta Pixel and advertising measurement.</span></div>
-      <button class="hafyz-cookie-toggle" id="hafyzMarketingToggle" type="button" aria-label="Toggle marketing cookies"></button>
+    <div class="hafyz-cookie-option">
+      <div><strong id="hafyzMarketingTitle">Marketing</strong><small id="hafyzMarketingCopy">Meta Pixel and advertising measurement.</small></div>
+      <button class="hafyz-cookie-switch" id="hafyzMarketingToggle" type="button" aria-pressed="false" aria-label="Marketing cookies"></button>
     </div>
-    <div class="hafyz-cookie-panel-actions">
+    <div class="hafyz-cookie-modal-actions">
       <button class="hafyz-cookie-btn secondary" id="hafyzCookieCancel" type="button">Cancel</button>
       <button class="hafyz-cookie-btn primary" id="hafyzCookieSave" type="button">Save preferences</button>
     </div>
@@ -1532,88 +1568,112 @@
 
 </script>
 
-<script id="hafyz-meta-consent">
+<script id="hafyz-cookie-meta-v2">
 (function(){
   'use strict';
 
-  // Replace this placeholder with the numeric Meta Pixel ID from Meta Events Manager.
-  const HAFYZ_META_PIXEL_ID = '1537787853829726';
-  const CONSENT_KEY = 'hafyz-cookie-consent';
-  const MARKETING_KEY = 'hafyz-marketing-consent';
+  const PIXEL_ID = '1537787853829726';
+  const CONSENT_KEY = 'hafyz-cookie-consent-v2';
+  const MARKETING_KEY = 'hafyz-marketing-consent-v2';
 
   const banner = document.getElementById('hafyzCookieBanner');
   const modal = document.getElementById('hafyzCookieModal');
-  const marketingToggle = document.getElementById('hafyzMarketingToggle');
+  const toggle = document.getElementById('hafyzMarketingToggle');
 
   const copy = {
     en:{
       kicker:'Cookies & Privacy', title:'A little privacy choice.',
       body:'We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.',
-      manage:'Manage', reject:'Reject', accept:'Accept', modal:'Cookie preferences', modalCopy:'Choose which optional technologies you want to allow.', essential:'Essential', essentialCopy:'Always active. Used for core site preferences.', marketing:'Marketing', marketingCopy:'Meta Pixel and advertising measurement.', cancel:'Cancel', save:'Save preferences'
+      manage:'Manage', reject:'Reject', accept:'Accept', modal:'Cookie preferences',
+      modalCopy:'Choose which optional technologies you want to allow.', essential:'Essential',
+      essentialCopy:'Always active. Used for core site preferences.', marketing:'Marketing',
+      marketingCopy:'Meta Pixel and advertising measurement.', cancel:'Cancel', save:'Save preferences'
     },
     id:{
       kicker:'Cookie & Privasi', title:'Sedikit pilihan privasi.',
       body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Pelacakan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
-      manage:'Kelola', reject:'Tolak', accept:'Terima', modal:'Preferensi cookie', modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.', essential:'Esensial', essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', marketing:'Pemasaran', marketingCopy:'Meta Pixel dan pengukuran iklan.', cancel:'Batal', save:'Simpan preferensi'
+      manage:'Kelola', reject:'Tolak', accept:'Terima', modal:'Preferensi cookie',
+      modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.', essential:'Esensial',
+      essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', marketing:'Pemasaran',
+      marketingCopy:'Meta Pixel dan pengukuran iklan.', cancel:'Batal', save:'Simpan preferensi'
     }
   };
 
-  function currentLang(){ return (document.documentElement.lang || localStorage.getItem('hafyz-language') || 'en').toLowerCase().startsWith('id') ? 'id' : 'en'; }
-  function setCopy(){
-    const c=copy[currentLang()];
-    const map={hafyzCookieKicker:c.kicker,hafyzCookieTitle:c.title,hafyzCookieCopy:c.body,hafyzCookieManage:c.manage,hafyzCookieReject:c.reject,hafyzCookieAccept:c.accept,hafyzCookieModalTitle:c.modal,hafyzCookieModalCopy:c.modalCopy,hafyzEssentialTitle:c.essential,hafyzEssentialCopy:c.essentialCopy,hafyzMarketingTitle:c.marketing,hafyzMarketingCopy:c.marketingCopy,hafyzCookieCancel:c.cancel,hafyzCookieSave:c.save};
-    Object.keys(map).forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=map[id];});
+  function lang(){
+    return (document.documentElement.lang || localStorage.getItem('hafyz-language') || 'en').toLowerCase().startsWith('id') ? 'id' : 'en';
   }
 
-  function showBanner(){ if(banner) banner.classList.add('show'); }
-  function hideBanner(){ if(banner) banner.classList.remove('show'); }
-  function showModal(){
-    const saved=localStorage.getItem(MARKETING_KEY)==='granted';
-    if(marketingToggle) marketingToggle.classList.toggle('on',saved);
-    if(modal) modal.classList.add('show');
+  function updateCookieCopy(){
+    const c = copy[lang()];
+    const map = {
+      hafyzCookieKicker:c.kicker, hafyzCookieTitle:c.title, hafyzCookieCopy:c.body,
+      hafyzCookieManage:c.manage, hafyzCookieReject:c.reject, hafyzCookieAccept:c.accept,
+      hafyzCookieModalTitle:c.modal, hafyzCookieModalCopy:c.modalCopy,
+      hafyzEssentialTitle:c.essential, hafyzEssentialCopy:c.essentialCopy,
+      hafyzMarketingTitle:c.marketing, hafyzMarketingCopy:c.marketingCopy,
+      hafyzCookieCancel:c.cancel, hafyzCookieSave:c.save
+    };
+    Object.keys(map).forEach(function(id){
+      const el=document.getElementById(id);
+      if(el) el.textContent=map[id];
+    });
   }
-  function hideModal(){ if(modal) modal.classList.remove('show'); }
 
-  function loadMetaPixel(){
-    if(window.__HAFYZ_META_PIXEL_LOADED || !/^\d+$/.test(HAFYZ_META_PIXEL_ID)) return false;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    window.fbq('init', HAFYZ_META_PIXEL_ID);
+  function loadPixel(){
+    if(window.__HAFYZ_META_PIXEL_LOADED || !/^\d+$/.test(PIXEL_ID)) return;
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;
+      n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;t.src=v;
+      s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq('init',PIXEL_ID);
     window.fbq('track','PageView');
     window.__HAFYZ_META_PIXEL_LOADED=true;
-    return true;
   }
 
-  function setConsent(marketing){
+  function save(marketing){
     localStorage.setItem(CONSENT_KEY, marketing ? 'accepted' : 'rejected');
     localStorage.setItem(MARKETING_KEY, marketing ? 'granted' : 'denied');
-    if(marketing) loadMetaPixel();
-    hideBanner(); hideModal();
+    if(marketing) loadPixel();
+    banner.classList.remove('show');
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden','true');
   }
 
-  document.getElementById('hafyzCookieAccept')?.addEventListener('click',()=>setConsent(true));
-  document.getElementById('hafyzCookieReject')?.addEventListener('click',()=>setConsent(false));
-  document.getElementById('hafyzCookieManage')?.addEventListener('click',showModal);
-  document.getElementById('hafyzCookieCancel')?.addEventListener('click',hideModal);
-  document.getElementById('hafyzCookieSave')?.addEventListener('click',()=>setConsent(marketingToggle?.classList.contains('on')));
-  marketingToggle?.addEventListener('click',()=>marketingToggle.classList.toggle('on'));
-  modal?.addEventListener('click',e=>{if(e.target===modal)hideModal();});
-
-  document.addEventListener('click',function(e){
-    const link=e.target.closest('a');
-    if(!link || !window.fbq) return;
-    const href=(link.href||'').toLowerCase();
-    if(href.includes('found.ee') || href.includes('spotify.com')){
-      window.fbq('trackCustom','HAFYZOutboundClick',{destination:href.includes('found.ee')?'presave':'spotify'});
-    }
+  document.getElementById('hafyzCookieAccept').addEventListener('click',function(){save(true)});
+  document.getElementById('hafyzCookieReject').addEventListener('click',function(){save(false)});
+  document.getElementById('hafyzCookieManage').addEventListener('click',function(){
+    const granted=localStorage.getItem(MARKETING_KEY)==='granted';
+    toggle.classList.toggle('on',granted);
+    toggle.setAttribute('aria-pressed',String(granted));
+    modal.classList.add('show');
+    modal.setAttribute('aria-hidden','false');
+  });
+  document.getElementById('hafyzCookieCancel').addEventListener('click',function(){
+    modal.classList.remove('show');
+    modal.setAttribute('aria-hidden','true');
+  });
+  toggle.addEventListener('click',function(){
+    const on=!toggle.classList.contains('on');
+    toggle.classList.toggle('on',on);
+    toggle.setAttribute('aria-pressed',String(on));
+  });
+  document.getElementById('hafyzCookieSave').addEventListener('click',function(){
+    save(toggle.classList.contains('on'));
   });
 
-  setCopy();
-  const observer=new MutationObserver(setCopy);
-  observer.observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  updateCookieCopy();
+  new MutationObserver(updateCookieCopy).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
   const consent=localStorage.getItem(CONSENT_KEY);
-  if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted') loadMetaPixel();
-  else if(!consent) setTimeout(showBanner,500);
+  if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted'){
+    loadPixel();
+  }else if(consent!=='rejected'){
+    setTimeout(function(){banner.classList.add('show')},450);
+  }
 })();
 </script>
 

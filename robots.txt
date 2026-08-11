@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hafyz.my.id/sitemap.xml
+Sitemap: https://www.hafyz.my.id/sitemap.xml

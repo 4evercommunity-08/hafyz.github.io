@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>chasing hollow gold after hours (stripped) — HAFYZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f0f0f0;
+            --text: #1a1a1a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --accent: #c9a84c;
+            --accent-hover: #d4b55a;
+            --border: #e0e0e0;
+            --border-light: #d0d0d0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===== NAVIGATION ===== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(245,245,245,0.95) 0%, rgba(245,245,245,0.7) 60%, transparent 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            color: var(--text);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-back {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-back:hover {
+            color: var(--text);
+        }
+
+        .nav-back svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 32px;
+            padding: 8px 20px;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 100px;
+            background: rgba(201,168,76,0.05);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .hero-title {
+            font-size: clamp(36px, 8vw, 80px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            max-width: 900px;
+        }
+
+        .hero-title .highlight {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2.5vw, 22px);
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 1px;
+            margin-bottom: 48px;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .hero-meta-item svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent);
+        }
+
+        .hero-meta-divider {
+            width: 4px;
+            height: 4px;
+            background: var(--text-muted);
+            border-radius: 50%;
+        }
+
+        /* ===== EMBEDS SECTION ===== */
+        .embeds-section {
+            padding: 0 40px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .embeds-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .embed-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .embed-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+
+        .embed-card-header {
+            padding: 20px 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .embed-card-header svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .embed-card-body {
+            padding: 16px 24px 24px;
+        }
+
+        .embed-card-body iframe {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-section {
+            padding: 100px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: clamp(16px, 2vw, 20px);
+            line-height: 1.85;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .about-text p {
+            margin-bottom: 28px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-text strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .about-text em {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        /* ===== QUOTE SECTION ===== */
+        .quote-section {
+            padding: 100px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+        }
+
+        .quote-mark {
+            font-size: 80px;
+            line-height: 1;
+            color: var(--accent);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            margin-bottom: -20px;
+        }
+
+        .quote-text {
+            font-size: clamp(22px, 3.5vw, 36px);
+            font-weight: 300;
+            line-height: 1.4;
+            color: var(--text);
+            font-style: italic;
+            letter-spacing: -0.5px;
+        }
+
+        .quote-text .accent {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* ===== DETAILS GRID ===== */
+        .details-section {
+            padding: 100px 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .details-section::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            margin: 0 auto 40px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .detail-item {
+            background: var(--bg-secondary);
+            padding: 40px 32px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .detail-icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 auto 16px;
+            color: var(--accent);
+        }
+
+        .detail-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .detail-value {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: var(--text);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .embeds-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
+            }
+
+            .embeds-section,
+            .about-section,
+            .quote-section,
+            .details-section {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                letter-spacing: -1px;
+            }
+
+            .hero-meta {
+                gap: 12px;
+            }
+
+            .hero-meta-divider {
+                display: none;
+            }
+        }
+    </style>
+<base target="_blank">
+
+<style id="hafyz-site-theme">
+:root{
+  --bg:#f7f7f5;
+  --bg-secondary:#ffffff;
+  --bg-tertiary:#f0f0ee;
+  --text:#171717;
+  --text-secondary:#5d5d5d;
+  --text-muted:#8a8a8a;
+  --accent:#171717;
+  --accent-hover:#444;
+  --border:#dededb;
+  --border-light:#cfcfcb;
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.nav{
+  padding:22px 34px;
+  background:rgba(247,247,245,.86);
+  border-bottom:1px solid rgba(20,20,20,.06);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+.nav-logo{
+  font-size:16px;
+  letter-spacing:4px;
+}
+.nav-logo span,.hero-badge,.hero-title .highlight,.hero-meta-item svg,
+.detail-icon,.footer-logo span,.section-label,.quote-text .accent{
+  color:var(--text);
+}
+.nav-back{
+  color:var(--text-secondary);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+.nav-back:hover{color:var(--text)}
+.hero{
+  min-height:92vh;
+  padding:128px 32px 76px;
+}
+.hero::before{
+  background:
+    linear-gradient(to bottom,rgba(247,247,245,.18),rgba(247,247,245,.68)),
+    url('chasing-hollow-gold-stripped.jpg') center center / cover no-repeat;
+  opacity:.92;
+}
+.hero-badge{
+  border:1px solid rgba(20,20,20,.16);
+  background:rgba(255,255,255,.62);
+  border-radius:999px;
+  letter-spacing:2.6px;
+}
+.hero-title{
+  font-weight:800;
+  letter-spacing:-2.8px;
+}
+.hero-subtitle{
+  color:var(--text-secondary);
+}
+.hero-meta-item{
+  color:var(--text-muted);
+  font-size:11px;
+  letter-spacing:.6px;
+}
+.embeds-section{
+  max-width:1120px;
+  padding:0 32px 96px;
+}
+.embeds-grid{gap:18px}
+.embed-card{
+  border:1px solid var(--border);
+  border-radius:0;
+  box-shadow:none;
+}
+.embed-card:hover{
+  border-color:var(--border-light);
+  transform:translateY(-1px);
+}
+.embed-card-header{
+  padding:18px 20px 0;
+  font-size:10px;
+  letter-spacing:1.8px;
+}
+.embed-card-body{padding:14px 20px 20px}
+.embed-card-body iframe{border-radius:0!important}
+.about-section,.quote-section,.details-section{
+  border-top:0;
+}
+.about-section{max-width:820px;padding:96px 32px}
+.about-section::before,.quote-section::before,.details-section::before{
+  width:44px;
+  background:var(--text);
+  opacity:.18;
+}
+.section-label{
+  font-size:10px;
+  letter-spacing:3px;
+}
+.about-text{
+  font-size:16px;
+  line-height:1.9;
+  color:var(--text-secondary);
+}
+.about-text strong,.about-text em{color:var(--text)}
+.quote-section{max-width:920px;padding:96px 32px}
+.quote-mark{color:var(--text);opacity:.12}
+.quote-text{
+  font-weight:300;
+  letter-spacing:-.7px;
+}
+.details-section{max-width:1040px;padding:96px 32px}
+.details-grid{
+  background:var(--border);
+  border-radius:0;
+}
+.detail-item{
+  padding:34px 26px;
+  background:var(--bg-secondary);
+}
+.detail-item:hover{background:var(--bg-tertiary)}
+.detail-label{
+  font-size:9px;
+  letter-spacing:2.2px;
+}
+.detail-value{font-size:16px}
+.footer{
+  padding:52px 32px;
+  border-top:1px solid var(--border);
+}
+.footer-logo{
+  font-size:13px;
+  letter-spacing:4px;
+}
+.footer-copy{
+  max-width:760px;
+  margin:0 auto;
+  line-height:1.7;
+}
+#hafyzLangSwitch{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:9999;
+  width:42px;
+  height:42px;
+  border:1px solid rgba(20,20,20,.15);
+  border-radius:50%;
+  background:rgba(255,255,255,.94);
+  color:#222;
+  font:800 9px/1 Inter,system-ui,sans-serif;
+  letter-spacing:.08em;
+  cursor:pointer;
+  box-shadow:0 8px 28px rgba(0,0,0,.09);
+}
+#hafyzLangSwitch:hover{background:#171717;color:#fff}
+@media(max-width:900px){
+  .nav{padding:17px 22px}
+  .hero{padding:106px 22px 58px}
+  .embeds-section,.about-section,.quote-section,.details-section{padding-left:22px;padding-right:22px}
+}
+</style>
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="/" class="nav-logo" target="_self">HAFY<span>Z</span></a>
+        <a href="/" class="nav-back" target="_self">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"/>
+                <path d="M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Home
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(to bottom, rgba(245,245,245,0.3) 0%, rgba(245,245,245,0.85) 60%, var(--bg) 100%), url('chgstripped/chasing-hollow-gold-stripped.jpg'); background-size: cover; background-position: center;">
+        <div class="hero-badge">New Release</div>
+        <h1 class="hero-title">
+            chasing <span class="highlight">hollow gold</span><br>
+            <span style="font-weight:300; color: var(--text-secondary);">after hours (stripped)</span>
+        </h1>
+        <p class="hero-subtitle">A stripped-down After Hours release</p>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                August 14, 2026
+            </div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+                Stripped / Acoustic Pop
+            </div>
+            <div class="hero-meta-divider"></div>
+            <div class="hero-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                SOUR+ Entertainment Inc
+            </div>
+        </div>
+    </section>
+
+    <!-- Embeds Section -->
+            <!-- Spotify -->
+            <div class="embed-card reveal">
+                <div class="embed-card-header">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                    </svg>
+                    Listen on Spotify
+                </div>
+                <div class="embed-card-body">
+                    <iframe 
+                        data-testid="embed-iframe" 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/3eEWheO7Pf4pFtqK93K4ry?utm_source=generator&si=2b153fa7950d48df?utm_source=generator&si=10a47049927d4590" 
+                        width="100%" 
+                        height="352" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="section-label reveal">About the Song</div>
+        <div class="about-text reveal">
+
+            <p>
+                <strong>chasing hollow gold after hours (stripped)</strong>
+                stands as an emotionally raw, introspective centerpiece within
+                Indonesian artist and producer HAFYZ’s <em>After Hours</em>
+                creative cycle. Released on <strong>August 14, 2026</strong>,
+                and co-produced alongside Aldy Stiviano Wirawan, this
+                stripped-down iteration deliberately dismantles dense
+                production layers, replacing them with an intimate acoustic
+                soundscape that allows the track’s scathing narrative to take
+                center stage.
+            </p>
+
+            <p>
+                Musically, the arrangement relies on warm, rhythmic fingerpicked
+                acoustic guitar paired with subtle bass contours and restrained
+                organic percussion. The sound design intentionally captures the
+                feel of an unfiltered late-night session, unvarnished yet
+                meticulously arranged. This minimalist backdrop creates an echo
+                chamber for HAFYZ’s vocal delivery, which seamlessly shifts
+                between conversational cadences, weary melodic phrasing, and
+                sharp, unfiltered confrontation.
+            </p>
+
+            <p>
+                Lyrically, the song delivers a biting critique of shallow
+                ambition, transactional relationships, and misplaced priorities.
+                HAFYZ tackles the frustration of watching someone trade genuine
+                connection and personal integrity for fleeting validation,
+                surface-level status, and temporary distractions.
+            </p>
+
+            <p>
+                Central metaphors, such as choosing “paper stars over solid
+                stone” and ending up as a “ghost in a circus show,” vividly
+                frame this pursuit of empty status as <em>chasing hollow gold</em>,
+                a futile cycle where illusion eventually gives way to complete
+                isolation.
+            </p>
+
+            <p>
+                By stripping away heavy synth work and polished pop embellishments,
+                HAFYZ and Aldy expose the core emotional weight of the narrative:
+                quiet resolve amid disillusionment. Rather than descending into
+                pure bitterness, the song reflects the clarity of an artist
+                standing his ground while others burn out on false promises,
+                serving as a definitive emotional anchor for the entire
+                <em>After Hours</em> era.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- Artist Statement -->
+    <section class="quote-section reveal">
+        <div class="quote-mark">“</div>
+        <p class="quote-text">
+            With the <span class="accent">After Hours</span> cycle, I wanted
+            to strip away the noise and lay everything bare. This stripped
+            version represents the raw internal monologue, the quiet
+            realization at 3 AM when all the crowd noise fades and you finally
+            see through the illusion.
+        </p>
+        <div class="quote-credit">HAFYZ · Artist Statement</div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section reveal">
+        <div class="quote-mark">“</div>
+        <p class="quote-text">
+            The quiet realization when all the crowd noise fades and you
+            finally see through the <span class="accent">illusion.</span>
+        </p>
+    </section>
+
+    <!-- Details Grid -->
+    <section class="details-section">
+        <div class="section-label reveal">Track Details</div>
+        <div class="details-grid reveal">
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    <line x1="12" y1="19" x2="12" y2="23"/>
+                    <line x1="8" y1="23" x2="16" y2="23"/>
+                </svg>
+                <div class="detail-label">Genre</div>
+                <div class="detail-value">Stripped / Acoustic Pop</div>
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                <div class="detail-label">Release Date</div>
+                <div class="detail-value">August 14, 2026</div>
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                <div class="detail-label">Label</div>
+                <div class="detail-value">SOUR+ Entertainment Inc.</div>
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+                <div class="detail-label">Era</div>
+                <div class="detail-value">After Hours</div>
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 20h9"/>
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+                <div class="detail-label">Co-Producer</div>
+                <div class="detail-value">Aldy Stiviano Wirawan</div>
+            </div>
+            <div class="detail-item">
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18V5l12-2v13"/>
+                    <circle cx="6" cy="18" r="3"/>
+                    <circle cx="18" cy="16" r="3"/>
+                </svg>
+                <div class="detail-label">Era</div>
+                <div class="detail-value">After Hours</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">HAFYZ</div>
+        <div class="footer-copy">&copy; 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. A SOUR+ Entertainment Inc release. All rights reserved.</div>
+    </footer>
+
+    <!-- Scroll Animation Script -->
+    <script>
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        revealOnScroll();
+    </script>
+
+<button id="hafyzLangSwitch" type="button" aria-label="Switch to Bahasa Indonesia" title="Switch to Bahasa Indonesia">ID</button>
+
+<script id="hafyz-language-engine">
+(function(){
+  const exact = new Map([["Back to Home", "Kembali ke Beranda"], ["New Release", "Single Ketiga"], ["A stripped-down After Hours release", "Dari era After Hours"], ["Listen on Spotify", "Dengarkan di Spotify"], ["About the Song", "Tentang Lagu"], ["Track Details", "Detail Lagu"], ["Genre", "Genre"], ["Release Date", "Tanggal Rilis"], ["Label", "Label"], ["Era", "Era"], ["Songwriter", "Penulis Lagu"], ["Single Number", "Nomor Single"], ["3rd Single", "Single ke-3"], ["August 14, 2026", "31 Juli 2026"], ["All rights reserved.", "Seluruh hak dilindungi."]]);
+  const marked = new Map([["about_1", "<strong>chasing hollow gold (after hours)</strong> menjadi single ketiga yang dirilis dari era After Hours HAFYZ. Secara sonik, lagu ini digerakkan oleh lanskap dark alt-pop yang berat dan gritty, menghadirkan narasi eksplisit yang mentah, tanpa kompromi, dan sepenuhnya tanpa filter."], ["about_2", "Konsep utama lagu ini berangkat dari refleksi personal yang sangat pahit mengenai persahabatan dan perpisahan profesional yang menghancurkan, yang sepenuhnya membongkar inner circle HAFYZ. Judulnya sendiri menjadi metafora tajam untuk hubungan superficial yang dibangun di atas keuntungan sepihak, koneksi yang dari luar tampak berkilau, megah, dan berharga seperti emas, tetapi sepenuhnya kosong (hollow) dan toxic di dalamnya."], ["about_3", "Melalui pelepasan katarsis yang intens ini, HAFYZ menyalurkan kelelahan total karena dieksploitasi, mengubah trauma akibat pengkhianatan menjadi pernyataan sonik yang berani, di mana ia memilih untuk membalas dengan subtle psychological shade daripada terus diam."], ["about_4", "Hype di sekitar lagu ini langsung menyala sejak rollout awalnya, dipicu oleh kode akrostik misterius yang disisipkan dalam pengumuman resmi di akun Instagram label SOUR+ Entertainment. Dengan mengisolasi kata-kata yang ditulis dengan kapitalisasi tidak biasa untuk menemukan inisial <em>A-G-H-Z</em>, para penggemar langsung tertarik untuk memecahkan pesan tersembunyi yang terjalin di dalam lagu ini."], ["about_5", "Dengan memadukan frustrasi yang mentah, atmosfer sonik yang gelap, dan keretakan hubungan di dunia nyata, single ini menonjol sebagai salah satu rilisan paling berani dan sarat muatan emosional dalam diskografi HAFYZ. Dijadwalkan untuk rilis resmi pada <strong>31 Juli 2026</strong>, lagu ini menjanjikan dampak emosional yang jujur tanpa tedeng aling-aling dan kuat, menandai momen penting ketika HAFYZ sepenuhnya merebut kembali narasinya."], ["quote", "Koneksi yang dari luar tampak berkilau, megah, dan berharga seperti <span class=\"accent\">emas</span>, tetapi sepenuhnya <span class=\"accent\">kosong</span> dan toxic di dalamnya."]]);
+  const original = new WeakMap();
+
+  function setLanguage(lang){
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if(!original.has(el)) original.set(el, el.innerHTML);
+      const key = el.getAttribute("data-i18n");
+      if(lang === "id" && marked.has(key)) el.innerHTML = marked.get(key);
+      else if(lang === "en" && original.has(el)) el.innerHTML = original.get(el);
+    });
+
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(function(node){
+      const parent = node.parentElement;
+      if(!parent || ["SCRIPT","STYLE","NOSCRIPT"].includes(parent.tagName) || parent.closest("[data-i18n]")) return;
+      if(!original.has(node)) original.set(node, node.nodeValue);
+      const key = node.nodeValue.trim();
+
+      if(lang === "id" && exact.has(key)){
+        node.nodeValue = node.nodeValue.replace(key, exact.get(key));
+      } else if(lang === "en" && original.has(node)){
+        node.nodeValue = original.get(node);
+      }
+    });
+
+    document.documentElement.lang = lang;
+    localStorage.setItem("hafyz-language", lang);
+
+    const b = document.getElementById("hafyzLangSwitch");
+    if(b){
+      b.textContent = lang === "id" ? "EN" : "ID";
+      b.title = lang === "id" ? "Switch to English" : "Switch to Bahasa Indonesia";
+      b.setAttribute("aria-label", b.title);
+    }
+  }
+
+  const b = document.getElementById("hafyzLangSwitch");
+  if(b) b.addEventListener("click", function(){
+    setLanguage(document.documentElement.lang === "id" ? "en" : "id");
+  });
+
+  setLanguage(localStorage.getItem("hafyz-language") === "id" ? "id" : "en");
+})();
+</script>

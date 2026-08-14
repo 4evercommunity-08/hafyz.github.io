@@ -992,113 +992,6 @@ body.cookie-banner-visible .language-prompt{bottom:170px}
         revealOnScroll();
     </script>
 
-<button id="hafyzLangSwitch" type="button" aria-label="Switch to Bahasa Indonesia" title="Switch to Bahasa Indonesia">ID</button>
-
-<script id="hafyz-language-engine">
-(function(){
-  'use strict';
-
-  const translations = {
-    id: {
-      backHome: 'Kembali ke Beranda',
-      newRelease: 'Rilisan Baru',
-      heroSubtitle: 'Rilisan stripped-down dari era After Hours',
-      releaseDate: '14 Agustus 2026',
-      genre: 'Stripped / Acoustic Pop',
-      label: 'SOUR+ Entertainment Inc',
-      spotifyHeaderText: 'Dengarkan di Spotify',
-      aboutLabel: 'Tentang Lagu',
-      about1: '<strong>chasing hollow gold after hours (stripped)</strong> menjadi pusat emosional yang mentah dan introspektif dalam siklus kreatif <em>After Hours</em> milik musisi dan produser Indonesia HAFYZ. Dirilis pada <strong>14 Agustus 2026</strong> dan diproduseri bersama Aldy Stiviano Wirawan, versi stripped ini sengaja membongkar lapisan produksi yang padat dan menggantinya dengan lanskap akustik yang intim, sehingga narasi tajam lagu ini berdiri di garis depan.',
-      about2: 'Secara musikal, aransemennya bertumpu pada petikan gitar akustik yang hangat dan ritmis, dipadukan dengan kontur bass yang halus serta perkusi organik yang tertahan. Sound design-nya sengaja menangkap nuansa sesi larut malam yang tanpa filter, tidak dipoles secara berlebihan namun tetap ditata dengan sangat teliti. Latar minimalis ini menjadi ruang gema bagi vokal HAFYZ yang bergerak antara cadence percakapan, frase melodis yang lelah, dan konfrontasi yang tajam serta tanpa filter.',
-      about3: 'Secara lirik, lagu ini menyampaikan kritik tajam terhadap ambisi yang dangkal, hubungan transaksional, dan prioritas yang salah tempat. HAFYZ menyoroti frustrasi ketika seseorang menukar koneksi yang tulus dan integritas pribadi demi validasi sesaat, status yang hanya tampak di permukaan, dan distraksi sementara.',
-      about4: 'Metafora utama seperti memilih “bintang kertas daripada batu yang kokoh” dan akhirnya menjadi “hantu dalam pertunjukan sirkus” menggambarkan pengejaran status kosong sebagai <em>chasing hollow gold</em>, sebuah siklus sia-sia ketika ilusi pada akhirnya berubah menjadi keterasingan sepenuhnya.',
-      about5: 'Dengan menyingkirkan heavy synth dan ornamen pop yang terlalu dipoles, HAFYZ dan Aldy menyingkap bobot emosional inti dari narasi ini: keteguhan yang tenang di tengah kekecewaan. Alih-alih tenggelam dalam kepahitan, lagu ini merefleksikan kejernihan seorang artis yang memilih tetap berdiri teguh sementara orang lain kehabisan tenaga mengejar janji-janji palsu, menjadikannya jangkar emosional definitif untuk keseluruhan era <em>After Hours</em>.',
-      artistStatement: 'Dalam siklus <span class="accent">After Hours</span>, aku ingin menyingkirkan kebisingan dan membiarkan semuanya terlihat apa adanya. Versi stripped ini adalah monolog batin yang mentah, momen kesadaran yang sunyi pada pukul 3 pagi ketika seluruh keramaian menghilang dan akhirnya kamu bisa melihat menembus ilusi.',
-      artistCredit: 'HAFYZ · Pernyataan Artis',
-      quote2: 'Kesadaran sunyi ketika seluruh keramaian menghilang dan akhirnya kamu bisa melihat menembus <span class="accent">ilusi.</span>',
-      trackDetails: 'Detail Lagu',
-      genreLabel: 'Genre',
-      releaseDateLabel: 'Tanggal Rilis',
-      labelLabel: 'Label',
-      eraLabel: 'Era',
-      coProducerLabel: 'Co-Produser',
-      footerCopy: '&copy; 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. Sebuah rilisan SOUR+ Entertainment Inc. Seluruh hak dilindungi.'
-    }
-  };
-
-  const originals = new WeakMap();
-
-  function capture(){
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      if(!originals.has(el)) originals.set(el, el.innerHTML);
-    });
-  }
-
-  function restoreEnglish(){
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      if(originals.has(el)) el.innerHTML = originals.get(el);
-    });
-  }
-
-  function applyLanguage(lang){
-    capture();
-    const id = lang === 'id';
-    document.querySelectorAll('[data-i18n]').forEach(function(el){
-      const key = el.getAttribute('data-i18n');
-      if(id && translations.id[key] != null) el.innerHTML = translations.id[key];
-      else if(!id && originals.has(el)) el.innerHTML = originals.get(el);
-    });
-
-    document.documentElement.lang = id ? 'id' : 'en';
-    localStorage.setItem('hafyz-language', id ? 'id' : 'en');
-    localStorage.setItem('hafyz-language-choice', 'manual');
-    updateSwitcher(id ? 'id' : 'en');
-    if(window.HAFYZ_COOKIE_UPDATE_COPY) window.HAFYZ_COOKIE_UPDATE_COPY();
-  }
-
-  function updateSwitcher(lang){
-    const button=document.getElementById('hafyzLangSwitch');
-    if(!button) return;
-    button.textContent = lang === 'id' ? 'EN' : 'ID';
-    button.title = lang === 'id' ? 'Switch to English' : 'Beralih ke Bahasa Indonesia';
-    button.setAttribute('aria-label', button.title);
-  }
-
-  const prompt=document.getElementById('languagePrompt');
-  const accept=document.getElementById('languageAccept');
-  const keep=document.getElementById('languageKeep');
-  const close=document.getElementById('languagePromptClose');
-  const switcher=document.getElementById('hafyzLangSwitch');
-
-  function hidePrompt(){ if(prompt) prompt.classList.remove('show'); }
-  function rememberChoice(){ localStorage.setItem('hafyz-language-choice','manual'); hidePrompt(); }
-
-  if(accept) accept.addEventListener('click',function(){ applyLanguage('id'); rememberChoice(); });
-  if(keep) keep.addEventListener('click',function(){ applyLanguage('en'); rememberChoice(); });
-  if(close) close.addEventListener('click',function(){ applyLanguage('en'); rememberChoice(); });
-  if(switcher) switcher.addEventListener('click',function(){
-    const current=document.documentElement.lang === 'id' ? 'id' : 'en';
-    applyLanguage(current === 'id' ? 'en' : 'id');
-    hidePrompt();
-  });
-
-  const saved=localStorage.getItem('hafyz-language');
-  const choice=localStorage.getItem('hafyz-language-choice');
-  if(saved === 'id' || saved === 'en'){
-    applyLanguage(saved);
-  }else{
-    applyLanguage('en');
-  }
-
-  // Offer Indonesian automatically when the browser language is Indonesian.
-  const browser=(navigator.language || '').toLowerCase();
-  const indonesiaSignal=browser === 'id' || browser.startsWith('id-');
-  if(!choice && indonesiaSignal && prompt){
-    setTimeout(function(){ prompt.classList.add('show'); },650);
-  }
-})();
-</script>
-
 <!-- Language suggestion -->
 <div class="language-prompt" id="languagePrompt" role="dialog" aria-live="polite" aria-labelledby="languagePromptTitle">
   <div class="language-prompt-top">
@@ -1116,6 +1009,112 @@ body.cookie-banner-visible .language-prompt{bottom:170px}
   <p class="language-status" id="languageStatus">Your choice will be remembered on this device.</p>
 </div>
 <button id="hafyzLangSwitch" type="button" aria-label="Beralih ke Bahasa Indonesia" title="Beralih ke Bahasa Indonesia">ID</button>
+
+<script id="hafyz-language-engine">
+(function(){
+  'use strict';
+
+  function initLanguageEngine(){
+    const translations = {
+      id: {
+        backHome: 'Kembali ke Beranda',
+        newRelease: 'Rilisan Baru',
+        heroSubtitle: 'Rilisan stripped-down dari era After Hours',
+        releaseDate: '14 Agustus 2026',
+        genre: 'Stripped / Acoustic Pop',
+        label: 'SOUR+ Entertainment Inc',
+        spotifyHeaderText: 'Dengarkan di Spotify',
+        aboutLabel: 'Tentang Lagu',
+        about1: '<strong>chasing hollow gold after hours (stripped)</strong> menjadi pusat emosional yang mentah dan introspektif dalam siklus kreatif <em>After Hours</em> milik musisi dan produser Indonesia HAFYZ. Dirilis pada <strong>14 Agustus 2026</strong> dan diproduseri bersama Aldy Stiviano Wirawan, versi stripped ini sengaja membongkar lapisan produksi yang padat dan menggantinya dengan lanskap akustik yang intim, sehingga narasi tajam lagu ini berdiri di garis depan.',
+        about2: 'Secara musikal, aransemennya bertumpu pada petikan gitar akustik yang hangat dan ritmis, dipadukan dengan kontur bass yang halus serta perkusi organik yang tertahan. Sound design-nya sengaja menangkap nuansa sesi larut malam yang tanpa filter, tidak dipoles secara berlebihan namun tetap ditata dengan sangat teliti. Latar minimalis ini menjadi ruang gema bagi vokal HAFYZ yang bergerak antara cadence percakapan, frase melodis yang lelah, dan konfrontasi yang tajam serta tanpa filter.',
+        about3: 'Secara lirik, lagu ini menyampaikan kritik tajam terhadap ambisi yang dangkal, hubungan transaksional, dan prioritas yang salah tempat. HAFYZ menyoroti frustrasi ketika seseorang menukar koneksi yang tulus dan integritas pribadi demi validasi sesaat, status yang hanya tampak di permukaan, dan distraksi sementara.',
+        about4: 'Metafora utama seperti memilih “bintang kertas daripada batu yang kokoh” dan akhirnya menjadi “hantu dalam pertunjukan sirkus” menggambarkan pengejaran status kosong sebagai <em>chasing hollow gold</em>, sebuah siklus sia-sia ketika ilusi pada akhirnya berubah menjadi keterasingan sepenuhnya.',
+        about5: 'Dengan menyingkirkan heavy synth dan ornamen pop yang terlalu dipoles, HAFYZ dan Aldy menyingkap bobot emosional inti dari narasi ini: keteguhan yang tenang di tengah kekecewaan. Alih-alih tenggelam dalam kepahitan, lagu ini merefleksikan kejernihan seorang artis yang memilih tetap berdiri teguh sementara orang lain kehabisan tenaga mengejar janji-janji palsu, menjadikannya jangkar emosional definitif untuk keseluruhan era <em>After Hours</em>.',
+        artistStatement: 'Dalam siklus <span class="accent">After Hours</span>, aku ingin menyingkirkan kebisingan dan membiarkan semuanya terlihat apa adanya. Versi stripped ini adalah monolog batin yang mentah, momen kesadaran yang sunyi pada pukul 3 pagi ketika seluruh keramaian menghilang dan akhirnya kamu bisa melihat menembus ilusi.',
+        artistCredit: 'HAFYZ · Pernyataan Artis',
+        quote2: 'Kesadaran sunyi ketika seluruh keramaian menghilang dan akhirnya kamu bisa melihat menembus <span class="accent">ilusi.</span>',
+        trackDetails: 'Detail Lagu',
+        genreLabel: 'Genre',
+        releaseDateLabel: 'Tanggal Rilis',
+        labelLabel: 'Label',
+        eraLabel: 'Era',
+        coProducerLabel: 'Co-Produser',
+        footerCopy: '&copy; 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. Sebuah rilisan SOUR+ Entertainment Inc. Seluruh hak dilindungi.'
+      }
+    };
+
+    const originals = new WeakMap();
+    const elements = function(){ return document.querySelectorAll('[data-i18n]'); };
+
+    function capture(){
+      elements().forEach(function(el){
+        if(!originals.has(el)) originals.set(el, el.innerHTML);
+      });
+    }
+
+    function updateSwitcher(lang){
+      const button=document.getElementById('hafyzLangSwitch');
+      if(!button) return;
+      const isId = lang === 'id';
+      button.textContent = isId ? 'EN' : 'ID';
+      button.title = isId ? 'Switch to English' : 'Beralih ke Bahasa Indonesia';
+      button.setAttribute('aria-label', button.title);
+    }
+
+    function applyLanguage(lang){
+      capture();
+      const isId = lang === 'id';
+      elements().forEach(function(el){
+        const key = el.getAttribute('data-i18n');
+        if(isId && Object.prototype.hasOwnProperty.call(translations.id,key)) {
+          el.innerHTML = translations.id[key];
+        } else if(!isId && originals.has(el)) {
+          el.innerHTML = originals.get(el);
+        }
+      });
+      document.documentElement.lang = isId ? 'id' : 'en';
+      try {
+        localStorage.setItem('hafyz-language', isId ? 'id' : 'en');
+        localStorage.setItem('hafyz-language-choice', 'manual');
+      } catch(e) {}
+      updateSwitcher(isId ? 'id' : 'en');
+      if(window.HAFYZ_COOKIE_UPDATE_COPY) window.HAFYZ_COOKIE_UPDATE_COPY();
+    }
+
+    const prompt=document.getElementById('languagePrompt');
+    const accept=document.getElementById('languageAccept');
+    const keep=document.getElementById('languageKeep');
+    const close=document.getElementById('languagePromptClose');
+    const switcher=document.getElementById('hafyzLangSwitch');
+
+    function hidePrompt(){ if(prompt) prompt.classList.remove('show'); }
+    function rememberChoice(){ try { localStorage.setItem('hafyz-language-choice','manual'); } catch(e) {} hidePrompt(); }
+
+    if(accept) accept.addEventListener('click',function(){ applyLanguage('id'); rememberChoice(); });
+    if(keep) keep.addEventListener('click',function(){ applyLanguage('en'); rememberChoice(); });
+    if(close) close.addEventListener('click',function(){ applyLanguage('en'); rememberChoice(); });
+    if(switcher) switcher.addEventListener('click',function(){
+      const current = document.documentElement.lang.toLowerCase().startsWith('id') ? 'id' : 'en';
+      applyLanguage(current === 'id' ? 'en' : 'id');
+      hidePrompt();
+    });
+
+    let saved=null, choice=null;
+    try { saved=localStorage.getItem('hafyz-language'); choice=localStorage.getItem('hafyz-language-choice'); } catch(e) {}
+    const initial = (saved === 'id' || saved === 'en') ? saved : 'en';
+    applyLanguage(initial);
+
+    const browser=(navigator.language || '').toLowerCase();
+    const indonesiaSignal=browser === 'id' || browser.startsWith('id-');
+    if(!choice && indonesiaSignal && prompt){
+      setTimeout(function(){ prompt.classList.add('show'); },650);
+    }
+  }
+
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initLanguageEngine);
+  else initLanguageEngine();
+})();
+</script>
 
 <script id="hafyz-cookie-meta-v2">
 (function(){

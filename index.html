@@ -167,6 +167,25 @@
     .menu.active span:after{top:0;transform:rotate(-45deg)}
 
     /* HERO */
+
+    .hero{position:relative;overflow:hidden;isolation:isolate}
+    .hero-video{
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:center;z-index:0;
+    }
+    .hero-video-overlay{
+      position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.28));
+      pointer-events:none;
+    }
+    .hero-content{position:relative;z-index:2}
+    @media (prefers-reduced-motion:reduce){
+      .hero-video{display:none}
+      .hero{background-image:url('/chasing-hollow-gold-stripped.jpg');background-size:cover;background-position:center}
+    }
+    @media (max-width:700px){
+      .hero-video{object-position:center center}
+    }
     .hero{
       min-height:100svh;
       position:relative;
@@ -1060,7 +1079,18 @@
 
   <main>
 <section class="hero" aria-label="HAFYZ latest release">
-      <div class="hero-content">
+      <video class="hero-video"
+             autoplay
+             muted
+             loop
+             playsinline
+             preload="metadata"
+             poster="/chasing-hollow-gold-stripped.jpg"
+             aria-hidden="true">
+          <source src="/hero-video-web.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+        <div class="hero-content">
         <p class="eyebrow">New release</p>
         <p class="hero-release">chasing hollow gold after hours (stripped)</p>
         <h1>HAFYZ</h1>

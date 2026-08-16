@@ -1714,9 +1714,15 @@
   new MutationObserver(updateCookieCopy).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
   const consent=localStorage.getItem(CONSENT_KEY);
-  if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted'){
-    loadPixel();
-  }else if(consent!=='rejected'){
+
+  // Show the banner only when the visitor has never made a choice.
+  // A saved Accept or Reject decision persists across all HAFYZ pages
+  // because localStorage is shared by the hafyz.my.id origin.
+  if(consent==='accepted' || consent==='rejected'){
+    if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted'){
+      loadPixel();
+    }
+  }else{
     setTimeout(function(){banner.classList.add('show')},450);
   }
 })();

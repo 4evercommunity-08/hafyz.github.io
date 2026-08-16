@@ -1,18 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://hafyz.my.id/</loc>
-  </url>
-  <url>
-    <loc>https://hafyz.my.id/press</loc>
-  </url>
-  <url>
-    <loc>https://hafyz.my.id/appearance/</loc>
-  </url>
-  <url>
-    <loc>https://hafyz.my.id/privacy.html</loc>
-  </url>
-  <url>
-    <loc>https://hafyz.my.id/terms.html</loc>
-  </url>
-</urlset>
+diff --git a/sitemap.xml b/sitemap.xml
+index 8e20dc199fa854dce8e573f46d4ab58e5b56d6d6..198692d551471d523540d88622c60037e8e20c91 100644
+--- a/sitemap.xml
++++ b/sitemap.xml
+@@ -1,18 +1,30 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+     <loc>https://hafyz.my.id/</loc>
+   </url>
+   <url>
+-    <loc>https://hafyz.my.id/press</loc>
++    <loc>https://hafyz.my.id/new-release/</loc>
++  </url>
++  <url>
++    <loc>https://hafyz.my.id/chgstripped/</loc>
+   </url>
+   <url>
+     <loc>https://hafyz.my.id/appearance/</loc>
+   </url>
++  <url>
++    <loc>https://hafyz.my.id/press/</loc>
++  </url>
++  <url>
++    <loc>https://hafyz.my.id/chasing-hollow-gold.html</loc>
++  </url>
++  <url>
++    <loc>https://hafyz.my.id/chasing-hollow-gold-stripped.html</loc>
++  </url>
+   <url>
+     <loc>https://hafyz.my.id/privacy.html</loc>
+   </url>
+   <url>
+     <loc>https://hafyz.my.id/terms.html</loc>
+   </url>
+ </urlset>

@@ -1,305 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Release | HAFYZ</title>
-  <meta name="description" content="New release from HAFYZ. Listen now on your favorite streaming platform.">
-  <meta name="robots" content="index, follow">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="New Release | HAFYZ">
-  <meta property="og:description" content="Something new is here. Listen now on Spotify, Apple Music, and more.">
-  <meta property="og:type" content="music.song">
-  <meta property="og:url" content="https://hafyz.my.id/new-release/">
-  <meta property="og:image" content="https://hafyz.my.id/og-image.jpg">
-  <meta property="og:site_name" content="HAFYZ">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="New Release | HAFYZ">
-  <meta name="twitter:description" content="Something new is here. Listen now.">
-  <meta name="twitter:image" content="https://hafyz.my.id/og-image.jpg">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://hafyz.my.id/new-release/">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #faf8f5;
-      --text: #1a1a2e;
-      --text-light: #666;
-      --accent: #c9a96e;
-      --accent-dark: #a88b4a;
-      --border: rgba(0,0,0,0.08);
-    }
-
-    html, body {
-      height: 100%;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(250,248,245,0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.3em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-home {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-light);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .nav-home:hover {
-      color: var(--accent);
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 8rem 2rem 4rem;
-      text-align: center;
-    }
-
-    .release-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease 0.2s both;
-    }
-
-    .release-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 1.5rem;
-      animation: fadeInUp 1s ease 0.4s both;
-    }
-
-    .release-title span {
-      font-style: italic;
-      color: var(--accent-dark);
-    }
-
-    .cover-art {
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      border-radius: 12px;
-      margin: 2rem auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      box-shadow: 0 20px 60px rgba(201,169,110,0.3);
-      animation: fadeInUp 1s ease 0.6s both;
-    }
-
-    .cover-art img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .release-meta {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease 0.8s both;
-    }
-
-    /* ===== STREAMING LINKS ===== */
-    .streaming-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-      animation: fadeInUp 1s ease 1s both;
-    }
-
-    .listen-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.8rem;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      width: 100%;
-      padding: 2rem;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    footer p {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      letter-spacing: 0.05em;
-    }
-
-    footer a {
-      color: var(--accent-dark);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-      color: var(--text);
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 600px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-
-      .cover-art {
-        width: 250px;
-        height: 250px;
-      }
-
-      .streaming-links {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .listen-btn {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-      }
-    }
-  </style>
-<base target="_blank">
-</head>
-<body>
-  <nav>
-    <a href="/" class="nav-logo">HAFYZ</a>
-    <a href="/" class="nav-home">Home</a>
-  </nav>
-
-  <main>
-    <div class="release-label">Out Now</div>
-
-    <!-- GANTI INI NANTI TANGGAL 14 AGUSTUS -->
-    <h1 class="release-title"><span>???</span></h1>
-    <!-- JADI: <h1 class="release-title"><span>chasing hollow gold</span><br>(After Hours) [Stripped Version]</h1> -->
-
-    <div class="cover-art">
-      <!-- GANTI INI NANTI -->
-      <span>🎵</span>
-      <!-- JADI: <img src="/cover-stripped.jpg" alt="chasing hollow gold (After Hours) Stripped Version"> -->
-    </div>
-
-    <p class="release-meta">HAFYZ &middot; 2026 &middot; Single</p>
-
-    <div class="streaming-links">
-      <!-- UPDATE LINK NANTI -->
-      <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" class="listen-btn btn-primary" target="_blank" rel="noopener">Listen on Spotify</a>
-      <a href="https://music.apple.com/us/artist/hafyz/1754145654" class="listen-btn btn-secondary" target="_blank" rel="noopener">Apple Music</a>
-      <a href="https://www.youtube.com/@itsmehafyz" class="listen-btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
-    </div>
-  </main>
-
-  <footer>
-    <p>Made with love in Pekanbaru, Indonesia &copy; 2026 HAFYZ. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/new-release/index.html b/new-release/index.html
+index 564343630f4e5966b22655daaecef790559019f3..06997b5e4761c07c1bd7676a278f2572b83460c9 100644
+--- a/new-release/index.html
++++ b/new-release/index.html
+@@ -1,56 +1,60 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>New Release | HAFYZ</title>
+   <meta name="description" content="New release from HAFYZ. Listen now on your favorite streaming platform.">
+   <meta name="robots" content="index, follow">
+ 
+   <!-- Open Graph -->
+   <meta property="og:title" content="New Release | HAFYZ">
+   <meta property="og:description" content="Something new is here. Listen now on Spotify, Apple Music, and more.">
+   <meta property="og:type" content="music.song">
+   <meta property="og:url" content="https://hafyz.my.id/new-release/">
+-  <meta property="og:image" content="https://hafyz.my.id/og-image.jpg">
++  <meta property="og:image" content="https://hafyz.my.id/chasing-hollow-gold-stripped.jpg">
+   <meta property="og:site_name" content="HAFYZ">
+   <meta property="og:locale" content="en_US">
+ 
+   <!-- Twitter Card -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="New Release | HAFYZ">
+   <meta name="twitter:description" content="Something new is here. Listen now.">
+-  <meta name="twitter:image" content="https://hafyz.my.id/og-image.jpg">
++  <meta name="twitter:image" content="https://hafyz.my.id/chasing-hollow-gold-stripped.jpg">
+ 
+   <!-- Canonical -->
+   <link rel="canonical" href="https://hafyz.my.id/new-release/">
+ 
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+ 
++  <link rel="icon" href="/favicon.ico">
++  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
++  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
++
+   <style>
+     *, *::before, *::after {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+     }
+ 
+     :root {
+       --bg: #faf8f5;
+       --text: #1a1a2e;
+       --text-light: #666;
+       --accent: #c9a96e;
+       --accent-dark: #a88b4a;
+       --border: rgba(0,0,0,0.08);
+     }
+ 
+     html, body {
+       height: 100%;
+       font-family: 'Inter', sans-serif;
+       background: var(--bg);
+       color: var(--text);
+       overflow-x: hidden;
+     }
+ 
+     body {
+@@ -245,61 +249,55 @@
+     }
+ 
+     /* ===== RESPONSIVE ===== */
+     @media (max-width: 600px) {
+       nav {
+         padding: 1rem 1.5rem;
+       }
+ 
+       .cover-art {
+         width: 250px;
+         height: 250px;
+       }
+ 
+       .streaming-links {
+         flex-direction: column;
+         align-items: center;
+       }
+ 
+       .listen-btn {
+         width: 100%;
+         max-width: 280px;
+         justify-content: center;
+       }
+     }
+   </style>
+-<base target="_blank">
+ </head>
+ <body>
+   <nav>
+     <a href="/" class="nav-logo">HAFYZ</a>
+     <a href="/" class="nav-home">Home</a>
+   </nav>
+ 
+   <main>
+     <div class="release-label">Out Now</div>
+ 
+-    <!-- GANTI INI NANTI TANGGAL 14 AGUSTUS -->
+-    <h1 class="release-title"><span>???</span></h1>
+-    <!-- JADI: <h1 class="release-title"><span>chasing hollow gold</span><br>(After Hours) [Stripped Version]</h1> -->
++    <h1 class="release-title"><span>chasing hollow gold</span><br>After Hours (Stripped)</h1>
+ 
+     <div class="cover-art">
+-      <!-- GANTI INI NANTI -->
+-      <span>🎵</span>
+-      <!-- JADI: <img src="/cover-stripped.jpg" alt="chasing hollow gold (After Hours) Stripped Version"> -->
++      <img src="/chasing-hollow-gold-stripped.jpg" alt="chasing hollow gold after hours stripped cover art">
+     </div>
+ 
+     <p class="release-meta">HAFYZ &middot; 2026 &middot; Single</p>
+ 
+     <div class="streaming-links">
+-      <!-- UPDATE LINK NANTI -->
+       <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" class="listen-btn btn-primary" target="_blank" rel="noopener">Listen on Spotify</a>
+       <a href="https://music.apple.com/us/artist/hafyz/1754145654" class="listen-btn btn-secondary" target="_blank" rel="noopener">Apple Music</a>
+       <a href="https://www.youtube.com/@itsmehafyz" class="listen-btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
+     </div>
+   </main>
+ 
+   <footer>
+     <p>Made with love in Pekanbaru, Indonesia &copy; 2026 HAFYZ. All rights reserved.</p>
+   </footer>
+ </body>
+ </html>
+ 
+EOF
+)

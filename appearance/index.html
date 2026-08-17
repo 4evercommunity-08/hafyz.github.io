@@ -1060,6 +1060,6 @@
   const c=get();if(!c)banner.hidden=false;else if(c.marketing)pixel();
   document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a'),c=get();if(!a||!c?.marketing||!window.fbq)return;const h=a.href||'';if(/ffm\.to|found\.ee|presave/i.test(h))fbq('trackCustom','PreSaveClick',{page:location.pathname});if(/spotify\.com/i.test(h))fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'})});
 })();
-</script>
+  <script src="/assets/js/meta-pixel.js" defer></script>
 </body>
 </html>

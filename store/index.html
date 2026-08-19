@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>HAFYZ STORE | Official Website</title>
+  <meta name="description" content="The official HAFYZ Store. Digital music, limited releases, merchandise and exclusive editions.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#f7f7f4">
+
+  <link rel="canonical" href="https://hafyz.my.id/store/">
+
+  <meta property="og:title" content="HAFYZ STORE">
+  <meta property="og:description" content="Digital music, merchandise and exclusive releases from HAFYZ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hafyz.my.id/store/">
+  <meta property="og:site_name" content="HAFYZ">
+  <meta property="og:image" content="https://hafyz.my.id/yckmn/you-can-keep-my-name.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HAFYZ STORE">
+  <meta name="twitter:description" content="Digital music, merchandise and exclusive releases from HAFYZ.">
+  <meta name="twitter:image" content="https://hafyz.my.id/yckmn/you-can-keep-my-name.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f7f7f4;
+      --white:#fff;
+      --ink:#171717;
+      --ink-soft:#343431;
+      --muted:#6f6f6a;
+      --muted-2:#92928c;
+      --line:rgba(20,20,20,.11);
+      --gold:#c69e3e;
+      --gold-dark:#9b7821;
+      --gold-pale:#f2e7c8;
+      --max:1160px;
+      --radius:24px;
+      --ease:cubic-bezier(.2,.75,.25,1);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:hidden}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button{font:inherit}
+    ::selection{background:var(--gold);color:#fff}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+    .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    /* NAV */
+    .nav{
+      position:fixed;
+      inset:0 0 auto;
+      z-index:1000;
+      height:72px;
+      background:rgba(255,255,255,.86);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+      box-shadow:0 8px 30px rgba(0,0,0,.04);
+    }
+    .nav-inner{
+      height:100%;
+      width:min(calc(100% - 40px),var(--max));
+      margin:auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:.25em;
+    }
+    .brand:hover{color:var(--gold-dark)}
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .nav-links a{
+      position:relative;
+      color:#666661;
+      font-size:12px;
+      font-weight:600;
+      transition:.25s;
+    }
+    .nav-links a:hover{color:var(--ink)}
+    .nav-links a:not(.nav-cta)::after{
+      content:"";
+      position:absolute;
+      left:0;
+      right:100%;
+      bottom:-7px;
+      height:1px;
+      background:var(--gold);
+      transition:.25s var(--ease);
+    }
+    .nav-links a:not(.nav-cta):hover::after{right:0}
+    .nav-cta{
+      padding:10px 16px;
+      border:1px solid rgba(198,158,62,.45);
+      border-radius:999px;
+      background:#fffdf7;
+      color:var(--gold-dark)!important;
+    }
+    .menu{
+      display:none;
+      width:42px;height:42px;
+      border:1px solid var(--line);
+      border-radius:50%;
+      background:#fff;
+      cursor:pointer;
+    }
+    .menu span,.menu span:before,.menu span:after{
+      display:block;
+      width:17px;height:1.5px;
+      background:var(--ink);
+      margin:auto;
+      position:relative;
+      transition:.25s;
+    }
+    .menu span:before,.menu span:after{
+      content:"";
+      position:absolute;
+      left:0;
+    }
+    .menu span:before{top:-6px}
+    .menu span:after{top:6px}
+    .menu.active span{background:transparent}
+    .menu.active span:before{top:0;transform:rotate(45deg)}
+    .menu.active span:after{top:0;transform:rotate(-45deg)}
+
+    /* HERO */
+    .store-hero{
+      padding:170px 0 105px;
+      background:
+        radial-gradient(circle at 75% 30%,rgba(198,158,62,.12),transparent 27%),
+        linear-gradient(180deg,#fff,#f7f7f4 82%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:end;
+      gap:70px;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      color:var(--gold-dark);
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+    .eyebrow:before{
+      content:"";
+      width:27px;height:1px;
+      background:currentColor;
+    }
+    h1{
+      margin:0;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(65px,11vw,145px);
+      line-height:.82;
+      letter-spacing:-.085em;
+    }
+    .hero-copy{
+      max-width:430px;
+      justify-self:end;
+      padding-bottom:7px;
+    }
+    .hero-copy p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.85;
+    }
+
+    /* STORE */
+    .section{padding:105px 0}
+    .section.alt{
+      background:#efefec;
+      border-block:1px solid rgba(20,20,20,.05);
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:30px;
+      margin-bottom:40px;
+    }
+    .kicker{
+      margin:0 0 11px;
+      color:var(--gold-dark);
+      font-size:10px;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+    }
+    .title{
+      margin:0;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(38px,6vw,70px);
+      line-height:.98;
+      letter-spacing:-.065em;
+    }
+    .desc{
+      max-width:430px;
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.75;
+    }
+
+    .store-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .product{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 18px 55px rgba(0,0,0,.035);
+      transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+    }
+    .product:hover{
+      transform:translateY(-5px);
+      border-color:rgba(198,158,62,.45);
+      box-shadow:0 22px 60px rgba(0,0,0,.07);
+    }
+    .product-art{
+      position:relative;
+      aspect-ratio:1/1;
+      overflow:hidden;
+      background:#e9e9e5;
+    }
+    .product-art img{
+      width:100%;height:100%;
+      object-fit:cover;
+      transition:transform .8s var(--ease);
+    }
+    .product:hover .product-art img{transform:scale(1.025)}
+    .product-tag{
+      position:absolute;
+      top:16px;left:16px;
+      padding:7px 10px;
+      border:1px solid rgba(20,20,20,.10);
+      border-radius:999px;
+      background:rgba(255,255,255,.82);
+      backdrop-filter:blur(12px);
+      color:#555;
+      font-size:8px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .product-info{padding:24px}
+    .product-type{
+      margin:0 0 8px;
+      color:var(--gold-dark);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .product h3{
+      margin:0 0 8px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:24px;
+      line-height:1.05;
+      letter-spacing:-.045em;
+    }
+    .product-meta{
+      margin:0 0 15px;
+      color:#888;
+      font-size:11px;
+    }
+    .product-description{
+      min-height:42px;
+      margin:0;
+      color:#696964;
+      font-size:11px;
+      line-height:1.7;
+    }
+    .product-actions{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:20px;
+    }
+    .btn{
+      min-height:44px;
+      padding:0 17px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      font-size:10px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      transition:.3s var(--ease);
+      cursor:pointer;
+    }
+    .btn-primary{
+      background:var(--gold);
+      border:1px solid var(--gold);
+      color:#fff;
+      box-shadow:0 10px 25px rgba(198,158,62,.16);
+    }
+    .btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px)}
+    .btn-secondary{
+      background:#fff;
+      border:1px solid var(--line);
+      color:#555;
+    }
+    .btn-secondary:hover{border-color:rgba(198,158,62,.55);color:var(--gold-dark);transform:translateY(-2px)}
+
+    .coming{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+    .coming-card{
+      min-height:220px;
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+    }
+    .coming-card span{
+      color:var(--gold-dark);
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+    .coming-card h3{
+      margin:0;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:30px;
+      line-height:1;
+      letter-spacing:-.05em;
+    }
+    .coming-card p{
+      margin:0;
+      color:#777;
+      font-size:11px;
+      line-height:1.7;
+    }
+
+    .store-note{
+      margin-top:18px;
+      padding:16px 18px;
+      border:1px solid rgba(198,158,62,.25);
+      border-radius:16px;
+      background:#fffdf7;
+      color:#777;
+      font-size:10px;
+      line-height:1.7;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#fff;
+      border-top:1px solid var(--line);
+      padding:50px 0 23px;
+    }
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      gap:50px;
+      padding-bottom:42px;
+    }
+    .footer-brand{max-width:330px}
+    .footer-brand .brand{display:inline-block;margin-bottom:15px}
+    .footer-brand p{
+      margin:0;
+      color:#888;
+      font-size:11px;
+      line-height:1.8;
+    }
+    .socials{display:flex;gap:8px;margin-top:17px}
+    .socials a{
+      width:35px;height:35px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line);
+      border-radius:50%;
+      color:#777;
+      transition:.25s;
+    }
+    .socials a:hover{color:var(--gold-dark);border-color:var(--gold)}
+    .socials svg{width:17px;height:17px;fill:currentColor}
+    .footer-columns{display:flex;gap:70px}
+    .footer-col h4{
+      margin:0 0 13px;
+      color:#999;
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+    }
+    .footer-col a{
+      display:block;
+      margin-bottom:9px;
+      color:#666;
+      font-size:11px;
+    }
+    .footer-col a:hover{color:var(--gold-dark)}
+    .footer-bottom{
+      padding-top:19px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      color:#999;
+      font-size:9px;
+    }
+
+    /* COOKIE */
+    #hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;display:none;justify-content:center;pointer-events:none}
+    #hafyzCookieBanner.show{display:flex}
+    .hafyz-cookie-card{
+      width:min(820px,100%);
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(20,20,20,.12);
+      box-shadow:0 18px 55px rgba(0,0,0,.16);
+      border-radius:18px;
+      padding:20px 22px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:center;
+      pointer-events:auto;
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+    }
+    .hafyz-cookie-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#c49a43;font-weight:700;margin-bottom:5px}
+    .hafyz-cookie-title{font-size:18px;font-weight:700;color:#171717;margin-bottom:5px}
+    .hafyz-cookie-copy{font-size:12px;line-height:1.55;color:#66645f;max-width:610px}
+    .hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .hafyz-cookie-btn{border:0;border-radius:999px;padding:10px 15px;font-size:11px;font-weight:700;cursor:pointer;white-space:nowrap}
+    .hafyz-cookie-btn.primary{background:#171717;color:#fff}
+    .hafyz-cookie-btn.secondary{background:#f1f1ee;color:#171717;border:1px solid rgba(20,20,20,.10)}
+    #hafyzCookieModal{position:fixed;inset:0;z-index:100000;display:none;place-items:center;background:rgba(0,0,0,.34);padding:20px}
+    #hafyzCookieModal.show{display:grid}
+    .hafyz-cookie-modal-card{width:min(430px,100%);background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#171717}
+    .hafyz-cookie-modal-card h3{margin:0 0 7px;font-size:18px}
+    .hafyz-cookie-modal-card>p{margin:0 0 17px;color:#666;font-size:12px;line-height:1.55}
+    .hafyz-cookie-option{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-top:1px solid rgba(20,20,20,.09)}
+    .hafyz-cookie-option strong{font-size:13px}
+    .hafyz-cookie-option small{display:block;color:#777;font-size:11px;margin-top:2px}
+    .hafyz-cookie-switch{width:42px;height:24px;border:0;border-radius:99px;background:#ddd;position:relative;cursor:pointer}
+    .hafyz-cookie-switch:after{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;border-radius:50%;background:#fff;transition:.18s}
+    .hafyz-cookie-switch.on{background:#171717}
+    .hafyz-cookie-switch.on:after{left:21px}
+    .hafyz-cookie-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+
+    @media(max-width:820px){
+      .nav-links{
+        position:fixed;
+        top:64px;left:12px;right:12px;
+        display:none;
+        flex-direction:column;
+        gap:0;
+        padding:8px;
+        background:rgba(255,255,255,.97);
+        border:1px solid var(--line);
+        border-radius:20px;
+        box-shadow:0 20px 55px rgba(0,0,0,.10);
+        backdrop-filter:blur(18px);
+      }
+      .nav-links.open{display:flex}
+      .nav-links li{width:100%}
+      .nav-links a{display:block;padding:14px;border-radius:12px}
+      .nav-links a:hover{background:#f1f1ee}
+      .nav-links a:not(.nav-cta)::after{display:none}
+      .nav-cta{padding:14px!important}
+      .menu{display:block}
+      .hero-grid{grid-template-columns:1fr;gap:35px}
+      .hero-copy{justify-self:start}
+      .store-grid{grid-template-columns:1fr 1fr}
+      .coming{grid-template-columns:1fr}
+      .section{padding:82px 0}
+      .section-head{display:block;margin-bottom:35px}
+      .desc{margin-top:16px}
+      .footer-top{display:block}
+      .footer-columns{margin-top:35px;gap:45px;flex-wrap:wrap}
+      .footer-bottom{display:block}
+      .footer-bottom p+p{margin-top:7px}
+    }
+
+    @media(max-width:560px){
+      .wrap,.nav-inner{width:min(calc(100% - 30px),var(--max))}
+      .store-hero{padding:145px 0 75px}
+      .store-grid{grid-template-columns:1fr}
+      .product-info{padding:21px}
+      .product h3{font-size:22px}
+      .product-actions .btn{width:100%}
+      .hafyz-cookie-card{grid-template-columns:1fr;padding:17px}
+      .hafyz-cookie-actions{justify-content:flex-start}
+      .hafyz-cookie-btn{flex:1}
+      #hafyzCookieBanner{left:12px;right:12px;bottom:12px}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"WebSite",
+        "@id":"https://hafyz.my.id/store/#website",
+        "url":"https://hafyz.my.id/store/",
+        "name":"HAFYZ STORE",
+        "publisher":{"@id":"https://hafyz.my.id/#person"}
+      },
+      {
+        "@type":"Person",
+        "@id":"https://hafyz.my.id/#person",
+        "name":"HAFYZ",
+        "url":"https://hafyz.my.id/"
+      },
+      {
+        "@type":"Product",
+        "name":"you can keep my name (After Hours) — Digital Single",
+        "url":"https://hafyz.my.id/store/",
+        "image":"https://hafyz.my.id/yckmn/you-can-keep-my-name.jpg",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Digital Music"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- COOKIE -->
+  <div id="hafyzCookieBanner" aria-live="polite">
+    <div class="hafyz-cookie-card">
+      <div>
+        <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies & Privacy</div>
+        <div class="hafyz-cookie-title" id="hafyzCookieTitle">A little privacy choice.</div>
+        <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the store working and optional marketing technology to measure campaigns. Marketing tracking stays off until you allow it.</div>
+      </div>
+      <div class="hafyz-cookie-actions">
+        <button class="hafyz-cookie-btn secondary" id="hafyzCookieManage" type="button">Manage</button>
+        <button class="hafyz-cookie-btn secondary" id="hafyzCookieReject" type="button">Reject</button>
+        <button class="hafyz-cookie-btn primary" id="hafyzCookieAccept" type="button">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="hafyzCookieModal" aria-hidden="true">
+    <div class="hafyz-cookie-modal-card" role="dialog" aria-modal="true" aria-labelledby="hafyzCookieModalTitle">
+      <h3 id="hafyzCookieModalTitle">Cookie preferences</h3>
+      <p id="hafyzCookieModalCopy">Choose which optional technologies you want to allow.</p>
+      <div class="hafyz-cookie-option">
+        <div><strong id="hafyzEssentialTitle">Essential</strong><small id="hafyzEssentialCopy">Always active. Used for core site preferences.</small></div>
+        <button class="hafyz-cookie-switch on" type="button" disabled aria-label="Essential cookies always active"></button>
+      </div>
+      <div class="hafyz-cookie-option">
+        <div><strong id="hafyzMarketingTitle">Marketing</strong><small id="hafyzMarketingCopy">Meta Pixel and advertising measurement.</small></div>
+        <button class="hafyz-cookie-switch" id="hafyzMarketingToggle" type="button" aria-pressed="false" aria-label="Marketing cookies"></button>
+      </div>
+      <div class="hafyz-cookie-modal-actions">
+        <button class="hafyz-cookie-btn secondary" id="hafyzCookieCancel" type="button">Cancel</button>
+        <button class="hafyz-cookie-btn primary" id="hafyzCookieSave" type="button">Save preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/" aria-label="HAFYZ home">HAFYZ</a>
+
+      <nav aria-label="Store navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#music">Music</a></li>
+          <li><a href="#merch">Merch</a></li>
+          <li><a href="#bundles">Bundles</a></li>
+          <li><a href="/">Website</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="store-hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Official Store</p>
+          <h1>HAFYZ<br>STORE.</h1>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p>
+            Music, objects, and things worth keeping.
+            Explore official HAFYZ releases, digital editions,
+            merchandise and future limited collections.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="music">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Music</p>
+            <h2 class="title">Digital releases.</h2>
+          </div>
+          <p class="desc">
+            Official digital editions of HAFYZ releases, prepared for
+            instant delivery after purchase.
+          </p>
+        </div>
+
+        <div class="store-grid">
+
+          <article class="product reveal">
+            <div class="product-art">
+              <span class="product-tag">Digital single</span>
+              <img src="/yckmn/you-can-keep-my-name.jpg"
+                   alt="you can keep my name (After Hours) cover art"
+                   loading="eager">
+            </div>
+
+            <div class="product-info">
+              <p class="product-type">Music · 2026</p>
+              <h3>you can keep my name<br>(After Hours)</h3>
+              <p class="product-meta">Digital Single</p>
+              <p class="product-description">
+                A digital edition of the After Hours single,
+                prepared for instant download.
+              </p>
+
+              <div class="product-actions">
+                <a class="btn btn-primary"
+                   href="/yckmn/"
+                   aria-label="View you can keep my name">
+                  View release ↗
+                </a>
+                <button class="btn btn-secondary"
+                        type="button"
+                        data-checkout
+                        aria-label="Purchase digital single">
+                  Buy digital
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="store-note reveal">
+          Digital purchases will be delivered automatically after successful payment.
+          Checkout will be activated here once the Store payment and delivery provider is connected.
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="merch">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Merchandise</p>
+            <h2 class="title">Wear the era.</h2>
+          </div>
+          <p class="desc">
+            Official HAFYZ objects and apparel are coming to the Store.
+          </p>
+        </div>
+
+        <div class="coming">
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>T-Shirts.</h3>
+            <p>Official HAFYZ apparel and era-specific designs.</p>
+          </article>
+
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>Posters.</h3>
+            <p>Physical artwork, tour posters and limited prints.</p>
+          </article>
+
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>Objects.</h3>
+            <p>Small editions and things built around the music.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bundles">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Bundles</p>
+            <h2 class="title">More to keep.</h2>
+          </div>
+          <p class="desc">
+            Limited combinations of music, artwork and merchandise will appear here.
+          </p>
+        </div>
+
+        <div class="coming">
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>Digital + Merch.</h3>
+            <p>Pair a digital release with selected physical items.</p>
+          </article>
+
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>Deluxe editions.</h3>
+            <p>Expanded digital packages with additional materials.</p>
+          </article>
+
+          <article class="coming-card reveal">
+            <span>Coming soon</span>
+            <h3>Limited drops.</h3>
+            <p>Small-run releases available while they last.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Store updates</p>
+            <h2 class="title">Stay close.</h2>
+          </div>
+          <p class="desc">
+            Get notified when new digital releases, merchandise and limited drops arrive.
+          </p>
+        </div>
+
+        <div class="store-note reveal">
+          HAFYZ Store is being built around official releases and direct-to-fan experiences.
+          New products will appear here as they become available.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="/">HAFYZ</a>
+          <p>Official HAFYZ Store.</p>
+
+          <div class="socials" aria-label="HAFYZ social links">
+            <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.439 18.627.073 12 .073S0 5.439 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/sourplusentertainment" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568-6.273-3.568z"/></svg>
+            </a>
+            <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener" aria-label="Spotify">
+              <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-columns">
+          <div class="footer-col">
+            <h4>Store</h4>
+            <a href="#music">Music</a>
+            <a href="#merch">Merch</a>
+            <a href="#bundles">Bundles</a>
+          </div>
+          <div class="footer-col">
+            <h4>HAFYZ</h4>
+            <a href="/">Official Website</a>
+            <a href="/press/">Press Kit</a>
+            <a href="/privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. All rights reserved.</p>
+        <p>HAFYZ STORE</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const menu = document.getElementById('menu');
+      const links = document.getElementById('navLinks');
+
+      function closeMenu(){
+        links.classList.remove('open');
+        menu.classList.remove('active');
+        menu.setAttribute('aria-expanded','false');
+        menu.setAttribute('aria-label','Open menu');
+      }
+
+      menu.addEventListener('click',function(){
+        const open=!links.classList.contains('open');
+        links.classList.toggle('open',open);
+        menu.classList.toggle('active',open);
+        menu.setAttribute('aria-expanded',String(open));
+        menu.setAttribute('aria-label',open?'Close menu':'Open menu');
+      });
+
+      links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+
+      const observer=new IntersectionObserver(function(entries,obs){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      },{threshold:.10,rootMargin:'0px 0px -35px'});
+
+      document.querySelectorAll('.reveal').forEach(function(el,i){
+        el.style.transitionDelay=Math.min(i*35,180)+'ms';
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('[data-checkout]').forEach(function(button){
+        button.addEventListener('click',function(){
+          alert('Checkout will be available soon.');
+        });
+      });
+    })();
+  </script>
+
+  <script id="hafyz-cookie-store">
+  (function(){
+    'use strict';
+
+    const PIXEL_ID='1537787853829726';
+    const CONSENT_KEY='hafyz-cookie-consent-v2';
+    const MARKETING_KEY='hafyz-marketing-consent-v2';
+
+    const banner=document.getElementById('hafyzCookieBanner');
+    const modal=document.getElementById('hafyzCookieModal');
+    const toggle=document.getElementById('hafyzMarketingToggle');
+
+    const copy={
+      en:{
+        kicker:'Cookies & Privacy',
+        title:'A little privacy choice.',
+        body:'We use essential storage to keep the store working and optional marketing technology to measure campaigns. Marketing tracking stays off until you allow it.',
+        manage:'Manage',reject:'Reject',accept:'Accept',
+        modal:'Cookie preferences',
+        modalCopy:'Choose which optional technologies you want to allow.',
+        essential:'Essential',
+        essentialCopy:'Always active. Used for core site preferences.',
+        marketing:'Marketing',
+        marketingCopy:'Meta Pixel and advertising measurement.',
+        cancel:'Cancel',save:'Save preferences'
+      },
+      id:{
+        kicker:'Cookie & Privasi',
+        title:'Sedikit pilihan privasi.',
+        body:'Kami menggunakan penyimpanan penting agar Store tetap berfungsi dan teknologi pemasaran opsional untuk mengukur kampanye. Pelacakan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
+        manage:'Kelola',reject:'Tolak',accept:'Terima',
+        modal:'Preferensi cookie',
+        modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.',
+        essential:'Esensial',
+        essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti Store.',
+        marketing:'Pemasaran',
+        marketingCopy:'Meta Pixel dan pengukuran iklan.',
+        cancel:'Batal',save:'Simpan preferensi'
+      }
+    };
+
+    function lang(){
+      return (document.documentElement.lang||localStorage.getItem('hafyz-language')||'en').toLowerCase().startsWith('id')?'id':'en';
+    }
+
+    function updateCopy(){
+      const c=copy[lang()];
+      const map={
+        hafyzCookieKicker:c.kicker,
+        hafyzCookieTitle:c.title,
+        hafyzCookieCopy:c.body,
+        hafyzCookieManage:c.manage,
+        hafyzCookieReject:c.reject,
+        hafyzCookieAccept:c.accept,
+        hafyzCookieModalTitle:c.modal,
+        hafyzCookieModalCopy:c.modalCopy,
+        hafyzEssentialTitle:c.essential,
+        hafyzEssentialCopy:c.essentialCopy,
+        hafyzMarketingTitle:c.marketing,
+        hafyzMarketingCopy:c.marketingCopy,
+        hafyzCookieCancel:c.cancel,
+        hafyzCookieSave:c.save
+      };
+      Object.keys(map).forEach(id=>{
+        const el=document.getElementById(id);
+        if(el)el.textContent=map[id];
+      });
+    }
+
+    function loadPixel(){
+      if(window.__HAFYZ_META_PIXEL_LOADED||!/^\d+$/.test(PIXEL_ID))return;
+      !function(f,b,e,v,n,t,s){
+        if(f.fbq)return;
+        n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+        t=b.createElement(e);t.async=!0;t.src=v;
+        s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+      }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      window.fbq('init',PIXEL_ID);
+      window.fbq('track','PageView');
+      window.__HAFYZ_META_PIXEL_LOADED=true;
+    }
+
+    function save(marketing){
+      localStorage.setItem(CONSENT_KEY,marketing?'accepted':'rejected');
+      localStorage.setItem(MARKETING_KEY,marketing?'granted':'denied');
+      if(marketing)loadPixel();
+      banner.classList.remove('show');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    document.getElementById('hafyzCookieAccept').addEventListener('click',()=>save(true));
+    document.getElementById('hafyzCookieReject').addEventListener('click',()=>save(false));
+
+    document.getElementById('hafyzCookieManage').addEventListener('click',()=>{
+      const granted=localStorage.getItem(MARKETING_KEY)==='granted';
+      toggle.classList.toggle('on',granted);
+      toggle.setAttribute('aria-pressed',String(granted));
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+    });
+
+    document.getElementById('hafyzCookieCancel').addEventListener('click',()=>{
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+    });
+
+    toggle.addEventListener('click',()=>{
+      const on=!toggle.classList.contains('on');
+      toggle.classList.toggle('on',on);
+      toggle.setAttribute('aria-pressed',String(on));
+    });
+
+    document.getElementById('hafyzCookieSave').addEventListener('click',()=>{
+      save(toggle.classList.contains('on'));
+    });
+
+    updateCopy();
+    new MutationObserver(updateCopy).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+
+    const consent=localStorage.getItem(CONSENT_KEY);
+    if(consent==='accepted'&&localStorage.getItem(MARKETING_KEY)==='granted'){
+      loadPixel();
+    }else if(consent!=='rejected'){
+      setTimeout(()=>banner.classList.add('show'),450);
+    }
+  })();
+  </script>
+
+</body>
+</html>

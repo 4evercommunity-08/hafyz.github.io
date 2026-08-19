@@ -685,12 +685,12 @@
                    aria-label="View you can keep my name">
                   View release ↗
                 </a>
-               <a class="btn btn-secondary"
-   href="PASTE_CHECKOUT_URL_HERE"
-   aria-label="Purchase digital single">
-  Buy digital
-</a>
-                </button>
+
+                <a class="btn btn-secondary"
+                   href="PASTE_CHECKOUT_URL_HERE"
+                   aria-label="Purchase digital single">
+                  Buy digital
+                </a>
               </div>
             </div>
           </article>
@@ -875,6 +875,11 @@
         observer.observe(el);
       });
 
+      document.querySelectorAll('[data-checkout]').forEach(function(button){
+        button.addEventListener('click',function(){
+          alert('Checkout will be available soon.');
+        });
+      });
     })();
   </script>
 

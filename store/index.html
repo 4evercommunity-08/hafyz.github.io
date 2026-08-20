@@ -687,8 +687,9 @@
                 </a>
 
                 <a class="btn btn-secondary"
-                   href="https://payhip.com/b/pVJBz"
-                   aria-label="Purchase digital single">
+                   id="buyDigitalButton"
+                   href="#"
+                   aria-label="Digital single available August 28, 2026">
                   Buy digital
                 </a>
               </div>
@@ -699,7 +700,7 @@
 
         <div class="store-note reveal">
           Digital purchases will be delivered automatically after successful payment.
-          Checkout will be activated here once the Store payment and delivery provider is connected.
+          This release becomes available for purchase on August 28, 2026.
         </div>
       </div>
     </section>
@@ -875,11 +876,33 @@
         observer.observe(el);
       });
 
-      document.querySelectorAll('[data-checkout]').forEach(function(button){
-        button.addEventListener('click',function(){
-          alert('Checkout will be available soon.');
-        });
-      });
+      const buyDigitalButton = document.getElementById('buyDigitalButton');
+
+      if (buyDigitalButton) {
+        const releaseDate = new Date('2026-08-28T00:00:00+07:00');
+        const now = new Date();
+
+        if (now >= releaseDate) {
+          buyDigitalButton.href = 'https://payhip.com/b/pVJBz';
+          buyDigitalButton.textContent = 'Buy digital';
+          buyDigitalButton.setAttribute(
+            'aria-label',
+            'Purchase you can keep my name (After Hours)'
+          );
+          buyDigitalButton.style.pointerEvents = 'auto';
+          buyDigitalButton.style.opacity = '';
+        } else {
+          buyDigitalButton.href = '#';
+          buyDigitalButton.textContent = 'Buy digital';
+          buyDigitalButton.setAttribute(
+            'aria-label',
+            'Digital single available August 28, 2026'
+          );
+          buyDigitalButton.setAttribute('aria-disabled', 'true');
+          buyDigitalButton.style.pointerEvents = 'none';
+          buyDigitalButton.style.opacity = '0.55';
+        }
+      }
     })();
   </script>
 

@@ -259,6 +259,8 @@
       overflow:hidden;
       background:#e9e9e5;
     }
+    .product-art.vinyl-art{background:#fff}
+    .product-art.vinyl-art img{object-fit:contain;padding:18px}
     .product-art img{
       width:100%;height:100%;
       object-fit:cover;
@@ -613,6 +615,20 @@
         "image":"https://hafyz.my.id/yckmn/you-can-keep-my-name.jpg",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Digital Music"
+      },
+      {
+        "@type":"Product",
+        "name":"x-Friends (After Hours) — Vinyl",
+        "url":"https://hafyz.my.id/store/",
+        "image":"https://hafyz.my.id/store/x-friends-after-hours-vinyl.jpg",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{
+          "@type":"Offer",
+          "priceCurrency":"IDR",
+          "price":"299000",
+          "availability":"https://schema.org/InStock"
+        }
       }
     ]
   }
@@ -744,11 +760,66 @@
             </div>
           </article>
 
+
+
         </div>
 
         <div class="store-note reveal">
-          Digital purchases will be delivered automatically after successful payment.
-          This release becomes available for purchase on August 28, 2026.
+          Digital purchases are delivered automatically after successful payment.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="physical">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Physical</p>
+            <h2 class="title">Physical releases.</h2>
+          </div>
+          <p class="desc">
+            Physical editions and collectible releases from the HAFYZ Store.
+          </p>
+        </div>
+
+        <div class="store-grid">
+
+          <article class="product reveal">
+            <div class="product-art vinyl-art">
+              <span class="product-tag">Limited vinyl</span>
+              <img src="/store/x-friends-after-hours-vinyl.jpg"
+                   alt="x-Friends (After Hours) vinyl by HAFYZ"
+                   loading="lazy">
+            </div>
+
+            <div class="product-info">
+              <p class="product-type">Physical · 2026</p>
+              <h3>x-Friends (After Hours)<br>Vinyl</h3>
+              <p class="product-meta">Black Vinyl · 33⅓ RPM · Stereo</p>
+              <p class="product-price">Rp299.000</p>
+              <p class="product-description">
+                A limited physical edition of x-Friends (After Hours),
+                featuring the official After Hours artwork on black vinyl.
+                Made to keep beyond the stream.
+              </p>
+
+              <div class="product-actions">
+                <a class="btn btn-primary"
+                   id="buyVinylButton"
+                   href="https://payhip.com/b/Z9bts"
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Purchase x-Friends (After Hours) vinyl">
+                  Buy vinyl
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="store-note reveal">
+          Physical orders are shipped separately. Shipping is calculated at checkout.
         </div>
       </div>
     </section>
@@ -948,6 +1019,21 @@
       });
 
       const buyDigitalButton = document.getElementById('buyDigitalButton');
+      const buyVinylButton = document.getElementById('buyVinylButton');
+
+      /* Add the Payhip URL here once the vinyl product is created. */
+      const vinylPayhipUrl = 'https://payhip.com/b/Z9bts';
+
+      if (buyVinylButton && vinylPayhipUrl) {
+        const vinylLink = document.createElement('a');
+        vinylLink.className = 'btn btn-primary';
+        vinylLink.href = vinylPayhipUrl;
+        vinylLink.target = '_blank';
+        vinylLink.rel = 'noopener';
+        vinylLink.textContent = 'Buy vinyl';
+        vinylLink.setAttribute('aria-label', 'Purchase x-Friends (After Hours) vinyl');
+        buyVinylButton.replaceWith(vinylLink);
+      }
 
       if (buyDigitalButton) {
         const releaseDate = new Date('2026-08-28T00:00:00+07:00');

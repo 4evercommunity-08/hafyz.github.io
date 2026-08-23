@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>HAFYZ STORE | Official Website</title>
-  <meta name="description" content="The official HAFYZ Store. Digital music, limited releases, merchandise and exclusive editions.">
+  <meta name="description" content="The official HAFYZ Store. Explore digital releases, vinyl editions, merchandise and exclusive physical collections.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#f7f7f4">
 
   <link rel="canonical" href="https://hafyz.my.id/store/">
 
   <meta property="og:title" content="HAFYZ STORE">
-  <meta property="og:description" content="Digital music, merchandise and exclusive releases from HAFYZ.">
+  <meta property="og:description" content="Digital releases, vinyl editions, merchandise and exclusive physical collections from HAFYZ.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://hafyz.my.id/store/">
   <meta property="og:site_name" content="HAFYZ">
@@ -20,7 +20,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="HAFYZ STORE">
-  <meta name="twitter:description" content="Digital music, merchandise and exclusive releases from HAFYZ.">
+  <meta name="twitter:description" content="Digital releases, vinyl editions, merchandise and exclusive physical collections from HAFYZ.">
   <meta name="twitter:image" content="https://hafyz.my.id/yckmn/you-can-keep-my-name.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +61,53 @@
     :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 
     .wrap{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+
+    /* COLLECTOR SPOTLIGHT */
+    .collector-showcase{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+      margin-bottom:52px;
+    }
+    .collector-showcase-card{
+      background:#fff;
+      border:1px solid rgba(198,158,62,.24);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:0 22px 70px rgba(0,0,0,.065);
+      transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;
+    }
+    .collector-showcase-card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(198,158,62,.58);
+      box-shadow:0 28px 80px rgba(0,0,0,.10);
+    }
+    .collector-showcase-art{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:#e9e9e5;
+    }
+    .collector-showcase-art img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+    .collector-showcase-card:hover .collector-showcase-art img{transform:scale(1.025)}
+    .collector-badge{background:rgba(255,253,247,.92);color:var(--gold-dark);border-color:rgba(198,158,62,.30)}
+    .collector-showcase-info{padding:30px 30px 32px}
+    .collector-showcase-info h3{margin:0 0 4px;font-family:"Space Grotesk",sans-serif;font-size:clamp(32px,4vw,48px);line-height:.98;letter-spacing:-.06em}
+    .collector-edition-label{margin:0 0 14px;color:var(--gold-dark);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .collector-showcase-info .price{font-size:27px;margin-bottom:12px}
+    .collector-showcase-info .product-description{min-height:0}
+    .standard-heading{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin:0 0 22px}
+    .standard-heading span{height:1px;background:rgba(20,20,20,.12)}
+    .standard-heading p{margin:0;color:#777;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+    .standard-vinyl-card{display:grid;grid-template-columns:300px 1fr;gap:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.025)}
+    .standard-vinyl-art{position:relative;aspect-ratio:1/1;background:#e9e9e5;overflow:hidden}
+    .standard-vinyl-art img{width:100%;height:100%;object-fit:cover}
+    .standard-vinyl-info{padding:30px;display:flex;flex-direction:column;justify-content:center}
+    .standard-vinyl-info h3{margin:0 0 8px;font-family:"Space Grotesk",sans-serif;font-size:clamp(25px,3vw,36px);line-height:1;letter-spacing:-.055em}
+    .standard-vinyl-info .price{font-size:21px}
+    @media(max-width:800px){.collector-showcase{grid-template-columns:1fr}.standard-vinyl-card{grid-template-columns:240px 1fr}.standard-vinyl-info{padding:24px}}
+    @media(max-width:560px){.standard-heading{grid-template-columns:1fr}.standard-heading span{display:none}.standard-heading p{text-align:left}.collector-showcase-info{padding:24px}.standard-vinyl-card{grid-template-columns:1fr}.standard-vinyl-art{aspect-ratio:4/3}.standard-vinyl-info{padding:24px}}
 
     /* NAV */
     .nav{
@@ -259,12 +306,57 @@
       overflow:hidden;
       background:#e9e9e5;
     }
-    .product-art.vinyl-art{background:#fff}
-    .product-art.vinyl-art img{object-fit:contain;padding:18px}
     .product-art img{
       width:100%;height:100%;
       object-fit:cover;
       transition:transform .8s var(--ease);
+    }
+    .product-art.physical-art{aspect-ratio:4/3;background:#ecece8}
+    .product-art.physical-art img{object-fit:cover}
+    .product-status{
+      display:inline-flex;align-items:center;gap:7px;
+      margin:0 0 13px;
+      color:#777;
+      font-size:9px;font-weight:800;
+      letter-spacing:.14em;text-transform:uppercase;
+    }
+    .product-status:before{
+      content:"";width:6px;height:6px;border-radius:50%;
+      background:#999;
+    }
+    .btn[aria-disabled="true"]{
+      background:#ededeb;border-color:#deded9;color:#9a9a94;
+      box-shadow:none;cursor:not-allowed;pointer-events:none;
+    }
+    .btn[aria-disabled="true"]:hover{transform:none}
+    .physical-feature{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 18px 55px rgba(0,0,0,.035);
+      margin-bottom:28px;
+    }
+    .physical-feature-art{position:relative;aspect-ratio:4/3;background:#e9e9e5;overflow:hidden}
+    .physical-feature-art img{width:100%;height:100%;object-fit:cover}
+    .physical-feature-info{padding:clamp(28px,5vw,58px);display:flex;flex-direction:column;justify-content:center}
+    .physical-feature-info h3{margin:0 0 8px;font-family:"Space Grotesk",sans-serif;font-size:clamp(40px,5vw,64px);line-height:.94;letter-spacing:-.065em}
+    .price{margin:0 0 15px;color:var(--gold-dark);font-family:"Space Grotesk",sans-serif;font-size:25px;font-weight:700;letter-spacing:-.03em}
+    .collector-heading{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin:10px 0 22px}
+    .collector-heading span{height:1px;background:rgba(198,158,62,.35)}
+    .collector-heading p{margin:0;color:var(--gold-dark);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;text-align:center}
+    .collector-grid{grid-template-columns:repeat(2,1fr)}
+    .product-status.out{color:#9b2e2e}
+    .product-status.out:before{background:#b83b3b}
+    .btn-disabled{background:#ededeb;border:1px solid #deded9;color:#9a9a94;box-shadow:none;cursor:not-allowed}
+
+    .product-feature{
+      margin:0 0 15px;padding:11px 12px;
+      border-left:2px solid var(--gold);
+      background:#fffdf7;color:#66645f;
+      font-size:10px;line-height:1.6;
     }
     .product:hover .product-art img{transform:scale(1.025)}
     .product-tag{
@@ -379,52 +471,6 @@
       line-height:1.7;
     }
 
-    /* STORE UPDATES / NEWSLETTER */
-    .store-updates-card{
-      padding:30px;
-      background:#fffdf7;
-      border:1px solid rgba(198,158,62,.24);
-      border-radius:22px;
-    }
-    .store-updates-lead{
-      margin:0 0 20px;
-      color:#696964;
-      font-size:13px;
-      line-height:1.75;
-    }
-    .store-newsletter{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) auto;
-      gap:10px;
-      max-width:760px;
-    }
-    .store-newsletter input{
-      width:100%;
-      min-height:48px;
-      padding:0 18px;
-      border:1px solid rgba(198,158,62,.35);
-      border-radius:999px;
-      background:#fff;
-      color:var(--ink);
-      font:inherit;
-      font-size:12px;
-      outline:none;
-    }
-    .store-newsletter input::placeholder{color:#999}
-    .store-newsletter input:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(198,158,62,.10);
-    }
-    .store-newsletter .btn{
-      border:1px solid var(--gold);
-    }
-    .store-newsletter-note{
-      margin:12px 0 0;
-      color:#92928c;
-      font-size:10px;
-      line-height:1.6;
-    }
-
     .store-note{
       margin-top:18px;
       padding:16px 18px;
@@ -535,6 +581,14 @@
     .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
     .reveal.visible{opacity:1;transform:none}
 
+
+    .store-updates-card{border:1px solid var(--line);border-radius:24px;background:#fff;padding:34px}
+    .store-updates-lead{margin:0 0 22px;font-size:18px;line-height:1.55;color:var(--ink-soft)}
+    .store-newsletter{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px}
+    .store-newsletter input{width:100%;min-height:52px;box-sizing:border-box;border:1px solid rgba(198,158,62,.42);border-radius:14px;background:var(--bg);color:var(--ink);padding:0 16px;font:inherit;outline:none}
+    .store-newsletter input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(198,158,62,.12)}
+    .store-newsletter-note{margin:13px 0 0;font-size:12px;line-height:1.5;color:var(--muted-2)}
+
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
       *,*:before,*:after{transition-duration:.01ms!important}
@@ -564,6 +618,8 @@
       .menu{display:block}
       .hero-grid{grid-template-columns:1fr;gap:35px}
       .hero-copy{justify-self:start}
+      .physical-feature{grid-template-columns:1fr}
+      .physical-feature-info{padding:30px}
       .store-grid{grid-template-columns:1fr 1fr}
       .coming{grid-template-columns:1fr}
       .section{padding:82px 0}
@@ -576,14 +632,17 @@
     }
 
     @media(max-width:560px){
+      .store-newsletter{grid-template-columns:1fr}
+      .store-updates-card{padding:24px}
       .wrap,.nav-inner{width:min(calc(100% - 30px),var(--max))}
       .store-hero{padding:145px 0 75px}
-      .store-grid{grid-template-columns:1fr}
+      .store-grid,.collector-grid{grid-template-columns:1fr}
+      .collector-heading{grid-template-columns:1fr}
+      .collector-heading span{display:none}
+      .collector-heading p{text-align:left}
       .product-info{padding:21px}
       .product h3{font-size:22px}
       .product-actions .btn{width:100%}
-      .store-newsletter{grid-template-columns:1fr}
-      .store-newsletter .btn{width:100%}
       .hafyz-cookie-card{grid-template-columns:1fr;padding:17px}
       .hafyz-cookie-actions{justify-content:flex-start}
       .hafyz-cookie-btn{flex:1}
@@ -619,15 +678,49 @@
       {
         "@type":"Product",
         "name":"x-Friends (After Hours) — Vinyl",
-        "url":"https://hafyz.my.id/store/",
-        "image":"https://hafyz.my.id/store/x-friends-after-hours-vinyl.png",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/x-friends-after-hours-vinyl.jpg",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Vinyl Record",
+        "description":"The official x-Friends (After Hours) vinyl edition.",
         "offers":{
           "@type":"Offer",
           "priceCurrency":"IDR",
           "price":"299000",
-          "availability":"https://schema.org/InStock"
+          "availability":"https://schema.org/InStock",
+          "url":"https://hafyz.my.id/store/#physical"
+        }
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — Cosmic Orange Collector's Edition",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-cosmic-orange-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "description":"Cosmic Orange Collector's Edition with the exclusive bonus track x-Friends (After Hours Reimagined).",
+        "offers":{
+          "@type":"Offer",
+          "priceCurrency":"IDR",
+          "price":"999000",
+          "availability":"https://schema.org/PreOrder",
+          "url":"https://hafyz.my.id/store/#physical"
+        }
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — After Hours Burgundy Collector's Edition",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-after-hours-burgundy-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "description":"After Hours Burgundy Collector's Edition vinyl from HAFYZ.",
+        "offers":{
+          "@type":"Offer",
+          "priceCurrency":"IDR",
+          "price":"699000",
+          "availability":"https://schema.org/PreOrder",
+          "url":"https://hafyz.my.id/store/#physical"
         }
       }
     ]
@@ -679,6 +772,7 @@
       <nav aria-label="Store navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="#music">Music</a></li>
+          <li><a href="#physical">Physical</a></li>
           <li><a href="#merch">Merch</a></li>
           <li><a href="#bundles">Bundles</a></li>
           <li><a href="/">Website</a></li>
@@ -751,75 +845,95 @@
                 </a>
 
                 <a class="btn btn-secondary"
-                   id="buyDigitalButton"
-                   href="#"
-                   aria-label="Digital single available August 28, 2026">
+                   href="PASTE_CHECKOUT_URL_HERE"
+                   aria-label="Purchase digital single">
                   Buy digital
                 </a>
               </div>
             </div>
           </article>
 
-
-
         </div>
 
         <div class="store-note reveal">
-          Digital purchases are delivered automatically after successful payment.
+          Digital purchases will be delivered automatically after successful payment.
+          Checkout will be activated here once the Store payment and delivery provider is connected.
         </div>
       </div>
     </section>
 
-    <section class="section" id="physical">
+    <section class="section alt" id="physical">
       <div class="wrap">
         <div class="section-head reveal">
           <div>
             <p class="kicker">Physical</p>
-            <h2 class="title">Physical releases.</h2>
+            <h2 class="title">Collector's vinyl.</h2>
           </div>
           <p class="desc">
-            Physical editions and collectible releases from the HAFYZ Store.
+            The <em>xoxo, i'm done (After Hours)</em> Collector's Editions take the spotlight, with limited colour pressings made for collectors.
           </p>
         </div>
 
-        <div class="store-grid">
-
-          <article class="product reveal">
-            <div class="product-art vinyl-art">
-              <span class="product-tag">Limited vinyl</span>
-              <img src="/store/x-friends-after-hours-vinyl.png"
-                   alt="x-Friends (After Hours) vinyl by HAFYZ"
-                   loading="lazy">
+        <div class="collector-showcase reveal">
+          <div class="collector-showcase-card">
+            <div class="collector-showcase-art">
+              <span class="product-tag collector-badge">Collector's Edition · Coming August 28</span>
+              <img src="/store/xoxo-im-done-after-hours-cosmic-orange-vinyl.png" alt="xoxo, i'm done (After Hours) Cosmic Orange Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
             </div>
-
-            <div class="product-info">
-              <p class="product-type">Physical · 2026</p>
-              <h3>x-Friends (After Hours)<br>Vinyl</h3>
-              <p class="product-meta">Black Vinyl · 33⅓ RPM · Stereo</p>
-              <p class="product-price">Rp299.000</p>
-              <p class="product-description">
-                A limited physical edition of x-Friends (After Hours),
-                featuring the official After Hours artwork on black vinyl.
-                Made to keep beyond the stream.
-              </p>
-
-              <div class="product-actions">
-                <a class="btn btn-primary"
-                   id="buyVinylButton"
-                   href="https://payhip.com/b/Z9bts"
-                   target="_blank"
-                   rel="noopener"
-                   aria-label="Purchase x-Friends (After Hours) vinyl">
-                  Buy vinyl
-                </a>
-              </div>
+            <div class="collector-showcase-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>Cosmic Orange</h3>
+              <p class="collector-edition-label">Collector's Edition</p>
+              <p class="price">Rp999.000</p>
+              <p class="product-status preorder">Coming August 28</p>
+              <p class="product-feature"><strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”</p>
+              <p class="product-description">The Cosmic Orange Collector's Edition, featuring the exclusive bonus track available only on this edition.</p>
+              <div class="product-actions"><a class="btn btn-secondary" href="#contact">Get notified</a></div>
             </div>
-          </article>
+          </div>
 
+          <div class="collector-showcase-card">
+            <div class="collector-showcase-art">
+              <span class="product-tag collector-badge">Collector's Edition · Coming August 28</span>
+              <img src="/store/xoxo-im-done-after-hours-after-hours-burgundy-vinyl.png" alt="xoxo, i'm done (After Hours) After Hours Burgundy Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
+            </div>
+            <div class="collector-showcase-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>After Hours Burgundy</h3>
+              <p class="collector-edition-label">Collector's Edition</p>
+              <p class="price">Rp699.000</p>
+              <p class="product-status preorder">Coming August 28</p>
+              <p class="product-description">A premium Collector's Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.</p>
+              <div class="product-actions"><a class="btn btn-secondary" href="#contact">Get notified</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="standard-heading reveal">
+          <span></span>
+          <p>Also available · Standard Vinyl</p>
+          <span></span>
+        </div>
+
+        <div class="standard-vinyl-card reveal">
+          <div class="standard-vinyl-art">
+            <span class="product-tag">Vinyl LP · Available</span>
+            <img src="/store/x-friends-after-hours-vinyl.jpg" alt="x-Friends (After Hours) vinyl mockup" loading="lazy" width="1200" height="900">
+          </div>
+          <div class="standard-vinyl-info">
+            <p class="product-type">Physical · 2026</p>
+            <h3>x-Friends (After Hours)</h3>
+            <p class="product-meta">Vinyl</p>
+            <p class="price">Rp299.000</p>
+            <p class="product-description">The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.</p>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="PASTE_XFRIENDS_CHECKOUT_URL_HERE" aria-label="Buy x-Friends After Hours vinyl">Buy vinyl ↗</a>
+            </div>
+          </div>
         </div>
 
         <div class="store-note reveal">
-          Physical orders are shipped separately. Shipping is calculated at checkout.
+          <strong>Availability:</strong> The xoxo, i'm done (After Hours) Collector's Editions open for pre-order on August 28, 2026. x-Friends (After Hours) is currently available to purchase.
         </div>
       </div>
     </section>
@@ -913,16 +1027,8 @@
                 action="https://hafyz.us14.list-manage.com/subscribe/post?u=71391a9e879a55c99a581a567&amp;id=ac61a49750&amp;f_id=004aeae0f0"
                 method="post"
                 target="_blank">
-            <label for="store-email"
-                   style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">
-              Email address
-            </label>
-            <input id="store-email"
-                   type="email"
-                   name="EMAIL"
-                   placeholder="Email address"
-                   autocomplete="email"
-                   required>
+            <label for="store-email" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Email address</label>
+            <input id="store-email" type="email" name="EMAIL" placeholder="Email address" autocomplete="email" required>
             <button class="btn btn-primary" type="submit">Get updates</button>
           </form>
 
@@ -938,21 +1044,21 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="brand" href="/">HAFYZ</a>
-          <p>Official HAFYZ Store.</p>
+          <p>Official website of HAFYZ. Music, live, press and selected work from the world of SOUR+.</p>
 
-          <div class="socials" aria-label="HAFYZ social links">
+          <div class="socials" aria-label="Social links">
             <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" aria-label="Facebook">
               <svg viewBox="0 0 24 24"><path d="M24 12.073C24 5.439 18.627.073 12 .073S0 5.439 0 12.073c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href="https://www.instagram.com/sourplusentertainment" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-4.919-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
             </a>
             <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener" aria-label="YouTube">
               <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568-6.273-3.568z"/></svg>
             </a>
-            <a href="https://music.apple.com/us/artist/hafyz/1754145654" target="_blank" rel="noopener" aria-label="Apple Music" class="social-apple"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-  <path fill="currentColor" d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/>
-</svg></a>
+            <a href="https://music.apple.com/us/artist/hafyz/1754145654" target="_blank" rel="noopener" aria-label="Apple Music">
+              <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Apple Music</title><path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026-.747.043-1.49.123-2.193.4-1.336.53-2.3 1.452-2.865 2.78-.192.448-.292.925-.363 1.408-.056.392-.088.785-.1 1.18 0 .032-.007.062-.01.093v12.223c.01.14.017.283.027.424.05.815.154 1.624.497 2.373.65 1.42 1.738 2.353 3.234 2.801.42.127.856.187 1.293.228.555.053 1.11.06 1.667.06h11.03a12.5 12.5 0 001.57-.1c.822-.106 1.596-.35 2.295-.81a5.046 5.046 0 001.88-2.207c.186-.42.293-.87.37-1.324.113-.675.138-1.358.137-2.04-.002-3.8 0-7.595-.003-11.393zm-6.423 3.99v5.712c0 .417-.058.827-.244 1.206-.29.59-.76.962-1.388 1.14-.35.1-.706.157-1.07.173-.95.045-1.773-.6-1.943-1.536a1.88 1.88 0 011.038-2.022c.323-.16.67-.25 1.018-.324.378-.082.758-.153 1.134-.24.274-.063.457-.23.51-.516a.904.904 0 00.02-.193c0-1.815 0-3.63-.002-5.443a.725.725 0 00-.026-.185c-.04-.15-.15-.243-.304-.234-.16.01-.318.035-.475.066-.76.15-1.52.303-2.28.456l-2.325.47-1.374.278c-.016.003-.032.01-.048.013-.277.077-.377.203-.39.49-.002.042 0 .086 0 .13-.002 2.602 0 5.204-.003 7.805 0 .42-.047.836-.215 1.227-.278.64-.77 1.04-1.434 1.233-.35.1-.71.16-1.075.172-.96.036-1.755-.6-1.92-1.544-.14-.812.23-1.685 1.154-2.075.357-.15.73-.232 1.108-.31.287-.06.575-.116.86-.177.383-.083.583-.323.6-.714v-.15c0-2.96 0-5.922.002-8.882 0-.123.013-.25.042-.37.07-.285.273-.448.546-.518.255-.066.515-.112.774-.165.733-.15 1.466-.296 2.2-.444l2.27-.46c.67-.134 1.34-.27 2.01-.403.22-.043.442-.088.663-.106.31-.025.523.17.554.482.008.073.012.148.012.223.002 1.91.002 3.822 0 5.732z"/></svg>
+            </a>
             <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener" aria-label="Spotify">
               <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
             </a>
@@ -961,23 +1067,27 @@
 
         <div class="footer-columns">
           <div class="footer-col">
-            <h4>Store</h4>
-            <a href="#music">Music</a>
-            <a href="#merch">Merch</a>
-            <a href="#bundles">Bundles</a>
+            <h4>Explore</h4>
+            <a href="/#music">Music</a>
+            <a href="/#tour">Tour</a>
+            <a href="/#about">About</a>
           </div>
           <div class="footer-col">
-            <h4>HAFYZ</h4>
-            <a href="/">Official Website</a>
+            <h4>Professional</h4>
             <a href="/press/">Press Kit</a>
+            <a href="/#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
             <a href="/privacy.html">Privacy Policy</a>
+            <a href="/terms.html">Terms of Use</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. All rights reserved.</p>
-        <p>HAFYZ STORE</p>
+        <p>Made with 🖤 in Pekanbaru</p>
       </div>
     </div>
   </footer>
@@ -1018,48 +1128,11 @@
         observer.observe(el);
       });
 
-      const buyDigitalButton = document.getElementById('buyDigitalButton');
-      const buyVinylButton = document.getElementById('buyVinylButton');
-
-      /* Add the Payhip URL here once the vinyl product is created. */
-      const vinylPayhipUrl = 'https://payhip.com/b/Z9bts';
-
-      if (buyVinylButton && vinylPayhipUrl) {
-        const vinylLink = document.createElement('a');
-        vinylLink.className = 'btn btn-primary';
-        vinylLink.href = vinylPayhipUrl;
-        vinylLink.target = '_blank';
-        vinylLink.rel = 'noopener';
-        vinylLink.textContent = 'Buy vinyl';
-        vinylLink.setAttribute('aria-label', 'Purchase x-Friends (After Hours) vinyl');
-        buyVinylButton.replaceWith(vinylLink);
-      }
-
-      if (buyDigitalButton) {
-        const releaseDate = new Date('2026-08-28T00:00:00+07:00');
-        const now = new Date();
-
-        if (now >= releaseDate) {
-          buyDigitalButton.href = 'https://payhip.com/b/pVJBz';
-          buyDigitalButton.textContent = 'Buy digital';
-          buyDigitalButton.setAttribute(
-            'aria-label',
-            'Purchase you can keep my name (After Hours)'
-          );
-          buyDigitalButton.style.pointerEvents = 'auto';
-          buyDigitalButton.style.opacity = '';
-        } else {
-          buyDigitalButton.href = '#';
-          buyDigitalButton.textContent = 'Buy digital';
-          buyDigitalButton.setAttribute(
-            'aria-label',
-            'Digital single available August 28, 2026'
-          );
-          buyDigitalButton.setAttribute('aria-disabled', 'true');
-          buyDigitalButton.style.pointerEvents = 'none';
-          buyDigitalButton.style.opacity = '0.55';
-        }
-      }
+      document.querySelectorAll('[data-checkout]').forEach(function(button){
+        button.addEventListener('click',function(){
+          alert('Checkout will be available soon.');
+        });
+      });
     })();
   </script>
 

@@ -1016,6 +1016,16 @@
 }
 </script>
 
+
+<style>
+.hero-release-title{
+  margin:0 0 8px;
+  font:600 clamp(22px,3vw,34px)/1.05 "Space Grotesk",Inter,sans-serif;
+  letter-spacing:-.04em;
+}
+.hero-meta{max-width:520px;line-height:1.8}
+</style>
+
 </head>
 
 <body>
@@ -1098,14 +1108,9 @@
         </video>
         <div class="hero-video-overlay"></div>
         <div class="hero-content">
-        <p class="eyebrow">Next release</p>
-        <p class="hero-release">you can keep my name (After Hours)</p>
+        <p class="eyebrow" data-i18n="nextRelease">NEXT RELEASE</p>
+        <p class="hero-release-title">xoxo, i’m done (After Hours)</p>
         <h1>HAFYZ</h1>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#music">Listen now ↗</a>
-          <a class="btn btn-secondary" href="#tour">View tour dates</a>
-        </div>
       </div>
     </section>
 
@@ -1116,33 +1121,41 @@
             <p class="kicker">Music</p>
             <h2 class="title">Latest releases.</h2>
           </div>
-          <p class="desc">The next chapter of HAFYZ arrives August 28, 2026, following the intimate stripped release from the After Hours era.</p>
+          <p class="desc">The next chapter of HAFYZ arrives September 18, 2026, beginning with the full-length After Hours album.</p>
         </div>
 
         <article class="release-feature reveal">
           <div class="release-art">
-            <span class="release-badge">Coming August 28</span>
-            <img src="/yckmn/you-can-keep-my-name.jpg"
-                 alt="you can keep my name (After Hours) cover art"
+            <span class="release-badge">Full Album · September 18</span>
+            <img src="/xoxo-im-done-after-hours/xoxo_AfterHours_Artwork.png"
+                 alt="xoxo, i'm done (After Hours) cover art"
                  loading="eager">
           </div>
 
           <div class="release-content">
-            <p class="release-number">01 / Next release</p>
-            <h3>you can keep my name<br>(After Hours)</h3>
-            <p class="release-meta">Single · August 28, 2026</p>
-            <p>
-              A sarcastic, sharp-edged song about outgrowing relationships that demand emotional access without accountability. It is about boundaries, detachment, and finally deciding that walking away does not require hatred.
-            </p>
+            <p class="release-number">01 / Full album</p>
+            <h3>xoxo, i’m done<br>(After Hours)</h3>
+            <p class="release-meta">13-track album · September 18, 2026</p>
+            <p id="after-hours-release-description" data-en="An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left." data-id="Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi.">An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.</p>
 
             <div class="release-actions">
-              <a class="btn btn-primary" href="https://ffm.to/yckmn" target="_blank" rel="noopener">Pre-save now ↗</a>
-              <a class="release-secondary" href="/yckmn/">About the song →</a>
+              <a class="btn btn-primary" href="/xoxo-im-done-after-hours/">Explore After Hours →</a>
             </div>
           </div>
         </article>
 
         <div class="release-grid">
+          <article class="mini-release reveal">
+            <img src="/yckmn/you-can-keep-my-name.jpg"
+                 alt="you can keep my name (After Hours) cover art"
+                 loading="lazy">
+            <div class="mini-content">
+              <h4>you can keep my name<br>(After Hours)</h4>
+              <p>After Hours · Single · August 28, 2026</p>
+              <a class="text-link" href="/yckmn/">About the song <span>↗</span></a>
+            </div>
+          </article>
+
           <article class="mini-release reveal">
             <img src="/chgstripped/chasing-hollow-gold-stripped.jpg"
                  alt="chasing hollow gold after hours (stripped) cover art"
@@ -1150,7 +1163,7 @@
             <div class="mini-content">
               <h4>chasing hollow gold after hours (stripped)</h4>
               <p>After Hours · Single · Out now</p>
-              <a class="text-link" href="/chgstripped/" >Listen now <span>↗</span></a>
+              <a class="text-link" href="/chgstripped/">Listen now <span>↗</span></a>
             </div>
           </article>
         </div>
@@ -1734,6 +1747,68 @@
   }else{
     setTimeout(function(){banner.classList.add('show')},450);
   }
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="after-hours-language-fix">
+(function () {
+  const copy = {
+    en: {
+      nextRelease: "NEXT RELEASE",
+      exploreAfterHours: "Explore After Hours",
+      description: "An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left."
+    },
+    id: {
+      nextRelease: "RILIS BERIKUTNYA",
+      exploreAfterHours: "Jelajahi After Hours",
+      description: "Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi."
+    }
+  };
+
+  function getLang() {
+    const stored = localStorage.getItem("hafyz-home-lang");
+    const docLang = document.documentElement.lang || "";
+    return (stored || docLang).toLowerCase().startsWith("id") ? "id" : "en";
+  }
+
+  function applyAfterHoursLanguage(lang) {
+    const t = copy[lang] || copy.en;
+    const releaseLabel = document.querySelector('.hero [data-i18n="nextRelease"]');
+    const desc = document.getElementById("after-hours-release-description");
+    const explore = document.querySelector('[data-i18n="exploreAfterHours"]');
+
+    if (releaseLabel) releaseLabel.textContent = t.nextRelease;
+    if (desc) desc.textContent = t.description;
+    if (explore) explore.textContent = t.exploreAfterHours;
+  }
+
+  document.addEventListener("click", function (event) {
+    const button = event.target.closest("[data-lang]");
+    if (!button) return;
+    const raw = button.getAttribute("data-lang") || "";
+    const lang = raw.toLowerCase().startsWith("id") ? "id" : "en";
+    setTimeout(function () { applyAfterHoursLanguage(lang); }, 20);
+    setTimeout(function () { applyAfterHoursLanguage(lang); }, 200);
+  }, true);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    applyAfterHoursLanguage(getLang());
+  });
+
+  applyAfterHoursLanguage(getLang());
 })();
 </script>
 

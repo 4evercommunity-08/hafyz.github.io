@@ -1136,7 +1136,7 @@
             <p class="release-number">01 / Full album</p>
             <h3>xoxo, i’m done<br>(After Hours)</h3>
             <p class="release-meta">13-track album · September 18, 2026</p>
-            <p id="after-hours-release-description" data-en="An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left." data-id="Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi.">An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.</p>
+            <p>An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.</p>
 
             <div class="release-actions">
               <a class="btn btn-primary" href="/xoxo-im-done-after-hours/">Explore After Hours →</a>
@@ -1433,6 +1433,7 @@
             ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["View tour dates","Lihat jadwal tur"],
             ["Music","Musik"], ["Latest releases.","Rilisan terbaru."],
             ["The current chapter of HAFYZ, including the next release from the After Hours era.","Bab terbaru HAFYZ, termasuk rilisan berikutnya dari era After Hours."],
+            ["An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.","Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi."],
             ["Out now","Sudah dirilis"], ["01 / Latest single","01 / Single terbaru"],
             ["Single · 2026","Single · 2026"], ["The latest chapter from HAFYZ's After Hours era.","Bab terbaru HAFYZ dari era After Hours."],
             ["About the song →","Tentang lagu →"], ["Coming August 14","Hadir 14 Agustus"],
@@ -1763,54 +1764,7 @@
 
 
 
-<script id="after-hours-language-fix">
-(function () {
-  const copy = {
-    en: {
-      nextRelease: "NEXT RELEASE",
-      exploreAfterHours: "Explore After Hours",
-      description: "An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left."
-    },
-    id: {
-      nextRelease: "RILIS BERIKUTNYA",
-      exploreAfterHours: "Jelajahi After Hours",
-      description: "Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi."
-    }
-  };
 
-  function getLang() {
-    const stored = localStorage.getItem("hafyz-home-lang");
-    const docLang = document.documentElement.lang || "";
-    return (stored || docLang).toLowerCase().startsWith("id") ? "id" : "en";
-  }
-
-  function applyAfterHoursLanguage(lang) {
-    const t = copy[lang] || copy.en;
-    const releaseLabel = document.querySelector('.hero [data-i18n="nextRelease"]');
-    const desc = document.getElementById("after-hours-release-description");
-    const explore = document.querySelector('[data-i18n="exploreAfterHours"]');
-
-    if (releaseLabel) releaseLabel.textContent = t.nextRelease;
-    if (desc) desc.textContent = t.description;
-    if (explore) explore.textContent = t.exploreAfterHours;
-  }
-
-  document.addEventListener("click", function (event) {
-    const button = event.target.closest("[data-lang]");
-    if (!button) return;
-    const raw = button.getAttribute("data-lang") || "";
-    const lang = raw.toLowerCase().startsWith("id") ? "id" : "en";
-    setTimeout(function () { applyAfterHoursLanguage(lang); }, 20);
-    setTimeout(function () { applyAfterHoursLanguage(lang); }, 200);
-  }, true);
-
-  document.addEventListener("DOMContentLoaded", function () {
-    applyAfterHoursLanguage(getLang());
-  });
-
-  applyAfterHoursLanguage(getLang());
-})();
-</script>
 
 </body>
 </html>

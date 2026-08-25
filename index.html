@@ -528,6 +528,18 @@
       box-shadow:0 18px 55px rgba(0,0,0,.04);
     }
     #seated-55fdf2c0{width:100%;min-height:400px}
+    .tour-fallback{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      min-height:220px;
+      padding:40px 24px;
+      text-align:center;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+    .tour-fallback.show{display:flex}
 
     /* ABOUT */
     .about-layout{
@@ -619,6 +631,17 @@
     }
     .newsletter input:focus{border-color:var(--gold)}
     .newsletter input::placeholder{color:#aaa}
+    .newsletter-status{
+      width:min(100%,500px);
+      margin:12px auto 0;
+      min-height:16px;
+      font-size:12px;
+      color:var(--muted);
+      opacity:0;
+      transition:.25s var(--ease);
+    }
+    .newsletter-status.show{opacity:1}
+    .newsletter-status.error{color:#b3453b}
 
     /* FOOTER */
     footer{
@@ -1185,6 +1208,9 @@
                data-artist-id="25937aa2-de5d-4ba7-b775-dab54dc3b2fc"
                data-css-version="3"
                data-theme="dark"></div>
+          <div class="tour-fallback" id="tourFallback" hidden>
+            <p data-i18n-fallback="tourFallback">No upcoming shows right now — check back soon, or follow HAFYZ on social for announcements.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1250,14 +1276,16 @@
         <h2>Keep in the loop.</h2>
         <p>Get exclusive updates, new music announcements and early access to tickets.</p>
 
-        <form class="newsletter"
+        <form class="newsletter" id="newsletterForm"
           action="https://hafyz.us14.list-manage.com/subscribe/post?u=71391a9e879a55c99a581a567&amp;id=ac61a49750&amp;f_id=004aeae0f0"
           method="post"
-          target="_blank">
+          target="hafyzNewsletterFrame">
           <label for="email" style="position:absolute;left:-9999px">Email address</label>
           <input id="email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
-          <button class="btn btn-primary" type="submit">Subscribe</button>
+          <button class="btn btn-primary" type="submit" id="newsletterSubmit">Subscribe</button>
         </form>
+        <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>
+        <iframe name="hafyzNewsletterFrame" id="hafyzNewsletterFrame" style="display:none" title="Newsletter subscription result"></iframe>
       </div>
     </section>
   </main>
@@ -1336,6 +1364,33 @@
   </footer>
 
   <script src="https://widget.seated.com/app.js" defer></script>
+
+  <script>
+    /* Tour widget fallback: if the Seated script fails to load or
+       never populates the container (ad-blocker, network issue,
+       outage), show a friendly message instead of an empty gap. */
+    (function(){
+      var target = document.getElementById('seated-55fdf2c0');
+      var fallback = document.getElementById('tourFallback');
+      if(!target || !fallback) return;
+
+      function showFallback(){
+        fallback.hidden = false;
+        fallback.classList.add('show');
+      }
+
+      setTimeout(function(){
+        if(target.childElementCount === 0) showFallback();
+      }, 5000);
+
+      window.addEventListener('error', function(e){
+        if(e && e.target && e.target.tagName === 'SCRIPT' &&
+           /widget\.seated\.com/.test(e.target.src || '')){
+          showFallback();
+        }
+      }, true);
+    })();
+  </script>
 
   <script>
 
@@ -1418,6 +1473,41 @@
       }
 
 
+      /* Newsletter: submit into a hidden iframe instead of a new tab,
+         and show an optimistic inline confirmation so people never
+         leave the page. */
+      (function(){
+        var form = document.getElementById('newsletterForm');
+        var frame = document.getElementById('hafyzNewsletterFrame');
+        var status = document.getElementById('newsletterStatus');
+        var submitBtn = document.getElementById('newsletterSubmit');
+        if(!form || !frame || !status) return;
+
+        var lang = function(){
+          return (document.documentElement.lang || 'en').toLowerCase().startsWith('id') ? 'id' : 'en';
+        };
+        var messages = {
+          en:{ok:"Thanks — check your inbox to confirm your subscription.", err:"Something went wrong. Please try again."},
+          id:{ok:"Terima kasih — cek email kamu untuk konfirmasi langganan.", err:"Terjadi kesalahan. Silakan coba lagi."}
+        };
+
+        var submitted = false;
+        form.addEventListener('submit', function(){
+          submitted = true;
+          if(submitBtn) submitBtn.disabled = true;
+        });
+
+        frame.addEventListener('load', function(){
+          if(!submitted) return; // ignore the initial blank iframe load
+          submitted = false;
+          if(submitBtn) submitBtn.disabled = false;
+          status.textContent = messages[lang()].ok;
+          status.classList.remove('error');
+          status.classList.add('show');
+          form.reset();
+        });
+      })();
+
       /* HAFYZ language engine: English remains the default. */
       const HAFYZ_I18N = {
         id: {
@@ -1460,7 +1550,9 @@
             ["Performance EPK","EPK Performance"], ["Guest & Appearance","Tamu & Appearance"], ["Appearance Inquiries","Pertanyaan Appearance"],
             ["Legal","Legal"], ["Privacy Policy","Kebijakan Privasi"], ["Terms of Use","Ketentuan Penggunaan"],
             ["All rights reserved.","Seluruh hak dilindungi."], ["Made with 🖤 in Pekanbaru","Dibuat dengan 🖤 di Pekanbaru"],
-            ["Artist","Artis"], ["Latest releases","Rilisan terbaru"], ["Tour","Tur"]
+            ["Artist","Artis"], ["Latest releases","Rilisan terbaru"], ["Tour","Tur"],
+            ["No upcoming shows right now — check back soon, or follow HAFYZ on social for announcements.",
+             "Belum ada jadwal pertunjukan saat ini — cek kembali nanti, atau ikuti HAFYZ di media sosial untuk pengumuman."]
           ]),
           phrases: []
         }
@@ -1572,7 +1664,7 @@
         setLanguage(current === 'id' ? 'en' : 'id');
       });
 
-      async function detectHAFYZLanguage(){
+      function detectHAFYZLanguage(){
         const saved = localStorage.getItem('hafyz-language');
         const choice = localStorage.getItem('hafyz-language-choice');
 
@@ -1581,58 +1673,55 @@
           return;
         }
 
+        // Browser-reported language is a sufficient signal on its own —
+        // no need to call a third-party IP-geolocation service (which
+        // added an extra network request and sent the visitor's IP
+        // to an outside party) just to guess a language preference.
         const browser = (navigator.language || '').toLowerCase();
-        let country = '';
-
-        const endpoints = [
-          {
-            url:'https://ipwho.is/',
-            getCountry:function(data){ return (data.country_code || '').toUpperCase(); }
-          },
-          {
-            url:'https://ipapi.co/json/',
-            getCountry:function(data){ return (data.country_code || '').toUpperCase(); }
-          }
-        ];
-
-        for(const endpoint of endpoints){
-          try{
-            const controller = new AbortController();
-            const timer = setTimeout(function(){ controller.abort(); },2500);
-            const response = await fetch(endpoint.url,{
-              method:'GET',
-              mode:'cors',
-              cache:'no-store',
-              signal:controller.signal,
-              headers:{'Accept':'application/json'}
-            });
-            clearTimeout(timer);
-
-            if(response.ok){
-              const data = await response.json();
-              country = endpoint.getCountry(data);
-              if(country) break;
-            }
-          }catch(error){
-            // Optional feature only. Never interfere with the homepage.
-          }
-        }
-
-        const indonesiaSignal =
-          country === 'ID' ||
-          browser === 'id' ||
-          browser.startsWith('id-');
+        const indonesiaSignal = browser === 'id' || browser.startsWith('id-');
 
         if(indonesiaSignal && !choice && prompt){
-          setTimeout(function(){
-            prompt.classList.add('show');
-          },650);
+          // Wait for the cookie banner to be dismissed (or to not show
+          // at all) so the two prompts never stack on top of each other,
+          // especially on small screens.
+          showLanguagePromptWhenClear();
         }
       }
 
-      detectHAFYZLanguage().catch(function(){
-        // Language detection failure must never affect page rendering.
-      });
+      function showLanguagePromptWhenClear(){
+        const banner = document.getElementById('hafyzCookieBanner');
+        const isBannerShowing = function(){
+          return !!(banner && banner.classList.contains('show'));
+        };
+
+        const reveal = function(){
+          prompt.classList.add('show');
+        };
+
+        // The cookie banner adds its own "show" class after a short
+        // delay, so give it a moment to appear before checking —
+        // otherwise we'd always see it as hidden and show both at once.
+        setTimeout(function(){
+          if(!isBannerShowing()){
+            reveal();
+            return;
+          }
+
+          // Poll briefly for the banner to close, then show the language
+          // prompt shortly after — falls back to showing it anyway after
+          // a reasonable cap so it never gets stuck waiting forever.
+          let waited = 0;
+          const poll = setInterval(function(){
+            waited += 300;
+            if(!isBannerShowing() || waited >= 8000){
+              clearInterval(poll);
+              setTimeout(reveal, 400);
+            }
+          }, 300);
+        }, 650);
+      }
+
+      detectHAFYZLanguage();
 
 </script>
 

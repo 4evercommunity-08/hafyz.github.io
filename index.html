@@ -1049,6 +1049,12 @@
 .hero-meta{max-width:520px;line-height:1.8}
 </style>
 
+  <!-- GoatCounter: cookie-free, privacy-friendly pageview analytics.
+       Loads unconditionally (no consent gate needed) so there's always
+       at least basic traffic data, even if the visitor declines the
+       Meta Pixel in the cookie banner below. -->
+  <script data-goatcounter="https://hafyz.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
 </head>
 
 <body>
@@ -1571,6 +1577,11 @@
             el.textContent = marked[key];
           }else if(lang === 'en' && HAFYZ_ORIGINAL.has(el)){
             el.innerHTML = HAFYZ_ORIGINAL.get(el);
+          }else if(lang === 'id' && !marked[key]){
+            // Dev-time safety net: a [data-i18n] element with no matching
+            // entry silently stays in English. Surface it in the console
+            // instead of letting mixed-language content ship unnoticed.
+            console.warn('[HAFYZ i18n] Missing "id" translation for data-i18n key:', key, el);
           }
         });
 

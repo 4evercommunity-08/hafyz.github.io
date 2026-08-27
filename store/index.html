@@ -173,6 +173,11 @@
       background:#fffdf7;
       color:var(--gold-dark)!important;
     }
+    .lang-toggle{display:flex;align-items:center;gap:7px;font-size:10px;font-weight:800;letter-spacing:.14em}
+    .lang-toggle button{border:0;background:none;padding:3px 0;color:#777;font:inherit;letter-spacing:inherit;cursor:pointer}
+    .lang-toggle button:hover{color:var(--ink)}
+    .lang-toggle button.active{color:var(--ink)}
+    .lang-toggle span{color:#aaa}
     .menu{
       display:none;
       width:42px;height:42px;
@@ -290,6 +295,9 @@
       grid-template-columns:repeat(3,1fr);
       gap:16px;
     }
+    .more-editions-grid{grid-template-columns:repeat(4,1fr);margin-bottom:52px}
+    @media(max-width:900px){.more-editions-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.more-editions-grid{grid-template-columns:1fr}}
     .product{
       background:var(--white);
       border:1px solid var(--line);
@@ -619,6 +627,7 @@
       .nav-links a:not(.nav-cta)::after{display:none}
       .nav-cta{padding:14px!important}
       .menu{display:block}
+      .lang-toggle{margin-right:8px}
       .hero-grid{grid-template-columns:1fr;gap:35px}
       .hero-copy{justify-self:start}
       .physical-feature{grid-template-columns:1fr}
@@ -731,6 +740,42 @@
           "availability":"https://schema.org/PreOrder",
           "url":"https://payhip.com/b/KRXQ8"
         }
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — Just Black Vinyl",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-just-black-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"699000","availability":"https://schema.org/PreOrder"}
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — Metallic Silver Vinyl",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-metallic-silver-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — Shiny Gold Vinyl",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-shinny-gold-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
+      },
+      {
+        "@type":"Product",
+        "name":"xoxo, i'm done (After Hours) — Navy Denim Vinyl",
+        "url":"https://hafyz.my.id/store/#physical",
+        "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-navy-denim-vinyl.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
       }
     ]
   }
@@ -780,14 +825,18 @@
 
       <nav aria-label="Store navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a href="#music">Music</a></li>
-          <li><a href="#physical">Physical</a></li>
-          <li><a href="#merch">Merch</a></li>
-          <li><a href="#bundles">Bundles</a></li>
-          <li><a href="/">Website</a></li>
-          <li><a class="nav-cta" href="#contact">Contact</a></li>
+          <li><a href="#music" data-i18n="navMusic">Music</a></li>
+          <li><a href="#physical" data-i18n="navPhysical">Physical</a></li>
+          <li><a href="#merch" data-i18n="navMerch">Merch</a></li>
+          <li><a href="#bundles" data-i18n="navBundles">Bundles</a></li>
+          <li><a href="/" data-i18n="navWebsite">Website</a></li>
+          <li><a class="nav-cta" href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="lang-toggle" id="lang-toggle" aria-label="Language selector">
+        <button type="button" class="active" data-lang="en">EN</button><span>/</span><button type="button" data-lang="id">ID</button>
+      </div>
 
       <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">
         <span></span>
@@ -800,12 +849,12 @@
     <section class="store-hero">
       <div class="wrap hero-grid">
         <div class="reveal">
-          <p class="eyebrow">Official Store</p>
-          <h1>HAFYZ<br>STORE.</h1>
+          <p class="eyebrow" data-i18n="heroEyebrow">Official Store</p>
+          <h1 data-i18n="heroTitle">HAFYZ<br>STORE.</h1>
         </div>
 
         <div class="hero-copy reveal">
-          <p>
+          <p data-i18n="heroCopy">
             Music, objects, and things worth keeping.
             Explore official HAFYZ releases, digital editions,
             merchandise and future limited collections.
@@ -818,10 +867,10 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Music</p>
-            <h2 class="title">Digital releases.</h2>
+            <p class="kicker" data-i18n="musicKicker">Music</p>
+            <h2 class="title" data-i18n="musicTitle">Digital releases.</h2>
           </div>
-          <p class="desc">
+          <p class="desc" data-i18n="musicDesc">
             Official digital editions of HAFYZ releases, prepared for
             instant delivery after purchase.
           </p>
@@ -831,17 +880,17 @@
 
           <article class="product reveal">
             <div class="product-art">
-              <span class="product-tag">Digital single</span>
+              <span class="product-tag" data-i18n="tagDigitalSingle">Digital single</span>
               <img src="/yckmn/you-can-keep-my-name.jpg"
                    alt="you can keep my name (After Hours) cover art"
                    loading="eager">
             </div>
 
             <div class="product-info">
-              <p class="product-type">Music · 2026</p>
+              <p class="product-type" data-i18n="typeMusic2026">Music · 2026</p>
               <h3>you can keep my name<br>(After Hours)</h3>
-              <p class="product-meta">Digital Single</p>
-              <p class="product-description">
+              <p class="product-meta" data-i18n="tagDigitalSingle">Digital Single</p>
+              <p class="product-description" data-i18n="yckmnDesc">
                 A digital edition of the After Hours single,
                 prepared for instant download.
               </p>
@@ -849,14 +898,16 @@
               <div class="product-actions">
                 <a class="btn btn-primary"
                    href="/yckmn/"
-                   aria-label="View you can keep my name">
+                   aria-label="View you can keep my name"
+                   data-i18n="viewRelease">
                   View release ↗
                 </a>
 
                 <a class="btn btn-secondary"
                    href="https://payhip.com/b/pVJBz"
                    target="_blank" rel="noopener"
-                   aria-label="Purchase digital single">
+                   aria-label="Purchase digital single"
+                   data-i18n="buyDigital">
                   Buy digital
                 </a>
               </div>
@@ -865,7 +916,7 @@
 
         </div>
 
-        <div class="store-note reveal">
+        <div class="store-note reveal" data-i18n="digitalNote">
           Digital purchases will be delivered automatically after successful payment.
           Checkout will be activated here once the Store payment and delivery provider is connected.
         </div>
@@ -876,10 +927,10 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Physical</p>
-            <h2 class="title">Collector's vinyl.</h2>
+            <p class="kicker" data-i18n="physicalKicker">Physical</p>
+            <h2 class="title" data-i18n="physicalTitle">Collector's vinyl.</h2>
           </div>
-          <p class="desc">
+          <p class="desc" data-i18n="physicalDesc">
             The <em>xoxo, i'm done (After Hours)</em> Collector's Editions take the spotlight, with limited colour pressings made for collectors.
           </p>
         </div>
@@ -887,62 +938,119 @@
         <div class="collector-showcase reveal">
           <div class="collector-showcase-card">
             <div class="collector-showcase-art">
-              <span class="product-tag collector-badge">Collector's Edition · Pre-order open</span>
+              <span class="product-tag collector-badge" data-i18n="preorderOpenTag">Collector's Edition · Pre-order open</span>
               <img src="/store/xoxo-im-done-after-hours-cosmic-orange-vinyl.png" alt="xoxo, i'm done (After Hours) Cosmic Orange Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
             </div>
             <div class="collector-showcase-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>Cosmic Orange</h3>
-              <p class="collector-edition-label">Collector's Edition</p>
+              <p class="collector-edition-label" data-i18n="collectorEditionLabel">Collector's Edition</p>
               <p class="price">Rp999.000</p>
-              <p class="product-status preorder">Pre-order · Ships after September 18, 2026</p>
-              <p class="product-feature"><strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”</p>
-              <p class="product-description">The Cosmic Orange Collector's Edition, featuring the exclusive bonus track available only on this edition.</p>
-              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/Mi6Sf" target="_blank" rel="noopener">Pre-order now ↗</a></div>
+              <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
+              <p class="product-feature" data-i18n="cosmicFeature"><strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”</p>
+              <p class="product-description" data-i18n="cosmicDesc">The Cosmic Orange Collector's Edition, featuring the exclusive bonus track available only on this edition.</p>
+              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/Mi6Sf" target="_blank" rel="noopener" data-i18n="preorderNow">Pre-order now ↗</a></div>
             </div>
           </div>
 
           <div class="collector-showcase-card">
             <div class="collector-showcase-art">
-              <span class="product-tag collector-badge">Collector's Edition · Pre-order open</span>
+              <span class="product-tag collector-badge" data-i18n="preorderOpenTag">Collector's Edition · Pre-order open</span>
               <img src="/store/xoxo-im-done-after-hours-after-hours-burgundy-vinyl.png" alt="xoxo, i'm done (After Hours) After Hours Burgundy Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
             </div>
             <div class="collector-showcase-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>After Hours Burgundy</h3>
-              <p class="collector-edition-label">Collector's Edition</p>
+              <p class="collector-edition-label" data-i18n="collectorEditionLabel">Collector's Edition</p>
               <p class="price">Rp699.000</p>
-              <p class="product-status preorder">Pre-order · Ships after September 18, 2026</p>
-              <p class="product-description">A premium Collector's Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.</p>
-              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/KRXQ8" target="_blank" rel="noopener">Pre-order now ↗</a></div>
+              <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
+              <p class="product-description" data-i18n="burgundyDesc">A premium Collector's Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.</p>
+              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/KRXQ8" target="_blank" rel="noopener" data-i18n="preorderNow">Pre-order now ↗</a></div>
             </div>
           </div>
         </div>
 
         <div class="standard-heading reveal">
           <span></span>
-          <p>Also available · Standard Vinyl</p>
+          <p data-i18n="moreColorsHeading">More colors · Coming soon</p>
+          <span></span>
+        </div>
+
+        <div class="store-grid more-editions-grid reveal">
+          <article class="product">
+            <div class="product-art">
+              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <img src="/store/xoxo-im-done-after-hours-just-black-vinyl.png" alt="xoxo, i'm done (After Hours) Just Black vinyl mockup" loading="lazy" width="800" height="600">
+            </div>
+            <div class="product-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>Just Black</h3>
+              <p class="price">Rp699.000</p>
+              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-art">
+              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <img src="/store/xoxo-im-done-after-hours-metallic-silver-vinyl.png" alt="xoxo, i'm done (After Hours) Metallic Silver vinyl mockup" loading="lazy" width="800" height="600">
+            </div>
+            <div class="product-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>Metallic Silver</h3>
+              <p class="price">Rp749.000</p>
+              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-art">
+              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <img src="/store/xoxo-im-done-after-hours-shinny-gold-vinyl.png" alt="xoxo, i'm done (After Hours) Shiny Gold vinyl mockup" loading="lazy" width="800" height="600">
+            </div>
+            <div class="product-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>Shiny Gold</h3>
+              <p class="price">Rp749.000</p>
+              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+            </div>
+          </article>
+          <article class="product">
+            <div class="product-art">
+              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <img src="/store/xoxo-im-done-after-hours-navy-denim-vinyl.png" alt="xoxo, i'm done (After Hours) Navy Denim vinyl mockup" loading="lazy" width="800" height="600">
+            </div>
+            <div class="product-info">
+              <p class="product-type">xoxo, i'm done (After Hours)</p>
+              <h3>Navy Denim</h3>
+              <p class="price">Rp749.000</p>
+              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="standard-heading reveal">
+          <span></span>
+          <p data-i18n="alsoAvailableHeading">Also available · Standard Vinyl</p>
           <span></span>
         </div>
 
         <div class="standard-vinyl-card reveal">
           <div class="standard-vinyl-art">
-            <span class="product-tag">Vinyl LP · Available</span>
+            <span class="product-tag" data-i18n="vinylAvailableTag">Vinyl LP · Available</span>
             <img src="/store/x-friends-after-hours-vinyl.png" alt="x-Friends (After Hours) vinyl mockup" loading="lazy" width="1200" height="900">
           </div>
           <div class="standard-vinyl-info">
-            <p class="product-type">Physical · 2026</p>
+            <p class="product-type" data-i18n="typePhysical2026">Physical · 2026</p>
             <h3>x-Friends (After Hours)</h3>
             <p class="product-meta">Vinyl</p>
             <p class="price">Rp299.000</p>
-            <p class="product-description">The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.</p>
+            <p class="product-description" data-i18n="xfriendsDesc">The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.</p>
             <div class="product-actions">
-              <a class="btn btn-primary" href="https://payhip.com/b/Z9bts" target="_blank" rel="noopener" aria-label="Buy x-Friends After Hours vinyl">Buy vinyl ↗</a>
+              <a class="btn btn-primary" href="https://payhip.com/b/Z9bts" target="_blank" rel="noopener" aria-label="Buy x-Friends After Hours vinyl" data-i18n="buyVinyl">Buy vinyl ↗</a>
             </div>
           </div>
         </div>
 
-        <div class="store-note reveal">
+        <div class="store-note reveal" data-i18n="availabilityNote">
           <strong>Availability:</strong> The xoxo, i'm done (After Hours) Collector's Editions and x-Friends (After Hours) are open for pre-order and purchase now via Payhip.
         </div>
       </div>
@@ -952,31 +1060,31 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Merchandise</p>
-            <h2 class="title">Wear the era.</h2>
+            <p class="kicker" data-i18n="merchKicker">Merchandise</p>
+            <h2 class="title" data-i18n="merchTitle">Wear the era.</h2>
           </div>
-          <p class="desc">
+          <p class="desc" data-i18n="merchDesc">
             Official HAFYZ objects and apparel are coming to the Store.
           </p>
         </div>
 
         <div class="coming">
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>T-Shirts.</h3>
-            <p>Official HAFYZ apparel and era-specific designs.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="tshirtsTitle">T-Shirts.</h3>
+            <p data-i18n="tshirtsDesc">Official HAFYZ apparel and era-specific designs.</p>
           </article>
 
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>Posters.</h3>
-            <p>Physical artwork, tour posters and limited prints.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="postersTitle">Posters.</h3>
+            <p data-i18n="postersDesc">Physical artwork, tour posters and limited prints.</p>
           </article>
 
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>Objects.</h3>
-            <p>Small editions and things built around the music.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="objectsTitle">Objects.</h3>
+            <p data-i18n="objectsDesc">Small editions and things built around the music.</p>
           </article>
         </div>
       </div>
@@ -986,31 +1094,31 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Bundles</p>
-            <h2 class="title">More to keep.</h2>
+            <p class="kicker" data-i18n="bundlesKicker">Bundles</p>
+            <h2 class="title" data-i18n="bundlesTitle">More to keep.</h2>
           </div>
-          <p class="desc">
+          <p class="desc" data-i18n="bundlesDesc">
             Limited combinations of music, artwork and merchandise will appear here.
           </p>
         </div>
 
         <div class="coming">
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>Digital + Merch.</h3>
-            <p>Pair a digital release with selected physical items.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="digitalMerchTitle">Digital + Merch.</h3>
+            <p data-i18n="digitalMerchDesc">Pair a digital release with selected physical items.</p>
           </article>
 
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>Deluxe editions.</h3>
-            <p>Expanded digital packages with additional materials.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="deluxeTitle">Deluxe editions.</h3>
+            <p data-i18n="deluxeDesc">Expanded digital packages with additional materials.</p>
           </article>
 
           <article class="coming-card reveal">
-            <span>Coming soon</span>
-            <h3>Limited drops.</h3>
-            <p>Small-run releases available while they last.</p>
+            <span data-i18n="comingSoonTag">Coming soon</span>
+            <h3 data-i18n="limitedDropsTitle">Limited drops.</h3>
+            <p data-i18n="limitedDropsDesc">Small-run releases available while they last.</p>
           </article>
         </div>
       </div>
@@ -1020,16 +1128,16 @@
       <div class="wrap">
         <div class="section-head reveal">
           <div>
-            <p class="kicker">Store updates</p>
-            <h2 class="title">Stay close.</h2>
+            <p class="kicker" data-i18n="contactKicker">Store updates</p>
+            <h2 class="title" data-i18n="contactTitle">Stay close.</h2>
           </div>
-          <p class="desc">
+          <p class="desc" data-i18n="contactDesc">
             Get notified when new digital releases, merchandise and limited drops arrive.
           </p>
         </div>
 
         <div class="store-updates-card reveal">
-          <p class="store-updates-lead">
+          <p class="store-updates-lead" data-i18n="updatesLead">
             Be the first to know when something new lands in the HAFYZ Store.
           </p>
 
@@ -1039,9 +1147,9 @@
                 target="hafyzStoreHubNewsletterFrame">
             <label for="store-email" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Email address</label>
             <input id="store-email" type="email" name="EMAIL" placeholder="Email address" autocomplete="email" required>
-            <button class="btn btn-primary" type="submit" id="storeHubNewsletterSubmit">Get updates</button>
+            <button class="btn btn-primary" type="submit" id="storeHubNewsletterSubmit" data-i18n="getUpdates">Get updates</button>
           </form>
-          <p class="store-newsletter-note" id="storeHubNewsletterStatus" role="status" aria-live="polite">No spam. Unsubscribe anytime.</p>
+          <p class="store-newsletter-note" id="storeHubNewsletterStatus" role="status" aria-live="polite" data-i18n="noSpamNote">No spam. Unsubscribe anytime.</p>
           <iframe name="hafyzStoreHubNewsletterFrame" id="hafyzStoreHubNewsletterFrame" style="display:none" title="Newsletter subscription result"></iframe>
         </div>
       </div>
@@ -1054,7 +1162,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a class="brand" href="/">HAFYZ</a>
-          <p>Official website of HAFYZ. Music, live, press and selected work from the world of SOUR+.</p>
+          <p data-i18n="footerBrandCopy">Official website of HAFYZ. Music, live, press and selected work from the world of SOUR+.</p>
 
           <div class="socials" aria-label="Social links">
             <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" aria-label="Facebook">
@@ -1077,33 +1185,144 @@
 
         <div class="footer-columns">
           <div class="footer-col">
-            <h4>Explore</h4>
-            <a href="/#music">Music</a>
-            <a href="/#tour">Tour</a>
-            <a href="/#about">About</a>
+            <h4 data-i18n="footerExplore">Explore</h4>
+            <a href="/#music" data-i18n="navMusic">Music</a>
+            <a href="/#tour" data-i18n="footerTour">Tour</a>
+            <a href="/#about" data-i18n="footerAbout">About</a>
           </div>
           <div class="footer-col">
-            <h4>Professional</h4>
-            <a href="/press/">Press Kit</a>
-            <a href="/#contact">Contact</a>
+            <h4 data-i18n="footerProfessional">Professional</h4>
+            <a href="/press/" data-i18n="footerPressKit">Press Kit</a>
+            <a href="/#contact" data-i18n="navContact">Contact</a>
           </div>
           <div class="footer-col">
-            <h4>Legal</h4>
-            <a href="/privacy.html">Privacy Policy</a>
-            <a href="/terms.html">Terms of Use</a>
+            <h4 data-i18n="footerLegal">Legal</h4>
+            <a href="/privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+            <a href="/terms.html" data-i18n="footerTerms">Terms of Use</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. All rights reserved.</p>
-        <p>Made with 🖤 in Pekanbaru</p>
+        <p data-i18n="footerCopyright">© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. All rights reserved.</p>
+        <p data-i18n="footerMadeWith">Made with 🖤 in Pekanbaru</p>
       </div>
     </div>
   </footer>
 
   <script>
     (function(){
+      /* Language toggle: EN/ID, shared localStorage key with the rest
+         of the site so preference carries across pages. */
+      const copy={
+        en:{
+          navMusic:'Music',navPhysical:'Physical',navMerch:'Merch',navBundles:'Bundles',navWebsite:'Website',navContact:'Contact',
+          heroEyebrow:'Official Store',heroTitle:'HAFYZ<br>STORE.',
+          heroCopy:'Music, objects, and things worth keeping. Explore official HAFYZ releases, digital editions, merchandise and future limited collections.',
+          musicKicker:'Music',musicTitle:'Digital releases.',musicDesc:'Official digital editions of HAFYZ releases, prepared for instant delivery after purchase.',
+          tagDigitalSingle:'Digital single',typeMusic2026:'Music · 2026',
+          yckmnDesc:'A digital edition of the After Hours single, prepared for instant download.',
+          viewRelease:'View release ↗',buyDigital:'Buy digital',
+          digitalNote:'Digital purchases will be delivered automatically after successful payment. Checkout will be activated here once the Store payment and delivery provider is connected.',
+          physicalKicker:'Physical',physicalTitle:'Collector\'s vinyl.',
+          physicalDesc:'The <em>xoxo, i\'m done (After Hours)</em> Collector\'s Editions take the spotlight, with limited colour pressings made for collectors.',
+          preorderOpenTag:'Collector\'s Edition · Pre-order open',collectorEditionLabel:'Collector\'s Edition',
+          shipsAfter:'Pre-order · Ships after September 18, 2026',
+          cosmicFeature:'<strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”',
+          cosmicDesc:'The Cosmic Orange Collector\'s Edition, featuring the exclusive bonus track available only on this edition.',
+          burgundyDesc:'A premium Collector\'s Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.',
+          preorderNow:'Pre-order now ↗',
+          moreColorsHeading:'More colors · Coming soon',comingSoonTag:'Coming soon',releaseDateNote:'Release date: September 18, 2026.',
+          alsoAvailableHeading:'Also available · Standard Vinyl',vinylAvailableTag:'Vinyl LP · Available',
+          typePhysical2026:'Physical · 2026',
+          xfriendsDesc:'The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.',
+          buyVinyl:'Buy vinyl ↗',
+          availabilityNote:'<strong>Availability:</strong> The xoxo, i\'m done (After Hours) Collector\'s Editions and x-Friends (After Hours) are open for pre-order and purchase now via Payhip.',
+          merchKicker:'Merchandise',merchTitle:'Wear the era.',merchDesc:'Official HAFYZ objects and apparel are coming to the Store.',
+          tshirtsTitle:'T-Shirts.',tshirtsDesc:'Official HAFYZ apparel and era-specific designs.',
+          postersTitle:'Posters.',postersDesc:'Physical artwork, tour posters and limited prints.',
+          objectsTitle:'Objects.',objectsDesc:'Small editions and things built around the music.',
+          bundlesKicker:'Bundles',bundlesTitle:'More to keep.',bundlesDesc:'Limited combinations of music, artwork and merchandise will appear here.',
+          digitalMerchTitle:'Digital + Merch.',digitalMerchDesc:'Pair a digital release with selected physical items.',
+          deluxeTitle:'Deluxe editions.',deluxeDesc:'Expanded digital packages with additional materials.',
+          limitedDropsTitle:'Limited drops.',limitedDropsDesc:'Small-run releases available while they last.',
+          contactKicker:'Store updates',contactTitle:'Stay close.',contactDesc:'Get notified when new digital releases, merchandise and limited drops arrive.',
+          updatesLead:'Be the first to know when something new lands in the HAFYZ Store.',
+          getUpdates:'Get updates',noSpamNote:'No spam. Unsubscribe anytime.',
+          notifyOk:'Thanks — check your inbox to confirm your subscription.',
+          footerBrandCopy:'Official website of HAFYZ. Music, live, press and selected work from the world of SOUR+.',
+          footerExplore:'Explore',footerTour:'Tour',footerAbout:'About',
+          footerProfessional:'Professional',footerPressKit:'Press Kit',
+          footerLegal:'Legal',footerPrivacy:'Privacy Policy',footerTerms:'Terms of Use',
+          footerCopyright:'© 2026 HAFYZ, under exclusive license to SOUR+ Entertainment Inc. All rights reserved.',
+          footerMadeWith:'Made with 🖤 in Pekanbaru'
+        },
+        id:{
+          navMusic:'Musik',navPhysical:'Fisik',navMerch:'Merch',navBundles:'Bundel',navWebsite:'Website',navContact:'Kontak',
+          heroEyebrow:'Toko Resmi',heroTitle:'HAFYZ<br>STORE.',
+          heroCopy:'Musik, barang, dan hal-hal yang layak disimpan. Jelajahi rilisan resmi HAFYZ, edisi digital, merchandise, dan koleksi terbatas mendatang.',
+          musicKicker:'Musik',musicTitle:'Rilisan digital.',musicDesc:'Edisi digital resmi rilisan HAFYZ, siap dikirim instan setelah pembelian.',
+          tagDigitalSingle:'Single digital',typeMusic2026:'Musik · 2026',
+          yckmnDesc:'Edisi digital dari single After Hours, siap untuk diunduh instan.',
+          viewRelease:'Lihat rilisan ↗',buyDigital:'Beli digital',
+          digitalNote:'Pembelian digital akan dikirim otomatis setelah pembayaran berhasil. Checkout akan diaktifkan di sini setelah penyedia pembayaran dan pengiriman Store terhubung.',
+          physicalKicker:'Fisik',physicalTitle:'Vinyl koleksi.',
+          physicalDesc:'Edisi Collector\'s <em>xoxo, i\'m done (After Hours)</em> jadi sorotan, dengan cetakan warna terbatas untuk kolektor.',
+          preorderOpenTag:'Collector\'s Edition · Pre-order dibuka',collectorEditionLabel:'Collector\'s Edition',
+          shipsAfter:'Pre-order · Dikirim setelah 18 September 2026',
+          cosmicFeature:'<strong>Bonus track eksklusif:</strong> “x-Friends (After Hours Reimagined)”',
+          cosmicDesc:'Cosmic Orange Collector\'s Edition, dengan bonus track eksklusif yang hanya tersedia di edisi ini.',
+          burgundyDesc:'Collector\'s Edition premium yang dicetak di atas vinyl After Hours Burgundy, dibuat untuk koleksi fisik.',
+          preorderNow:'Pre-order sekarang ↗',
+          moreColorsHeading:'Warna lainnya · Segera hadir',comingSoonTag:'Segera hadir',releaseDateNote:'Tanggal rilis: 18 September 2026.',
+          alsoAvailableHeading:'Tersedia juga · Vinyl Standar',vinylAvailableTag:'Vinyl LP · Tersedia',
+          typePhysical2026:'Fisik · 2026',
+          xfriendsDesc:'Edisi vinyl resmi dari <em>x-Friends (After Hours)</em>. Cetakan fisik standar untuk era After Hours.',
+          buyVinyl:'Beli vinyl ↗',
+          availabilityNote:'<strong>Ketersediaan:</strong> Collector\'s Edition xoxo, i\'m done (After Hours) dan x-Friends (After Hours) sudah bisa di-pre-order dan dibeli sekarang lewat Payhip.',
+          merchKicker:'Merchandise',merchTitle:'Kenakan era ini.',merchDesc:'Barang dan apparel resmi HAFYZ akan segera hadir di Store.',
+          tshirtsTitle:'Kaos.',tshirtsDesc:'Apparel resmi HAFYZ dengan desain khas tiap era.',
+          postersTitle:'Poster.',postersDesc:'Karya seni fisik, poster tur, dan cetakan terbatas.',
+          objectsTitle:'Objek.',objectsDesc:'Edisi kecil dan barang yang dibuat seputar musik.',
+          bundlesKicker:'Bundel',bundlesTitle:'Lebih banyak untuk disimpan.',bundlesDesc:'Kombinasi terbatas musik, artwork, dan merchandise akan muncul di sini.',
+          digitalMerchTitle:'Digital + Merch.',digitalMerchDesc:'Padukan rilisan digital dengan barang fisik pilihan.',
+          deluxeTitle:'Edisi deluxe.',deluxeDesc:'Paket digital yang diperluas dengan materi tambahan.',
+          limitedDropsTitle:'Drop terbatas.',limitedDropsDesc:'Rilisan jumlah terbatas, tersedia selama masih ada.',
+          contactKicker:'Pembaruan Toko',contactTitle:'Tetap terhubung.',contactDesc:'Dapatkan info saat rilisan digital, merchandise, dan drop terbatas baru hadir.',
+          updatesLead:'Jadi yang pertama tahu saat ada hal baru di HAFYZ Store.',
+          getUpdates:'Dapatkan info',noSpamNote:'Tanpa spam. Berhenti berlangganan kapan saja.',
+          notifyOk:'Terima kasih — cek email kamu untuk konfirmasi langganan.',
+          footerBrandCopy:'Website resmi HAFYZ. Musik, live, press, dan pilihan karya dari dunia SOUR+.',
+          footerExplore:'Jelajahi',footerTour:'Tur',footerAbout:'Tentang',
+          footerProfessional:'Profesional',footerPressKit:'Press Kit',
+          footerLegal:'Legal',footerPrivacy:'Kebijakan Privasi',footerTerms:'Ketentuan Penggunaan',
+          footerCopyright:'© 2026 HAFYZ, di bawah lisensi eksklusif SOUR+ Entertainment Inc. Semua hak dilindungi.',
+          footerMadeWith:'Dibuat dengan 🖤 di Pekanbaru'
+        }
+      };
+      let currentLang='en';
+      const langToggle=document.getElementById('lang-toggle');
+
+      function setLang(lang){
+        const dict=copy[lang]||copy.en;
+        document.querySelectorAll('[data-i18n]').forEach(el=>{
+          const key=el.dataset.i18n;
+          if(dict[key]!==undefined) el.innerHTML=dict[key];
+        });
+        if(langToggle) langToggle.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+        document.documentElement.lang=lang;
+        localStorage.setItem('hafyz-language',lang);
+        currentLang=lang;
+      }
+
+      if(langToggle){
+        langToggle.addEventListener('click',(e)=>{
+          const b=e.target.closest('button[data-lang]');
+          if(b) setLang(b.dataset.lang);
+        });
+      }
+      setLang(localStorage.getItem('hafyz-language')||'en');
+
       const menu = document.getElementById('menu');
       const links = document.getElementById('navLinks');
 
@@ -1163,7 +1382,7 @@
           if(!submitted) return;
           submitted=false;
           if(submitBtn) submitBtn.disabled=false;
-          status.textContent='Thanks — check your inbox to confirm your subscription.';
+          status.textContent=(copy[currentLang]||copy.en).notifyOk;
           form.reset();
         });
       })();

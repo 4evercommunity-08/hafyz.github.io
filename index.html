@@ -24,8 +24,8 @@
   <meta property="og:image:alt" content="HAFYZ official website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="HAFYZ | chasing hollow gold after hours (stripped)">
-  <meta name="twitter:description" content="chasing hollow gold after hours (stripped) is out now. Listen to the latest HAFYZ release from the After Hours era.">
+  <meta name="twitter:title" content="HAFYZ | you can keep my name (After Hours)">
+  <meta name="twitter:description" content="you can keep my name (After Hours) is out now. Listen to the latest HAFYZ release from the After Hours era.">
   <meta name="twitter:image" content="https://hafyz.my.id/hero-bg.jpg">
 
   <link rel="icon" href="/favicon.ico">
@@ -510,6 +510,27 @@
       font-size:10px;
       font-weight:800;
     }
+    .shop-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:16px;
+    }
+    .shop-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      overflow:hidden;
+      transition:.3s var(--ease);
+    }
+    .shop-card:hover{transform:translateY(-3px);border-color:rgba(20,20,20,.2)}
+    .shop-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+    .shop-card-body{padding:18px}
+    .shop-card-body h4{margin:0 0 4px;font-family:"Space Grotesk",sans-serif;font-size:16px;line-height:1.15}
+    .shop-card-price{margin:0 0 12px;color:var(--gold-dark);font-size:13px;font-weight:700}
+    .shop-card .btn{display:inline-flex;padding:10px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--gold-dark);border:1.5px solid var(--gold-dark);transition:.2s}
+    .shop-card .btn:hover{background:var(--gold-dark);color:#fff}
+    .shop-more{margin-top:20px;text-align:center}
     .text-link span{display:inline-block;transition:.25s}
     .text-link:hover span{transform:translateX(4px)}
 
@@ -748,6 +769,7 @@
       .release-art{min-height:0;aspect-ratio:1/1}
       .release-content{padding:34px 24px 30px}
       .release-grid{grid-template-columns:1fr}
+      .shop-grid{grid-template-columns:1fr}
       .about-layout{grid-template-columns:1fr;gap:45px}
       .newsletter{flex-direction:column}
       .newsletter input,.newsletter .btn{width:100%}
@@ -1213,8 +1235,8 @@
                  loading="lazy">
             <div class="mini-content">
               <h4>you can keep my name<br>(After Hours)</h4>
-              <p>After Hours · Single · August 28, 2026</p>
-              <a class="text-link" href="/yckmn/">About the song <span>↗</span></a>
+              <p>After Hours · Single · Out now</p>
+              <a class="text-link" href="/yckmn/">Listen now <span>↗</span></a>
             </div>
           </article>
 
@@ -1232,6 +1254,49 @@
       </div>
     </section>
 
+    <section class="section" id="shop">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Shop</p>
+            <h2 class="title">Take it home.</h2>
+          </div>
+          <p class="desc">A few picks from the HAFYZ Store — vinyl and digital, all from the After Hours era.</p>
+        </div>
+
+        <div class="shop-grid">
+          <article class="shop-card reveal">
+            <img src="/store/xoxo-im-done-after-hours-cosmic-orange-vinyl.png" alt="xoxo, i'm done (After Hours) Cosmic Orange vinyl" width="800" height="600" loading="lazy">
+            <div class="shop-card-body">
+              <h4>Cosmic Orange Vinyl</h4>
+              <p class="shop-card-price">Rp999.000</p>
+              <a class="btn" href="https://payhip.com/b/Mi6Sf" target="_blank" rel="noopener">Pre-order now</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <img src="/store/xoxo-im-done-after-hours-after-hours-burgundy-vinyl.png" alt="xoxo, i'm done (After Hours) Burgundy vinyl" width="800" height="600" loading="lazy">
+            <div class="shop-card-body">
+              <h4>Burgundy Vinyl</h4>
+              <p class="shop-card-price">Rp699.000</p>
+              <a class="btn" href="https://payhip.com/b/KRXQ8" target="_blank" rel="noopener">Pre-order now</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <img src="/yckmn/you-can-keep-my-name.jpg" alt="you can keep my name (After Hours) digital single" width="800" height="600" loading="lazy">
+            <div class="shop-card-body">
+              <h4>you can keep my name — Digital</h4>
+              <p class="shop-card-price">Digital Single</p>
+              <a class="btn" href="https://payhip.com/b/pVJBz" target="_blank" rel="noopener">Buy digital</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="shop-more"><a class="text-link" href="/store/">Visit the full Store ↗</a></p>
+      </div>
+    </section>
+
     <section class="section alt" id="tour">
       <div class="wrap">
         <div class="section-head reveal">
@@ -1241,7 +1306,6 @@
           </div>
           <p class="desc">Upcoming HAFYZ shows, tickets and live information.</p>
         </div>
-
         <div class="tour-shell reveal">
           <div id="seated-55fdf2c0"
                data-artist-id="25937aa2-de5d-4ba7-b775-dab54dc3b2fc"
@@ -1559,14 +1623,13 @@
             ["Live shows, festivals, concerts & showcases.","Pertunjukan langsung, festival, konser & showcase."],
             ["GUEST & APPEARANCE","TAMU & PENAMPILAN"], ["Invite HAFYZ to your event.","Undang HAFYZ ke acara Anda."],
             ["Guests, red carpets, premieres, panels & industry events.","Tamu, red carpet, premiere, panel & acara industri."],
-            ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["View tour dates","Lihat jadwal tur"], ["Pre-save now ↗","Pre-save sekarang ↗"],
+            ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["Listen now","Dengarkan sekarang"], ["View tour dates","Lihat jadwal tur"], ["Pre-save now ↗","Pre-save sekarang ↗"],
             ["Music","Musik"], ["Latest releases.","Rilisan terbaru."],
             ["The current chapter of HAFYZ, including the next release from the After Hours era.","Bab terbaru HAFYZ, termasuk rilisan berikutnya dari era After Hours."],
             ["An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.","Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi."],
             ["Out now","Sudah dirilis"], ["01 / Latest single","01 / Single terbaru"],
             ["Single · 2026","Single · 2026"], ["The latest chapter from HAFYZ's After Hours era.","Bab terbaru HAFYZ dari era After Hours."],
-            ["About the song →","Tentang lagu →"], ["Coming August 14","Hadir 14 Agustus"],
-            ["Pre-save now ↗","Pre-save sekarang ↗"], ["After Hours · Single","After Hours · Single"],
+                        ["Pre-save now ↗","Pre-save sekarang ↗"], ["After Hours · Single","After Hours · Single"],
             ["Live","Live"], ["See you out there.","Sampai jumpa di sana."],
             ["Upcoming HAFYZ shows, tickets and live information.","Pertunjukan HAFYZ mendatang, tiket dan informasi live."],
             ["Beyond the track.","Lebih dari sekadar musik."],

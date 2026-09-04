@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://hafyz.my.id/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/new-release/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/chgstripped/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/appearance/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/press/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/store/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/xoxo-im-done-after-hours/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/yckmn/</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/chasing-hollow-gold.html</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/chasing-hollow-gold-stripped.html</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/privacy.html</loc>
-</url>
-<url>
-<loc>https://hafyz.my.id/terms.html</loc>
-</url>
+  <url><loc>https://hafyz.my.id/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://hafyz.my.id/xoxo-im-done-after-hours</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://hafyz.my.id/yckmn</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://hafyz.my.id/chgstripped</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hafyz.my.id/store</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://hafyz.my.id/press</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://hafyz.my.id/appearance</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://hafyz.my.id/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://hafyz.my.id/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

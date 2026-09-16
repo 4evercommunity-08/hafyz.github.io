@@ -529,6 +529,7 @@
     .shop-card-body h4{margin:0 0 4px;font-family:"Space Grotesk",sans-serif;font-size:16px;line-height:1.15}
     .shop-card-price{margin:0 0 12px;color:var(--gold-dark);font-size:13px;font-weight:700}
     .shop-card .btn{display:inline-flex;padding:10px 16px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:#fff;color:var(--gold-dark);border:1.5px solid var(--gold-dark);transition:.2s}
+    .shop-card .btn.soldout{color:#999;border-color:#ddd;background:#f2f2f2;cursor:default;pointer-events:none}
     .shop-card .btn:hover{background:var(--gold-dark);color:#fff}
     .shop-more{margin-top:20px;text-align:center}
     .text-link span{display:inline-block;transition:.25s}
@@ -1310,7 +1311,7 @@
             <div class="shop-card-body">
               <h4>Cosmic Orange Vinyl</h4>
               <p class="shop-card-price">Rp999.000</p>
-              <a class="btn" href="https://payhip.com/b/Mi6Sf" target="_blank" rel="noopener">Pre-order now</a>
+              <a class="btn soldout" aria-disabled="true">Sold out</a>
             </div>
           </article>
 
@@ -1319,7 +1320,7 @@
             <div class="shop-card-body">
               <h4>Burgundy Vinyl</h4>
               <p class="shop-card-price">Rp699.000</p>
-              <a class="btn" href="https://payhip.com/b/KRXQ8" target="_blank" rel="noopener">Pre-order now</a>
+              <a class="btn soldout" aria-disabled="true">Sold out</a>
             </div>
           </article>
 

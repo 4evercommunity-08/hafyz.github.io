@@ -445,6 +445,8 @@
       color:#555;
     }
     .btn-secondary:hover{border-color:rgba(198,158,62,.55);color:var(--gold-dark);transform:translateY(-2px)}
+    .btn.soldout{background:#f2f2f2;border:1px solid #ddd;color:#999;cursor:default;pointer-events:none;box-shadow:none}
+    .btn.soldout:hover{background:#f2f2f2;color:#999;transform:none}
 
     .coming{
       display:grid;
@@ -949,7 +951,7 @@
               <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
               <p class="product-feature" data-i18n="cosmicFeature"><strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”</p>
               <p class="product-description" data-i18n="cosmicDesc">The Cosmic Orange Collector's Edition, featuring the exclusive bonus track available only on this edition.</p>
-              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/Mi6Sf" target="_blank" rel="noopener" data-i18n="preorderNow">Pre-order now ↗</a></div>
+              <div class="product-actions"><a class="btn btn-secondary soldout" data-i18n="soldOut" aria-disabled="true">Sold out</a></div>
             </div>
           </div>
 
@@ -965,7 +967,7 @@
               <p class="price">Rp699.000</p>
               <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
               <p class="product-description" data-i18n="burgundyDesc">A premium Collector's Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.</p>
-              <div class="product-actions"><a class="btn btn-secondary" href="https://payhip.com/b/KRXQ8" target="_blank" rel="noopener" data-i18n="preorderNow">Pre-order now ↗</a></div>
+              <div class="product-actions"><a class="btn btn-secondary soldout" data-i18n="soldOut" aria-disabled="true">Sold out</a></div>
             </div>
           </div>
         </div>
@@ -1232,6 +1234,7 @@
           cosmicDesc:'The Cosmic Orange Collector\'s Edition, featuring the exclusive bonus track available only on this edition.',
           burgundyDesc:'A premium Collector\'s Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.',
           preorderNow:'Pre-order now ↗',
+          soldOut:'Sold out',
           moreColorsHeading:'More colors · Coming soon',comingSoonTag:'Coming soon',releaseDateNote:'Release date: September 18, 2026.',
           alsoAvailableHeading:'Also available · Standard Vinyl',vinylAvailableTag:'Vinyl LP · Available',
           typePhysical2026:'Physical · 2026',
@@ -1274,6 +1277,7 @@
           cosmicDesc:'Cosmic Orange Collector\'s Edition, dengan bonus track eksklusif yang hanya tersedia di edisi ini.',
           burgundyDesc:'Collector\'s Edition premium yang dicetak di atas vinyl After Hours Burgundy, dibuat untuk koleksi fisik.',
           preorderNow:'Pre-order sekarang ↗',
+          soldOut:'Sold out',
           moreColorsHeading:'Warna lainnya · Segera hadir',comingSoonTag:'Segera hadir',releaseDateNote:'Tanggal rilis: 18 September 2026.',
           alsoAvailableHeading:'Tersedia juga · Vinyl Standar',vinylAvailableTag:'Vinyl LP · Tersedia',
           typePhysical2026:'Fisik · 2026',

@@ -554,254 +554,6 @@
       transition:.25s;
     }
     .socials a:hover{color:var(--gold-dark);border-color:var(--gold)}
-    .socials svg{width:17px;height:17px  font-size:clamp(38px,6vw,70px);
-      line-height:.98;
-      letter-spacing:-.065em;
-    }
-    .desc{
-      max-width:430px;
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.75;
-    }
-
-    .store-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-    .more-editions-grid{grid-template-columns:repeat(4,1fr);margin-bottom:52px}
-    @media(max-width:900px){.more-editions-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.more-editions-grid{grid-template-columns:1fr}}
-    .product{
-      background:var(--white);
-      border:1px solid var(--line);
-      border-radius:22px;
-      overflow:hidden;
-      box-shadow:0 18px 55px rgba(0,0,0,.035);
-      transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
-    }
-    .product:hover{
-      transform:translateY(-5px);
-      border-color:rgba(198,158,62,.45);
-      box-shadow:0 22px 60px rgba(0,0,0,.07);
-    }
-    .product-art{
-      position:relative;
-      aspect-ratio:1/1;
-      overflow:hidden;
-      background:#e9e9e5;
-    }
-    .product-art img{
-      width:100%;height:100%;
-      object-fit:cover;
-      transition:transform .8s var(--ease);
-    }
-    .product-art.physical-art{aspect-ratio:4/3;background:#ecece8}
-    .product-art.physical-art img{object-fit:cover}
-    .product-status{
-      display:inline-flex;align-items:center;gap:7px;
-      margin:0 0 13px;
-      color:#777;
-      font-size:9px;font-weight:800;
-      letter-spacing:.14em;text-transform:uppercase;
-    }
-    .product-status:before{
-      content:"";width:6px;height:6px;border-radius:50%;
-      background:#999;
-    }
-    .btn[aria-disabled="true"]{
-      background:#ededeb;border-color:#deded9;color:#9a9a94;
-      box-shadow:none;cursor:not-allowed;pointer-events:none;
-    }
-    .btn[aria-disabled="true"]:hover{transform:none}
-    .physical-feature{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 18px 55px rgba(0,0,0,.035);
-      margin-bottom:28px;
-    }
-    .physical-feature-art{position:relative;aspect-ratio:4/3;background:#e9e9e5;overflow:hidden}
-    .physical-feature-art img{width:100%;height:100%;object-fit:cover}
-    .physical-feature-info{padding:clamp(28px,5vw,58px);display:flex;flex-direction:column;justify-content:center}
-    .physical-feature-info h3{margin:0 0 8px;font-family:"Space Grotesk",sans-serif;font-size:clamp(40px,5vw,64px);line-height:.94;letter-spacing:-.065em}
-    .price{margin:0 0 15px;color:var(--gold-dark);font-family:"Space Grotesk",sans-serif;font-size:25px;font-weight:700;letter-spacing:-.03em}
-    .collector-heading{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin:10px 0 22px}
-    .collector-heading span{height:1px;background:rgba(198,158,62,.35)}
-    .collector-heading p{margin:0;color:var(--gold-dark);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;text-align:center}
-    .collector-grid{grid-template-columns:repeat(2,1fr)}
-    .product-status.out{color:#9b2e2e}
-    .product-status.out:before{background:#b83b3b}
-    .btn-disabled{background:#ededeb;border:1px solid #deded9;color:#9a9a94;box-shadow:none;cursor:not-allowed}
-
-    .product-feature{
-      margin:0 0 15px;padding:11px 12px;
-      border-left:2px solid var(--gold);
-      background:#fffdf7;color:#66645f;
-      font-size:10px;line-height:1.6;
-    }
-    .product:hover .product-art img{transform:scale(1.025)}
-    .product-tag{
-      position:absolute;
-      top:16px;left:16px;
-      padding:7px 10px;
-      border:1px solid rgba(20,20,20,.10);
-      border-radius:999px;
-      background:rgba(255,255,255,.82);
-      backdrop-filter:blur(12px);
-      color:#555;
-      font-size:8px;
-      font-weight:800;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-    .product-info{padding:24px}
-    .product-type{
-      margin:0 0 8px;
-      color:var(--gold-dark);
-      font-size:9px;
-      font-weight:800;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-    }
-    .product h3{
-      margin:0 0 8px;
-      font-family:"Space Grotesk",sans-serif;
-      font-size:24px;
-      line-height:1.05;
-      letter-spacing:-.045em;
-    }
-    .product-meta{
-      margin:0 0 15px;
-      color:#888;
-      font-size:11px;
-    }
-    .product-description{
-      min-height:42px;
-      margin:0;
-      color:#696964;
-      font-size:11px;
-      line-height:1.7;
-    }
-    .product-actions{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      margin-top:20px;
-    }
-    .btn{
-      min-height:44px;
-      padding:0 17px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border-radius:999px;
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      transition:.3s var(--ease);
-      cursor:pointer;
-    }
-    .btn-primary{
-      background:var(--gold);
-      border:1px solid var(--gold);
-      color:#fff;
-      box-shadow:0 10px 25px rgba(198,158,62,.16);
-    }
-    .btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px)}
-    .btn-secondary{
-      background:#fff;
-      border:1px solid var(--line);
-      color:#555;
-    }
-    .btn-secondary:hover{border-color:rgba(198,158,62,.55);color:var(--gold-dark);transform:translateY(-2px)}
-    .btn.soldout{background:#f2f2f2;border:1px solid #ddd;color:#999;cursor:default;pointer-events:none;box-shadow:none}
-    .btn.soldout:hover{background:#f2f2f2;color:#999;transform:none}
-
-    .coming{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-    .coming-card{
-      min-height:220px;
-      padding:28px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:22px;
-    }
-    .coming-card span{
-      color:var(--gold-dark);
-      font-size:9px;
-      font-weight:800;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-    }
-    .coming-card h3{
-      margin:0;
-      font-family:"Space Grotesk",sans-serif;
-      font-size:30px;
-      line-height:1;
-      letter-spacing:-.05em;
-    }
-    .coming-card p{
-      margin:0;
-      color:#777;
-      font-size:11px;
-      line-height:1.7;
-    }
-
-    .store-note{
-      margin-top:18px;
-      padding:16px 18px;
-      border:1px solid rgba(198,158,62,.25);
-      border-radius:16px;
-      background:#fffdf7;
-      color:#777;
-      font-size:10px;
-      line-height:1.7;
-    }
-
-    /* FOOTER */
-    footer{
-      background:#fff;
-      border-top:1px solid var(--line);
-      padding:50px 0 23px;
-    }
-    .footer-top{
-      display:flex;
-      justify-content:space-between;
-      gap:50px;
-      padding-bottom:42px;
-    }
-    .footer-brand{max-width:330px}
-    .footer-brand .brand{display:inline-block;margin-bottom:15px}
-    .footer-brand p{
-      margin:0;
-      color:#888;
-      font-size:11px;
-      line-height:1.8;
-    }
-    .socials{display:flex;gap:8px;margin-top:17px}
-    .socials a{
-      width:35px;height:35px;
-      display:grid;
-      place-items:center;
-      border:1px solid var(--line);
-      border-radius:50%;
-      color:#777;
-      transition:.25s;
-    }
-    .socials a:hover{color:var(--gold-dark);border-color:var(--gold)}
     .socials svg{width:17px;height:17px;fill:currentColor}
     .footer-columns{display:flex;gap:70px}
     .footer-col h4{
@@ -983,7 +735,7 @@
           "@type":"Offer",
           "priceCurrency":"IDR",
           "price":"299000",
-          "availability":"https://schema.org/InStock",
+          "availability":"https://schema.org/OutOfStock",
           "url":"https://payhip.com/b/Z9bts"
         }
       },
@@ -999,7 +751,7 @@
           "@type":"Offer",
           "priceCurrency":"IDR",
           "price":"999000",
-          "availability":"https://schema.org/PreOrder",
+          "availability":"https://schema.org/OutOfStock",
           "url":"https://payhip.com/b/Mi6Sf"
         }
       },
@@ -1015,7 +767,7 @@
           "@type":"Offer",
           "priceCurrency":"IDR",
           "price":"699000",
-          "availability":"https://schema.org/PreOrder",
+          "availability":"https://schema.org/OutOfStock",
           "url":"https://payhip.com/b/KRXQ8"
         }
       },
@@ -1026,7 +778,7 @@
         "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-just-black-vinyl.png",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Vinyl Record",
-        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"699000","availability":"https://schema.org/PreOrder"}
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"699000","availability":"https://schema.org/OutOfStock"}
       },
       {
         "@type":"Product",
@@ -1035,7 +787,7 @@
         "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-metallic-silver-vinyl.png",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Vinyl Record",
-        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/OutOfStock"}
       },
       {
         "@type":"Product",
@@ -1044,7 +796,7 @@
         "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-shinny-gold-vinyl.png",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Vinyl Record",
-        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/OutOfStock"}
       },
       {
         "@type":"Product",
@@ -1053,7 +805,34 @@
         "image":"https://hafyz.my.id/store/xoxo-im-done-after-hours-navy-denim-vinyl.png",
         "brand":{"@type":"Brand","name":"HAFYZ"},
         "category":"Vinyl Record",
-        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/PreOrder"}
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"749000","availability":"https://schema.org/OutOfStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"cute, but annoying (After Hours) — Cream/Beige Vinyl",
+        "url":"https://hafyz.my.id/store/#cute-but-annoying",
+        "image":"https://hafyz.my.id/store/hafyz_vinyl_cream_beige.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"549000","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"cute, but annoying (After Hours) — Deep Navy Blue Vinyl",
+        "url":"https://hafyz.my.id/store/#cute-but-annoying",
+        "image":"https://hafyz.my.id/store/hafyz_vinyl_deep_navy_blue.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Record",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"449000","availability":"https://schema.org/InStock"}
+      },
+      {
+        "@type":"Product",
+        "name":"cute, but annoying (After Hours) — Double Color Vinyl Bundle",
+        "url":"https://hafyz.my.id/store/#cute-but-annoying",
+        "image":"https://hafyz.my.id/store/hafyz_vinyl_bundle.png",
+        "brand":{"@type":"Brand","name":"HAFYZ"},
+        "category":"Vinyl Bundle",
+        "offers":{"@type":"Offer","priceCurrency":"IDR","price":"899000","availability":"https://schema.org/InStock"}
       }
     ]
   }
@@ -1213,10 +992,61 @@
           </p>
         </div>
 
+        <div class="cute-highlight reveal" id="cute-but-annoying">
+          <div class="cute-highlight-head">
+            <div>
+              <p class="cute-highlight-kicker" data-i18n="cuteHighlightKicker">New release · Featured</p>
+              <h3 data-i18n="cuteHighlightTitle">cute, but annoying<br>(After Hours)</h3>
+            </div>
+            <p class="cute-highlight-copy" data-i18n="cuteHighlightDesc">A three-piece vinyl drop for the newest HAFYZ single: two individual colourways and one complete double-colour bundle.</p>
+          </div>
+          <div class="cute-grid">
+            <article class="cute-card featured">
+              <div class="cute-card-art">
+                <span class="product-tag collector-badge" data-i18n="newReleaseTag">Collector's Edition</span>
+                <img src="/store/hafyz_vinyl_cream_beige.png" alt="cute, but annoying (After Hours) Cream/Beige vinyl" loading="lazy" width="1254" height="1254">
+              </div>
+              <div class="cute-card-info">
+                <p class="cute-card-label" data-i18n="cuteCollectorLabel">Collector's Edition</p>
+                <h4>Cream/Beige</h4>
+                <p class="price">Rp549.000</p>
+                <p class="product-description" data-i18n="cuteCreamDesc">The warm, nostalgic colourway inspired by the cover's cap and pale shirt.</p>
+                <div class="product-actions"><button class="btn btn-primary" type="button" data-checkout data-i18n="preorderCute">Pre-order ↗</button></div>
+              </div>
+            </article>
+            <article class="cute-card">
+              <div class="cute-card-art">
+                <span class="product-tag" data-i18n="newReleaseTag">New release</span>
+                <img src="/store/hafyz_vinyl_deep_navy_blue.png" alt="cute, but annoying (After Hours) Deep Navy Blue vinyl" loading="lazy" width="1254" height="1254">
+              </div>
+              <div class="cute-card-info">
+                <p class="cute-card-label" data-i18n="cuteStandardLabel">Standard Edition</p>
+                <h4>Deep Navy Blue</h4>
+                <p class="price">Rp449.000</p>
+                <p class="product-description" data-i18n="cuteNavyDesc">A bold, deep blue pressing inspired by the dark collar details in the artwork.</p>
+                <div class="product-actions"><button class="btn btn-primary" type="button" data-checkout data-i18n="preorderCute">Pre-order ↗</button></div>
+              </div>
+            </article>
+            <article class="cute-card featured">
+              <div class="cute-card-art">
+                <span class="product-tag collector-badge" data-i18n="bundleTag">Limited Bundle</span>
+                <img src="/store/hafyz_vinyl_bundle.png" alt="cute, but annoying (After Hours) Double Color Vinyl Bundle" loading="lazy" width="1254" height="1254">
+              </div>
+              <div class="cute-card-info">
+                <p class="cute-card-label" data-i18n="cuteBundleLabel">Double Color Bundle</p>
+                <h4>Two colors. One story.</h4>
+                <p class="price">Rp899.000</p>
+                <p class="product-description" data-i18n="cuteBundleDesc">Both colourways together: Cream/Beige and Deep Navy Blue in one collectible set.</p>
+                <div class="product-actions"><button class="btn btn-primary" type="button" data-checkout data-i18n="preorderCute">Pre-order ↗</button></div>
+              </div>
+            </article>
+          </div>
+        </div>
+
         <div class="collector-showcase reveal">
           <div class="collector-showcase-card">
             <div class="collector-showcase-art">
-              <span class="product-tag collector-badge" data-i18n="preorderOpenTag">Collector's Edition · Pre-order open</span>
+              <span class="product-tag collector-badge" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-cosmic-orange-vinyl.png" alt="xoxo, i'm done (After Hours) Cosmic Orange Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
             </div>
             <div class="collector-showcase-info">
@@ -1224,7 +1054,7 @@
               <h3>Cosmic Orange</h3>
               <p class="collector-edition-label" data-i18n="collectorEditionLabel">Collector's Edition</p>
               <p class="price">Rp999.000</p>
-              <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
+              <p class="product-status preorder" data-i18n="outOfStockStatus">Out of stock</p>
               <p class="product-feature" data-i18n="cosmicFeature"><strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”</p>
               <p class="product-description" data-i18n="cosmicDesc">The Cosmic Orange Collector's Edition, featuring the exclusive bonus track available only on this edition.</p>
               <div class="product-actions"><a class="btn btn-secondary soldout" data-i18n="soldOut" aria-disabled="true">Sold out</a></div>
@@ -1233,7 +1063,7 @@
 
           <div class="collector-showcase-card">
             <div class="collector-showcase-art">
-              <span class="product-tag collector-badge" data-i18n="preorderOpenTag">Collector's Edition · Pre-order open</span>
+              <span class="product-tag collector-badge" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-after-hours-burgundy-vinyl.png" alt="xoxo, i'm done (After Hours) After Hours Burgundy Collector's Edition vinyl mockup" loading="lazy" width="1200" height="905">
             </div>
             <div class="collector-showcase-info">
@@ -1241,7 +1071,7 @@
               <h3>After Hours Burgundy</h3>
               <p class="collector-edition-label" data-i18n="collectorEditionLabel">Collector's Edition</p>
               <p class="price">Rp699.000</p>
-              <p class="product-status preorder" data-i18n="shipsAfter">Pre-order · Ships after September 18, 2026</p>
+              <p class="product-status preorder" data-i18n="outOfStockStatus">Out of stock</p>
               <p class="product-description" data-i18n="burgundyDesc">A premium Collector's Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.</p>
               <div class="product-actions"><a class="btn btn-secondary soldout" data-i18n="soldOut" aria-disabled="true">Sold out</a></div>
             </div>
@@ -1250,57 +1080,57 @@
 
         <div class="standard-heading reveal">
           <span></span>
-          <p data-i18n="moreColorsHeading">More colors · Coming soon</p>
+          <p data-i18n="soldOutColorsHeading">More colors · Out of stock</p>
           <span></span>
         </div>
 
         <div class="store-grid more-editions-grid reveal">
           <article class="product">
             <div class="product-art">
-              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <span class="product-tag" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-just-black-vinyl.png" alt="xoxo, i'm done (After Hours) Just Black vinyl mockup" loading="lazy" width="800" height="600">
             </div>
             <div class="product-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>Just Black</h3>
               <p class="price">Rp699.000</p>
-              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+              <p class="product-description" data-i18n="soldOutNote">Currently out of stock.</p>
             </div>
           </article>
           <article class="product">
             <div class="product-art">
-              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <span class="product-tag" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-metallic-silver-vinyl.png" alt="xoxo, i'm done (After Hours) Metallic Silver vinyl mockup" loading="lazy" width="800" height="600">
             </div>
             <div class="product-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>Metallic Silver</h3>
               <p class="price">Rp749.000</p>
-              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+              <p class="product-description" data-i18n="soldOutNote">Currently out of stock.</p>
             </div>
           </article>
           <article class="product">
             <div class="product-art">
-              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <span class="product-tag" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-shinny-gold-vinyl.png" alt="xoxo, i'm done (After Hours) Shiny Gold vinyl mockup" loading="lazy" width="800" height="600">
             </div>
             <div class="product-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>Shiny Gold</h3>
               <p class="price">Rp749.000</p>
-              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+              <p class="product-description" data-i18n="soldOutNote">Currently out of stock.</p>
             </div>
           </article>
           <article class="product">
             <div class="product-art">
-              <span class="product-tag" data-i18n="comingSoonTag">Coming soon</span>
+              <span class="product-tag" data-i18n="outOfStockTag">Out of stock</span>
               <img src="/store/xoxo-im-done-after-hours-navy-denim-vinyl.png" alt="xoxo, i'm done (After Hours) Navy Denim vinyl mockup" loading="lazy" width="800" height="600">
             </div>
             <div class="product-info">
               <p class="product-type">xoxo, i'm done (After Hours)</p>
               <h3>Navy Denim</h3>
               <p class="price">Rp749.000</p>
-              <p class="product-description" data-i18n="releaseDateNote">Release date: September 18, 2026.</p>
+              <p class="product-description" data-i18n="soldOutNote">Currently out of stock.</p>
             </div>
           </article>
         </div>
@@ -1313,7 +1143,7 @@
 
         <div class="standard-vinyl-card reveal">
           <div class="standard-vinyl-art">
-            <span class="product-tag" data-i18n="vinylAvailableTag">Vinyl LP · Available</span>
+            <span class="product-tag" data-i18n="vinylOutOfStockTag">Vinyl LP · Out of stock</span>
             <img src="/store/x-friends-after-hours-vinyl.png" alt="x-Friends (After Hours) vinyl mockup" loading="lazy" width="1200" height="900">
           </div>
           <div class="standard-vinyl-info">
@@ -1323,13 +1153,13 @@
             <p class="price">Rp299.000</p>
             <p class="product-description" data-i18n="xfriendsDesc">The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.</p>
             <div class="product-actions">
-              <a class="btn btn-primary" href="https://payhip.com/b/Z9bts" target="_blank" rel="noopener" aria-label="Buy x-Friends After Hours vinyl" data-i18n="buyVinyl">Buy vinyl ↗</a>
+              <span class="btn btn-disabled" aria-disabled="true" data-i18n="soldOut">Sold out</span>
             </div>
           </div>
         </div>
 
         <div class="store-note reveal" data-i18n="availabilityNote">
-          <strong>Availability:</strong> The xoxo, i'm done (After Hours) Collector's Editions and x-Friends (After Hours) are open for pre-order and purchase now via Payhip.
+          <strong>Availability:</strong> All physical xoxo, i'm done (After Hours) editions and x-Friends (After Hours) are currently out of stock. Digital releases remain available.
         </div>
       </div>
     </section>
@@ -1504,8 +1334,9 @@
           digitalNote:'Digital purchases will be delivered automatically after successful payment. Checkout will be activated here once the Store payment and delivery provider is connected.',
           physicalKicker:'Physical',physicalTitle:'Collector\'s vinyl.',
           physicalDesc:'The <em>xoxo, i\'m done (After Hours)</em> Collector\'s Editions take the spotlight, with limited colour pressings made for collectors.',
+          cuteHighlightKicker:'New release · Featured',cuteHighlightTitle:'cute, but annoying<br>(After Hours)',cuteHighlightDesc:'A three-piece vinyl drop for the newest HAFYZ single: two individual colourways and one complete double-colour bundle.',newReleaseTag:'New release',bundleTag:'Limited Bundle',cuteCollectorLabel:'Collector\'s Edition',cuteStandardLabel:'Standard Edition',cuteBundleLabel:'Double Color Bundle',cuteCreamDesc:'The warm, nostalgic colourway inspired by the cover\'s cap and pale shirt.',cuteNavyDesc:'A bold, deep blue pressing inspired by the dark collar details in the artwork.',cuteBundleDesc:'Both colourways together: Cream/Beige and Deep Navy Blue in one collectible set.',preorderCute:'Pre-order ↗',
           preorderOpenTag:'Collector\'s Edition · Pre-order open',collectorEditionLabel:'Collector\'s Edition',
-          shipsAfter:'Pre-order · Ships after September 18, 2026',
+          shipsAfter:'Pre-order · Ships after September 18, 2026',outOfStockTag:'Out of stock',outOfStockStatus:'Out of stock',soldOutColorsHeading:'More colors · Out of stock',soldOutNote:'Currently out of stock.',vinylOutOfStockTag:'Vinyl LP · Out of stock',
           cosmicFeature:'<strong>Exclusive bonus track:</strong> “x-Friends (After Hours Reimagined)”',
           cosmicDesc:'The Cosmic Orange Collector\'s Edition, featuring the exclusive bonus track available only on this edition.',
           burgundyDesc:'A premium Collector\'s Edition pressed on deep After Hours Burgundy vinyl, made for the physical collection.',
@@ -1516,7 +1347,7 @@
           typePhysical2026:'Physical · 2026',
           xfriendsDesc:'The official vinyl edition of <em>x-Friends (After Hours)</em>. A standard physical pressing for the After Hours era.',
           buyVinyl:'Buy vinyl ↗',
-          availabilityNote:'<strong>Availability:</strong> The xoxo, i\'m done (After Hours) Collector\'s Editions and x-Friends (After Hours) are open for pre-order and purchase now via Payhip.',
+          availabilityNote:'<strong>Ketersediaan:</strong> Semua edisi fisik xoxo, i\'m done (After Hours) dan x-Friends (After Hours) sedang habis. Rilisan digital tetap tersedia.',
           merchKicker:'Merchandise',merchTitle:'Wear the era.',merchDesc:'Official HAFYZ objects and apparel are coming to the Store.',
           tshirtsTitle:'T-Shirts.',tshirtsDesc:'Official HAFYZ apparel and era-specific designs.',
           postersTitle:'Posters.',postersDesc:'Physical artwork, tour posters and limited prints.',
@@ -1547,8 +1378,9 @@
           digitalNote:'Pembelian digital akan dikirim otomatis setelah pembayaran berhasil. Checkout akan diaktifkan di sini setelah penyedia pembayaran dan pengiriman Store terhubung.',
           physicalKicker:'Fisik',physicalTitle:'Vinyl koleksi.',
           physicalDesc:'Edisi Collector\'s <em>xoxo, i\'m done (After Hours)</em> jadi sorotan, dengan cetakan warna terbatas untuk kolektor.',
+          cuteHighlightKicker:'Rilisan baru · Sorotan',cuteHighlightTitle:'cute, but annoying<br>(After Hours)',cuteHighlightDesc:'Tiga pilihan vinyl untuk single terbaru HAFYZ: dua warna individual dan satu bundle dua warna lengkap.',newReleaseTag:'Rilisan baru',bundleTag:'Bundle Terbatas',cuteCollectorLabel:'Collector\'s Edition',cuteStandardLabel:'Standard Edition',cuteBundleLabel:'Bundle Dua Warna',cuteCreamDesc:'Varian hangat dan nostalgik yang terinspirasi dari topi serta baju pada cover.',cuteNavyDesc:'Piringan biru gelap yang bold, terinspirasi dari detail kerah pada artwork.',cuteBundleDesc:'Kedua varian sekaligus: Cream/Beige dan Deep Navy Blue dalam satu set koleksi.',preorderCute:'Pre-order ↗',
           preorderOpenTag:'Collector\'s Edition · Pre-order dibuka',collectorEditionLabel:'Collector\'s Edition',
-          shipsAfter:'Pre-order · Dikirim setelah 18 September 2026',
+          shipsAfter:'Pre-order · Dikirim setelah 18 September 2026',outOfStockTag:'Habis',outOfStockStatus:'Habis',soldOutColorsHeading:'Warna lainnya · Habis',soldOutNote:'Saat ini habis.',vinylOutOfStockTag:'Vinyl LP · Habis',
           cosmicFeature:'<strong>Bonus track eksklusif:</strong> “x-Friends (After Hours Reimagined)”',
           cosmicDesc:'Cosmic Orange Collector\'s Edition, dengan bonus track eksklusif yang hanya tersedia di edisi ini.',
           burgundyDesc:'Collector\'s Edition premium yang dicetak di atas vinyl After Hours Burgundy, dibuat untuk koleksi fisik.',

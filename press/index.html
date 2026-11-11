@@ -554,7 +554,11 @@
     .lang-label{position:fixed;right:65px;bottom:28px;z-index:1999;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#888;pointer-events:none}
     @media(max-width:520px){.lang-label{right:61px;bottom:28px}}
 
-</style>
+
+    .brand-logo{display:block;height:22px;width:auto}
+    .footer-brand .brand-logo{height:34px}
+    .hero-logo{display:block;width:min(560px,78vw);height:auto;margin:6px 0 2px}
+  </style>
 <style id="hafyz-cookie-styles">
 #hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;max-width:980px;margin:auto;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 50px rgba(0,0,0,.14);border-radius:18px;padding:18px 20px;font-family:inherit;color:#171717;backdrop-filter:blur(12px)}
 #hafyzCookieBanner[hidden],#hafyzCookiePrefs[hidden]{display:none!important}
@@ -575,7 +579,7 @@ body.cookie-banner-visible .language-prompt{bottom:160px}
 
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a class="brand" href="/">HAFYZ</a>
+      <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
       <nav aria-label="Press kit navigation">
         <ul class="nav-links" id="nav-links">
           <li><a href="#bio">Artist</a></li>
@@ -827,6 +831,7 @@ body.cookie-banner-visible .language-prompt{bottom:160px}
 
   <footer>
     <div class="container footer-inner">
+      <p><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120" style="height:26px;margin-bottom:8px"></p>
       <p>© 2026 HAFYZ. All rights reserved.</p>
       <p>Official press kit · <a href="/">Back to website</a></p>
     </div>

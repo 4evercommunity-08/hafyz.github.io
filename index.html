@@ -1045,6 +1045,11 @@
       .lang-switch{right:14px;bottom:14px}
     }
 
+  
+    .brand-logo{display:block;height:22px;width:auto}
+    .footer-brand .brand-logo{height:34px}
+    .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+    .hero-logo{display:block;width:min(560px,78vw);height:auto;margin:6px 0 2px}
   </style>
 
 <style id="hafyz-cookie-v2-css">
@@ -1240,7 +1245,7 @@
 
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a class="brand" href="/" aria-label="HAFYZ home">HAFYZ</a>
+      <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
 
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
@@ -1286,7 +1291,8 @@
         <div class="hero-content">
         <p class="eyebrow" id="hero-eyebrow">OUT NOV 13</p>
         <p class="hero-release-title">mistletoe</p>
-        <h1>HAFYZ</h1>
+        <h1 class="sr-only">HAFYZ</h1>
+        <img class="hero-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="1400" height="610">
         <div class="hero-actions">
           <a class="btn btn-primary" id="hero-cta" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Pre-save ↗</a>
           <a class="btn btn-secondary" href="#tour" data-i18n="viewTourDates">View tour dates</a>
@@ -1544,7 +1550,7 @@
     <div class="wrap">
       <div class="footer-top">
         <div class="footer-brand">
-          <a class="brand" href="/">HAFYZ</a>
+          <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
           <p></p>
 
           <div class="socials" aria-label="HAFYZ social links">

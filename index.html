@@ -805,10 +805,15 @@
       .section{padding:82px 0}
 
     /* VIDEOS */
-    .video-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .video-rail-wrap{position:relative}
+    .video-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 14px;scrollbar-width:thin}
+    .video-card{flex:0 0 min(400px,84vw);scroll-snap-align:start}
+    .video-nav{position:absolute;top:-64px;right:0;display:flex;gap:8px}
+    .video-nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);font-size:19px;cursor:pointer;transition:.25s var(--ease)}
+    .video-nav button:hover{border-color:rgba(198,158,62,.6);transform:translateY(-2px)}
     .video-card{display:block;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;transition:.3s var(--ease)}
     .video-card:hover{transform:translateY(-4px);border-color:rgba(198,158,62,.48);box-shadow:0 18px 45px rgba(0,0,0,.05)}
-    .video-card.featured{grid-column:1/-1}
+    .video-card.featured{flex-basis:min(520px,88vw)}
     .video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#e9e9e5}
     .video-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
     .video-card:hover .video-thumb img{transform:scale(1.03)}
@@ -822,7 +827,7 @@
       .section-head{display:block;margin-bottom:35px}
       .desc{margin-top:16px}
       .release-feature{grid-template-columns:1fr;min-height:0}
-      .video-grid{grid-template-columns:1fr}
+      .video-nav{display:none}
       .release-art{min-height:0;aspect-ratio:1/1}
       .release-content{padding:34px 24px 30px}
       .release-grid{grid-template-columns:1fr}
@@ -1431,13 +1436,16 @@
           </div>
           <p class="desc">Music videos and visualizers from the After Hours era — the deluxe additions, in album order.</p>
         </div>
-        <div class="video-grid">
+        <div class="video-rail-wrap">
+        <div class="video-nav"><button type="button" id="vidPrev" aria-label="Previous videos">‹</button><button type="button" id="vidNext" aria-label="Next videos">›</button></div>
+        <div class="video-grid" id="videoRail">
           <a class="video-card featured reveal" href="https://youtu.be/S-DwuGs24nw" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/S-DwuGs24nw/hqdefault.jpg" alt="THIS IS FOR YOU (After Hours) — video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>THIS IS FOR YOU (After Hours)</h3><span class="video-tag">Featured</span></div></a>
           <a class="video-card reveal" href="https://youtu.be/SeMu3AjI4KQ" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/SeMu3AjI4KQ/hqdefault.jpg" alt="look what happened (After Hours) — video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>look what happened (After Hours)</h3><span class="video-tag">Visualizer</span></div></a>
           <a class="video-card reveal" href="https://youtu.be/swD8J9P2hvQ" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/swD8J9P2hvQ/hqdefault.jpg" alt="WHAT THE FUCK (After Hours) — video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>WHAT THE FUCK (After Hours)</h3><span class="video-tag">Visualizer</span></div></a>
           <a class="video-card reveal" href="https://youtu.be/kvCwJH8aCwI" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/kvCwJH8aCwI/hqdefault.jpg" alt="hope you saw that (After Hours) — video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>hope you saw that (After Hours)</h3><span class="video-tag">Visualizer</span></div></a>
           <a class="video-card reveal" href="https://youtu.be/Cpxpeh5fgZc" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/Cpxpeh5fgZc/hqdefault.jpg" alt="cute, but annoying (After Hours) — Official Music Video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>cute, but annoying (After Hours)</h3><span class="video-tag">Music Video</span></div></a>
           <a class="video-card reveal" href="https://youtu.be/ilZUm_gPNJM" target="_blank" rel="noopener"><div class="video-thumb"><img src="https://i.ytimg.com/vi/ilZUm_gPNJM/hqdefault.jpg" alt="if you knew (After Hours) — video" loading="lazy"><span class="video-play"><span>▶</span></span></div><div class="video-meta"><h3>if you knew (After Hours)</h3><span class="video-tag">Visualizer</span></div></a>
+        </div>
         </div>
         <p class="videos-more"><a class="btn btn-secondary" href="https://www.youtube.com/playlist?list=PLQeDdv9fWq4k" target="_blank" rel="noopener">Full album playlist on YouTube ↗</a></p>
       </div>
@@ -2119,6 +2127,9 @@
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
   else apply();
 })();
+</script>
+<script>
+(function(){var rail=document.getElementById('videoRail');if(!rail)return;var step=function(){var c=rail.querySelector('.video-card');return c?c.offsetWidth+16:360;};var p=document.getElementById('vidPrev'),n=document.getElementById('vidNext');if(p)p.addEventListener('click',function(){rail.scrollBy({left:-step(),behavior:'smooth'});});if(n)n.addEventListener('click',function(){rail.scrollBy({left:step(),behavior:'smooth'});});})();
 </script>
 </body>
 </html>

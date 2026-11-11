@@ -390,6 +390,45 @@
       gap:9px;
       margin-top:28px;
     }
+
+    /* MISTLETOE BANNER */
+    .mistletoe-banner{
+      padding:38px 0;
+      background:linear-gradient(120deg,#f3efe4,#efefec);
+      border-block:1px solid rgba(20,20,20,.06);
+    }
+    .mistletoe-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:26px;
+      flex-wrap:wrap;
+    }
+    .mistletoe-art{
+      width:118px;height:118px;
+      border-radius:18px;
+      object-fit:cover;
+      flex:none;
+      box-shadow:0 14px 34px rgba(0,0,0,.14);
+    }
+    .mistletoe-text{min-width:min(520px,100%);flex:1}
+    .mistletoe-banner h3{
+      margin:0 0 8px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(28px,4vw,44px);
+      line-height:1;
+      letter-spacing:-.05em;
+    }
+    .mistletoe-banner .mistletoe-desc{
+      margin:0;
+      max-width:560px;
+      color:#666;
+      font-size:13px;
+      line-height:1.8;
+    }
+    @media (max-width:640px){
+      .mistletoe-inner{flex-direction:column;align-items:flex-start}
+    }
     .release-secondary{
       display:inline-flex;
       align-items:center;
@@ -1233,6 +1272,18 @@
       </div>
     </section>
 
+    <section class="mistletoe-banner" aria-label="HAFYZ new single mistletoe">
+      <div class="wrap mistletoe-inner">
+        <img class="mistletoe-art" src="/mistletoe-cover.jpg" alt="mistletoe — HAFYZ single cover art" loading="eager">
+        <div class="mistletoe-text">
+          <p class="kicker" id="mistletoe-eyebrow">New single · Out Nov 13</p>
+          <h3>mistletoe</h3>
+          <p class="mistletoe-desc" id="mistletoe-desc">My first holiday single ever — the lead single from my first holiday EP, 'December, with you', arriving December 4.</p>
+        </div>
+        <a class="btn btn-primary" id="mistletoe-cta" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Pre-save now ↗</a>
+      </div>
+    </section>
+
     <section class="section" id="music">
       <div class="wrap">
         <div class="section-head reveal">
@@ -1660,6 +1711,10 @@
             ["GUEST & APPEARANCE","TAMU & PENAMPILAN"], ["Invite HAFYZ to your event.","Undang HAFYZ ke acara Anda."],
             ["Guests, red carpets, premieres, panels & industry events.","Tamu, red carpet, premiere, panel & acara industri."],
             ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["Listen now","Dengarkan sekarang"], ["View tour dates","Lihat jadwal tur"], ["Pre-save now ↗","Pre-save sekarang ↗"],
+            ["New single · Out Nov 13","Single baru · Rilis 13 Nov"], ["Out now","Sudah dirilis"],
+            ["My first holiday single ever — the lead single from my first holiday EP, 'December, with you', arriving December 4.","Single holiday pertamaku — single pembuka dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."],
+            ["My first holiday single ever — from my first holiday EP, 'December, with you', arriving December 4.","Single holiday pertamaku — dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."],
+            ["Stream here ↗","Dengarkan di sini ↗"],
             ["Music","Musik"], ["Latest releases.","Rilisan terbaru."],
             ["The current chapter of HAFYZ, including the next release from the After Hours era.","Bab terbaru HAFYZ, termasuk rilisan berikutnya dari era After Hours."],
             ["An album about looking at different sides of yourself after everything has happened. It explores the space between who you were, who you've become, and the parts of you that never really left.","Album tentang melihat berbagai sisi diri setelah semuanya terjadi. Album ini mengeksplorasi ruang di antara siapa dirimu dulu, siapa dirimu sekarang, dan bagian-bagian dari dirimu yang ternyata tidak pernah benar-benar pergi."],
@@ -2000,5 +2055,26 @@
 
 
 
+
+<script id="mistletoe-release-switch">
+(function(){
+  var RELEASE = new Date('2026-11-13T11:00:00+07:00').getTime();
+  function apply(){
+    if(Date.now() < RELEASE) return;
+    var lang = (document.documentElement.lang || 'en').toLowerCase();
+    var idMode = lang.indexOf('id') === 0 || localStorage.getItem('hafyz-lang') === 'id';
+    var eyebrow = document.getElementById('mistletoe-eyebrow');
+    var desc = document.getElementById('mistletoe-desc');
+    var cta = document.getElementById('mistletoe-cta');
+    if(eyebrow) eyebrow.textContent = 'OUT NOW';
+    if(desc) desc.textContent = idMode
+      ? "Single holiday pertamaku — dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."
+      : "My first holiday single ever — from my first holiday EP, 'December, with you', arriving December 4.";
+    if(cta) cta.textContent = idMode ? 'Dengarkan di sini ↗' : 'Stream here ↗';
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
+  else apply();
+})();
+</script>
 </body>
 </html>

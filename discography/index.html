@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script data-goatcounter="https://hafyz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <title>HAFYZ | Discography</title>
+  <meta name="description" content="The complete discography of HAFYZ — albums, EPs and singles, 2017–2027.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hafyz.my.id/discography/">
+  <link rel="alternate" hreflang="en" href="https://hafyz.my.id/discography/">
+  <link rel="alternate" hreflang="id" href="https://hafyz.my.id/discography/">
+  <link rel="alternate" hreflang="x-default" href="https://hafyz.my.id/discography/">
+  <meta property="og:title" content="HAFYZ | Discography">
+  <meta property="og:description" content="The complete discography of HAFYZ — albums, EPs and singles, 2017–2027.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hafyz.my.id/discography/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    :root{
+      --bg:#f7f7f4;
+      --bg-soft:#171717;
+      --surface:#ffffff;
+      --surface-2:#f1f1ee;
+      --line:rgba(20,20,20,.10);
+      --line-strong:rgba(20,20,20,.18);
+      --text:#171717;
+      --muted:#777772;
+      --muted-2:#8a8a85;
+      --gold:#d8b65b;
+      --gold-soft:#efd88a;
+      --max:1120px;
+      --radius:26px;
+      --ease:cubic-bezier(.2,.75,.25,1);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{
+      background:var(--bg);color:var(--text);
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+      line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+    }
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button,input{font:inherit}
+    ::selection{background:var(--gold);color:#111111}
+    :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+
+    /* NAV */
+    .nav{
+      position:fixed;inset:0 0 auto;height:72px;z-index:1000;
+      border-bottom:1px solid transparent;transition:.35s var(--ease);
+    }
+    .nav.scrolled{
+      background:rgba(7,7,7,.82);border-color:var(--line);
+      backdrop-filter:blur(22px) saturate(150%);
+      -webkit-backdrop-filter:blur(22px) saturate(150%);
+    }
+    .nav-inner{
+      width:min(calc(100% - 40px),var(--max));height:100%;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;
+      letter-spacing:.25em;font-size:18px;
+    }
+    .brand:hover{color:var(--gold)}
+    .nav-links{display:flex;align-items:center;gap:27px;list-style:none}
+    .nav-links a{
+      color:#555551;font-size:12px;font-weight:500;position:relative;transition:.25s;
+    }
+    .nav-links a:hover{color:#fff}
+    .nav-links a::after{
+      content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;
+      background:var(--gold);transition:.3s var(--ease);
+    }
+    .nav-links a:hover::after{right:0}
+    .home-link{padding:9px 15px;border:1px solid var(--line-strong);border-radius:999px}
+    .home-link::after{display:none!important}
+    .home-link:hover{border-color:var(--gold);color:var(--gold)!important}
+    .menu{
+      display:none;width:42px;height:42px;border-radius:50%;
+      border:1px solid var(--line);background:#ffffff;cursor:pointer;
+    }
+    .menu span,.menu span:before,.menu span:after{
+      content:"";display:block;width:17px;height:1.5px;background:#fff;
+      margin:auto;position:relative;transition:.25s;
+    }
+    .menu span:before,.menu span:after{position:absolute;left:0}
+    .menu span:before{top:-6px}.menu span:after{top:6px}
+    .menu.active span{background:transparent}
+    .menu.active span:before{top:0;transform:rotate(45deg)}
+    .menu.active span:after{top:0;transform:rotate(-45deg)}
+
+    /* HERO */
+    .hero{
+      min-height:88svh;position:relative;display:flex;align-items:end;
+      isolation:isolate;overflow:hidden;
+      background:#090909 url("/hero-bg.jpg") center/cover no-repeat;
+    }
+    .hero:before{
+      content:"";position:absolute;inset:0;z-index:-2;
+      background:
+        linear-gradient(180deg,rgba(255,255,255,.50),rgba(255,255,255,.42) 40%,#f7f7f4 100%),
+        linear-gradient(90deg,rgba(0,0,0,.55),transparent 55%,rgba(255,255,255,.50));
+    }
+    .hero-inner{width:min(calc(100% - 40px),var(--max));margin:auto;padding:145px 0 75px}
+    .eyebrow{
+      color:var(--gold-soft);font-size:10px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.22em;margin-bottom:18px;
+    }
+    .hero h1{
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(54px,10vw,118px);
+      line-height:.88;letter-spacing:-.075em;max-width:900px;
+    }
+    .hero h1 span{color:#555551;font-weight:400}
+    .hero-sub{
+      max-width:560px;color:#777772;font-size:14px;line-height:1.75;margin-top:25px;
+    }
+    .hero-meta{
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;
+    }
+    .meta-pill{
+      border:1px solid rgba(20,20,20,.15);background:rgba(0,0,0,.3);
+      padding:8px 12px;border-radius:999px;color:#555551;font-size:10px;
+      text-transform:uppercase;letter-spacing:.12em;backdrop-filter:blur(10px);
+    }
+    .hero-bottom{
+      position:absolute;left:0;right:0;bottom:0;border-top:1px solid rgba(20,20,20,.09);
+      background:rgba(255,255,255,.52);padding:13px 0;
+    }
+    .hero-bottom .container{
+      display:flex;justify-content:space-between;gap:20px;
+      color:#777772;font-size:10px;text-transform:uppercase;letter-spacing:.15em;
+    }
+
+    /* GENERAL */
+    .section{padding:105px 0}
+    .section.alt{background:var(--bg-soft);border-block:1px solid rgba(20,20,20,.05)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:45px}
+    .kicker{
+      color:var(--gold);font-size:10px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px;
+    }
+    .title{
+      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(36px,5vw,64px);
+      line-height:1;letter-spacing:-.06em;font-weight:600;
+    }
+    .desc{max-width:430px;color:var(--muted);font-size:13px;line-height:1.75}
+
+    /* BIO */
+    .bio{
+      display:grid;grid-template-columns:310px 1fr;gap:65px;align-items:start;
+    }
+    .bio-photo{
+      aspect-ratio:1;border-radius:20px;overflow:hidden;border:1px solid var(--line);
+      background:#ffffff;
+    }
+    .bio-photo img{width:100%;height:100%;object-fit:cover}
+    .bio-copy h3{
+      font-family:"Helvetica Neue",Helvetica,Arial;font-size:28px;letter-spacing:-.04em;margin-bottom:18px
+    }
+    .bio-copy p{color:var(--muted);font-size:13px;line-height:1.9;margin-bottom:17px}
+    .bio-copy strong{color:#eee;font-weight:600}
+    .bio-copy em{color:#ddd}
+
+    /* METRICS */
+    .metric-group + .metric-group{margin-top:50px}
+    .metric-label{
+      color:var(--gold);font-size:10px;text-transform:uppercase;
+      letter-spacing:.2em;font-weight:700;margin-bottom:14px;
+    }
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .metric{
+      border:1px solid var(--line);border-radius:20px;background:var(--surface);
+      padding:27px 20px;min-height:145px;display:flex;flex-direction:column;
+      justify-content:space-between;transition:.3s var(--ease);
+    }
+    .metric:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+    .metric-number{
+      font-family:"Helvetica Neue",Helvetica,Arial;font-size:34px;font-weight:600;
+      letter-spacing:-.05em;color:#171717
+    }
+    .metric-name{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777772}
+    .metric-platform{font-size:10px;color:var(--gold);margin-top:4px}
+
+    /* DISCOGRAPHY */
+    .release-list{display:grid;gap:12px}
+    .release{
+      display:grid;grid-template-columns:86px 1fr auto;align-items:center;gap:20px;
+      padding:13px;border:1px solid var(--line);border-radius:20px;
+      background:var(--surface);transition:.3s var(--ease);
+    }
+    .release:hover{border-color:var(--line-strong);transform:translateX(4px)}
+    .cover{
+      width:86px;height:86px;border-radius:12px;overflow:hidden;background:#1a1a1a
+    }
+    .cover img{width:100%;height:100%;object-fit:cover}
+    .release-info h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:18px;letter-spacing:-.025em}
+    .release-info p{font-size:11px;color:#777772;margin-top:5px}
+    .release-stat{text-align:right}
+    .release-stat strong{display:block;font-family:"Helvetica Neue",Helvetica,Arial;font-size:17px;color:var(--gold)}
+    .release-stat span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#666}
+    .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+    .photo-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
+    .photo-card img{width:100%;height:auto;display:block}
+    .photo-card .photo-meta{padding:14px 16px}
+    .photo-card .photo-meta p{font-size:11px;color:#777772}
+    .photo-dl{display:inline-block;margin-top:8px;font-size:11px;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;text-decoration:none}
+    .release-link{
+      display:inline-block;margin-top:7px;color:#555551;font-size:10px;
+      border-bottom:1px solid #555;padding-bottom:2px;
+    }
+    .release-link:hover{color:var(--gold);border-color:var(--gold)}
+
+    /* PRESS */
+    .quote{
+      border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
+      padding:55px 60px;position:relative;overflow:hidden;
+    }
+    .quote:before{
+      content:"“";position:absolute;left:30px;top:10px;
+      font-family:Georgia,serif;font-size:120px;line-height:1;color:var(--gold);
+      opacity:.11;
+    }
+    .quote p{
+      position:relative;font-family:"Helvetica Neue",Helvetica,Arial;font-size:clamp(22px,3vw,34px);
+      line-height:1.3;letter-spacing:-.035em;max-width:900px;
+    }
+    .quote-source{margin-top:27px;color:#777772;font-size:11px}
+    .quote-source a{color:var(--gold)}
+    .quote-source a:hover{text-decoration:underline}
+
+    /* RIDER */
+    .rider{
+      border:1px solid var(--line);border-radius:var(--radius);
+      background:var(--surface);padding:45px;
+    }
+    .rider-head{display:flex;justify-content:space-between;align-items:start;gap:30px}
+    .rider h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:30px;letter-spacing:-.04em}
+    .rider-head p{max-width:480px;color:var(--muted);font-size:13px;line-height:1.8}
+    .rider-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:32px 0}
+    .rider-item{
+      border:1px solid var(--line);border-radius:13px;padding:16px;
+      color:#777772;font-size:11px;background:#f4f4f1;
+    }
+    .rider-item b{display:block;color:var(--gold);font-family:"Helvetica Neue",Helvetica,Arial;font-size:11px;margin-bottom:7px}
+    .rider-note{
+      padding:18px;border:1px dashed rgba(216,182,91,.45);border-radius:15px;
+      background:rgba(216,182,91,.045);color:#777772;font-size:11px;line-height:1.8;
+    }
+    .rider-note strong{color:#ddd}
+    .rider-action{margin-top:25px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:46px;padding:0 19px;border-radius:999px;
+      border:1px solid var(--line-strong);font-size:11px;font-weight:600;
+      transition:.3s var(--ease);
+    }
+    .btn-primary{background:var(--gold);border-color:var(--gold);color:#111111}
+    .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px)}
+
+    /* CONTACT */
+    .contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .contact{
+      border:1px solid var(--line);border-radius:20px;background:var(--surface);
+      padding:28px 20px;text-align:center;transition:.3s var(--ease)
+    }
+    .contact:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+    .contact-icon{height:38px;margin-bottom:15px;color:var(--gold);font-size:24px}
+    .contact h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:16px}
+    .contact p{color:#777772;font-size:11px;line-height:1.6;margin:7px 0 17px}
+    .contact a{
+      display:inline-block;color:#bbb;font-size:10px;border-bottom:1px solid #444;padding-bottom:3px
+    }
+    .contact a:hover{color:var(--gold);border-color:var(--gold)}
+
+    /* FOOTER */
+    footer{border-top:1px solid var(--line);padding:35px 0;background:#ffffff}
+    .footer-inner{
+      display:flex;justify-content:space-between;align-items:center;gap:20px;
+      color:#898983;font-size:10px
+    }
+    .footer-inner a{color:var(--gold)}
+    .footer-inner a:hover{text-decoration:underline}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(25px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+
+    @media(max-width:800px){
+      .nav-links{
+        position:fixed;top:64px;left:12px;right:12px;display:none;
+        flex-direction:column;gap:0;padding:8px;border:1px solid var(--line);
+        border-radius:20px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px)
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{display:block;padding:14px;border-radius:12px}
+      .nav-links a::after{display:none}
+      .home-link{border:0;padding:14px!important}
+      .menu{display:block}
+      .hero{min-height:82svh}
+      .hero-inner{padding:125px 0 70px}
+      .hero-bottom .container{display:block}
+      .hero-bottom .container span+span{display:none}
+      .section{padding:82px 0}
+      .section-head{display:block}
+      .desc{margin-top:18px}
+      .bio{grid-template-columns:1fr;gap:35px}
+      .bio-photo{max-width:310px}
+      .metrics{grid-template-columns:repeat(2,1fr)}
+      .release{grid-template-columns:70px 1fr}
+      .cover{width:70px;height:70px}
+      .release-stat{grid-column:2;text-align:left;padding-top:8px;border-top:1px solid var(--line)}
+      .rider{padding:28px 20px}
+      .rider-head{display:block}
+      .rider-head p{margin-top:14px}
+      .rider-grid{grid-template-columns:repeat(2,1fr)}
+      .contacts{grid-template-columns:repeat(2,1fr)}
+      .quote{padding:40px 25px}
+      .quote:before{left:14px}
+      .footer-inner{display:block}
+      .footer-inner p+p{margin-top:8px}
+    }
+
+    @media(max-width:480px){
+      .container,.nav-inner{width:min(calc(100% - 30px),var(--max))}
+      .hero h1{font-size:clamp(48px,16vw,82px)}
+      .hero-meta{gap:6px}
+      .meta-pill{font-size:8px}
+      .metrics{gap:8px}
+      .metric{min-height:125px;padding:19px 14px}
+      .metric-number{font-size:27px}
+      .release-info h3{font-size:15px}
+      .release-stat strong{font-size:15px}
+      .rider-grid,.contacts{grid-template-columns:1fr}
+    }
+  
+    /* LIGHT THEME */
+    body{background:#f7f7f4;color:#171717}
+    .site-nav.scrolled,.nav.scrolled{
+      background:rgba(255,255,255,.82)!important;
+      border-color:rgba(20,20,20,.10)!important;
+    }
+    .nav-links a{color:#666}
+    .nav-links a:hover{color:#111}
+    .menu-toggle,.menu{background:rgba(255,255,255,.78);border-color:rgba(20,20,20,.12)}
+    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after,
+    .menu span,.menu span::before,.menu span::after{background:#171717}
+    .menu-toggle.active span,.menu.active span{background:transparent}
+    .nav-cta,.home-link,.secondary,.btn-ghost{
+      background:rgba(255,255,255,.72);
+      color:#444!important;
+      border-color:rgba(20,20,20,.16);
+    }
+    .nav-cta:hover,.home-link:hover,.secondary:hover,.btn-ghost:hover{
+      border-color:#d8b65b;color:#9b7a25!important;
+    }
+    .hero::before{
+      background:
+        radial-gradient(circle at 50% 42%,rgba(216,182,91,.13),transparent 32%),
+        linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.38) 48%,#f7f7f4 100%)!important;
+    }
+    .hero::after{
+      background:linear-gradient(90deg,rgba(255,255,255,.36),transparent 48%,rgba(255,255,255,.30))!important;
+    }
+    .hero h1{
+      background:linear-gradient(180deg,#151515 10%,#666 100%)!important;
+      -webkit-background-clip:text!important;background-clip:text!important;
+      color:transparent!important;
+    }
+    .hero-release{color:#333!important}
+    .section.alt{background:#f0f0ed;border-color:rgba(20,20,20,.06)!important}
+    .release-feature,.mini-release,.spotify-frame,.tour-shell,.metric,.release,.quote,.rider,.contact,.about-block{
+      background:#fff!important;
+      border-color:rgba(20,20,20,.10)!important;
+    }
+    .release-content p,.section-desc,.about-block p,.bio-copy p,.desc{color:#666!important}
+    .release-meta,.mini-content p{color:#777!important}
+    .release-secondary{color:#555!important;border-color:rgba(20,20,20,.12)!important}
+    .release-secondary:hover{color:#9b7a25!important;border-color:#d8b65b!important}
+    .contact{background:#fff!important}
+    .contact a,.footer-col a{color:#666}
+    footer{background:#fff!important;border-color:rgba(20,20,20,.10)!important}
+    .footer-brand p,.footer-bottom,.footer-col h4{color:#888!important}
+    .footer-col a:hover{color:#9b7a25!important}
+    .socials a{color:#666;border-color:rgba(20,20,20,.12)}
+    .socials a:hover{color:#9b7a25;border-color:#d8b65b}
+    .newsletter input{background:#fff!important;color:#171717!important;border-color:rgba(20,20,20,.14)!important}
+    .newsletter input::placeholder{color:#999}
+    .contact{
+      background:
+        radial-gradient(circle at 50% 0,rgba(216,182,91,.13),transparent 34%),
+        #f0f0ed!important;
+    }
+
+    /* EPK light */
+    .bio-photo,.cover{background:#eee!important}
+    .metric-number,.release-info h3,.rider h3,.contact h3,.bio-copy h3{color:#171717!important}
+    .metric-name,.release-info p,.release-stat span,.rider-item,.contact p{color:#777!important}
+    .rider-item{background:#f7f7f4!important;border-color:rgba(20,20,20,.08)!important}
+    .rider-note{background:rgba(216,182,91,.08)!important;color:#666!important}
+    .quote{background:#fff!important}
+    .quote p{color:#222!important}
+    .quote-source{color:#777!important}
+    .hero h1 span{color:#777!important}
+
+    /* Campaign light */
+    .backdrop::after{
+      background:
+        radial-gradient(circle at 50% 35%,rgba(216,182,91,.10),transparent 30%),
+        linear-gradient(180deg,rgba(255,255,255,.40),rgba(255,255,255,.86) 68%,#f7f7f4 100%)!important;
+    }
+    .backdrop{opacity:.24!important}
+    .grain{opacity:.025!important}
+    .art{border-color:rgba(20,20,20,.12)!important}
+    .art-label{color:#111!important}
+    .subtitle{color:#666!important}
+    .release-line{color:#777!important}
+    .countdown{border-color:rgba(20,20,20,.10)!important;background:rgba(20,20,20,.10)!important}
+    .count-item{background:rgba(255,255,255,.82)!important}
+    .unit{color:#777!important}
+    .fineprint{color:#888!important}
+    footer p{color:#888!important}
+    .era,.home{background:rgba(255,255,255,.68)!important;color:#666!important;border-color:rgba(20,20,20,.12)!important}
+    
+  
+    /* LIGHT PRESS KIT CONTRAST FIX */
+    .bio-copy p{
+      color:#5f5f5b!important;
+    }
+    .bio-copy strong{
+      color:#171717!important;
+      font-weight:700;
+    }
+    .bio-copy em{
+      color:#4f4f4b!important;
+      font-style:italic;
+    }
+    .bio-copy h3{
+      color:#171717!important;
+    }
+    .rider-note strong{
+      color:#4f3b12!important;
+    }
+    .release-info h3,
+    .release-info h3 strong{
+      color:#171717!important;
+    }
+    .release-info p{
+      color:#666661!important;
+    }
+    .section-head .desc{
+      color:#5f5f5b!important;
+    }
+
+  
+    /* Contact / platform logos restored from the original Press Kit */
+    .contact-icon{
+      width:42px!important;
+      height:42px!important;
+      display:grid!important;
+      place-items:center!important;
+      margin:0 auto 15px!important;
+      color:var(--gold-dark)!important;
+      font-size:0!important;
+    }
+    .contact-icon svg{
+      width:32px!important;
+      height:32px!important;
+      display:block!important;
+      fill:currentColor!important;
+    }
+    .contact:hover .contact-icon{
+      color:var(--gold)!important;
+      transform:translateY(-2px);
+      transition:transform .25s var(--ease),color .25s;
+    }
+
+  
+    .language-prompt{position:fixed;left:22px;bottom:22px;z-index:2000;width:min(390px,calc(100vw - 30px));padding:18px;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);border-radius:18px;box-shadow:0 22px 65px rgba(0,0,0,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(14px);transition:.32s}
+    .language-prompt.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .language-prompt-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+    .language-prompt-label{margin:0 0 6px;color:#b58d27;font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .language-prompt h3{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:18px;line-height:1.15;letter-spacing:-.035em}
+    .language-prompt p{margin:8px 0 14px;color:#70706b;font-size:10px;line-height:1.6}
+    .language-prompt-close{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:#fff;color:#777;cursor:pointer}
+    .language-prompt-actions{display:flex;gap:8px}
+    .language-prompt-actions button{min-height:38px;padding:0 14px;border-radius:999px;font:800 9px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+    .language-accept{border:1px solid #d8b65b;background:#d8b65b;color:#fff}
+    .language-keep{border:1px solid rgba(20,20,20,.10);background:#fff;color:#555}
+    .language-status{margin-top:10px!important;margin-bottom:0!important;font-size:9px!important;color:#9a9a94!important}
+    .lang-switch{position:fixed;right:18px;bottom:18px;z-index:1999;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:rgba(255,255,255,.92);color:#686863;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    @media(max-width:520px){.language-prompt{left:15px;bottom:15px;width:calc(100vw - 30px)}.language-prompt-actions{flex-direction:column}.language-prompt-actions button{width:100%}.lang-switch{right:14px;bottom:14px}}
+    
+
+    .lang-label{position:fixed;right:65px;bottom:28px;z-index:1999;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#888;pointer-events:none}
+    @media(max-width:520px){.lang-label{right:61px;bottom:28px}}
+
+
+    /* DISCOGRAPHY */
+    .disco-group{margin-bottom:56px}
+    .disco-group-title{margin:0 0 18px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:26px;letter-spacing:-.03em}
+    .disco-soon{margin-top:26px;padding:20px 22px;border:1px dashed rgba(0,0,0,.18);border-radius:16px;color:#5f5f5b;font-size:13px;line-height:1.8}
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">HAFYZ</a>
+      <nav aria-label="Discography navigation">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#albums-t">Albums</a></li>
+          <li><a href="#eps">EPs</a></li>
+          <li><a href="#singles">Singles</a></li>
+          <li><a class="home-link" href="/">Back to website</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section" id="discography">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="kicker">Discography</p>
+            <h2 class="title">Every season, in order.</h2>
+          </div>
+          <p class="desc">The complete catalogue of HAFYZ — six studio albums, EPs and singles, from the debut single "Paradise" (2017) to the After Hours era and the first holiday season.</p>
+        </div>
+        <div id="albums"></div>
+        <div class="disco-group">
+          <h3 class="disco-group-title" id="albums-t">Albums</h3>
+          <div class="release-list">
+        <article class="release reveal"> <div class="cover"> <img src="/xoxo-deluxe-cover.jpg" alt="xoxo, i'm done (After Hours Deluxe)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>xoxo, i'm done (After Hours Deluxe)</h3> <p>Album · Released October 23, 2026 · 19 Tracks · After Hours Era</p> <a class="release-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Deluxe edition</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-hollow-gold.jpg" alt="xoxo, i'm done" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>xoxo, i'm done</h3> <p>Album · Released 2026 · Sixth Studio Album</p> <a class="release-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Sixth studio album</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-hafiz-ame.jpg" alt="HAFIZ (Apple Music Edition)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>HAFIZ (Apple Music Edition)</h3> <p>Album · Released 2023 · Instrumental</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Instrumental</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-immortal-romance.jpg" alt="Immortal Romance" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>Immortal Romance</h3> <p>Album · Released 2024</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>2024</span></div> </article>
+          </div>
+        </div>
+        <div class="disco-group">
+          <h3 class="disco-group-title" id="eps">EPs</h3>
+          <div class="release-list">
+        <article class="release reveal"> <div class="cover"> <img src="cover-december-with-you.jpg" alt="December, with you" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>December, with you</h3> <p>EP · Released December 4, 2026 · First Holiday EP</p> <a class="release-link" href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save / press link ↗</a> </div> <div class="release-stat"><strong>EP</strong><span>Out Dec 4</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-love-letters.jpg" alt="love letters i'll never sent" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>love letters i'll never sent</h3> <p>EP · Released October 24, 2025 · Instrumental · 4 Tracks</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>EP</strong><span>Instrumental</span></div> </article>
+          </div>
+        </div>
+        <div class="disco-group">
+          <h3 class="disco-group-title" id="singles">Singles</h3>
+          <div class="release-list">
+        <article class="release reveal"> <div class="cover"> <img src="cover-mistletoe-v2.jpg" alt="mistletoe" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>mistletoe</h3> <p>Single · Released November 13, 2026 · First Holiday Single</p> <a class="release-link" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>Out Nov 13</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-cute-but-annoying.jpg" alt="cute, but annoying (After Hours)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>cute, but annoying (After Hours)</h3> <p>Single · Released October 9, 2026 · After Hours Era</p> <a class="release-link" href="https://ffm.to/cbaah" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>After Hours</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-hollow-gold.jpg" alt="chasing hollow gold (After Hours)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>chasing hollow gold (After Hours)</h3> <p>Single · Released July 31, 2026 · After Hours Era</p> <a class="release-link" href="https://ffm.to/chasinghollowgold" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>7.6K</strong><span>Streams</span></div> </article>
+        <article class="release reveal"> <div class="cover"> <img src="cover-paradise.jpg" alt="Paradise" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>Paradise</h3> <p>Single · Released 2017 · Debut Single</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>Debut · 2017</span></div> </article>
+          </div>
+        </div>
+        <div class="disco-soon reveal"><strong>Coming soon.</strong> A new single on January 8, 2027 and a new EP on January 29, 2027 — titles to be announced.</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
+      <p><a href="/">Website</a> · <a href="/press/">Press / EPK</a> · <a href="/appearance/">Appearance</a></p>
+    </div>
+  </footer>
+  <script>
+    (function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('visible');});return;}var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target);}});},{threshold:.08});els.forEach(function(el){o.observe(el);});})();
+  </script>
+</body>
+</html>

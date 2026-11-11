@@ -1262,11 +1262,11 @@
         </video>
         <div class="hero-video-overlay"></div>
         <div class="hero-content">
-        <p class="eyebrow">OUT NOW</p>
-        <p class="hero-release-title">cute, but annoying (After Hours)</p>
+        <p class="eyebrow" id="hero-eyebrow">OUT NOV 13</p>
+        <p class="hero-release-title">mistletoe</p>
         <h1>HAFYZ</h1>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://ffm.to/cbaah" target="_blank" rel="noopener">Listen now ↗</a>
+          <a class="btn btn-primary" id="hero-cta" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Pre-save ↗</a>
           <a class="btn btn-secondary" href="#tour" data-i18n="viewTourDates">View tour dates</a>
         </div>
       </div>
@@ -1711,7 +1711,7 @@
             ["GUEST & APPEARANCE","TAMU & PENAMPILAN"], ["Invite HAFYZ to your event.","Undang HAFYZ ke acara Anda."],
             ["Guests, red carpets, premieres, panels & industry events.","Tamu, red carpet, premiere, panel & acara industri."],
             ["New release","Rilisan terbaru"], ["Listen now ↗","Dengarkan sekarang ↗"], ["Listen now","Dengarkan sekarang"], ["View tour dates","Lihat jadwal tur"], ["Pre-save now ↗","Pre-save sekarang ↗"],
-            ["New single · Out Nov 13","Single baru · Rilis 13 Nov"], ["Out now","Sudah dirilis"],
+            ["New single · Out Nov 13","Single baru · Rilis 13 Nov"], ["Out Nov 13","Rilis 13 Nov"], ["Pre-save ↗","Pre-save ↗"], ["Out now","Sudah dirilis"],
             ["My first holiday single ever — the lead single from my first holiday EP, 'December, with you', arriving December 4.","Single holiday pertamaku — single pembuka dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."],
             ["My first holiday single ever — from my first holiday EP, 'December, with you', arriving December 4.","Single holiday pertamaku — dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."],
             ["Stream here ↗","Dengarkan di sini ↗"],
@@ -2071,6 +2071,10 @@
       ? "Single holiday pertamaku — dari EP holiday pertamaku, 'December, with you', yang tiba 4 Desember."
       : "My first holiday single ever — from my first holiday EP, 'December, with you', arriving December 4.";
     if(cta) cta.textContent = idMode ? 'Dengarkan di sini ↗' : 'Stream here ↗';
+    var heroEyebrow = document.getElementById('hero-eyebrow');
+    var heroCta = document.getElementById('hero-cta');
+    if(heroEyebrow) heroEyebrow.textContent = 'OUT NOW';
+    if(heroCta) heroCta.textContent = idMode ? 'Dengarkan sekarang ↗' : 'Listen now ↗';
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply);
   else apply();

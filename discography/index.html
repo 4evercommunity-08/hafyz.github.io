@@ -513,12 +513,16 @@
     .disco-group{margin-bottom:56px}
     .disco-group-title{margin:0 0 18px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:26px;letter-spacing:-.03em}
     .disco-soon{margin-top:26px;padding:20px 22px;border:1px dashed rgba(0,0,0,.18);border-radius:16px;color:#5f5f5b;font-size:13px;line-height:1.8}
+  
+    .brand-logo{display:block;height:22px;width:auto}
+    .footer-brand .brand-logo{height:34px}
+    .hero-logo{display:block;width:min(560px,78vw);height:auto;margin:6px 0 2px}
   </style>
 </head>
 <body>
   <header class="nav" id="nav">
     <div class="nav-inner">
-      <a class="brand" href="/">HAFYZ</a>
+      <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
       <nav aria-label="Discography navigation">
         <ul class="nav-links" id="nav-links">
           <li><a href="#albums-t">Albums</a></li>
@@ -571,6 +575,7 @@
   </main>
   <footer>
     <div class="footer-inner">
+      <p><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120" style="height:26px;margin-bottom:8px"></p>
       <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
       <p><a href="/">Website</a> · <a href="/press/">Press / EPK</a> · <a href="/appearance/">Appearance</a></p>
     </div>

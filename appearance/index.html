@@ -1127,7 +1127,7 @@
    Consent format: localStorage['hafyz-cookie-consent-v2'] = {essential, analytics, marketing, ts}.
    Analytics -> Google Analytics. Marketing -> Meta Pixel + TikTok Pixel. GoatCounter stays unconditional (cookie-free). */
 (function(){
-  var PIXEL_ID='1537787853829726', GA_ID='G-PLNF287NQC', TIKTOK_ID='DBQJD6RC77UBQ4PDVCIG', KEY='hafyz-cookie-consent-v2';
+  var PIXEL_ID='1537787853829726', GA_ID='G-Q0EYN5TR07', TIKTOK_ID='DBQJD6RC77UBQ4PDVCIG', KEY='hafyz-cookie-consent-v2';
   var banner=document.getElementById('hafyzCookieBanner'), prefs=document.getElementById('hafyzCookiePrefs');
   if(!banner||!prefs)return;
   function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&typeof c.analytics==='boolean'&&typeof c.marketing==='boolean')return c;return null}catch(e){return null}}

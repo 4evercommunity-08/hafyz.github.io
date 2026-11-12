@@ -1527,6 +1527,8 @@
           target="hafyzNewsletterFrame">
           <label for="email" style="position:absolute;left:-9999px">Email address</label>
           <input id="email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
+          <!-- Mailchimp honeypot: real visitors never see/fill this; bots do, and Mailchimp rejects those submissions. -->
+          <div style="position:absolute;left:-5000px" aria-hidden="true"><input type="text" name="b_71391a9e879a55c99a581a567_ac61a49750" tabindex="-1" value=""></div>
           <button class="btn btn-primary" type="submit" id="newsletterSubmit">Subscribe</button>
         </form>
         <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>

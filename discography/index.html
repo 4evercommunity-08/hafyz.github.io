@@ -518,8 +518,19 @@
     .footer-brand .brand-logo{height:34px}
     .hero-logo{display:block;width:min(560px,78vw);height:auto;margin:6px 0 2px}
   </style>
+<style id="hafyz-cookie-styles">
+#hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;max-width:980px;margin:auto;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 50px rgba(0,0,0,.14);border-radius:18px;padding:18px 20px;font-family:inherit;color:#171717;backdrop-filter:blur(12px)}
+#hafyzCookieBanner[hidden],#hafyzCookiePrefs[hidden]{display:none!important}
+.hafyz-cookie-row{display:flex;gap:20px;align-items:center;justify-content:space-between}.hafyz-cookie-copy{max-width:680px}.hafyz-cookie-title{font-weight:700;font-size:14px;margin:0 0 5px}.hafyz-cookie-text{font-size:12px;line-height:1.55;color:#666;margin:0}.hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.hafyz-cookie-btn{border:1px solid rgba(20,20,20,.14);background:#fff;color:#171717;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:700;cursor:pointer}.hafyz-cookie-btn.primary{background:#171717;color:#fff;border-color:#171717}.hafyz-cookie-btn:hover{opacity:.86}
+#hafyzCookiePrefs{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.35);display:grid;place-items:center;padding:20px;font-family:inherit}.hafyz-cookie-modal{width:min(440px,100%);background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#171717}.hafyz-cookie-modal h3{margin:0 0 6px;font-size:18px}.hafyz-cookie-modal>p{margin:0 0 18px;color:#666;font-size:12px;line-height:1.55}.hafyz-cookie-option{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid rgba(20,20,20,.09)}.hafyz-cookie-option strong{font-size:13px}.hafyz-cookie-option small{display:block;color:#777;font-size:11px;margin-top:2px}.hafyz-cookie-switch{width:42px;height:24px;border-radius:99px;background:#ddd;position:relative;border:0;cursor:pointer}.hafyz-cookie-switch:after{content:"";position:absolute;width:18px;height:18px;top:3px;left:3px;background:#fff;border-radius:50%;transition:.18s}.hafyz-cookie-switch.on{background:#171717}.hafyz-cookie-switch.on:after{left:21px}.hafyz-cookie-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+@media(max-width:700px){#hafyzCookieBanner{left:12px;right:12px;bottom:12px}.hafyz-cookie-row{display:block}.hafyz-cookie-actions{justify-content:flex-start;margin-top:12px}.hafyz-cookie-btn{flex:1}}
+</style>
 </head>
 <body>
+<div id="hafyzCookieBanner" hidden>
+  <div class="hafyz-cookie-row"><div class="hafyz-cookie-copy"><p class="hafyz-cookie-title" data-cookie-title>Cookies & Privacy</p><p class="hafyz-cookie-text" data-cookie-text>We use cookies and similar technologies to improve your experience, measure website traffic, and support relevant advertising.</p></div><div class="hafyz-cookie-actions"><button class="hafyz-cookie-btn" id="hafyzCookieManage" type="button">Manage Preferences</button><button class="hafyz-cookie-btn" id="hafyzCookieReject" type="button">Reject</button><button class="hafyz-cookie-btn primary" id="hafyzCookieAccept" type="button">Accept</button></div></div>
+</div>
+<div id="hafyzCookiePrefs" hidden><div class="hafyz-cookie-modal" role="dialog" aria-modal="true"><h3>Cookie Preferences</h3><p>Choose which optional technologies you allow.</p><div class="hafyz-cookie-option"><div><strong>Essential</strong><small>Always active</small></div><button class="hafyz-cookie-switch on" disabled></button></div><div class="hafyz-cookie-option"><div><strong>Analytics</strong><small>Google Analytics traffic measurement</small></div><button class="hafyz-cookie-switch" id="hafyzAnalyticsSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-option"><div><strong>Marketing</strong><small>Meta Pixel, TikTok Pixel and advertising measurement</small></div><button class="hafyz-cookie-switch" id="hafyzMarketingSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-modal-actions"><button class="hafyz-cookie-btn" id="hafyzCookiePrefsCancel" type="button">Cancel</button><button class="hafyz-cookie-btn primary" id="hafyzCookiePrefsSave" type="button">Save Preferences</button></div></div></div>
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
@@ -583,5 +594,34 @@
   <script>
     (function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('visible');});return;}var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target);}});},{threshold:.08});els.forEach(function(el){o.observe(el);});})();
   </script>
+<script id="hafyz-cookie-consent">
+/* HAFYZ-TRACKERS-V3: GA4 + Meta Pixel + TikTok Pixel, all consent-gated.
+   Consent format: localStorage['hafyz-cookie-consent-v2'] = {essential, analytics, marketing, ts}.
+   Analytics -> Google Analytics. Marketing -> Meta Pixel + TikTok Pixel. GoatCounter stays unconditional (cookie-free). */
+(function(){
+  var PIXEL_ID='1537787853829726', GA_ID='G-PLNF287NQC', TIKTOK_ID='DBQJD6RC77UBQ4PDVCIG', KEY='hafyz-cookie-consent-v2';
+  var banner=document.getElementById('hafyzCookieBanner'), prefs=document.getElementById('hafyzCookiePrefs');
+  if(!banner||!prefs)return;
+  function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&typeof c.analytics==='boolean'&&typeof c.marketing==='boolean')return c;return null}catch(e){return null}}
+  function legacyMarketing(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');return !!(c&&c.marketing)}catch(e){return localStorage.getItem(KEY)==='accepted'||localStorage.getItem('hafyz-marketing-consent-v2')==='granted'}}
+  function syncBanner(){document.body.classList.toggle('cookie-banner-visible',!banner.hidden)}
+  function loadGA4(){if(window.__HAFYZ_GA4_LOADED)return;window.__HAFYZ_GA4_LOADED=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.gtag('js',new Date());window.gtag('config',GA_ID)}
+  function pixel(){if(window.__hafyzMetaPixelLoaded||window.__HAFYZ_META_PIXEL_LOADED)return;window.__hafyzMetaPixelLoaded=true;window.__HAFYZ_META_PIXEL_LOADED=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
+  function loadTikTok(){if(window.__HAFYZ_TIKTOK_LOADED)return;window.__HAFYZ_TIKTOK_LOADED=true;!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdEvents","sendEventToTikTokApi","setCookieConsent","grantConsent","revokeConsent"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load(TIKTOK_ID);ttq.page()}(window,document,'ttq')}
+  function apply(c){if(c.analytics)loadGA4();if(c.marketing){pixel();loadTikTok()}}
+  function save(analytics,marketing){var c={essential:true,analytics:!!analytics,marketing:!!marketing,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(c));apply(c);banner.hidden=true;prefs.hidden=true;syncBanner()}
+  document.getElementById('hafyzCookieAccept').onclick=function(){save(true,true)};
+  document.getElementById('hafyzCookieReject').onclick=function(){save(false,false)};
+  var aSw=document.getElementById('hafyzAnalyticsSwitch'), mSw=document.getElementById('hafyzMarketingSwitch');
+  function setSw(sw,on){if(sw){sw.classList.toggle('on',on);sw.setAttribute('aria-pressed',String(on))}}
+  document.getElementById('hafyzCookieManage').onclick=function(){var c=get();setSw(aSw,!!(c&&c.analytics));setSw(mSw,!!(c?c.marketing:legacyMarketing()));prefs.hidden=false};
+  document.getElementById('hafyzCookiePrefsCancel').onclick=function(){prefs.hidden=true};
+  [aSw,mSw].forEach(function(sw){if(sw)sw.onclick=function(){var on=!sw.classList.contains('on');setSw(sw,on)}});
+  document.getElementById('hafyzCookiePrefsSave').onclick=function(){save(aSw.classList.contains('on'),mSw.classList.contains('on'))};
+  var c=get();if(!c)banner.hidden=false;else apply(c);syncBanner();
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.href||'';var cc=get();var isPre=/ffm\.to|found\.ee|presave/i.test(h), isSpot=/spotify\.com/i.test(h);if(!isPre&&!isSpot)return;if(cc&&cc.marketing){if(window.fbq){if(isPre)fbq('trackCustom','PreSaveClick',{page:location.pathname});if(isSpot)fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'})}if(window.ttq&&typeof window.ttq.track==='function'){if(isPre)window.ttq.track('ClickButton',{content_name:'Pre-save',content_category:'music'});if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'})}}if(cc&&cc.analytics&&window.gtag){if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h})}});
+})();
+</script>
+<script src="/assets/js/meta-pixel.js" defer></script>
 </body>
 </html>

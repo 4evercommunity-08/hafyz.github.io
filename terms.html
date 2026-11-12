@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+/* HAFYZ-CONSENT-MODE-V1: Google Consent Mode v2 defaults, all denied.
+   Runs before gtag.js loads so GA4 sends cookieless pings until the
+   visitor grants consent in the cookie banner. */
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+</script>
 
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -540,9 +548,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
   <script id="hafyz-cookie-consent">
-/* HAFYZ-TRACKERS-V3: GA4 + Meta Pixel + TikTok Pixel, all consent-gated.
+/* HAFYZ-TRACKERS-V4: GA4 (Consent Mode v2) + Meta Pixel + TikTok Pixel.
    Consent format: localStorage['hafyz-cookie-consent-v2'] = {essential, analytics, marketing, ts}.
-   Analytics -> Google Analytics. Marketing -> Meta Pixel + TikTok Pixel. GoatCounter stays unconditional (cookie-free). */
+   GA4 loads on every visit with consent denied (cookieless pings); granting Analytics enables full measurement. Marketing -> Meta Pixel + TikTok Pixel, still consent-gated. GoatCounter stays unconditional (cookie-free). */
 (function(){
   var PIXEL_ID='1537787853829726', GA_ID='G-Q0EYN5TR07', TIKTOK_ID='DBQJD6RC77UBQ4PDVCIG', KEY='hafyz-cookie-consent-v2';
   var banner=document.getElementById('hafyzCookieBanner'), prefs=document.getElementById('hafyzCookiePrefs');
@@ -551,9 +559,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   function legacyMarketing(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');return !!(c&&c.marketing)}catch(e){return localStorage.getItem(KEY)==='accepted'||localStorage.getItem('hafyz-marketing-consent-v2')==='granted'}}
   function syncBanner(){document.body.classList.toggle('cookie-banner-visible',!banner.hidden)}
   function loadGA4(){if(window.__HAFYZ_GA4_LOADED)return;window.__HAFYZ_GA4_LOADED=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.gtag('js',new Date());window.gtag('config',GA_ID)}
+  function consentUpdate(c){if(!window.gtag)return;window.gtag('consent','update',{'analytics_storage':c.analytics?'granted':'denied','ad_storage':c.marketing?'granted':'denied','ad_user_data':c.marketing?'granted':'denied','ad_personalization':c.marketing?'granted':'denied'})}
   function pixel(){if(window.__hafyzMetaPixelLoaded||window.__HAFYZ_META_PIXEL_LOADED)return;window.__hafyzMetaPixelLoaded=true;window.__HAFYZ_META_PIXEL_LOADED=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
   function loadTikTok(){if(window.__HAFYZ_TIKTOK_LOADED)return;window.__HAFYZ_TIKTOK_LOADED=true;!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdEvents","sendEventToTikTokApi","setCookieConsent","grantConsent","revokeConsent"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load(TIKTOK_ID);ttq.page()}(window,document,'ttq')}
-  function apply(c){if(c.analytics)loadGA4();if(c.marketing){pixel();loadTikTok()}}
+  function apply(c){loadGA4();consentUpdate(c);if(c.marketing){pixel();loadTikTok()}}
   function save(analytics,marketing){var c={essential:true,analytics:!!analytics,marketing:!!marketing,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(c));apply(c);banner.hidden=true;prefs.hidden=true;syncBanner()}
   document.getElementById('hafyzCookieAccept').onclick=function(){save(true,true)};
   document.getElementById('hafyzCookieReject').onclick=function(){save(false,false)};
@@ -563,8 +572,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('hafyzCookiePrefsCancel').onclick=function(){prefs.hidden=true};
   [aSw,mSw].forEach(function(sw){if(sw)sw.onclick=function(){var on=!sw.classList.contains('on');setSw(sw,on)}});
   document.getElementById('hafyzCookiePrefsSave').onclick=function(){save(aSw.classList.contains('on'),mSw.classList.contains('on'))};
-  var c=get();if(!c)banner.hidden=false;else apply(c);syncBanner();
-  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.href||'';var cc=get();var isPre=/ffm\.to|found\.ee|presave/i.test(h), isSpot=/spotify\.com/i.test(h);if(!isPre&&!isSpot)return;if(cc&&cc.marketing){if(window.fbq){if(isPre)fbq('trackCustom','PreSaveClick',{page:location.pathname});if(isSpot)fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'})}if(window.ttq&&typeof window.ttq.track==='function'){if(isPre)window.ttq.track('ClickButton',{content_name:'Pre-save',content_category:'music'});if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'})}}if(cc&&cc.analytics&&window.gtag){if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h})}});
+  var c=get();apply(c||{analytics:false,marketing:false});if(!c)banner.hidden=false;syncBanner();
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.href||'';var cc=get();var isPre=/ffm\.to|found\.ee|presave/i.test(h), isSpot=/spotify\.com/i.test(h);if(!isPre&&!isSpot)return;if(cc&&cc.marketing){if(window.fbq){if(isPre)fbq('trackCustom','PreSaveClick',{page:location.pathname});if(isSpot)fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'})}if(window.ttq&&typeof window.ttq.track==='function'){if(isPre)window.ttq.track('ClickButton',{content_name:'Pre-save',content_category:'music'});if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'})}}if(window.gtag){if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h})}});
 })();
 </script>
 <script src="/assets/js/meta-pixel.js" defer></script>

@@ -3,6 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+  /* HAFYZ-CONSENT-MODE-V1: Google Consent Mode v2 defaults, all denied.
+     Runs before gtag.js loads so GA4 sends cookieless pings until the
+     visitor grants consent in the cookie banner. */
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+  </script>
   <title>HAFYZ</title>
   <meta name="description" content="Official Website of HAFYZ.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -1217,7 +1225,7 @@
     <div>
       <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies & Privacy</div>
       <div class="hafyz-cookie-title" id="hafyzCookieTitle">A little privacy choice.</div>
-      <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics and marketing tracking stay off until you allow them.</div>
+      <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics cookies and marketing tracking stay off until you allow them.</div>
     </div>
     <div class="hafyz-cookie-actions">
       <button class="hafyz-cookie-btn secondary" id="hafyzCookieManage" type="button">Manage</button>
@@ -2003,7 +2011,7 @@
   const copy = {
     en:{
       kicker:'Cookies & Privacy', title:'A little privacy choice.',
-      body:'We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics and marketing tracking stay off until you allow them.',
+      body:'We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics cookies and marketing tracking stay off until you allow them.',
       manage:'Manage', reject:'Reject', accept:'Accept', modal:'Cookie preferences',
       modalCopy:'Choose which optional technologies you want to allow.', essential:'Essential',
       essentialCopy:'Always active. Used for core site preferences.', analytics:'Analytics',
@@ -2012,7 +2020,7 @@
     },
     id:{
       kicker:'Cookie & Privasi', title:'Sedikit pilihan privasi.',
-      body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi, analitik opsional untuk memahami cara website digunakan, dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Pelacakan analitik dan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
+      body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi, analitik opsional untuk memahami cara website digunakan, dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Cookie analitik dan pelacakan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
       manage:'Kelola', reject:'Tolak', accept:'Terima', modal:'Preferensi cookie',
       modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.', essential:'Esensial',
       essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', analytics:'Analitik',
@@ -2068,6 +2076,11 @@
     window.gtag('config',GA_ID);
   }
 
+  function consentUpdate(analytics,marketing){
+    if(!window.gtag)return;
+    window.gtag('consent','update',{'analytics_storage':analytics?'granted':'denied','ad_storage':marketing?'granted':'denied','ad_user_data':marketing?'granted':'denied','ad_personalization':marketing?'granted':'denied'});
+  }
+
   function loadTikTok(){
     if(window.__HAFYZ_TIKTOK_LOADED) return;
     window.__HAFYZ_TIKTOK_LOADED=true;
@@ -2085,7 +2098,8 @@
   function save(analytics,marketing){
     localStorage.setItem(CONSENT_KEY, JSON.stringify({essential:true,analytics:!!analytics,marketing:!!marketing,ts:Date.now()}));
     localStorage.setItem(MARKETING_KEY, marketing ? 'granted' : 'denied');
-    if(analytics) loadGA4();
+    loadGA4();
+    consentUpdate(!!analytics,!!marketing);
     if(marketing){loadPixel();loadTikTok();}
     banner.classList.remove('show');
     modal.classList.remove('show');
@@ -2133,14 +2147,15 @@
   // localStorage is shared by the hafyz.my.id origin. Older saved
   // choices (before the Analytics category existed) show the banner
   // once more so the visitor can decide on analytics too.
+  loadGA4();
+  consentUpdate(consent?consent.analytics:false,consent?consent.marketing:false);
   if(consent){
-    if(consent.analytics) loadGA4();
     if(consent.marketing){loadPixel();loadTikTok();}
   }else{
     setTimeout(function(){banner.classList.add('show')},450);
   }
 
-  // HAFYZ-TRACKERS-V3: same click events as Press/Appearance/Discography.
+  // HAFYZ-TRACKERS-V4: same click events as Press/Appearance/Discography.
   document.addEventListener('click',function(e){
     const a=e.target.closest&&e.target.closest('a');
     if(!a)return;
@@ -2158,7 +2173,7 @@
         if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'});
       }
     }
-    if(cc&&cc.analytics&&window.gtag){
+    if(window.gtag){
       if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});
       if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h});
     }

@@ -1205,7 +1205,7 @@
   <!-- GoatCounter: cookie-free, privacy-friendly pageview analytics.
        Loads unconditionally (no consent gate needed) so there's always
        at least basic traffic data, even if the visitor declines the
-       Meta Pixel in the cookie banner below. -->
+       analytics/marketing tracking in the cookie banner below. -->
   <script data-goatcounter="https://hafyz.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -1217,7 +1217,7 @@
     <div>
       <div class="hafyz-cookie-kicker" id="hafyzCookieKicker">Cookies & Privacy</div>
       <div class="hafyz-cookie-title" id="hafyzCookieTitle">A little privacy choice.</div>
-      <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.</div>
+      <div class="hafyz-cookie-copy" id="hafyzCookieCopy">We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics and marketing tracking stay off until you allow them.</div>
     </div>
     <div class="hafyz-cookie-actions">
       <button class="hafyz-cookie-btn secondary" id="hafyzCookieManage" type="button">Manage</button>
@@ -1234,6 +1234,10 @@
     <div class="hafyz-cookie-option">
       <div><strong id="hafyzEssentialTitle">Essential</strong><small id="hafyzEssentialCopy">Always active. Used for core site preferences.</small></div>
       <button class="hafyz-cookie-switch on" type="button" disabled aria-label="Essential cookies always active"></button>
+    </div>
+    <div class="hafyz-cookie-option">
+      <div><strong id="hafyzAnalyticsTitle">Analytics</strong><small id="hafyzAnalyticsCopy">Google Analytics traffic measurement.</small></div>
+      <button class="hafyz-cookie-switch" id="hafyzAnalyticsToggle" type="button" aria-pressed="false" aria-label="Analytics cookies"></button>
     </div>
     <div class="hafyz-cookie-option">
       <div><strong id="hafyzMarketingTitle">Marketing</strong><small id="hafyzMarketingCopy">Meta Pixel and advertising measurement.</small></div>
@@ -1984,29 +1988,34 @@
   'use strict';
 
   const PIXEL_ID = '1537787853829726';
+  const GA_ID = 'G-PLNF287NQC';
+  const TIKTOK_ID = 'DBQJD6RC77UBQ4PDVCIG';
   const CONSENT_KEY = 'hafyz-cookie-consent-v2';
   const MARKETING_KEY = 'hafyz-marketing-consent-v2';
 
   const banner = document.getElementById('hafyzCookieBanner');
   const modal = document.getElementById('hafyzCookieModal');
   const toggle = document.getElementById('hafyzMarketingToggle');
+  const aToggle = document.getElementById('hafyzAnalyticsToggle');
 
   const copy = {
     en:{
       kicker:'Cookies & Privacy', title:'A little privacy choice.',
-      body:'We use essential storage to keep the site working and optional marketing technology to measure campaigns and support relevant advertising. Marketing tracking stays off until you allow it.',
+      body:'We use essential storage to keep the site working, optional analytics to understand how the site is used, and optional marketing technology to measure campaigns and support relevant advertising. Analytics and marketing tracking stay off until you allow them.',
       manage:'Manage', reject:'Reject', accept:'Accept', modal:'Cookie preferences',
       modalCopy:'Choose which optional technologies you want to allow.', essential:'Essential',
-      essentialCopy:'Always active. Used for core site preferences.', marketing:'Marketing',
-      marketingCopy:'Meta Pixel and advertising measurement.', cancel:'Cancel', save:'Save preferences'
+      essentialCopy:'Always active. Used for core site preferences.', analytics:'Analytics',
+      analyticsCopy:'Google Analytics traffic measurement.', marketing:'Marketing',
+      marketingCopy:'Meta Pixel, TikTok Pixel and advertising measurement.', cancel:'Cancel', save:'Save preferences'
     },
     id:{
       kicker:'Cookie & Privasi', title:'Sedikit pilihan privasi.',
-      body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Pelacakan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
+      body:'Kami menggunakan penyimpanan penting agar website tetap berfungsi, analitik opsional untuk memahami cara website digunakan, dan teknologi pemasaran opsional untuk mengukur kampanye serta mendukung iklan yang relevan. Pelacakan analitik dan pemasaran tetap nonaktif sampai Anda mengizinkannya.',
       manage:'Kelola', reject:'Tolak', accept:'Terima', modal:'Preferensi cookie',
       modalCopy:'Pilih teknologi opsional yang ingin Anda izinkan.', essential:'Esensial',
-      essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', marketing:'Pemasaran',
-      marketingCopy:'Meta Pixel dan pengukuran iklan.', cancel:'Batal', save:'Simpan preferensi'
+      essentialCopy:'Selalu aktif. Digunakan untuk preferensi inti website.', analytics:'Analitik',
+      analyticsCopy:'Pengukuran traffic Google Analytics.', marketing:'Pemasaran',
+      marketingCopy:'Meta Pixel, TikTok Pixel, dan pengukuran iklan.', cancel:'Batal', save:'Simpan preferensi'
     }
   };
 
@@ -2021,6 +2030,7 @@
       hafyzCookieManage:c.manage, hafyzCookieReject:c.reject, hafyzCookieAccept:c.accept,
       hafyzCookieModalTitle:c.modal, hafyzCookieModalCopy:c.modalCopy,
       hafyzEssentialTitle:c.essential, hafyzEssentialCopy:c.essentialCopy,
+      hafyzAnalyticsTitle:c.analytics, hafyzAnalyticsCopy:c.analyticsCopy,
       hafyzMarketingTitle:c.marketing, hafyzMarketingCopy:c.marketingCopy,
       hafyzCookieCancel:c.cancel, hafyzCookieSave:c.save
     };
@@ -2031,7 +2041,7 @@
   }
 
   function loadPixel(){
-    if(window.__HAFYZ_META_PIXEL_LOADED || !/^\d+$/.test(PIXEL_ID)) return;
+    if(window.__HAFYZ_META_PIXEL_LOADED || window.__hafyzMetaPixelLoaded || !/^\d+$/.test(PIXEL_ID)) return;
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
       n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -2042,22 +2052,52 @@
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     window.fbq('init',PIXEL_ID);
     window.fbq('track','PageView');
+    window.__hafyzMetaPixelLoaded=true;
     window.__HAFYZ_META_PIXEL_LOADED=true;
   }
 
-  function save(marketing){
-    localStorage.setItem(CONSENT_KEY, marketing ? 'accepted' : 'rejected');
+  function loadGA4(){
+    if(window.__HAFYZ_GA4_LOADED) return;
+    window.__HAFYZ_GA4_LOADED=true;
+    window.dataLayer=window.dataLayer||[];
+    window.gtag=function(){dataLayer.push(arguments)};
+    var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);
+    window.gtag('js',new Date());
+    window.gtag('config',GA_ID);
+  }
+
+  function loadTikTok(){
+    if(window.__HAFYZ_TIKTOK_LOADED) return;
+    window.__HAFYZ_TIKTOK_LOADED=true;
+    !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdEvents","sendEventToTikTokApi","setCookieConsent","grantConsent","revokeConsent"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load(TIKTOK_ID);ttq.page()}(window,document,'ttq');
+  }
+
+  function readConsent(){
+    try{
+      const c=JSON.parse(localStorage.getItem(CONSENT_KEY)||'null');
+      if(c&&typeof c.analytics==='boolean'&&typeof c.marketing==='boolean')return c;
+      return null;
+    }catch(e){return null}
+  }
+
+  function save(analytics,marketing){
+    localStorage.setItem(CONSENT_KEY, JSON.stringify({essential:true,analytics:!!analytics,marketing:!!marketing,ts:Date.now()}));
     localStorage.setItem(MARKETING_KEY, marketing ? 'granted' : 'denied');
-    if(marketing) loadPixel();
+    if(analytics) loadGA4();
+    if(marketing){loadPixel();loadTikTok();}
     banner.classList.remove('show');
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden','true');
   }
 
-  document.getElementById('hafyzCookieAccept').addEventListener('click',function(){save(true)});
-  document.getElementById('hafyzCookieReject').addEventListener('click',function(){save(false)});
+  document.getElementById('hafyzCookieAccept').addEventListener('click',function(){save(true,true)});
+  document.getElementById('hafyzCookieReject').addEventListener('click',function(){save(false,false)});
   document.getElementById('hafyzCookieManage').addEventListener('click',function(){
-    const granted=localStorage.getItem(MARKETING_KEY)==='granted';
+    const c=readConsent();
+    const granted=c?c.marketing:localStorage.getItem(MARKETING_KEY)==='granted';
+    const aGranted=c?c.analytics:false;
+    aToggle.classList.toggle('on',aGranted);
+    aToggle.setAttribute('aria-pressed',String(aGranted));
     toggle.classList.toggle('on',granted);
     toggle.setAttribute('aria-pressed',String(granted));
     modal.classList.add('show');
@@ -2067,30 +2107,60 @@
     modal.classList.remove('show');
     modal.setAttribute('aria-hidden','true');
   });
+  aToggle.addEventListener('click',function(){
+    const on=!aToggle.classList.contains('on');
+    aToggle.classList.toggle('on',on);
+    aToggle.setAttribute('aria-pressed',String(on));
+  });
   toggle.addEventListener('click',function(){
     const on=!toggle.classList.contains('on');
     toggle.classList.toggle('on',on);
     toggle.setAttribute('aria-pressed',String(on));
   });
   document.getElementById('hafyzCookieSave').addEventListener('click',function(){
-    save(toggle.classList.contains('on'));
+    save(aToggle.classList.contains('on'), toggle.classList.contains('on'));
   });
 
   updateCookieCopy();
   new MutationObserver(updateCookieCopy).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
-  const consent=localStorage.getItem(CONSENT_KEY);
+  const consent=readConsent();
 
-  // Show the banner only when the visitor has never made a choice.
-  // A saved Accept or Reject decision persists across all HAFYZ pages
-  // because localStorage is shared by the hafyz.my.id origin.
-  if(consent==='accepted' || consent==='rejected'){
-    if(consent==='accepted' && localStorage.getItem(MARKETING_KEY)==='granted'){
-      loadPixel();
-    }
+  // Show the banner only when the visitor has no valid choice saved.
+  // A saved decision persists across all HAFYZ pages because
+  // localStorage is shared by the hafyz.my.id origin. Older saved
+  // choices (before the Analytics category existed) show the banner
+  // once more so the visitor can decide on analytics too.
+  if(consent){
+    if(consent.analytics) loadGA4();
+    if(consent.marketing){loadPixel();loadTikTok();}
   }else{
     setTimeout(function(){banner.classList.add('show')},450);
   }
+
+  // HAFYZ-TRACKERS-V3: same click events as Press/Appearance/Discography.
+  document.addEventListener('click',function(e){
+    const a=e.target.closest&&e.target.closest('a');
+    if(!a)return;
+    const h=a.href||'';
+    const cc=readConsent();
+    const isPre=/ffm\.to|found\.ee|presave/i.test(h), isSpot=/spotify\.com/i.test(h);
+    if(!isPre&&!isSpot)return;
+    if(cc&&cc.marketing){
+      if(window.fbq){
+        if(isPre)window.fbq('trackCustom','PreSaveClick',{page:location.pathname});
+        if(isSpot)window.fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'});
+      }
+      if(window.ttq&&typeof window.ttq.track==='function'){
+        if(isPre)window.ttq.track('ClickButton',{content_name:'Pre-save',content_category:'music'});
+        if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'});
+      }
+    }
+    if(cc&&cc.analytics&&window.gtag){
+      if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});
+      if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h});
+    }
+  });
 })();
 </script>
 

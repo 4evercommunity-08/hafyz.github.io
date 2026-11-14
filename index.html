@@ -85,7 +85,7 @@
   }
   .hero-photo{overflow:hidden;min-height:420px}
   .hero-photo img{
-    width:100%;height:100%;object-fit:cover;object-position:50% 26%;
+    width:100%;height:100%;object-fit:cover;object-position:50% 50%;
   }
   .hero-text{
     display:flex;flex-direction:column;justify-content:center;
@@ -109,14 +109,6 @@
   .hero-note a{text-decoration:underline;text-underline-offset:4px}
 
   /* ---------- releases row: 4 columns, no heading, no prices ---------- */
-  .releases{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
-    padding:56px 32px 8px;
-  }
-  .card-title{font-size:13px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card-sub{font-size:13px;letter-spacing:.1em;color:var(--muted);margin:4px 0 14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card img{width:100%;aspect-ratio:1/1;object-fit:cover}
-  .card .arrow-link{margin-top:14px;font-size:12px}
 
   /* ---------- video feature ---------- */
   .video{padding:56px 32px 8px}
@@ -157,14 +149,12 @@
     .hero-text{order:-1;padding:44px 24px 36px}
     .hero-photo{min-height:0;aspect-ratio:4/3}
     h1{font-size:clamp(3rem,13vw,5rem)}
-    .releases{grid-template-columns:repeat(2,1fr);gap:22px;padding:44px 20px 4px}
     .video{padding:44px 20px 4px}
     footer{padding:56px 20px 36px}
     .foot-right{text-align:left}
     .foot-right .legal{justify-content:flex-start}
   }
   @media (max-width:560px){
-    .releases{grid-template-columns:1fr}
     .socials{gap:14px}
   }
 </style>
@@ -352,7 +342,7 @@
   <!-- Hero -->
   <section class="hero" aria-label="mistletoe — out now">
     <div class="hero-photo">
-      <img src="/press/hafyz-press-photo-web.jpg" alt="HAFYZ press photo" width="1200" height="675" fetchpriority="high">
+      <img src="/mistletoe-cover.jpg" alt="mistletoe cover art" width="1000" height="1000" fetchpriority="high">
     </div>
     <div class="hero-text">
       <p class="eyebrow">The new single</p>
@@ -366,33 +356,7 @@
     </div>
   </section>
 
-  <!-- Releases -->
-  <section class="releases" aria-label="Releases">
-    <article class="card">
-      <p class="card-title">mistletoe</p>
-      <p class="card-sub">Single · Out now</p>
-      <img src="/mistletoe-cover.jpg" alt="mistletoe cover art" width="1000" height="1000" loading="lazy">
-      <a class="arrow-link" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen here <span class="arr">⟶</span></a>
-    </article>
-    <article class="card">
-      <p class="card-title">December, with you</p>
-      <p class="card-sub">EP · Out 4 Dec</p>
-      <img src="/press/cover-december-with-you.jpg" alt="December, with you EP cover art" width="2083" height="2083" loading="lazy">
-      <a class="arrow-link" href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save here <span class="arr">⟶</span></a>
-    </article>
-    <article class="card">
-      <p class="card-title">xoxo, i'm done</p>
-      <p class="card-sub">After Hours Deluxe · Album</p>
-      <img src="/xoxo-deluxe-cover.jpg" alt="xoxo, i'm done (After Hours Deluxe) cover art" width="2666" height="2666" loading="lazy">
-      <a class="arrow-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen here <span class="arr">⟶</span></a>
-    </article>
-    <article class="card">
-      <p class="card-title">chasing hollow gold</p>
-      <p class="card-sub">After Hours (stripped) · Single</p>
-      <img src="/chgstripped/chasing-hollow-gold-stripped.jpg" alt="chasing hollow gold after hours (stripped) cover art" width="1000" height="1000" loading="lazy">
-      <a class="arrow-link" href="https://ffm.to/chasinghollowgold" target="_blank" rel="noopener">Listen here <span class="arr">⟶</span></a>
-    </article>
-  </section>
+  
 
   <!-- Video -->
   <section class="video" aria-label="Video">

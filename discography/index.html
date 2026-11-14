@@ -25,507 +25,146 @@ gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_pers
   <meta property="og:url" content="https://hafyz.my.id/discography/">
   <link rel="icon" href="/favicon-h.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon-h.png">
-  <style>
-    :root{
-      --bg:#f7f7f4;
-      --bg-soft:#171717;
-      --surface:#ffffff;
-      --surface-2:#f1f1ee;
-      --line:rgba(20,20,20,.10);
-      --line-strong:rgba(20,20,20,.18);
-      --text:#171717;
-      --muted:#777772;
-      --muted-2:#8a8a85;
-      --gold:#d8b65b;
-      --gold-soft:#efd88a;
-      --max:1120px;
-      --radius:26px;
-      --ease:cubic-bezier(.2,.75,.25,1);
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cream:#f4eee1;
+    --ink:#141414;
+    --muted:#6f695d;
+    --line:rgba(20,20,20,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  a:hover{opacity:.6}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+  img{display:block;max-width:100%}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{
-      background:var(--bg);color:var(--text);
-      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-      line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-    }
-    body.menu-open{overflow:hidden}
-    a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%}
-    button,input{font:inherit}
-    ::selection{background:var(--gold);color:#111111}
-    :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+  /* ---------- header: spread full width, no logo, like Tate ---------- */
+  header{
+    position:sticky;top:0;z-index:20;background:var(--cream);
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:20px 32px;
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  nav{display:flex;gap:34px}
+  .socials{display:flex;gap:18px;align-items:center}
+  .socials svg{width:18px;height:18px;display:block}
+  .socials a{display:flex}
+  .wordmark{letter-spacing:.32em;font-weight:400;white-space:nowrap}
 
-    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+  /* ---------- hero: photo left, text right ---------- */
+  .hero{
+    display:grid;grid-template-columns:52% 48%;
+    min-height:calc(100svh - 61px);
+  }
+  .hero-photo{overflow:hidden;min-height:420px}
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:50% 50%;
+  }
+  .hero-text,.hero-copy{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:48px 56px;gap:0;
+  }
+  .eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  h1{
+    font-weight:200;
+    font-size:clamp(3.2rem,7.2vw,6.8rem);
+    line-height:1.02;letter-spacing:.01em;
+    margin:18px 0 14px;white-space:nowrap;
+  }
+  .out-now{font-size:14px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:34px}
+  .hero-links{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+  .arrow-link{
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .arrow-link .arr{font-size:1.35em;line-height:1;letter-spacing:0;transform:translateY(-1px)}
+  .hero-note{margin-top:38px;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+  .hero-note a{text-decoration:underline;text-underline-offset:4px}
 
-    /* NAV */
-    .nav{
-      position:fixed;inset:0 0 auto;height:72px;z-index:1000;
-      border-bottom:1px solid transparent;transition:.35s var(--ease);
-    }
-    .nav.scrolled{
-      background:rgba(7,7,7,.82);border-color:var(--line);
-      backdrop-filter:blur(22px) saturate(150%);
-      -webkit-backdrop-filter:blur(22px) saturate(150%);
-    }
-    .nav-inner{
-      width:min(calc(100% - 40px),var(--max));height:100%;margin:auto;
-      display:flex;align-items:center;justify-content:space-between;
-    }
-    .brand{
-      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;
-      letter-spacing:.25em;font-size:18px;
-    }
-    .brand:hover{color:var(--gold)}
-    .nav-links{display:flex;align-items:center;gap:27px;list-style:none}
-    .nav-links a{
-      color:#555551;font-size:12px;font-weight:500;position:relative;transition:.25s;
-    }
-    .nav-links a:hover{color:#fff}
-    .nav-links a::after{
-      content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;
-      background:var(--gold);transition:.3s var(--ease);
-    }
-    .nav-links a:hover::after{right:0}
-    .home-link{padding:9px 15px;border:1px solid var(--line-strong);border-radius:999px}
-    .home-link::after{display:none!important}
-    .home-link:hover{border-color:var(--gold);color:var(--gold)!important}
-    .menu{
-      display:none;width:42px;height:42px;border-radius:50%;
-      border:1px solid var(--line);background:#ffffff;cursor:pointer;
-    }
-    .menu span,.menu span:before,.menu span:after{
-      content:"";display:block;width:17px;height:1.5px;background:#fff;
-      margin:auto;position:relative;transition:.25s;
-    }
-    .menu span:before,.menu span:after{position:absolute;left:0}
-    .menu span:before{top:-6px}.menu span:after{top:6px}
-    .menu.active span{background:transparent}
-    .menu.active span:before{top:0;transform:rotate(45deg)}
-    .menu.active span:after{top:0;transform:rotate(-45deg)}
+  /* ---------- releases row: 4 columns, no heading, no prices ---------- */
 
-    /* HERO */
-    .hero{
-      min-height:88svh;position:relative;display:flex;align-items:end;
-      isolation:isolate;overflow:hidden;
-      background:#090909 url("/hero-bg.jpg") center/cover no-repeat;
-    }
-    .hero:before{
-      content:"";position:absolute;inset:0;z-index:-2;
-      background:
-        linear-gradient(180deg,rgba(255,255,255,.50),rgba(255,255,255,.42) 40%,#f7f7f4 100%),
-        linear-gradient(90deg,rgba(0,0,0,.55),transparent 55%,rgba(255,255,255,.50));
-    }
-    .hero-inner{width:min(calc(100% - 40px),var(--max));margin:auto;padding:145px 0 75px}
-    .eyebrow{
-      color:var(--gold-soft);font-size:10px;font-weight:700;
-      text-transform:uppercase;letter-spacing:.22em;margin-bottom:18px;
-    }
-    .hero h1{
-      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(54px,10vw,118px);
-      line-height:.88;letter-spacing:-.075em;max-width:900px;
-    }
-    .hero h1 span{color:#555551;font-weight:400}
-    .hero-sub{
-      max-width:560px;color:#777772;font-size:14px;line-height:1.75;margin-top:25px;
-    }
-    .hero-meta{
-      display:flex;flex-wrap:wrap;gap:8px;margin-top:30px;
-    }
-    .meta-pill{
-      border:1px solid rgba(20,20,20,.15);background:rgba(0,0,0,.3);
-      padding:8px 12px;border-radius:999px;color:#555551;font-size:10px;
-      text-transform:uppercase;letter-spacing:.12em;backdrop-filter:blur(10px);
-    }
-    .hero-bottom{
-      position:absolute;left:0;right:0;bottom:0;border-top:1px solid rgba(20,20,20,.09);
-      background:rgba(255,255,255,.52);padding:13px 0;
-    }
-    .hero-bottom .container{
-      display:flex;justify-content:space-between;gap:20px;
-      color:#777772;font-size:10px;text-transform:uppercase;letter-spacing:.15em;
-    }
+  /* ---------- video feature ---------- */
+  .video{padding:56px 32px 8px}
+  .video video{width:100%;height:auto;display:block;object-fit:cover;aspect-ratio:16/9;background:#ddd5c3}
+  .video .arrow-link{margin-top:16px;font-size:12px}
 
-    /* GENERAL */
-    .section{padding:105px 0}
-    .section.alt{background:var(--bg-soft);border-block:1px solid rgba(20,20,20,.05)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:45px}
-    .kicker{
-      color:var(--gold);font-size:10px;font-weight:700;
-      text-transform:uppercase;letter-spacing:.2em;margin-bottom:12px;
-    }
-    .title{
-      font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:clamp(36px,5vw,64px);
-      line-height:1;letter-spacing:-.06em;font-weight:600;
-    }
-    .desc{max-width:430px;color:var(--muted);font-size:13px;line-height:1.75}
+  /* ---------- newsletter + footer, one cream field ---------- */
+  footer{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;
+    padding:72px 32px 44px;
+  }
+  .newsletter-form{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+  .newsletter-form label{
+    position:absolute;left:-9999px;
+  }
+  .newsletter-form input{
+    background:transparent;border:none;border-bottom:1px solid var(--ink);
+    font:inherit;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    padding:8px 2px;width:280px;max-width:70vw;color:var(--ink);border-radius:0;
+  }
+  .newsletter-form input::placeholder{color:var(--muted)}
+  .join-btn{
+    background:transparent;border:1px solid var(--ink);color:var(--ink);
+    font:inherit;font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+    padding:10px 26px;cursor:pointer;
+  }
+  .join-btn:hover{background:var(--ink);color:var(--cream)}
+  .disclaimer{font-size:11px;letter-spacing:.05em;color:var(--muted);max-width:420px;margin-top:14px;line-height:1.6}
+  .newsletter-status{font-size:12px;letter-spacing:.08em;margin-top:10px;min-height:1.2em}
+  .foot-right{text-align:right;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:2}
+  .foot-right .legal{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;margin-top:6px}
+  .foot-right .legal a{text-decoration:underline;text-underline-offset:4px}
 
-    /* BIO */
-    .bio{
-      display:grid;grid-template-columns:310px 1fr;gap:65px;align-items:start;
-    }
-    .bio-photo{
-      aspect-ratio:1;border-radius:20px;overflow:hidden;border:1px solid var(--line);
-      background:#ffffff;
-    }
-    .bio-photo img{width:100%;height:100%;object-fit:cover}
-    .bio-copy h3{
-      font-family:"Helvetica Neue",Helvetica,Arial;font-size:28px;letter-spacing:-.04em;margin-bottom:18px
-    }
-    .bio-copy p{color:var(--muted);font-size:13px;line-height:1.9;margin-bottom:17px}
-    .bio-copy strong{color:#eee;font-weight:600}
-    .bio-copy em{color:#ddd}
-
-    /* METRICS */
-    .metric-group + .metric-group{margin-top:50px}
-    .metric-label{
-      color:var(--gold);font-size:10px;text-transform:uppercase;
-      letter-spacing:.2em;font-weight:700;margin-bottom:14px;
-    }
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .metric{
-      border:1px solid var(--line);border-radius:20px;background:var(--surface);
-      padding:27px 20px;min-height:145px;display:flex;flex-direction:column;
-      justify-content:space-between;transition:.3s var(--ease);
-    }
-    .metric:hover{transform:translateY(-3px);border-color:var(--line-strong)}
-    .metric-number{
-      font-family:"Helvetica Neue",Helvetica,Arial;font-size:34px;font-weight:600;
-      letter-spacing:-.05em;color:#171717
-    }
-    .metric-name{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777772}
-    .metric-platform{font-size:10px;color:var(--gold);margin-top:4px}
-
-    /* DISCOGRAPHY */
-    .release-list{display:grid;gap:12px}
-    .release{
-      display:grid;grid-template-columns:86px 1fr auto;align-items:center;gap:20px;
-      padding:13px;border:1px solid var(--line);border-radius:20px;
-      background:var(--surface);transition:.3s var(--ease);
-    }
-    .release:hover{border-color:var(--line-strong);transform:translateX(4px)}
-    .cover{
-      width:86px;height:86px;border-radius:12px;overflow:hidden;background:#1a1a1a
-    }
-    .cover img{width:100%;height:100%;object-fit:cover}
-    .release-info h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:18px;letter-spacing:-.025em}
-    .release-info p{font-size:11px;color:#777772;margin-top:5px}
-    .release-stat{text-align:right}
-    .release-stat strong{display:block;font-family:"Helvetica Neue",Helvetica,Arial;font-size:17px;color:var(--gold)}
-    .release-stat span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#666}
-    .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-    .photo-card{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--surface)}
-    .photo-card img{width:100%;height:auto;display:block}
-    .photo-card .photo-meta{padding:14px 16px}
-    .photo-card .photo-meta p{font-size:11px;color:#777772}
-    .photo-dl{display:inline-block;margin-top:8px;font-size:11px;color:var(--gold);border-bottom:1px solid var(--gold);padding-bottom:2px;text-decoration:none}
-    .release-link{
-      display:inline-block;margin-top:7px;color:#555551;font-size:10px;
-      border-bottom:1px solid #555;padding-bottom:2px;
-    }
-    .release-link:hover{color:var(--gold);border-color:var(--gold)}
-
-    /* PRESS */
-    .quote{
-      border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);
-      padding:55px 60px;position:relative;overflow:hidden;
-    }
-    .quote:before{
-      content:"“";position:absolute;left:30px;top:10px;
-      font-family:Georgia,serif;font-size:120px;line-height:1;color:var(--gold);
-      opacity:.11;
-    }
-    .quote p{
-      position:relative;font-family:"Helvetica Neue",Helvetica,Arial;font-size:clamp(22px,3vw,34px);
-      line-height:1.3;letter-spacing:-.035em;max-width:900px;
-    }
-    .quote-source{margin-top:27px;color:#777772;font-size:11px}
-    .quote-source a{color:var(--gold)}
-    .quote-source a:hover{text-decoration:underline}
-
-    /* RIDER */
-    .rider{
-      border:1px solid var(--line);border-radius:var(--radius);
-      background:var(--surface);padding:45px;
-    }
-    .rider-head{display:flex;justify-content:space-between;align-items:start;gap:30px}
-    .rider h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:30px;letter-spacing:-.04em}
-    .rider-head p{max-width:480px;color:var(--muted);font-size:13px;line-height:1.8}
-    .rider-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:32px 0}
-    .rider-item{
-      border:1px solid var(--line);border-radius:13px;padding:16px;
-      color:#777772;font-size:11px;background:#f4f4f1;
-    }
-    .rider-item b{display:block;color:var(--gold);font-family:"Helvetica Neue",Helvetica,Arial;font-size:11px;margin-bottom:7px}
-    .rider-note{
-      padding:18px;border:1px dashed rgba(216,182,91,.45);border-radius:15px;
-      background:rgba(216,182,91,.045);color:#777772;font-size:11px;line-height:1.8;
-    }
-    .rider-note strong{color:#ddd}
-    .rider-action{margin-top:25px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      min-height:46px;padding:0 19px;border-radius:999px;
-      border:1px solid var(--line-strong);font-size:11px;font-weight:600;
-      transition:.3s var(--ease);
-    }
-    .btn-primary{background:var(--gold);border-color:var(--gold);color:#111111}
-    .btn-primary:hover{background:var(--gold-soft);transform:translateY(-2px)}
-
-    /* CONTACT */
-    .contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    .contact{
-      border:1px solid var(--line);border-radius:20px;background:var(--surface);
-      padding:28px 20px;text-align:center;transition:.3s var(--ease)
-    }
-    .contact:hover{transform:translateY(-3px);border-color:var(--line-strong)}
-    .contact-icon{height:38px;margin-bottom:15px;color:var(--gold);font-size:24px}
-    .contact h3{font-family:"Helvetica Neue",Helvetica,Arial;font-size:16px}
-    .contact p{color:#777772;font-size:11px;line-height:1.6;margin:7px 0 17px}
-    .contact a{
-      display:inline-block;color:#bbb;font-size:10px;border-bottom:1px solid #444;padding-bottom:3px
-    }
-    .contact a:hover{color:var(--gold);border-color:var(--gold)}
-
-    /* FOOTER */
-    footer{border-top:1px solid var(--line);padding:35px 0;background:#ffffff}
-    .footer-inner{
-      display:flex;justify-content:space-between;align-items:center;gap:20px;
-      color:#898983;font-size:10px
-    }
-    .footer-inner a{color:var(--gold)}
-    .footer-inner a:hover{text-decoration:underline}
-
-    /* REVEAL */
-    .reveal{opacity:0;transform:translateY(25px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
-    .reveal.visible{opacity:1;transform:none}
-
-    @media (prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      *,*:before,*:after{transition-duration:.01ms!important}
-      .reveal{opacity:1;transform:none}
-    }
-
-    @media(max-width:800px){
-      .nav-links{
-        position:fixed;top:64px;left:12px;right:12px;display:none;
-        flex-direction:column;gap:0;padding:8px;border:1px solid var(--line);
-        border-radius:20px;background:rgba(255,255,255,.97);backdrop-filter:blur(20px)
-      }
-      .nav-links.open{display:flex}
-      .nav-links a{display:block;padding:14px;border-radius:12px}
-      .nav-links a::after{display:none}
-      .home-link{border:0;padding:14px!important}
-      .menu{display:block}
-      .hero{min-height:82svh}
-      .hero-inner{padding:125px 0 70px}
-      .hero-bottom .container{display:block}
-      .hero-bottom .container span+span{display:none}
-      .section{padding:82px 0}
-      .section-head{display:block}
-      .desc{margin-top:18px}
-      .bio{grid-template-columns:1fr;gap:35px}
-      .bio-photo{max-width:310px}
-      .metrics{grid-template-columns:repeat(2,1fr)}
-      .release{grid-template-columns:70px 1fr}
-      .cover{width:70px;height:70px}
-      .release-stat{grid-column:2;text-align:left;padding-top:8px;border-top:1px solid var(--line)}
-      .rider{padding:28px 20px}
-      .rider-head{display:block}
-      .rider-head p{margin-top:14px}
-      .rider-grid{grid-template-columns:repeat(2,1fr)}
-      .contacts{grid-template-columns:repeat(2,1fr)}
-      .quote{padding:40px 25px}
-      .quote:before{left:14px}
-      .footer-inner{display:block}
-      .footer-inner p+p{margin-top:8px}
-    }
-
-    @media(max-width:480px){
-      .container,.nav-inner{width:min(calc(100% - 30px),var(--max))}
-      .hero h1{font-size:clamp(48px,16vw,82px)}
-      .hero-meta{gap:6px}
-      .meta-pill{font-size:8px}
-      .metrics{gap:8px}
-      .metric{min-height:125px;padding:19px 14px}
-      .metric-number{font-size:27px}
-      .release-info h3{font-size:15px}
-      .release-stat strong{font-size:15px}
-      .rider-grid,.contacts{grid-template-columns:1fr}
-    }
-  
-    /* LIGHT THEME */
-    body{background:#f7f7f4;color:#171717}
-    .site-nav.scrolled,.nav.scrolled{
-      background:rgba(255,255,255,.82)!important;
-      border-color:rgba(20,20,20,.10)!important;
-    }
-    .nav-links a{color:#666}
-    .nav-links a:hover{color:#111}
-    .menu-toggle,.menu{background:rgba(255,255,255,.78);border-color:rgba(20,20,20,.12)}
-    .menu-toggle span,.menu-toggle span::before,.menu-toggle span::after,
-    .menu span,.menu span::before,.menu span::after{background:#171717}
-    .menu-toggle.active span,.menu.active span{background:transparent}
-    .nav-cta,.home-link,.secondary,.btn-ghost{
-      background:rgba(255,255,255,.72);
-      color:#444!important;
-      border-color:rgba(20,20,20,.16);
-    }
-    .nav-cta:hover,.home-link:hover,.secondary:hover,.btn-ghost:hover{
-      border-color:#d8b65b;color:#9b7a25!important;
-    }
-    .hero::before{
-      background:
-        radial-gradient(circle at 50% 42%,rgba(216,182,91,.13),transparent 32%),
-        linear-gradient(180deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.38) 48%,#f7f7f4 100%)!important;
-    }
-    .hero::after{
-      background:linear-gradient(90deg,rgba(255,255,255,.36),transparent 48%,rgba(255,255,255,.30))!important;
-    }
-    .hero h1{
-      background:linear-gradient(180deg,#151515 10%,#666 100%)!important;
-      -webkit-background-clip:text!important;background-clip:text!important;
-      color:transparent!important;
-    }
-    .hero-release{color:#333!important}
-    .section.alt{background:#f0f0ed;border-color:rgba(20,20,20,.06)!important}
-    .release-feature,.mini-release,.spotify-frame,.tour-shell,.metric,.release,.quote,.rider,.contact,.about-block{
-      background:#fff!important;
-      border-color:rgba(20,20,20,.10)!important;
-    }
-    .release-content p,.section-desc,.about-block p,.bio-copy p,.desc{color:#666!important}
-    .release-meta,.mini-content p{color:#777!important}
-    .release-secondary{color:#555!important;border-color:rgba(20,20,20,.12)!important}
-    .release-secondary:hover{color:#9b7a25!important;border-color:#d8b65b!important}
-    .contact{background:#fff!important}
-    .contact a,.footer-col a{color:#666}
-    footer{background:#fff!important;border-color:rgba(20,20,20,.10)!important}
-    .footer-brand p,.footer-bottom,.footer-col h4{color:#888!important}
-    .footer-col a:hover{color:#9b7a25!important}
-    .socials a{color:#666;border-color:rgba(20,20,20,.12)}
-    .socials a:hover{color:#9b7a25;border-color:#d8b65b}
-    .newsletter input{background:#fff!important;color:#171717!important;border-color:rgba(20,20,20,.14)!important}
-    .newsletter input::placeholder{color:#999}
-    .contact{
-      background:
-        radial-gradient(circle at 50% 0,rgba(216,182,91,.13),transparent 34%),
-        #f0f0ed!important;
-    }
-
-    /* EPK light */
-    .bio-photo,.cover{background:#eee!important}
-    .metric-number,.release-info h3,.rider h3,.contact h3,.bio-copy h3{color:#171717!important}
-    .metric-name,.release-info p,.release-stat span,.rider-item,.contact p{color:#777!important}
-    .rider-item{background:#f7f7f4!important;border-color:rgba(20,20,20,.08)!important}
-    .rider-note{background:rgba(216,182,91,.08)!important;color:#666!important}
-    .quote{background:#fff!important}
-    .quote p{color:#222!important}
-    .quote-source{color:#777!important}
-    .hero h1 span{color:#777!important}
-
-    /* Campaign light */
-    .backdrop::after{
-      background:
-        radial-gradient(circle at 50% 35%,rgba(216,182,91,.10),transparent 30%),
-        linear-gradient(180deg,rgba(255,255,255,.40),rgba(255,255,255,.86) 68%,#f7f7f4 100%)!important;
-    }
-    .backdrop{opacity:.24!important}
-    .grain{opacity:.025!important}
-    .art{border-color:rgba(20,20,20,.12)!important}
-    .art-label{color:#111!important}
-    .subtitle{color:#666!important}
-    .release-line{color:#777!important}
-    .countdown{border-color:rgba(20,20,20,.10)!important;background:rgba(20,20,20,.10)!important}
-    .count-item{background:rgba(255,255,255,.82)!important}
-    .unit{color:#777!important}
-    .fineprint{color:#888!important}
-    footer p{color:#888!important}
-    .era,.home{background:rgba(255,255,255,.68)!important;color:#666!important;border-color:rgba(20,20,20,.12)!important}
-    
-  
-    /* LIGHT PRESS KIT CONTRAST FIX */
-    .bio-copy p{
-      color:#5f5f5b!important;
-    }
-    .bio-copy strong{
-      color:#171717!important;
-      font-weight:700;
-    }
-    .bio-copy em{
-      color:#4f4f4b!important;
-      font-style:italic;
-    }
-    .bio-copy h3{
-      color:#171717!important;
-    }
-    .rider-note strong{
-      color:#4f3b12!important;
-    }
-    .release-info h3,
-    .release-info h3 strong{
-      color:#171717!important;
-    }
-    .release-info p{
-      color:#666661!important;
-    }
-    .section-head .desc{
-      color:#5f5f5b!important;
-    }
-
-  
-    /* Contact / platform logos restored from the original Press Kit */
-    .contact-icon{
-      width:42px!important;
-      height:42px!important;
-      display:grid!important;
-      place-items:center!important;
-      margin:0 auto 15px!important;
-      color:var(--gold-dark)!important;
-      font-size:0!important;
-    }
-    .contact-icon svg{
-      width:32px!important;
-      height:32px!important;
-      display:block!important;
-      fill:currentColor!important;
-    }
-    .contact:hover .contact-icon{
-      color:var(--gold)!important;
-      transform:translateY(-2px);
-      transition:transform .25s var(--ease),color .25s;
-    }
-
-  
-    .language-prompt{position:fixed;left:22px;bottom:22px;z-index:2000;width:min(390px,calc(100vw - 30px));padding:18px;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);border-radius:18px;box-shadow:0 22px 65px rgba(0,0,0,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);opacity:0;visibility:hidden;transform:translateY(14px);transition:.32s}
-    .language-prompt.show{opacity:1;visibility:visible;transform:translateY(0)}
-    .language-prompt-top{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
-    .language-prompt-label{margin:0 0 6px;color:#b58d27;font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
-    .language-prompt h3{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:18px;line-height:1.15;letter-spacing:-.035em}
-    .language-prompt p{margin:8px 0 14px;color:#70706b;font-size:10px;line-height:1.6}
-    .language-prompt-close{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:#fff;color:#777;cursor:pointer}
-    .language-prompt-actions{display:flex;gap:8px}
-    .language-prompt-actions button{min-height:38px;padding:0 14px;border-radius:999px;font:800 9px/1 Inter,system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
-    .language-accept{border:1px solid #d8b65b;background:#d8b65b;color:#fff}
-    .language-keep{border:1px solid rgba(20,20,20,.10);background:#fff;color:#555}
-    .language-status{margin-top:10px!important;margin-bottom:0!important;font-size:9px!important;color:#9a9a94!important}
-    .lang-switch{position:fixed;right:18px;bottom:18px;z-index:1999;width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(20,20,20,.10);border-radius:50%;background:rgba(255,255,255,.92);color:#686863;font-size:12px;font-weight:700;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.07);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-    @media(max-width:520px){.language-prompt{left:15px;bottom:15px;width:calc(100vw - 30px)}.language-prompt-actions{flex-direction:column}.language-prompt-actions button{width:100%}.lang-switch{right:14px;bottom:14px}}
-    
-
-    .lang-label{position:fixed;right:65px;bottom:28px;z-index:1999;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#888;pointer-events:none}
-    @media(max-width:520px){.lang-label{right:61px;bottom:28px}}
-
-
-    /* DISCOGRAPHY */
-    .disco-group{margin-bottom:56px}
-    .disco-group-title{margin:0 0 18px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:26px;letter-spacing:-.03em}
-    .disco-soon{margin-top:26px;padding:20px 22px;border:1px dashed rgba(0,0,0,.18);border-radius:16px;color:#5f5f5b;font-size:13px;line-height:1.8}
-  
-    .brand-logo{display:block;height:22px;width:auto}
-    .footer-brand .brand-logo{height:34px}
-    .hero-logo{display:block;width:min(560px,78vw);height:auto;margin:6px 0 2px}
-  </style>
+  @media (max-width:900px){
+    header{padding:16px 20px;flex-wrap:wrap;gap:14px}
+    nav{gap:22px}
+    .hero{grid-template-columns:1fr;min-height:0}
+    .hero-text,.hero-copy{order:-1;padding:44px 24px 36px}
+    .hero-photo{min-height:0;aspect-ratio:4/3}
+    h1{font-size:clamp(3rem,13vw,5rem)}
+    .video{padding:44px 20px 4px}
+    footer{padding:56px 20px 36px}
+    .foot-right{text-align:left}
+    .foot-right .legal{justify-content:flex-start}
+  }
+  @media (max-width:560px){
+    .socials{gap:14px}
+  }
+  /* Discography page — same Tate language, catalog rows */
+  .page-head{max-width:1240px;margin:0 auto;padding:72px 32px 8px}
+  .page-head .label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .page-head h1{font-size:clamp(38px,5vw,56px);font-weight:300;letter-spacing:.01em;margin:0 0 12px;white-space:normal}
+  .page-head p{font-size:16px;line-height:1.65;color:var(--muted);max-width:720px;margin:0}
+  .disc-group{max-width:1240px;margin:0 auto;padding:56px 32px 0}
+  .disc-group h2{font-size:clamp(26px,3vw,34px);font-weight:300;margin:0 0 8px}
+  .disc-rows{border-top:1px solid rgba(20,20,20,.25)}
+  .disc-row{display:flex;align-items:center;gap:24px;padding:20px 0;border-bottom:1px solid rgba(20,20,20,.25)}
+  .disc-thumb{width:72px;height:72px;object-fit:cover;flex-shrink:0}
+  .disc-info{flex:1;min-width:0}
+  .disc-info h3{font-size:19px;font-weight:300;margin:0 0 4px;letter-spacing:.02em}
+  .disc-meta{font-size:14px;line-height:1.5;color:var(--muted);margin:0;font-weight:300}
+  .disc-badge{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:6px 0 0}
+  .disc-link{flex-shrink:0}
+  .coming-soon{max-width:1240px;margin:0 auto;padding:56px 32px 0}
+  .coming-soon h2{font-size:clamp(26px,3vw,34px);font-weight:300;margin:0 0 8px}
+  .coming-soon p{font-size:16px;line-height:1.65;color:var(--muted);max-width:720px;margin:0}
+  @media(max-width:900px){
+    .page-head,.disc-group,.coming-soon{padding-left:20px;padding-right:20px}
+    .disc-thumb{width:56px;height:56px}
+    .disc-row{gap:16px}
+  }
+</style>
 <style id="hafyz-cookie-styles">
 #hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;max-width:980px;margin:auto;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 50px rgba(0,0,0,.14);border-radius:18px;padding:18px 20px;font-family:inherit;color:#171717;backdrop-filter:blur(12px)}
 #hafyzCookieBanner[hidden],#hafyzCookiePrefs[hidden]{display:none!important}
@@ -539,69 +178,127 @@ gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_pers
   <div class="hafyz-cookie-row"><div class="hafyz-cookie-copy"><p class="hafyz-cookie-title" data-cookie-title>Cookies & Privacy</p><p class="hafyz-cookie-text" data-cookie-text>We use cookies and similar technologies to improve your experience, measure website traffic, and support relevant advertising.</p></div><div class="hafyz-cookie-actions"><button class="hafyz-cookie-btn" id="hafyzCookieManage" type="button">Manage Preferences</button><button class="hafyz-cookie-btn" id="hafyzCookieReject" type="button">Reject</button><button class="hafyz-cookie-btn primary" id="hafyzCookieAccept" type="button">Accept</button></div></div>
 </div>
 <div id="hafyzCookiePrefs" hidden><div class="hafyz-cookie-modal" role="dialog" aria-modal="true"><h3>Cookie Preferences</h3><p>Choose which optional technologies you allow.</p><div class="hafyz-cookie-option"><div><strong>Essential</strong><small>Always active</small></div><button class="hafyz-cookie-switch on" disabled></button></div><div class="hafyz-cookie-option"><div><strong>Analytics</strong><small>Google Analytics traffic measurement</small></div><button class="hafyz-cookie-switch" id="hafyzAnalyticsSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-option"><div><strong>Marketing</strong><small>Meta Pixel, TikTok Pixel and advertising measurement</small></div><button class="hafyz-cookie-switch" id="hafyzMarketingSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-modal-actions"><button class="hafyz-cookie-btn" id="hafyzCookiePrefsCancel" type="button">Cancel</button><button class="hafyz-cookie-btn primary" id="hafyzCookiePrefsSave" type="button">Save Preferences</button></div></div></div>
-  <header class="nav" id="nav">
-    <div class="nav-inner">
-      <a class="brand" href="/" aria-label="HAFYZ home"><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120"></a>
-      <nav aria-label="Discography navigation">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#albums-t">Albums</a></li>
-          <li><a href="#eps">EPs</a></li>
-          <li><a href="#singles">Singles</a></li>
-          <li><a class="home-link" href="/">Back to website</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <section class="section" id="discography">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <p class="kicker">Discography</p>
-            <h2 class="title">Every season, in order.</h2>
-          </div>
-          <p class="desc">The complete catalogue of HAFYZ — six studio albums, EPs and singles, from the debut single "Paradise" (2017) to the After Hours era and the first holiday season.</p>
-        </div>
-        <div id="albums"></div>
-        <div class="disco-group">
-          <h3 class="disco-group-title" id="albums-t">Albums</h3>
-          <div class="release-list">
-        <article class="release reveal"> <div class="cover"> <img src="/press/xoxo-deluxe-cover.jpg" alt="xoxo, i'm done (After Hours Deluxe)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>xoxo, i'm done (After Hours Deluxe)</h3> <p>Album · Released October 23, 2026 · 19 Tracks · After Hours Era</p> <a class="release-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Deluxe edition</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="/press/cover-hollow-gold.jpg" alt="xoxo, i'm done" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>xoxo, i'm done</h3> <p>Album · Released 2026 · Sixth Studio Album</p> <a class="release-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Sixth studio album</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="cover-hafiz-ame.jpg" alt="HAFIZ (Apple Music Edition)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>HAFIZ (Apple Music Edition)</h3> <p>Album · Released 2023 · Instrumental</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>Instrumental</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="cover-immortal-romance.jpg" alt="Immortal Romance" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>Immortal Romance</h3> <p>Album · Released 2024</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Album</strong><span>2024</span></div> </article>
-          </div>
-        </div>
-        <div class="disco-group">
-          <h3 class="disco-group-title" id="eps">EPs</h3>
-          <div class="release-list">
-        <article class="release reveal"> <div class="cover"> <img src="/press/cover-december-with-you.jpg" alt="December, with you" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>December, with you</h3> <p>EP · Released December 4, 2026 · First Holiday EP</p> <a class="release-link" href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save / press link ↗</a> </div> <div class="release-stat"><strong>EP</strong><span>Out Dec 4</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="cover-love-letters.jpg" alt="love letters i'll never sent" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>love letters i'll never sent</h3> <p>EP · Released October 24, 2025 · Instrumental · 4 Tracks</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>EP</strong><span>Instrumental</span></div> </article>
-          </div>
-        </div>
-        <div class="disco-group">
-          <h3 class="disco-group-title" id="singles">Singles</h3>
-          <div class="release-list">
-        <article class="release reveal"> <div class="cover"> <img src="/press/cover-mistletoe-v2.jpg" alt="mistletoe" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>mistletoe</h3> <p>Single · Released November 13, 2026 · First Holiday Single</p> <a class="release-link" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>Out Nov 13</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="cover-cute-but-annoying.jpg" alt="cute, but annoying (After Hours)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>cute, but annoying (After Hours)</h3> <p>Single · Released October 9, 2026 · After Hours Era</p> <a class="release-link" href="https://ffm.to/cbaah" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>After Hours</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="/press/cover-hollow-gold.jpg" alt="chasing hollow gold (After Hours)" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>chasing hollow gold (After Hours)</h3> <p>Single · Released July 31, 2026 · After Hours Era</p> <a class="release-link" href="https://ffm.to/chasinghollowgold" target="_blank" rel="noopener">Listen / press link ↗</a> </div> <div class="release-stat"><strong>7.6K</strong><span>Streams</span></div> </article>
-        <article class="release reveal"> <div class="cover"> <img src="cover-paradise.jpg" alt="Paradise" loading="lazy" width="600" height="600"> </div> <div class="release-info"> <h3>Paradise</h3> <p>Single · Released 2017 · Debut Single</p> <a class="release-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a> </div> <div class="release-stat"><strong>Single</strong><span>Debut · 2017</span></div> </article>
-          </div>
-        </div>
-        <div class="disco-soon reveal"><strong>Coming soon.</strong> A new single on January 8, 2027 and a new EP on January 29, 2027 — titles to be announced.</div>
+
+<header>
+  <nav aria-label="Main">
+    <a href="/discography/">Music</a>
+    <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener">Video</a>
+    <a href="/store/">Shop</a>
+  </nav>
+  <div class="socials" aria-label="Social links">
+    <a href="https://www.tiktok.com/@gkrkdlzm" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.6 2.1 4.7 4.9 5v3.1c-1.9 0-3.6-.6-4.9-1.6v6.6a6.1 6.1 0 1 1-6.1-6.1c.3 0 .7 0 1 .1v3.2a3 3 0 1 0 2 2.8V3h3.1z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gkrkdlzm" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8L15.5 12 10 15.2z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/itsmehafy" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.5 8.2H17V4.8h-2.5c-2.3 0-4.2 1.9-4.2 4.2v2.2H7.6v3.4h2.7v8.6h3.4v-8.6h2.6l.5-3.4h-3.1V9.1c0-.5.2-.9.8-.9z"/></svg>
+    </a>
+    <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener" aria-label="Spotify">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+    </a>
+    <a href="https://music.apple.com/us/artist/hafyz/1754145654" target="_blank" rel="noopener" aria-label="Apple Music">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.7 4.2c-.3-.4-.9-.7-1.5-.6-.1.8.2 1.6.7 2.1.4.4 1 .7 1.5.6.1-.8-.2-1.6-.7-2.1zM16.6 8.5c-1.1-.1-2.1.6-2.7.6-.6 0-1.5-.6-2.5-.6-2 0-3.9 1.2-4.9 3-1.4 2.4-.3 6 1 8 .7 1 1.5 2.1 2.5 2 .9 0 1.3-.6 2.4-.6s1.4.6 2.4.6c1 0 1.7-1 2.4-2 1.1-1.6 1.5-3.1 1.5-3.2-.1 0-2.6-1-2.7-3.6 0-2.2 1.8-3.3 1.9-3.4-.8-1.2-2-1.4-2.3-1.4z"/></svg>
+    </a>
+  </div>
+  <span class="wordmark">HAFYZ</span>
+</header>
+
+<main>
+  <div class="page-head">
+    <p class="label">Discography</p>
+    <h1>Every season, in order.</h1>
+    <p>The complete catalogue of HAFYZ — six studio albums, EPs and singles, from the debut single "Paradise" (2017) to the After Hours era and the first holiday season.</p>
+  </div>
+
+  <section class="disc-group" id="albums">
+    <h2>Albums</h2>
+    <div class="disc-rows">
+      <div class="disc-row">
+        <img class="disc-thumb" src="/press/xoxo-deluxe-cover.jpg" alt="xoxo, i'm done (After Hours Deluxe)" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>xoxo, i'm done (After Hours Deluxe)</h3><p class="disc-meta">Album · Released October 23, 2026 · 19 Tracks · After Hours Era</p><p class="disc-badge">Deluxe edition</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a>
       </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-inner">
-      <p><img class="brand-logo" src="/hafyz-logo-dark.png" alt="HAFYZ" width="275" height="120" style="height:26px;margin-bottom:8px"></p>
-      <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
-      <p><a href="/">Website</a> · <a href="/press/">Press / EPK</a> · <a href="/appearance/">Appearance</a></p>
+      <div class="disc-row">
+        <img class="disc-thumb" src="/press/cover-hollow-gold.jpg" alt="xoxo, i'm done" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>xoxo, i'm done</h3><p class="disc-meta">Album · Released 2026 · Sixth Studio Album</p><p class="disc-badge">Sixth studio album</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/xidahdeluxe" target="_blank" rel="noopener">Listen / press link ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="cover-hafiz-ame.jpg" alt="HAFIZ (Apple Music Edition)" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>HAFIZ (Apple Music Edition)</h3><p class="disc-meta">Album · Released 2023 · Instrumental</p><p class="disc-badge">Instrumental</p></div>
+        <a class="arrow-link disc-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="cover-immortal-romance.jpg" alt="Immortal Romance" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>Immortal Romance</h3><p class="disc-meta">Album · Released 2024</p><p class="disc-badge">2024</p></div>
+        <a class="arrow-link disc-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+      </div>
     </div>
-  </footer>
-  <script>
-    (function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('visible');});return;}var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');o.unobserve(en.target);}});},{threshold:.08});els.forEach(function(el){o.observe(el);});})();
-  </script>
+  </section>
+
+  <section class="disc-group" id="eps">
+    <h2>EPs</h2>
+    <div class="disc-rows">
+      <div class="disc-row">
+        <img class="disc-thumb" src="/press/cover-december-with-you.jpg" alt="December, with you" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>December, with you</h3><p class="disc-meta">EP · Released December 4, 2026 · First Holiday EP</p><p class="disc-badge">Out Dec 4</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save / press link ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="cover-love-letters.jpg" alt="love letters i'll never sent" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>love letters i'll never sent</h3><p class="disc-meta">EP · Released October 24, 2025 · Instrumental · 4 Tracks</p><p class="disc-badge">Instrumental</p></div>
+        <a class="arrow-link disc-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="disc-group" id="singles">
+    <h2>Singles</h2>
+    <div class="disc-rows">
+      <div class="disc-row">
+        <img class="disc-thumb" src="/press/cover-mistletoe-v2.jpg" alt="mistletoe" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>mistletoe</h3><p class="disc-meta">Single · Released November 13, 2026 · First Holiday Single</p><p class="disc-badge">Out Nov 13</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen / press link ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="cover-cute-but-annoying.jpg" alt="cute, but annoying (After Hours)" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>cute, but annoying (After Hours)</h3><p class="disc-meta">Single · Released October 9, 2026 · After Hours Era</p><p class="disc-badge">After Hours</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/cbaah" target="_blank" rel="noopener">Listen / press link ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="/press/cover-hollow-gold.jpg" alt="chasing hollow gold (After Hours)" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>chasing hollow gold (After Hours)</h3><p class="disc-meta">Single · Released July 31, 2026 · After Hours Era</p><p class="disc-badge">7.6K Streams</p></div>
+        <a class="arrow-link disc-link" href="https://ffm.to/chasinghollowgold" target="_blank" rel="noopener">Listen / press link ↗</a>
+      </div>
+      <div class="disc-row">
+        <img class="disc-thumb" src="cover-paradise.jpg" alt="Paradise" width="72" height="72" loading="lazy">
+        <div class="disc-info"><h3>Paradise</h3><p class="disc-meta">Single · Released 2017 · Debut Single</p><p class="disc-badge">Debut · 2017</p></div>
+        <a class="arrow-link disc-link" href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener">Listen on Spotify ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="coming-soon">
+    <h2>Coming soon.</h2>
+    <p>A new single on January 8, 2027 and a new EP on January 29, 2027 — titles to be announced.</p>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
+  <nav class="footer-links">
+    <a href="/">Home</a>
+    <a href="/press/">Press</a>
+    <a href="/appearance/">Appearance</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+  </nav>
+</footer>
 <script id="hafyz-cookie-consent">
 /* HAFYZ-TRACKERS-V4: GA4 (Consent Mode v2) + Meta Pixel + TikTok Pixel.
    Consent format: localStorage['hafyz-cookie-consent-v2'] = {essential, analytics, marketing, ts}.

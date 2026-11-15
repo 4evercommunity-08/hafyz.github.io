@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* HAFYZ-CONSENT-MODE-V1: Google Consent Mode v2 defaults, all denied.
+   Runs before gtag.js loads so GA4 sends cookieless pings until the
+   visitor grants consent in the cookie banner. */
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied'});
+</script>
+  <script data-goatcounter="https://hafyz.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <title>HAFYZ | After Hours Experience</title>
+  <meta name="description" content="HAFYZ After Hours Experience — an immersive album experience. Come inside the album, across 12 cities worldwide.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://hafyz.my.id/after-hours-experience/">
+  <link rel="alternate" hreflang="en" href="https://hafyz.my.id/after-hours-experience/">
+  <link rel="alternate" hreflang="id" href="https://hafyz.my.id/after-hours-experience/">
+  <link rel="alternate" hreflang="x-default" href="https://hafyz.my.id/after-hours-experience/">
+  <meta property="og:title" content="HAFYZ | After Hours Experience">
+  <meta property="og:description" content="HAFYZ After Hours Experience — an immersive album experience. Come inside the album, across 12 cities worldwide.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hafyz.my.id/after-hours-experience/">
+  <link rel="icon" href="/favicon-h.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-h.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+    --cream:#f4eee1;
+    --ink:#141414;
+    --muted:#6f695d;
+    --line:rgba(20,20,20,.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  a:hover{opacity:.6}
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+  img{display:block;max-width:100%}
+
+  /* ---------- header: spread full width, no logo, like Tate ---------- */
+  header{
+    position:sticky;top:0;z-index:20;background:var(--cream);
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    padding:20px 32px;
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  nav{display:flex;gap:34px}
+  .socials{display:flex;gap:18px;align-items:center}
+  .socials svg{width:18px;height:18px;display:block}
+  .socials a{display:flex}
+  .wordmark{letter-spacing:.32em;font-weight:400;white-space:nowrap}
+
+  /* ---------- hero: photo left, text right ---------- */
+  .hero{
+    display:grid;grid-template-columns:52% 48%;
+    min-height:calc(100svh - 61px);
+  }
+  .hero-photo{overflow:hidden;min-height:420px}
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:50% 50%;
+  }
+  .hero-text,.hero-copy{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:48px 56px;gap:0;
+  }
+  .eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+  h1{
+    font-weight:200;
+    font-size:clamp(3.2rem,7.2vw,6.8rem);
+    line-height:1.02;letter-spacing:.01em;
+    margin:18px 0 14px;white-space:nowrap;
+  }
+  .out-now{font-size:14px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:34px}
+  .hero-links{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+  .arrow-link{
+    font-size:14px;letter-spacing:.24em;text-transform:uppercase;
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .arrow-link .arr{font-size:1.35em;line-height:1;letter-spacing:0;transform:translateY(-1px)}
+  .hero-note{margin-top:38px;font-size:14px;letter-spacing:.06em;color:var(--muted)}
+  .hero-note a{text-decoration:underline;text-underline-offset:4px}
+
+  /* ---------- releases row: 4 columns, no heading, no prices ---------- */
+
+  /* ---------- video feature ---------- */
+  .video{padding:56px 32px 8px}
+  .video video{width:100%;height:auto;display:block;object-fit:cover;aspect-ratio:16/9;background:#ddd5c3}
+  .video .arrow-link{margin-top:16px;font-size:12px}
+
+  /* ---------- newsletter + footer, one cream field ---------- */
+  footer{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;
+    padding:72px 32px 44px;
+  }
+  .newsletter-form{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+  .newsletter-form label{
+    position:absolute;left:-9999px;
+  }
+  .newsletter-form input{
+    background:transparent;border:none;border-bottom:1px solid var(--ink);
+    font:inherit;font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    padding:8px 2px;width:280px;max-width:70vw;color:var(--ink);border-radius:0;
+  }
+  .newsletter-form input::placeholder{color:var(--muted)}
+  .join-btn{
+    background:transparent;border:1px solid var(--ink);color:var(--ink);
+    font:inherit;font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+    padding:10px 26px;cursor:pointer;
+  }
+  .join-btn:hover{background:var(--ink);color:var(--cream)}
+  .disclaimer{font-size:11px;letter-spacing:.05em;color:var(--muted);max-width:420px;margin-top:14px;line-height:1.6}
+  .newsletter-status{font-size:12px;letter-spacing:.08em;margin-top:10px;min-height:1.2em}
+  .foot-right{text-align:right;font-size:11px;letter-spacing:.14em;text-transform:uppercase;line-height:2}
+  .foot-right .legal{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;margin-top:6px}
+  .foot-right .legal a{text-decoration:underline;text-underline-offset:4px}
+
+  @media (max-width:900px){
+    header{padding:16px 20px;flex-wrap:wrap;gap:14px}
+    nav{gap:22px}
+    .hero{grid-template-columns:1fr;min-height:0}
+    .hero-text,.hero-copy{order:-1;padding:44px 24px 36px}
+    .hero-photo{min-height:0;aspect-ratio:4/3}
+    h1{font-size:clamp(3rem,13vw,5rem)}
+    .video{padding:44px 20px 4px}
+    footer{padding:56px 20px 36px}
+    .foot-right{text-align:left}
+    .foot-right .legal{justify-content:flex-start}
+  }
+  @media (max-width:560px){
+    .socials{gap:14px}
+  }
+  /* After Hours Experience page — same Tate language, poster + city grid */
+  .page-head{max-width:1240px;margin:0 auto;padding:72px 32px 8px}
+  .page-head .label{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  .page-head h1{font-size:clamp(38px,5vw,56px);font-weight:300;letter-spacing:.01em;margin:0 0 12px;white-space:normal}
+  .page-head p{font-size:16px;line-height:1.65;color:var(--muted);max-width:720px;margin:0}
+  .page-head p + p{margin-top:14px}
+  .experience-poster{max-width:1240px;margin:0 auto;padding:56px 32px 0;text-align:center}
+  .experience-poster img{width:100%;max-width:640px;height:auto;margin:0 auto}
+  .experience-cities{max-width:1240px;margin:0 auto;padding:64px 32px 0}
+  .cities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 48px}
+  .city{border-top:1px solid var(--line);padding-top:16px}
+  .city-name{font-size:15px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;margin:0}
+  .city-dates{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:8px 0 0}
+  .experience-more{max-width:1240px;margin:0 auto;padding:56px 32px 0}
+  @media(max-width:900px){
+    .page-head,.experience-poster,.experience-cities,.experience-more{padding-left:20px;padding-right:20px}
+    .cities-grid{grid-template-columns:repeat(2,1fr);gap:32px 32px}
+  }
+  @media(max-width:560px){
+    .cities-grid{grid-template-columns:1fr}
+  }
+</style>
+<style id="hafyz-cookie-styles">
+#hafyzCookieBanner{position:fixed;left:20px;right:20px;bottom:20px;z-index:99999;max-width:980px;margin:auto;background:rgba(255,255,255,.97);border:1px solid rgba(20,20,20,.12);box-shadow:0 18px 50px rgba(0,0,0,.14);border-radius:18px;padding:18px 20px;font-family:inherit;color:#171717;backdrop-filter:blur(12px)}
+#hafyzCookieBanner[hidden],#hafyzCookiePrefs[hidden]{display:none!important}
+.hafyz-cookie-row{display:flex;gap:20px;align-items:center;justify-content:space-between}.hafyz-cookie-copy{max-width:680px}.hafyz-cookie-title{font-weight:700;font-size:14px;margin:0 0 5px}.hafyz-cookie-text{font-size:12px;line-height:1.55;color:#666;margin:0}.hafyz-cookie-actions{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.hafyz-cookie-btn{border:1px solid rgba(20,20,20,.14);background:#fff;color:#171717;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:700;cursor:pointer}.hafyz-cookie-btn.primary{background:#171717;color:#fff;border-color:#171717}.hafyz-cookie-btn:hover{opacity:.86}
+#hafyzCookiePrefs{position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.35);display:grid;place-items:center;padding:20px;font-family:inherit}.hafyz-cookie-modal{width:min(440px,100%);background:#fff;border-radius:20px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#171717}.hafyz-cookie-modal h3{margin:0 0 6px;font-size:18px}.hafyz-cookie-modal>p{margin:0 0 18px;color:#666;font-size:12px;line-height:1.55}.hafyz-cookie-option{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid rgba(20,20,20,.09)}.hafyz-cookie-option strong{font-size:13px}.hafyz-cookie-option small{display:block;color:#777;font-size:11px;margin-top:2px}.hafyz-cookie-switch{width:42px;height:24px;border-radius:99px;background:#ddd;position:relative;border:0;cursor:pointer}.hafyz-cookie-switch:after{content:"";position:absolute;width:18px;height:18px;top:3px;left:3px;background:#fff;border-radius:50%;transition:.18s}.hafyz-cookie-switch.on{background:#171717}.hafyz-cookie-switch.on:after{left:21px}.hafyz-cookie-modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+@media(max-width:700px){#hafyzCookieBanner{left:12px;right:12px;bottom:12px}.hafyz-cookie-row{display:block}.hafyz-cookie-actions{justify-content:flex-start;margin-top:12px}.hafyz-cookie-btn{flex:1}}
+</style>
+</head>
+<body>
+<div id="hafyzCookieBanner" hidden>
+  <div class="hafyz-cookie-row"><div class="hafyz-cookie-copy"><p class="hafyz-cookie-title" data-cookie-title>Cookies & Privacy</p><p class="hafyz-cookie-text" data-cookie-text>We use cookies and similar technologies to improve your experience, measure website traffic, and support relevant advertising.</p></div><div class="hafyz-cookie-actions"><button class="hafyz-cookie-btn" id="hafyzCookieManage" type="button">Manage Preferences</button><button class="hafyz-cookie-btn" id="hafyzCookieReject" type="button">Reject</button><button class="hafyz-cookie-btn primary" id="hafyzCookieAccept" type="button">Accept</button></div></div>
+</div>
+<div id="hafyzCookiePrefs" hidden><div class="hafyz-cookie-modal" role="dialog" aria-modal="true"><h3>Cookie Preferences</h3><p>Choose which optional technologies you allow.</p><div class="hafyz-cookie-option"><div><strong>Essential</strong><small>Always active</small></div><button class="hafyz-cookie-switch on" disabled></button></div><div class="hafyz-cookie-option"><div><strong>Analytics</strong><small>Google Analytics traffic measurement</small></div><button class="hafyz-cookie-switch" id="hafyzAnalyticsSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-option"><div><strong>Marketing</strong><small>Meta Pixel, TikTok Pixel and advertising measurement</small></div><button class="hafyz-cookie-switch" id="hafyzMarketingSwitch" type="button" aria-pressed="false"></button></div><div class="hafyz-cookie-modal-actions"><button class="hafyz-cookie-btn" id="hafyzCookiePrefsCancel" type="button">Cancel</button><button class="hafyz-cookie-btn primary" id="hafyzCookiePrefsSave" type="button">Save Preferences</button></div></div></div>
+
+<header>
+  <nav aria-label="Main">
+    <a href="/discography/">Music</a>
+    <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener">Video</a>
+    <a href="/store/">Shop</a>
+    <a href="/tour/">Tour</a>
+  </nav>
+  <div class="socials" aria-label="Social links">
+    <a href="https://www.tiktok.com/@gkrkdlzm" target="_blank" rel="noopener" aria-label="TikTok">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.6 2.1 4.7 4.9 5v3.1c-1.9 0-3.6-.6-4.9-1.6v6.6a6.1 6.1 0 1 1-6.1-6.1c.3 0 .7 0 1 .1v3.2a3 3 0 1 0 2 2.8V3h3.1z"/></svg>
+    </a>
+    <a href="https://www.instagram.com/gkrkdlzm" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@itsmehafyz" target="_blank" rel="noopener" aria-label="YouTube">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15.2V8.8L15.5 12 10 15.2z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/itsmehafyz" target="_blank" rel="noopener" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.5 8.2H17V4.8h-2.5c-2.3 0-4.2 1.9-4.2 4.2v2.2H7.6v3.4h2.7v8.6h3.4v-8.6h2.6l.5-3.4h-3.1V9.1c0-.5.2-.9.8-.9z"/></svg>
+    </a>
+    <a href="https://open.spotify.com/artist/3kDl88tZO04at3S2UpREGd" target="_blank" rel="noopener" aria-label="Spotify">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+    </a>
+    <a href="https://music.apple.com/us/artist/hafyz/1754145654" target="_blank" rel="noopener" aria-label="Apple Music">
+      <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M319.1 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7-55.8 .9-115.1 44.5-115.1 133.2 0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.5 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+    </a>
+  </div>
+  <span class="wordmark">HAFYZ</span>
+</header>
+
+<main>
+  <div class="page-head">
+    <p class="label">After Hours Experience</p>
+    <h1>Come inside the album.</h1>
+    <p>After Hours Experience is an immersive album experience from HAFYZ and SOUR+ Entertainment — a chance to step inside the world of After Hours, not just listen to it.</p>
+    <p>This is not a concert. Across 12 cities, the album becomes a physical space to walk through: its late-night, cinematic world, all around you.</p>
+  </div>
+
+  <section class="experience-poster">
+    <img src="/after-hours-experience/Minimalist%20Typography%20Simple%20Personal%20Art%20Exhibition%20Poster_20261115_222418_0000.png" alt="HAFYZ After Hours Experience poster — 12 cities, from New York to Los Angeles." width="1587" height="2245" loading="lazy">
+  </section>
+
+  <section class="experience-cities">
+    <div class="cities-grid">
+      <div class="city"><p class="city-name">New York</p><p class="city-dates">20–22 Nov 2026</p></div>
+      <div class="city"><p class="city-name">Bangkok</p><p class="city-dates">27–29 Nov 2026</p></div>
+      <div class="city"><p class="city-name">Seoul</p><p class="city-dates">04–06 Dec 2026</p></div>
+      <div class="city"><p class="city-name">Sydney</p><p class="city-dates">11–13 Dec 2026</p></div>
+      <div class="city"><p class="city-name">Madrid</p><p class="city-dates">18–20 Dec 2026</p></div>
+      <div class="city"><p class="city-name">Milan</p><p class="city-dates">22–24 Dec 2026</p></div>
+      <div class="city"><p class="city-name">Zurich</p><p class="city-dates">26–28 Dec 2026</p></div>
+      <div class="city"><p class="city-name">Berlin</p><p class="city-dates">29–31 Dec 2026</p></div>
+      <div class="city"><p class="city-name">London</p><p class="city-dates">02–04 Jan 2027</p></div>
+      <div class="city"><p class="city-name">Tokyo</p><p class="city-dates">08–10 Jan 2027</p></div>
+      <div class="city"><p class="city-name">Taipei</p><p class="city-dates">16–18 Jan 2027</p></div>
+      <div class="city"><p class="city-name">Los Angeles</p><p class="city-dates">20–22 Jan 2027</p></div>
+    </div>
+  </section>
+
+  <section class="experience-more">
+    <a class="arrow-link" href="/tour/">For HAFYZ live shows, visit the tour page <span class="arr">⟶</span></a>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 HAFYZ · SOUR+ Entertainment Inc.</p>
+  <nav class="footer-links">
+    <a href="/">Home</a>
+    <a href="/press/">Press</a>
+    <a href="/appearance/">Appearance</a>
+    <a href="/privacy-policy/">Privacy Policy</a>
+    <a href="/terms/">Terms</a>
+  </nav>
+</footer>
+<script id="hafyz-cookie-consent">
+/* HAFYZ-TRACKERS-V4: GA4 (Consent Mode v2) + Meta Pixel + TikTok Pixel.
+   Consent format: localStorage['hafyz-cookie-consent-v2'] = {essential, analytics, marketing, ts}.
+   GA4 loads on every visit with consent denied (cookieless pings); granting Analytics enables full measurement. Marketing -> Meta Pixel + TikTok Pixel, still consent-gated. GoatCounter stays unconditional (cookie-free). */
+(function(){
+  var PIXEL_ID='1537787853829726', GA_ID='G-Q0EYN5TR07', TIKTOK_ID='DBQJD6RC77UBQ4PDVCIG', KEY='hafyz-cookie-consent-v2';
+  var banner=document.getElementById('hafyzCookieBanner'), prefs=document.getElementById('hafyzCookiePrefs');
+  if(!banner||!prefs)return;
+  function get(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');if(c&&typeof c.analytics==='boolean'&&typeof c.marketing==='boolean')return c;return null}catch(e){return null}}
+  function legacyMarketing(){try{var c=JSON.parse(localStorage.getItem(KEY)||'null');return !!(c&&c.marketing)}catch(e){return localStorage.getItem(KEY)==='accepted'||localStorage.getItem('hafyz-marketing-consent-v2')==='granted'}}
+  function syncBanner(){document.body.classList.toggle('cookie-banner-visible',!banner.hidden)}
+  function loadGA4(){if(window.__HAFYZ_GA4_LOADED)return;window.__HAFYZ_GA4_LOADED=true;window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.gtag('js',new Date());window.gtag('config',GA_ID)}
+  function consentUpdate(c){if(!window.gtag)return;window.gtag('consent','update',{'analytics_storage':c.analytics?'granted':'denied','ad_storage':c.marketing?'granted':'denied','ad_user_data':c.marketing?'granted':'denied','ad_personalization':c.marketing?'granted':'denied'})}
+  function pixel(){if(window.__hafyzMetaPixelLoaded||window.__HAFYZ_META_PIXEL_LOADED)return;window.__hafyzMetaPixelLoaded=true;window.__HAFYZ_META_PIXEL_LOADED=true;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',PIXEL_ID);fbq('track','PageView')}
+  function loadTikTok(){if(window.__HAFYZ_TIKTOK_LOADED)return;window.__HAFYZ_TIKTOK_LOADED=true;!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdEvents","sendEventToTikTokApi","setCookieConsent","grantConsent","revokeConsent"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;ttq._t=ttq._t||{};ttq._t[e]=+new Date;ttq._o=ttq._o||{};ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load(TIKTOK_ID);ttq.page()}(window,document,'ttq')}
+  function apply(c){loadGA4();consentUpdate(c);if(c.marketing){pixel();loadTikTok()}}
+  function save(analytics,marketing){var c={essential:true,analytics:!!analytics,marketing:!!marketing,ts:Date.now()};localStorage.setItem(KEY,JSON.stringify(c));apply(c);banner.hidden=true;prefs.hidden=true;syncBanner()}
+  document.getElementById('hafyzCookieAccept').onclick=function(){save(true,true)};
+  document.getElementById('hafyzCookieReject').onclick=function(){save(false,false)};
+  var aSw=document.getElementById('hafyzAnalyticsSwitch'), mSw=document.getElementById('hafyzMarketingSwitch');
+  function setSw(sw,on){if(sw){sw.classList.toggle('on',on);sw.setAttribute('aria-pressed',String(on))}}
+  document.getElementById('hafyzCookieManage').onclick=function(){var c=get();setSw(aSw,!!(c&&c.analytics));setSw(mSw,!!(c?c.marketing:legacyMarketing()));prefs.hidden=false};
+  document.getElementById('hafyzCookiePrefsCancel').onclick=function(){prefs.hidden=true};
+  [aSw,mSw].forEach(function(sw){if(sw)sw.onclick=function(){var on=!sw.classList.contains('on');setSw(sw,on)}});
+  document.getElementById('hafyzCookiePrefsSave').onclick=function(){save(aSw.classList.contains('on'),mSw.classList.contains('on'))};
+  var c=get();apply(c||{analytics:false,marketing:false});if(!c)banner.hidden=false;syncBanner();
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.href||'';var cc=get();var isPre=/ffm\.to|found\.ee|presave/i.test(h), isSpot=/spotify\.com/i.test(h);if(!isPre&&!isSpot)return;if(cc&&cc.marketing){if(window.fbq){if(isPre)fbq('trackCustom','PreSaveClick',{page:location.pathname});if(isSpot)fbq('track','ViewContent',{content_name:'Spotify',content_category:'music'})}if(window.ttq&&typeof window.ttq.track==='function'){if(isPre)window.ttq.track('ClickButton',{content_name:'Pre-save',content_category:'music'});if(isSpot)window.ttq.track('ViewContent',{content_name:'Spotify',content_category:'music'})}}if(window.gtag){if(isPre)window.gtag('event','pre_save_click',{page:location.pathname,link:h});if(isSpot)window.gtag('event','spotify_click',{page:location.pathname,link:h})}});
+})();
+</script>
+<script src="/assets/js/meta-pixel.js" defer></script>
+</body>
+</html>

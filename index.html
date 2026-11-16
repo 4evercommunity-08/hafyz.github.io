@@ -43,6 +43,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/xoxo-deluxe-cover.jpg">
 
 <style>
   :root{
@@ -108,6 +109,15 @@
   .hero-note{margin-top:38px;font-size:14px;letter-spacing:.06em;color:var(--muted)}
   .hero-note a{text-decoration:underline;text-underline-offset:4px}
 
+  /* ---------- hero rotator: mistletoe / deluxe, gentle fade ---------- */
+  .hero-photo,.hero-text{transition:opacity .6s ease}
+  .hero.is-fading .hero-photo,.hero.is-fading .hero-text{opacity:0}
+  .hero-text h1.long{font-size:clamp(2.6rem,4.6vw,4.4rem)}
+  .hero-text h1 .sub{font-size:.52em;letter-spacing:.03em}
+  .hero-dots{display:flex;gap:10px;margin-top:30px}
+  .hero-dot{width:26px;height:2px;border:0;padding:0;background:rgba(20,20,20,.25);cursor:pointer}
+  .hero-dot[aria-current="true"]{background:var(--ink)}
+
   /* ---------- releases row: 4 columns, no heading, no prices ---------- */
 
   /* ---------- video feature ---------- */
@@ -149,6 +159,7 @@
     .hero-text{order:-1;padding:44px 24px 36px}
     .hero-photo{min-height:0;aspect-ratio:4/3}
     h1{font-size:clamp(3rem,13vw,5rem)}
+    .hero-text h1.long{font-size:clamp(2.4rem,9vw,3.4rem)}
     .video{padding:44px 20px 4px}
     footer{padding:56px 20px 36px}
     .foot-right{text-align:left}
@@ -341,19 +352,23 @@
 
 <main>
   <!-- Hero -->
-  <section class="hero" aria-label="mistletoe — out now">
+  <section class="hero" id="heroRotator" aria-label="Featured releases">
     <div class="hero-photo">
-      <img src="/mistletoe-cover.jpg" alt="mistletoe cover art" width="1000" height="1000" fetchpriority="high">
+      <img id="heroCover" src="/mistletoe-cover.jpg" alt="mistletoe cover art" width="1000" height="1000" fetchpriority="high">
     </div>
     <div class="hero-text">
-      <p class="eyebrow">The new single</p>
-      <h1>mistletoe</h1>
-      <p class="out-now">Out now</p>
+      <p class="eyebrow" id="heroEyebrow">The new single</p>
+      <h1 id="heroTitle">mistletoe</h1>
+      <p class="out-now" id="heroOutNow">Out now</p>
       <div class="hero-links">
-        <a class="arrow-link" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen now <span class="arr">⟶</span></a>
-        <a class="arrow-link" href="https://youtube.com/playlist?list=OLAK5uy_lSevnSRxxETRdXoQvC9LE77zclwQfM6KM&amp;si=eh4C4TBRvy_c9QhK" target="_blank" rel="noopener">Watch now <span class="arr">⟶</span></a>
+        <a class="arrow-link" id="heroListen" href="https://ffm.to/hafyzmistletoe" target="_blank" rel="noopener">Listen now <span class="arr">⟶</span></a>
+        <a class="arrow-link" id="heroWatch" href="https://youtube.com/playlist?list=OLAK5uy_lSevnSRxxETRdXoQvC9LE77zclwQfM6KM&amp;si=eh4C4TBRvy_c9QhK" target="_blank" rel="noopener">Watch now <span class="arr">⟶</span></a>
       </div>
-      <p class="hero-note">From the EP <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">December, with you</a> — out 4 Dec. <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save ⟶</a></p>
+      <p class="hero-note" id="heroNote">From the EP <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">December, with you</a> — out 4 Dec. <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save ⟶</a></p>
+      <div class="hero-dots" aria-label="Featured releases">
+        <button class="hero-dot" type="button" data-slide="0" aria-current="true" aria-label="mistletoe"></button>
+        <button class="hero-dot" type="button" data-slide="1" aria-current="false" aria-label="xoxo, i'm done (After Hours Deluxe)"></button>
+      </div>
     </div>
   </section>
 
@@ -418,6 +433,84 @@
       var v = document.querySelector('.video video');
       if (v) { v.removeAttribute('autoplay'); v.pause(); }
     }
+  })();
+</script>
+
+
+<script>
+  // Hero rotator: mistletoe <-> xoxo, i'm done (After Hours Deluxe).
+  // Gentle fade every 10 seconds, looping. Pauses on hover/focus and
+  // stays still when the visitor prefers reduced motion.
+  (function () {
+    var slides = [
+      {
+        img: '/mistletoe-cover.jpg',
+        alt: 'mistletoe cover art',
+        eyebrow: 'The new single',
+        title: 'mistletoe',
+        longTitle: false,
+        outNow: 'Out now',
+        listen: 'https://ffm.to/hafyzmistletoe',
+        watch: 'https://youtube.com/playlist?list=OLAK5uy_lSevnSRxxETRdXoQvC9LE77zclwQfM6KM&si=eh4C4TBRvy_c9QhK',
+        note: 'From the EP <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">December, with you</a> — out 4 Dec. <a href="https://ffm.to/decemberwithyou" target="_blank" rel="noopener">Pre-save ⟶</a>',
+        label: 'mistletoe — out now'
+      },
+      {
+        img: '/xoxo-deluxe-cover.jpg',
+        alt: "xoxo, i'm done (After Hours Deluxe) cover art",
+        eyebrow: 'The deluxe album',
+        title: "xoxo, i'm done<br><span class='sub'>(After Hours Deluxe)</span>",
+        longTitle: true,
+        outNow: 'Out now',
+        listen: 'https://ffm.to/xidahdeluxe',
+        watch: 'https://found.ee/tifymusicvideo',
+        note: '',
+        label: "xoxo, i'm done (After Hours Deluxe) — out now"
+      }
+    ];
+    var FADE_MS = 600, HOLD_MS = 10000;
+    var hero = document.getElementById('heroRotator');
+    var img = document.getElementById('heroCover');
+    var eyebrow = document.getElementById('heroEyebrow');
+    var title = document.getElementById('heroTitle');
+    var outNow = document.getElementById('heroOutNow');
+    var listen = document.getElementById('heroListen');
+    var watch = document.getElementById('heroWatch');
+    var note = document.getElementById('heroNote');
+    var dots = hero.querySelectorAll('.hero-dot');
+    var current = 0, timer = null;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pre = new Image(); pre.src = slides[1].img;
+    function render(i) {
+      var s = slides[i];
+      img.src = s.img; img.alt = s.alt;
+      eyebrow.textContent = s.eyebrow;
+      title.innerHTML = s.title;
+      title.classList.toggle('long', !!s.longTitle);
+      outNow.textContent = s.outNow;
+      listen.href = s.listen; watch.href = s.watch;
+      if (s.note) { note.innerHTML = s.note; note.style.display = ''; }
+      else { note.innerHTML = ''; note.style.display = 'none'; }
+      hero.setAttribute('aria-label', s.label);
+      dots.forEach(function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
+    }
+    function goTo(i) {
+      if (i === current || hero.classList.contains('is-fading')) return;
+      current = i;
+      hero.classList.add('is-fading');
+      setTimeout(function () { render(current); hero.classList.remove('is-fading'); }, FADE_MS);
+    }
+    function next() { goTo((current + 1) % slides.length); }
+    function start() { if (!reduceMotion && !timer) timer = setInterval(next, HOLD_MS); }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    dots.forEach(function (d) {
+      d.addEventListener('click', function () { stop(); goTo(Number(d.getAttribute('data-slide'))); start(); });
+    });
+    hero.addEventListener('mouseenter', stop);
+    hero.addEventListener('mouseleave', start);
+    hero.addEventListener('focusin', stop);
+    hero.addEventListener('focusout', start);
+    start();
   })();
 </script>
 
